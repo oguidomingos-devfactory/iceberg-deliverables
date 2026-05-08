@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search - Pulso Ads Preview</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: arial, sans-serif;
+            background: #fff;
+            color: #202124;
+            font-size: 14px;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: #fff;
+            padding: 10px 20px 0;
+            border-bottom: 1px solid #dadce0;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            max-width: 1200px;
+        }
+        .google-logo {
+            flex-shrink: 0;
+            height: 30px;
+        }
+        .google-logo svg { height: 30px; }
+
+        /* Search bar in header */
+        .search-bar {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 692px;
+            border: 1px solid #dadce0;
+            border-radius: 24px;
+            padding: 6px 8px 6px 20px;
+            background: #fff;
+            height: 44px;
+        }
+        .search-bar:hover { box-shadow: 0 1px 6px rgba(32,33,36,0.18); }
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #202124;
+            background: transparent;
+            font-family: arial, sans-serif;
+        }
+        .search-bar .icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 8px;
+        }
+        .search-bar .icons .icon-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: #70757a;
+        }
+        .search-bar .icons .icon-btn.search-submit {
+            color: #4285f4;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+        }
+        .search-bar .clear-btn {
+            color: #70757a;
+            cursor: pointer;
+            font-size: 18px;
+            padding: 0 12px;
+            border-right: 1px solid #dadce0;
+            margin-right: 4px;
+            line-height: 24px;
+        }
+
+        /* Tabs nav */
+        .tabs-nav {
+            display: flex;
+            gap: 4px;
+            max-width: 1200px;
+            padding-left: 154px;
+            margin-top: 4px;
+            overflow-x: auto;
+        }
+        .tab {
+            padding: 8px 16px;
+            color: #5f6368;
+            font-size: 13px;
+            cursor: pointer;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+        }
+        .tab:hover { color: #1a73e8; }
+        .tab.active {
+            color: #1a73e8;
+            border-bottom-color: #1a73e8;
+            font-weight: 500;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main {
+            max-width: 1200px;
+            padding: 12px 0 40px;
+            margin-left: 154px;
+        }
+
+        /* Location bar */
+        .location-bar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 0;
+            font-size: 14px;
+            color: #202124;
+            margin-bottom: 4px;
+        }
+        .location-bar .pin-icon { color: #70757a; font-size: 16px; }
+        .location-bar .region-link {
+            color: #1a73e8;
+            text-decoration: none;
+            margin-left: 4px;
+        }
+        .location-bar .region-link:hover { text-decoration: underline; }
+        .location-bar .dots {
+            color: #70757a;
+            margin-left: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        /* Section header */
+        .section-header {
+            font-size: 18px;
+            font-weight: 400;
+            color: #202124;
+            padding: 8px 0 16px;
+        }
+
+        /* ===== AD RESULT ===== */
+        .ad-result {
+            margin-bottom: 28px;
+            max-width: 600px;
+        }
+        .ad-top-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+        .ad-favicon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #f1f3f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ad-favicon svg { width: 16px; height: 16px; }
+        .favicon-letter {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .ad-site-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        .ad-site-name {
+            font-size: 14px;
+            color: #202124;
+            font-weight: 400;
+        }
+        .ad-breadcrumb {
+            font-size: 12px;
+            color: #4d5156;
+        }
+        .ad-dots {
+            margin-left: auto;
+            color: #70757a;
+            cursor: pointer;
+            font-size: 18px;
+            line-height: 1;
+            padding: 4px;
+        }
+        .ad-headline {
+            font-size: 20px;
+            color: #1a0dab;
+            line-height: 1.3;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+        .ad-headline:hover { text-decoration: underline; }
+        .ad-description {
+            font-size: 14px;
+            color: #4d5156;
+            line-height: 1.54;
+            margin-bottom: 12px;
+        }
+
+        /* Sitelink extensions (callout style) */
+        .ad-sitelink-ext {
+            border-top: 1px solid #dadce0;
+            padding: 12px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 600px;
+        }
+        .ad-sitelink-ext + .ad-sitelink-ext {
+            border-top: 1px solid #dadce0;
+        }
+        .sitelink-info { flex: 1; }
+        .sitelink-title {
+            font-size: 16px;
+            color: #1a0dab;
+            cursor: pointer;
+            margin-bottom: 2px;
+        }
+        .sitelink-title:hover { text-decoration: underline; }
+        .sitelink-desc {
+            font-size: 13px;
+            color: #4d5156;
+            line-height: 1.4;
+        }
+        .sitelink-chevron {
+            color: #dadce0;
+            font-size: 20px;
+            margin-left: 12px;
+            margin-top: 4px;
+        }
+
+        /* ===== ORGANIC RESULTS ===== */
+        .organic-result {
+            margin-bottom: 24px;
+            max-width: 600px;
+            display: flex;
+            gap: 16px;
+        }
+        .organic-content { flex: 1; }
+        .organic-top-line {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 2px;
+        }
+        .organic-favicon {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #f1f3f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .organic-favicon svg { width: 16px; height: 16px; }
+        .organic-site-info {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.3;
+        }
+        .organic-site-name {
+            font-size: 14px;
+            color: #202124;
+        }
+        .organic-breadcrumb {
+            font-size: 12px;
+            color: #4d5156;
+        }
+        .organic-dots {
+            margin-left: auto;
+            color: #70757a;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .organic-title {
+            font-size: 20px;
+            color: #1a0dab;
+            line-height: 1.3;
+            cursor: pointer;
+            margin-bottom: 4px;
+        }
+        .organic-title:hover { text-decoration: underline; }
+        .organic-desc {
+            font-size: 14px;
+            color: #4d5156;
+            line-height: 1.54;
+        }
+        .organic-links {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+            font-size: 13px;
+        }
+        .organic-links a {
+            color: #1a0dab;
+            text-decoration: none;
+        }
+        .organic-links a:hover { text-decoration: underline; }
+        .organic-links .sep { color: #70757a; }
+
+        /* Divider between sponsored and organic */
+        .results-divider {
+            border: none;
+            border-top: 1px solid #dadce0;
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .tabs-nav { padding-left: 16px; }
+            .main {
+                margin-left: 0;
+                padding: 12px 16px 40px;
+            }
+            .header-inner { gap: 12px; padding: 0; }
+            .google-logo svg { height: 24px; }
+            .search-bar { max-width: 100%; }
+            .ad-headline, .organic-title { font-size: 18px; }
+        }
+
+        @media (max-width: 480px) {
+            .tabs-nav { gap: 0; }
+            .tab { padding: 8px 10px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+    <div class="header-inner">
+        <!-- Google Logo SVG -->
+        <div class="google-logo">
+            <svg viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg">
+                <path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#EA4335"/>
+                <path d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#FBBC05"/>
+                <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/>
+                <path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/>
+                <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/>
+                <path d="M35.29 41.19V32H67c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.91.36 15.93 16.32.47 35.3.47c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49-.21z" fill="#4285F4"/>
+            </svg>
+        </div>
+
+        <!-- Search bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" readonly>
+            <div class="icons">
+                <span class="clear-btn">&times;</span>
+                <span class="icon-btn" title="Teclado">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 5H4c-1.1 0-1.99.9-1.99 2L2 17c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-9 3h2v2h-2V8zm0 3h2v2h-2v-2zM8 8h2v2H8V8zm0 3h2v2H8v-2zm-1 2H5v-2h2v2zm0-3H5V8h2v2zm9 7H8v-2h8v2zm0-4h-2v-2h2v2zm0-3h-2V8h2v2zm3 3h-2v-2h2v2zm0-3h-2V8h2v2z"/></svg>
+                </span>
+                <span class="icon-btn" title="Pesquisa por voz">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z" fill="#4285F4"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z" fill="#34A853"/></svg>
+                </span>
+                <span class="icon-btn" title="Google Lens">
+                    <svg width="24" height="24" viewBox="0 0 192 192" fill="none"><circle cx="96" cy="96" r="28" stroke="#4285F4" stroke-width="16"/><path d="M160 96a64 64 0 0 0-64-64" stroke="#EA4335" stroke-width="16" stroke-linecap="round"/><path d="M96 32a64 64 0 0 0-64 64" stroke="#FBBC05" stroke-width="16" stroke-linecap="round"/><path d="M32 96a64 64 0 0 0 64 64" stroke="#34A853" stroke-width="16" stroke-linecap="round"/><path d="M96 160a64 64 0 0 0 64-64" stroke="#4285F4" stroke-width="16" stroke-linecap="round"/></svg>
+                </span>
+                <span class="icon-btn search-submit" title="Pesquisar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4285f4"><path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs-nav">
+        <a class="tab" href="#">Modo IA</a>
+        <a class="tab active" href="#">Tudo</a>
+        <a class="tab" href="#">Imagens</a>
+        <a class="tab" href="#">Vídeos curtos</a>
+        <a class="tab" href="#">Maps</a>
+        <a class="tab" href="#">Vídeos</a>
+        <a class="tab" href="#">Notícias</a>
+        <a class="tab" href="#">Mais</a>
+        <a class="tab" href="#">Ferramentas</a>
+    </div>
+</div>
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main">
+
+    <!-- Location bar -->
+    <div class="location-bar">
+        <svg class="pin-icon" width="16" height="16" viewBox="0 0 24 24" fill="#70757a"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+        <span id="locationText"></span>
+        <span style="color:#70757a;margin:0 2px;">&#183;</span>
+        <a class="region-link" href="#">Escolher região</a>
+        <span class="dots">&#8942;</span>
+    </div>
+
+    <!-- Section: Resultados patrocinados -->
+    <div class="section-header">Resultados patrocinados</div>
+
+    <!-- FIRST AD (Main - Parametrized) -->
+    <div class="ad-result" id="mainAd">
+        <div class="ad-top-line">
+            <div class="favicon-letter" id="ad1Favicon" style="background:#1a73e8;">A</div>
+            <div class="ad-site-info">
+                <span class="ad-site-name" id="adSiteName"></span>
+                <span class="ad-breadcrumb" id="adBreadcrumb"></span>
+            </div>
+            <span class="ad-dots">&#8942;</span>
+        </div>
+        <div class="ad-headline" id="adHeadline"></div>
+        <div class="ad-description" id="adDescription"></div>
+
+        <!-- Sitelink extensions (callout style with chevron) -->
+        <div id="adSitelinks"></div>
+    </div>
+
+    <!-- SECOND AD (Organic-style sponsored for realism) -->
+    <div class="ad-result" id="secondAd">
+        <div class="ad-top-line">
+            <div class="favicon-letter" style="background:#34a853;">R</div>
+            <div class="ad-site-info">
+                <span class="ad-site-name" id="ad2SiteName"></span>
+                <span class="ad-breadcrumb" id="ad2Breadcrumb"></span>
+            </div>
+            <span class="ad-dots">&#8942;</span>
+        </div>
+        <div class="ad-headline" id="ad2Headline"></div>
+        <div class="ad-description" id="ad2Description"></div>
+        <div class="organic-links" id="ad2Links"></div>
+    </div>
+
+    <hr class="results-divider">
+
+    <!-- ORGANIC RESULTS -->
+    <div class="organic-result" id="org1">
+        <div class="organic-content">
+            <div class="organic-top-line">
+                <div class="favicon-letter" style="background:#e91e63;">C</div>
+                <div class="organic-site-info">
+                    <span class="organic-site-name" id="org1SiteName"></span>
+                    <span class="organic-breadcrumb" id="org1Breadcrumb"></span>
+                </div>
+                <span class="organic-dots">&#8942;</span>
+            </div>
+            <div class="organic-title" id="org1Title"></div>
+            <div class="organic-desc" id="org1Desc"></div>
+            <div class="organic-links" id="org1Links"></div>
+        </div>
+    </div>
+
+    <div class="organic-result" id="org2">
+        <div class="organic-content">
+            <div class="organic-top-line">
+                <div class="favicon-letter" style="background:#ff9800;">P</div>
+                <div class="organic-site-info">
+                    <span class="organic-site-name" id="org2SiteName"></span>
+                    <span class="organic-breadcrumb" id="org2Breadcrumb"></span>
+                </div>
+                <span class="organic-dots">&#8942;</span>
+            </div>
+            <div class="organic-title" id="org2Title"></div>
+            <div class="organic-desc" id="org2Desc"></div>
+            <div class="organic-links" id="org2Links"></div>
+        </div>
+    </div>
+
+    <div class="organic-result" id="org3">
+        <div class="organic-content">
+            <div class="organic-top-line">
+                <div class="favicon-letter" style="background:#9c27b0;">V</div>
+                <div class="organic-site-info">
+                    <span class="organic-site-name" id="org3SiteName"></span>
+                    <span class="organic-breadcrumb" id="org3Breadcrumb"></span>
+                </div>
+                <span class="organic-dots">&#8942;</span>
+            </div>
+            <div class="organic-title" id="org3Title"></div>
+            <div class="organic-desc" id="org3Desc"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+
+    // Defaults — Médico da dor em Brasília (nomes fictícios, todos sobre dor)
+    const defaults = {
+        keyword: 'médico da dor em Brasília',
+        headline: 'CRM-DF 31245 Dr. André Monteiro | Médico da Dor Brasília',
+        description: 'Dr. André Monteiro - Especialista em tratamento da dor crônica e aguda. Bloqueios, infiltrações e terapias intervencionistas. Agende já...',
+        url: 'www.drandremonteiro.com.br',
+        phone: '(61) 99876-5432',
+        location: 'Brasília, DF',
+        specialty: 'Médico da Dor',
+        doctorName: 'Dr. André Monteiro',
+        searchLocation: 'Brasília - Plano Piloto, Brasília - DF',
+        sitelink1Title: 'Localização Asa Sul',
+        sitelink1Desc: 'Especialista em dor crônica, Bloqueios, Infiltração',
+        sitelink2Title: 'Atende Intermédica e Bradesco',
+        sitelink2Desc: 'Dor crônica limitando sua vida? Consulta especializada na Asa Sul, Brasília',
+        ad2Name: 'drricardoalves.com.br',
+        ad2Url: 'https://www.drricardoalves.com.br › tratamento › dor',
+        ad2Headline: 'Dr. Ricardo Alves - Médico da Dor em Brasília',
+        ad2Desc: 'Cuidado humanizado para dor crônica. Dr. Ricardo te acolhe com atenção e...',
+        ad2Link1: 'Marque Sua Consulta Hoje',
+        ad2Link2: 'Sobre o Dr. Ricardo',
+        ad2Link3: 'Liberte-se da Dor Crônica',
+        org1Name: 'dracarolinaferreira.com.br',
+        org1Url: 'https://www.dracarolinaferreira.com.br',
+        org1Title: 'Médico da Dor - Dra. Carolina Ferreira',
+        org1Desc: 'Especialista no tratamento intervencionista e clínica da dor',
+        org1Link1: 'Entre Em Contato',
+        org1Link2: 'Tratamentos | Instagram',
+        org2Name: 'drpedrohenrique.com.br',
+        org2Url: 'https://www.drpedrohenrique.com.br › médico › dor',
+        org2Title: 'Dr. Pedro Henrique - Especialista em Dor em Brasília',
+        org2Desc: 'Tratamento especializado em dor crônica e aguda. Atendimento humanizado com técnicas avançadas de intervenção...',
+        org2Link1: 'Agendar Consulta',
+        org2Link2: 'Convênios Aceitos',
+        org3Name: 'clinicavitaldor.com.br',
+        org3Url: 'https://www.clinicavitaldor.com.br › brasilia',
+        org3Title: 'Clínica VitalDor Brasília - Tratamento Especializado',
+        org3Desc: 'Equipe multidisciplinar para tratamento de dor. Procedimentos minimamente invasivos. Atendimento particular e convênios...',
+    };
+
+    function p(key) { return params.get(key) || defaults[key]; }
+
+    // Search input
+    document.getElementById('searchInput').value = p('keyword');
+
+    // Location bar
+    document.getElementById('locationText').textContent = p('searchLocation');
+
+    // Main ad
+    var urlVal = p('url');
+    var siteName = urlVal.replace(/^(https?:\/\/)?(www\.)?/, '').split('/')[0];
+    document.getElementById('adSiteName').textContent = siteName;
+    document.getElementById('adBreadcrumb').textContent = 'https://www.' + siteName + ' \u203A ' + p('specialty').toLowerCase().replace(/\s+/g, '-');
+    document.getElementById('adHeadline').textContent = p('headline');
+    document.getElementById('adDescription').textContent = p('description');
+
+    // Dynamic favicon for main ad — first letter of site name
+    var ad1Fav = document.getElementById('ad1Favicon');
+    ad1Fav.textContent = siteName.charAt(0).toUpperCase();
+
+    // Sitelink extensions — built with safe DOM methods
+    var sitelinksContainer = document.getElementById('adSitelinks');
+    var sitelinkData = [
+        { title: p('sitelink1Title'), desc: p('sitelink1Desc') },
+        { title: p('sitelink2Title'), desc: p('sitelink2Desc') }
+    ];
+    sitelinkData.forEach(function(sl) {
+        var ext = document.createElement('div');
+        ext.className = 'ad-sitelink-ext';
+
+        var info = document.createElement('div');
+        info.className = 'sitelink-info';
+
+        var title = document.createElement('div');
+        title.className = 'sitelink-title';
+        title.textContent = sl.title;
+
+        var desc = document.createElement('div');
+        desc.className = 'sitelink-desc';
+        desc.textContent = sl.desc;
+
+        info.appendChild(title);
+        info.appendChild(desc);
+
+        var chevron = document.createElement('span');
+        chevron.className = 'sitelink-chevron';
+        chevron.textContent = '\u203A';
+
+        ext.appendChild(info);
+        ext.appendChild(chevron);
+        sitelinksContainer.appendChild(ext);
+    });
+
+    // Second ad
+    document.getElementById('ad2SiteName').textContent = p('ad2Name');
+    document.getElementById('ad2Breadcrumb').textContent = p('ad2Url');
+    document.getElementById('ad2Headline').textContent = p('ad2Headline');
+    document.getElementById('ad2Description').textContent = p('ad2Desc');
+
+    function buildLinks(container, links) {
+        links.forEach(function(lnk, i) {
+            if (i > 0) {
+                var sep = document.createElement('span');
+                sep.className = 'sep';
+                sep.textContent = ' \u00B7 ';
+                container.appendChild(sep);
+            }
+            var a = document.createElement('a');
+            a.href = '#';
+            a.textContent = lnk;
+            a.addEventListener('click', function(e) { e.preventDefault(); });
+            container.appendChild(a);
+        });
+    }
+
+    buildLinks(document.getElementById('ad2Links'), [p('ad2Link1'), p('ad2Link2'), p('ad2Link3')]);
+
+    // Organic 1
+    document.getElementById('org1SiteName').textContent = p('org1Name');
+    document.getElementById('org1Breadcrumb').textContent = p('org1Url');
+    document.getElementById('org1Title').textContent = p('org1Title');
+    document.getElementById('org1Desc').textContent = p('org1Desc');
+    buildLinks(document.getElementById('org1Links'), [p('org1Link1'), p('org1Link2')]);
+
+    // Organic 2
+    document.getElementById('org2SiteName').textContent = p('org2Name');
+    document.getElementById('org2Breadcrumb').textContent = p('org2Url');
+    document.getElementById('org2Title').textContent = p('org2Title');
+    document.getElementById('org2Desc').textContent = p('org2Desc');
+    buildLinks(document.getElementById('org2Links'), [p('org2Link1'), p('org2Link2')]);
+
+    // Organic 3
+    document.getElementById('org3SiteName').textContent = p('org3Name');
+    document.getElementById('org3Breadcrumb').textContent = p('org3Url');
+    document.getElementById('org3Title').textContent = p('org3Title');
+    document.getElementById('org3Desc').textContent = p('org3Desc');
+
+    console.log('Google Ads Preview loaded with params:', Object.fromEntries(params));
+</script>
+</body>
+</html>

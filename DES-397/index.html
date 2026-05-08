@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Rodrigo Pires - Ortopedia Premium</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #00BFA5;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.2);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0d1f3c 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        /* HERO */
+        .hero {
+            padding: clamp(4rem, 10vh, 8rem) 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--pulso);
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.3s; }
+        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(6) { animation-delay: 0.5s; }
+        section:nth-of-type(7) { animation-delay: 0.6s; }
+        section:nth-of-type(8) { animation-delay: 0.7s; }
+        section:nth-of-type(9) { animation-delay: 0.8s; }
+
+        /* DIAGNOSIS */
+        .diagnosis {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .diagnosis-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .diagnosis-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .diagnosis-card:hover {
+            transform: translateX(8px);
+        }
+
+        .diagnosis-card strong {
+            color: var(--green);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* BENCHMARK */
+        .benchmark-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benchmark-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benchmark-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .benchmark-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .benchmark-card h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric:last-child {
+            border: none;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--green);
+            font-size: 1.1rem;
+        }
+
+        /* PRICING */
+        .pricing-section {
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card.recommended {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .pricing-card.recommended::before {
+            content: 'RECOMENDADO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .price-display {
+            font-size: 2.5rem;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-period {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            margin-bottom: 2rem;
+        }
+
+        .price-features {
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .price-feature {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            color: #c0c0c0;
+        }
+
+        .price-feature::before {
+            content: '✓ ';
+            color: var(--green);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* LP PREVIEW */
+        .preview-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* POSTS GALLERY */
+        .posts-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .post-thumbnail {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--card-bg);
+        }
+
+        .post-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .post-thumbnail:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .post-thumbnail:hover img {
+            transform: scale(1.1);
+        }
+
+        /* GUARANTEE */
+        .guarantee-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .guarantee-section p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            color: #d0d0d0;
+        }
+
+        /* CTA FINAL */
+        .final-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #25D366, #20ba5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #707070;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .pricing-card.recommended {
+                transform: scale(1);
+            }
+
+            .benchmark-card {
+                margin-bottom: 1rem;
+            }
+
+            .diagnosis-grid,
+            .benchmark-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+
+            .iframe-container {
+                height: 80vh;
+                min-height: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Dr. Rodrigo Pires</h1>
+        <p class="subtitle">Ortopedia & Traumatologia Premium</p>
+        <p class="tagline">Proposta de captação estratégica de leads para sua prática. Crescimento baseado em dados, conversão garantida.</p>
+        <button class="cta-button">Agende uma conversa</button>
+    </div>
+
+    <!-- DIAGNOSIS -->
+    <section class="diagnosis">
+        <h2>Diagnóstico Atual</h2>
+        <p style="margin-bottom: 2rem; color: #b0b0b0;">Você está investindo bem, mas sua estratégia de tráfego não acompanha o potencial.</p>
+
+        <div class="diagnosis-grid">
+            <div class="diagnosis-card">
+                <strong>Investimento Mensal</strong>
+                R$3.000+ em Meta + Google
+            </div>
+            <div class="diagnosis-card">
+                <strong>Resultado Atual</strong>
+                Agenda vazia após 2 semanas
+            </div>
+            <div class="diagnosis-card">
+                <strong>Assessoria Existente</strong>
+                Excelente em audiovisual, fraca em tráfego
+            </div>
+            <div class="diagnosis-card">
+                <strong>Oportunidade</strong>
+                Potencial de 3x mais leads com mesma verba
+            </div>
+        </div>
+    </section>
+
+    <!-- OPPORTUNITY -->
+    <section>
+        <h2>A Oportunidade</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">O que está errado e como corrigir:</p>
+
+        <div class="diagnosis-grid">
+            <div class="diagnosis-card">
+                <strong style="color: #ff6b6b;">Problema</strong>
+                Tráfego desotimizado → CPL alto, poucos agendamentos
+            </div>
+            <div class="diagnosis-card">
+                <strong style="color: var(--green);">Solução</strong>
+                Otimização de funil, landing page de alta conversão, audience targeting
+            </div>
+            <div class="diagnosis-card">
+                <strong style="color: var(--green);">Resultado</strong>
+                ~215 contatos/mês, ~85 agendamentos, ~R$35 custo/paciente
+            </div>
+        </div>
+    </section>
+
+    <!-- BENCHMARK -->
+    <section class="benchmark-section">
+        <h2>Benchmark Real: Sucesso Comprovado</h2>
+        <p style="margin-bottom: 3rem; color: #b0b0b0;">Resultados de outras clínicas ortopédicas que trabalhamos:</p>
+
+        <div class="benchmark-grid">
+            <div class="benchmark-card">
+                <h3>Clínica Asa Norte</h3>
+                <div class="metric">
+                    <span class="metric-label">Período</span>
+                    <span class="metric-value">Set-Dez 2024</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Investimento</span>
+                    <span class="metric-value">R$ 6.552,42</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Contatos</span>
+                    <span class="metric-value">468</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Agendamentos</span>
+                    <span class="metric-value">186</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">CPL</span>
+                    <span class="metric-value">R$ 14,00</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Custo/Paciente</span>
+                    <span class="metric-value">R$ 35,23</span>
+                </div>
+            </div>
+
+            <div class="benchmark-card">
+                <h3>Clínica Águas Claras</h3>
+                <div class="metric">
+                    <span class="metric-label">Período</span>
+                    <span class="metric-value">Dez 2025 - Fev 2026</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Investimento</span>
+                    <span class="metric-value">R$ 1.115,43</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Contatos</span>
+                    <span class="metric-value">104</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Agendamentos</span>
+                    <span class="metric-value">13</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">CPL</span>
+                    <span class="metric-value">R$ 10,72</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Custo/Paciente</span>
+                    <span class="metric-value">R$ 85,80</span>
+                </div>
+            </div>
+
+            <div class="benchmark-card">
+                <h3>Projeção Dr. Rodrigo</h3>
+                <div class="metric">
+                    <span class="metric-label">Investimento/mês</span>
+                    <span class="metric-value">R$ 3.000,00</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Contatos Estimados</span>
+                    <span class="metric-value">~215</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Agendamentos</span>
+                    <span class="metric-value">~85</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Novos Pacientes</span>
+                    <span class="metric-value">~77</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">CPL Estimado</span>
+                    <span class="metric-value">R$ 14,00</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Custo/Paciente</span>
+                    <span class="metric-value">~R$ 35,00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section>
+        <h2>O Que Você Recebe</h2>
+
+        <div class="diagnosis-grid" style="margin-top: 2rem;">
+            <div class="diagnosis-card">
+                <strong>Landing Page Otimizada</strong>
+                Alta taxa de conversão, mobile-first, design premium
+            </div>
+            <div class="diagnosis-card">
+                <strong>Gestão de Tráfego</strong>
+                Campanhas em Meta + Google, segmentação, otimização contínua
+            </div>
+            <div class="diagnosis-card">
+                <strong>Posts Estratégicos</strong>
+                Conteúdo educativo que posiciona autoridade
+            </div>
+            <div class="diagnosis-card">
+                <strong>CRM + Automações</strong>
+                Acompanhamento de leads, seguimentos automáticos
+            </div>
+        </div>
+    </section>
+
+    <!-- LP PREVIEW -->
+    <section class="preview-section">
+        <h2>Preview da Landing Page</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Veja a experiência que seus leads terão:</p>
+
+        <div class="iframe-container">
+            <iframe src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-402-lp/" title="Landing Page Dr. Rodrigo Pires"></iframe>
+        </div>
+    </section>
+
+    <!-- POSTS PREVIEW -->
+    <section>
+        <h2>Preview dos Posts Estratégicos</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Exemplos de conteúdo educativo que gera autoridade e engajamento:</p>
+
+        <div class="posts-gallery">
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-01.png" alt="Post 1">
+            </div>
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-02.png" alt="Post 2">
+            </div>
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-03.png" alt="Post 3">
+            </div>
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-04.png" alt="Post 4">
+            </div>
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-05.png" alt="Post 5">
+            </div>
+            <div class="post-thumbnail">
+                <img src="https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-397/ref-posts/ref-post-06.png" alt="Post 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section">
+        <h2>Planos & Preços</h2>
+        <p style="color: #b0b0b0; margin-bottom: 3rem;">Escolha o plano que melhor se adequa ao seu momento</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Starter</h3>
+                <div class="price-display">R$ 2.500</div>
+                <div class="price-period">+ R$ 3.500 setup / mês</div>
+                <div class="price-features">
+                    <div class="price-feature">Landing page</div>
+                    <div class="price-feature">1 campanha Meta OU Google</div>
+                    <div class="price-feature">Relatório mensal básico</div>
+                    <div class="price-feature">Suporte por email</div>
+                </div>
+            </div>
+
+            <div class="pricing-card recommended">
+                <h3>Essencial</h3>
+                <div class="price-display">R$ 3.500</div>
+                <div class="price-period">+ R$ 6.000 setup / mês</div>
+                <div class="price-features">
+                    <div class="price-feature">Landing page premium</div>
+                    <div class="price-feature">Campanhas Meta + Google</div>
+                    <div class="price-feature">Posts estratégicos (8/mês)</div>
+                    <div class="price-feature">CRM + automações</div>
+                    <div class="price-feature">Relatório detalhado</div>
+                    <div class="price-feature">Suporte prioritário</div>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Crescimento</h3>
+                <div class="price-display">R$ 5.500</div>
+                <div class="price-period">+ R$ 8.000 setup / mês</div>
+                <div class="price-features">
+                    <div class="price-feature">Tudo do plano Essencial</div>
+                    <div class="price-feature">Gestão de reputação online</div>
+                    <div class="price-feature">Estratégia de influencers</div>
+                    <div class="price-feature">Acompanhamento semanal</div>
+                    <div class="price-feature">Otimizações em tempo real</div>
+                    <div class="price-feature">Suporte 24/7</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="guarantee-section">
+        <h2>Nossa Garantia</h2>
+        <p>Nosso compromisso é com resultados concretos. Trabalhamos com transparência total e relatórios detalhados para que você acompanhe cada evolução.</p>
+        <p style="color: var(--green); font-weight: 600;">Reuniões de acompanhamento + dashboards em tempo real para garantir que cada real investido traga retorno.</p>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="text-align: center;">
+        <h2>Próximos Passos</h2>
+        <p style="color: #b0b0b0; margin: 2rem 0 3rem;">Vamos conversar sobre como alavancar sua prática?</p>
+
+        <div class="final-cta">
+            <a href="https://wa.me/5561994619084?text=Oi%20Dr%20Rodrigo%2C%20gostaria%20de%20discutir%20a%20proposta%20de%20captação%20de%20leads" class="cta-whatsapp" target="_blank">
+                💬 Conversar pelo WhatsApp
+            </a>
+            <p style="color: #707070; font-size: 0.9rem;">Horário de atendimento: Seg-Sex, 9h-18h (Brasília)</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Proposta Personalizada | Dr. Rodrigo Pires</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">CRM: 22900 | RQE: 18477</p>
+    </footer>
+
+    <script>
+        // Smooth scroll spy
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Intersection Observer for scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

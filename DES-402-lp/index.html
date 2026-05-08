@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rodrigo Pires | Ortopedista e Traumatologista em Brasília</title>
+    <meta name="description" content="Especialista em Dor Intervencionista, Medicina Esportiva e Medicina Regenerativa. Agende sua consulta com o Dr. Rodrigo Pires.">
+    <meta property="og:title" content="Dr. Rodrigo Pires | Ortopedista Premium">
+    <meta property="og:description" content="Especialista em Dor Intervencionista, Medicina Esportiva e Medicina Regenerativa.">
+    <meta property="og:image" content="https://drrodrigopires.com.br/wp-content/uploads/2025/02/139A6248-683x1024.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #00BFA5;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --bg-dark: #0a0f18;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #0d1f3c 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.2; }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 1.5rem; }
+        h3 { font-size: clamp(1rem, 2vw, 1.4rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        button {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* HEADER/NAV */
+        header {
+            padding: 1.5rem 2rem;
+            background: rgba(10, 15, 24, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--green);
+        }
+
+        .nav-cta {
+            padding: 0.7rem 1.5rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* HERO */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+            padding: clamp(3rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(30px); }
+        }
+
+        .hero-content {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-content h1 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-content .title {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-content .title::before {
+            content: '✓';
+            font-size: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .btn-primary {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-secondary {
+            padding: 1rem 2rem;
+            background: transparent;
+            color: var(--green);
+            border: 2px solid var(--green);
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: var(--pulso);
+            color: var(--pulso);
+        }
+
+        .credentials {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(37, 211, 102, 0.1);
+        }
+
+        .credentials strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: 0 40px 80px rgba(37, 211, 102, 0.15);
+            border: 2px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(10, 15, 24, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            font-size: 0.9rem;
+        }
+
+        .image-badge strong {
+            color: var(--green);
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.3s; }
+        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(6) { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ABOUT */
+        .about {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.08) 0%, rgba(0, 191, 165, 0.08) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 4px solid var(--green);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        .about-card h3 {
+            color: var(--white);
+            margin-bottom: 0.8rem;
+        }
+
+        .about-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* SPECIALTIES */
+        .specialties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .specialty-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .specialty-card:hover {
+            border-color: var(--green);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.15);
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        .specialty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .specialty-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--white);
+        }
+
+        .specialty-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '★★★★★';
+            color: #ffd700;
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-author-info strong {
+            color: var(--white);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .testimonial-author-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* INSURANCE */
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .insurance-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            transition: all 0.3s;
+        }
+
+        .insurance-badge:hover {
+            border-color: var(--green);
+            color: var(--white);
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--green);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.15);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* FORM SECTION */
+        .form-section {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(0, 191, 165, 0.1) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(37, 211, 102, 0.2);
+        }
+
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 6px;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+            background: rgba(37, 211, 102, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+        }
+
+        /* CTA SECTION */
+        .cta-final {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(135deg, #25D366, #20ba5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(37, 211, 102, 0.1);
+            margin-top: 4rem;
+            background: rgba(10, 15, 24, 0.5);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .specialties-grid,
+            .testimonials-grid,
+            .insurance-grid,
+            .gallery-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .cta-buttons a,
+            .cta-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Dr. Rodrigo Pires</div>
+            <ul class="nav-links">
+                <li><a href="#about" class="active">Sobre</a></li>
+                <li><a href="#specialties">Especialidades</a></li>
+                <li><a href="#gallery">Clínica</a></li>
+                <li><a href="#contact" class="nav-cta">Agendar Consulta</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Ortopedia com Excelência</h1>
+            <p class="title">Especialista em Dor Intervencionista e Medicina Regenerativa</p>
+            <p>Tratamentos inovadores para dor crônica, lesões esportivas e hipermobilidade. Terapias regenerativas de última geração.</p>
+
+            <div class="hero-cta">
+                <a href="https://wa.me/5561994619084?text=Oi%20Dr%20Rodrigo%2C%20gostaria%20de%20agendar%20uma%20consulta" class="btn-primary" target="_blank">
+                    💬 Conversar pelo WhatsApp
+                </a>
+                <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Agendar Consulta
+                </button>
+            </div>
+
+            <div class="credentials">
+                <strong>CRM: 22900 | RQE: 18477</strong>
+                Membro Titular SBCJ<br>
+                Preceptor Trauma-Ortopedia Hospital de Base-DF
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/139A6248-683x1024.jpg" alt="Dr. Rodrigo Pires" loading="lazy">
+            <div class="image-badge">
+                <strong>+15 anos</strong>
+                de experiência
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h2>Sobre o Dr. Rodrigo Pires</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Ortopedista especializado em soluções avançadas para dor musculoesquelética</p>
+
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Formação Avançada</h3>
+                <p>Residência no Hospital das Forças Armadas, Pós-graduação em Clínica da Dor (IPMED 2020), Especialização em Dor Intervencionista (ITC 2024) e Ultrassom Musculoesquelético (APM 2025)</p>
+            </div>
+            <div class="about-card">
+                <h3>Especialidades</h3>
+                <p>Dor Intervencionista • Medicina Esportiva • Medicina Regenerativa • Hipermobilidade • Ultrassom Musculoesquelético</p>
+            </div>
+            <div class="about-card">
+                <h3>Clínicas Associadas</h3>
+                <p>JK Ortopedia • Clindor (Águas Claras) • CEHD Asa Sul • CEHD Jardim Botânico • Neurospine</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIALTIES -->
+    <section id="specialties">
+        <h2>Especialidades & Tratamentos</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Procedimentos avançados e minimamente invasivos</p>
+
+        <div class="specialties-grid">
+            <div class="specialty-card">
+                <div class="specialty-icon">💉</div>
+                <h3>Dor Intervencionista</h3>
+                <p>Bloqueios, infiltrações guiadas por ultrassom, radiofrequência para alívio de dor crônica</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">⚽</div>
+                <h3>Medicina Esportiva</h3>
+                <p>Reabilitação de lesões esportivas, plateletrich plasma (PRP), terapia regenerativa</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🔬</div>
+                <h3>Medicina Regenerativa</h3>
+                <p>Células-tronco, plasma rico em plaquetas, ozonioterapia para regeneração tecidual</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">🧬</div>
+                <h3>Hipermobilidade</h3>
+                <p>Síndrome de Ehlers-Danlos, frouxidão articular, estabilização regenerativa</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">📡</div>
+                <h3>Ultrassom Musculoesquelético</h3>
+                <p>Diagnóstico e guia ultrassonográfica para procedimentos minimamente invasivos</p>
+            </div>
+            <div class="specialty-card">
+                <div class="specialty-icon">💪</div>
+                <h3>Reabilitação</h3>
+                <p>Fisioterapia integrada, exercício terapêutico, prevenção de lesões</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF / TESTIMONIALS -->
+    <section>
+        <h2>Depoimentos de Pacientes</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Histórias reais de recuperação e qualidade de vida</p>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-text">"Sofria com dor crônica nas costas há 5 anos. Após o tratamento com o Dr. Rodrigo, consegui retornar aos esportes e melhorei minha qualidade de vida."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">RM</div>
+                    <div class="testimonial-author-info">
+                        <strong>Ricardo M.</strong>
+                        <p>Paciente</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">"Profissional de excelência. Além do tratamento eficaz, transmite confiança e conhecimento. Recomendo fortemente!"</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">CL</div>
+                    <div class="testimonial-author-info">
+                        <strong>Carla L.</strong>
+                        <p>Paciente</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-text">"Lesão no joelho de difícil tratamento. O Dr. Rodrigo utilizou técnicas regenerativas que me permitiram voltar a minha rotina normal."</div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">FP</div>
+                    <div class="testimonial-author-info">
+                        <strong>Felipe P.</strong>
+                        <p>Atleta</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSURANCE -->
+    <section>
+        <h2>Convênios Aceitos</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Trabalhamos com os principais planos de saúde do Brasil (28+ convênios)</p>
+
+        <div class="insurance-grid">
+            <div class="insurance-badge">Bradesco Saúde</div>
+            <div class="insurance-badge">Unimed</div>
+            <div class="insurance-badge">SulAmérica</div>
+            <div class="insurance-badge">Amil</div>
+            <div class="insurance-badge">Hapvida</div>
+            <div class="insurance-badge">NotreDame</div>
+            <div class="insurance-badge">Seguros Unimed</div>
+            <div class="insurance-badge">Porto Seguro</div>
+            <div class="insurance-badge">Medial Saúde</div>
+            <div class="insurance-badge">Qualicorp</div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <h2>Nossa Clínica</h2>
+        <p style="color: var(--text-muted); margin-bottom: 2rem;">Ambiente moderno, acolhedor e equipado com tecnologia avançada</p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/4_2.jpg" alt="Recepção" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/5_2.jpg" alt="Consultório" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/1.jpg" alt="Sala de Procedimentos" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/2.jpg" alt="Equipamentos" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/3_1.jpg" alt="Área de Espera" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="https://drrodrigopires.com.br/wp-content/uploads/2025/02/139A6248.jpg" alt="Clínica" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="form-section" id="contact">
+        <h2>Agende Sua Consulta</h2>
+
+        <form class="form-container" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+                <label for="name">Nome Completo*</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">WhatsApp*</label>
+                <input type="tel" id="phone" name="phone" placeholder="(61) 99999-9999" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com">
+            </div>
+            <div class="form-group">
+                <label for="complaint">Qual é a sua queixa principal?*</label>
+                <textarea id="complaint" name="complaint" placeholder="Descreva seu problema..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Enviar Agendamento</button>
+        </form>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-final">
+        <h2>Dúvidas? Entre em Contato</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem; max-width: 600px;">Respondo pessoalmente todas as mensagens. Meu objetivo é entender sua situação e oferecer o melhor tratamento.</p>
+
+        <div class="cta-buttons">
+            <a href="https://wa.me/5561994619084" class="cta-whatsapp" target="_blank">
+                💬 WhatsApp: (61) 99461-9084
+            </a>
+        </div>
+
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2rem;">Seg-Sex, 9h às 18h (Horário de Brasília)</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><strong>Dr. Rodrigo Nunes de Albuquerque Pires</strong></p>
+        <p>CRM: 22900 | RQE: 18477</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">© 2026 Todos os direitos reservados. Ortopedia Premium Brasília.</p>
+    </footer>
+
+    <script>
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const complaint = document.getElementById('complaint').value;
+
+            const message = encodeURIComponent(`Olá Dr. Rodrigo! Meu nome é ${name}. Gostaria de agendar uma consulta. Meu principal incômodo é: ${complaint}`);
+            const whatsappUrl = `https://wa.me/5561994619084?text=${message}`;
+
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
