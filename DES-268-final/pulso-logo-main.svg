@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="300" height="360">
+  <defs>
+    <style>
+      .p-stroke { fill: none; stroke: #F0E9DC; stroke-width: 24; stroke-linecap: round; stroke-linejoin: round; }
+      .heartbeat { fill: none; stroke: #00BFA5; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <!-- P Serif Letter - DM Serif Display inspired -->
+  <g id="p-letter">
+    <!-- Vertical stem -->
+    <path class="p-stroke" d="M 50 30 L 50 330"/>
+    
+    <!-- Top horizontal serif -->
+    <path class="p-stroke" d="M 50 30 L 170 30"/>
+    
+    <!-- Bowl curve (top loop) -->
+    <path class="p-stroke" d="M 170 30 Q 210 30 210 90 Q 210 130 170 130 L 50 130"/>
+    
+    <!-- Bottom serif (subtle) -->
+    <path class="p-stroke" d="M 50 330 L 120 330"/>
+  </g>
+
+  <!-- Integrated Heartbeat/Pulse in bowl -->
+  <g id="heartbeat" transform="translate(80, 105)">
+    <!-- EEG-style heartbeat waveform -->
+    <polyline class="heartbeat" points="0,20 10,20 14,6 19,34 24,14 29,26 33,20 52,20"/>
+  </g>
+
+  <!-- Wordmark: "Pulso" (separate asset, to be combined) -->
+  <text x="150" y="340" font-family="'DM Serif Display', serif" font-size="32" font-weight="700" fill="#F0E9DC" text-anchor="middle">Pulso</text>
+</svg>

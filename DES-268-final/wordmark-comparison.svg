@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600">
+  <defs>
+    <style>
+      .bg-dark { fill: #0D1B2A; }
+      .text-label { font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; fill: #8096A7; }
+      .text-spec { font-family: 'DM Sans', sans-serif; font-size: 11px; fill: #8096A7; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="600" class="bg-dark"/>
+
+  <!-- OPTION C: DM Sans 700 -->
+  <g id="option-c">
+    <!-- Card -->
+    <rect x="40" y="40" width="500" height="500" fill="#1A2A36" rx="12" stroke="#8096A7" stroke-width="1"/>
+    
+    <!-- Logo + Wordmark -->
+    <g transform="translate(80, 80)">
+      <!-- P Logo (small) -->
+      <path d="M 20 10 L 20 110 M 20 10 L 70 10 Q 90 10 90 45 Q 90 65 70 65 L 20 65" 
+            fill="none" stroke="#F0E9DC" stroke-width="12" stroke-linecap="round"/>
+      <polyline points="40,55 46,55 48,46 52,66 55,53 58,61 60,55 72,55" 
+                stroke="#00BFA5" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Wordmark "Pulso" in DM Sans -->
+    <text x="150" y="150" font-family="'DM Sans', sans-serif" font-size="56" font-weight="700" fill="#F0E9DC">Pulso</text>
+
+    <!-- Specs -->
+    <text x="60" y="320" class="text-label" font-weight="600">Opção C: DM Sans 700</text>
+    <text x="60" y="345" class="text-spec">✓ Irmã DM Serif Display (mesma família)</text>
+    <text x="60" y="365" class="text-spec">✓ Coerência tipográfica 100%</text>
+    <text x="60" y="385" class="text-spec">✓ Limpo, moderno, sem ruído</text>
+    <text x="60" y="405" class="text-spec">✓ Usa spec typography obrigatória</text>
+    <text x="60" y="430" class="text-spec" fill="#00BFA5" font-weight="600">→ RECOMENDADO: Consistência</text>
+  </g>
+
+  <!-- OPTION E: Instrument Sans 700 -->
+  <g id="option-e">
+    <!-- Card -->
+    <rect x="660" y="40" width="500" height="500" fill="#1A2A36" rx="12" stroke="#8096A7" stroke-width="1"/>
+    
+    <!-- Logo + Wordmark -->
+    <g transform="translate(700, 80)">
+      <!-- P Logo (small) -->
+      <path d="M 20 10 L 20 110 M 20 10 L 70 10 Q 90 10 90 45 Q 90 65 70 65 L 20 65" 
+            fill="none" stroke="#F0E9DC" stroke-width="12" stroke-linecap="round"/>
+      <polyline points="40,55 46,55 48,46 52,66 55,53 58,61 60,55 72,55" 
+                stroke="#00BFA5" stroke-width="1.5" fill="none"/>
+    </g>
+
+    <!-- Wordmark "Pulso" in Instrument Sans style (geometric, technical) -->
+    <text x="770" y="150" font-family="'Instrument Sans', 'Courier New', monospace" font-size="56" font-weight="700" fill="#F0E9DC" letter-spacing="-1">Pulso</text>
+
+    <!-- Specs -->
+    <text x="680" y="320" class="text-label" font-weight="600">Opção E: Instrument Sans 700</text>
+    <text x="680" y="345" class="text-spec">✓ Premium, técnico, profissional</text>
+    <text x="680" y="365" class="text-spec">✓ Alto contraste, preciso</text>
+    <text x="680" y="385" class="text-spec">✓ Fit: "Marketing de precisão"</text>
+    <text x="680" y="405" class="text-spec">✓ Médico/healthcare vibe</text>
+    <text x="680" y="430" class="text-spec" fill="#00BFA5" font-weight="600">→ RECOMENDADO: Premium</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="560" width="1200" height="40" fill="#1A2A36"/>
+  <text x="40" y="582" class="text-label" font-weight="600">Board: C (family coherence) vs E (premium medical)? Confirmado → Logo final + PNGs + Mockups</text>
+</svg>

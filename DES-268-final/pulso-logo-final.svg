@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480">
+  <defs>
+    <style>
+      .p-light { fill: none; stroke: #0D1B2A; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+      .p-dark { fill: none; stroke: #F0E9DC; stroke-width: 28; stroke-linecap: round; stroke-linejoin: round; }
+      .heartbeat { fill: none; stroke: #00BFA5; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+      .wordmark { font-family: 'DM Sans', sans-serif; font-size: 64px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <!-- P Letter (serif inspired) -->
+  <g id="p-logo">
+    <path class="p-dark" d="M 60 40 L 60 280"/>
+    <path class="p-dark" d="M 60 40 L 200 40"/>
+    <path class="p-dark" d="M 200 40 Q 240 40 240 120 Q 240 160 200 160 L 60 160"/>
+    <path class="p-dark" d="M 60 280 L 140 280"/>
+  </g>
+
+  <!-- Heartbeat in bowl -->
+  <polyline class="heartbeat" points="95,130 110,130 116,105 125,155 132,120 141,140 147,130 175,130"/>
+
+  <!-- Wordmark: Pulso (DM Sans 700) -->
+  <text class="wordmark" x="200" y="360" fill="#F0E9DC" text-anchor="middle">Pulso</text>
+
+  <!-- Tagline -->
+  <text x="200" y="420" font-family="'DM Sans', sans-serif" font-size="14" fill="#8096A7" text-anchor="middle">Marketing de precisão para medicina</text>
+</svg>
