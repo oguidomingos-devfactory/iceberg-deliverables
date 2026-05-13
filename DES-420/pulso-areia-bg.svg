@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="300" fill="#F0E9DC"/>
+
+  <!-- P Letter (Stem + Bowl) -->
+  <g id="P-letter">
+    <rect x="80" y="30" width="50" height="240" fill="#0D1B2A" rx="8"/>
+    <path d="M 130 50 Q 180 50 180 130 Q 180 190 130 190 L 130 50 Z" fill="#0D1B2A"/>
+    <path d="M 155 80 Q 190 80 190 130 Q 190 170 155 170 L 155 80 Z" fill="#F0E9DC"/>
+  </g>
+
+  <!-- Heartbeat Polyline -->
+  <g id="heartbeat" stroke="#00BFA5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <polyline points="100,140 120,140 130,110 140,140 160,140 170,125 180,150 200,150"/>
+  </g>
+
+  <!-- Wordmark ULSO -->
+  <text x="220" y="170" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="#0D1B2A">ULSO</text>
+</svg>
