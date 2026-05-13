@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulso — Logo v5 Pixel Perfect</title>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --noite:#0D1B2A; --pulso:#00BFA5; --areia:#F0E9DC; --nevoa:#8096A7; --branco:#FAFAF8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--noite); color:var(--areia); font-family:'DM Sans',sans-serif; }
+  header { padding:36px 40px; border-bottom:1px solid var(--pulso); display:flex; align-items:center; gap:16px; }
+  h1 { font-family:'Bruno Ace SC',monospace; font-size:1.4rem; color:var(--branco); letter-spacing:3px; }
+  .badge { background:var(--pulso); color:var(--noite); font-family:'Bruno Ace SC',monospace; font-size:0.6rem; letter-spacing:2px; padding:3px 8px; border-radius:3px; }
+  .container { max-width:1100px; margin:0 auto; padding:40px; }
+  h2 { font-family:'Bruno Ace SC',monospace; font-size:0.9rem; color:var(--pulso); letter-spacing:2px; margin-bottom:20px; }
+  .grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:32px; }
+  .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:32px; }
+  .card { border-radius:10px; overflow:hidden; border:1px solid rgba(128,150,167,0.15); }
+  .card img { width:100%; display:block; }
+  .card-footer { padding:10px 14px; background:rgba(0,0,0,0.3); display:flex; justify-content:space-between; align-items:center; }
+  .card-label { font-family:'Bruno Ace SC',monospace; font-size:0.6rem; letter-spacing:1.5px; color:var(--nevoa); }
+  .dl-row { display:flex; gap:6px; }
+  a.dl { font-family:'Bruno Ace SC',monospace; font-size:0.55rem; letter-spacing:1px; padding:3px 8px; border-radius:3px; text-decoration:none; }
+  a.svg-dl { background:rgba(0,191,165,0.15); color:var(--pulso); border:1px solid rgba(0,191,165,0.25); }
+  a.png-dl { background:rgba(240,233,220,0.08); color:var(--areia); border:1px solid rgba(240,233,220,0.15); }
+  .note { background:rgba(0,191,165,0.06); border:1px solid rgba(0,191,165,0.2); border-radius:8px; padding:16px 20px; font-size:0.82rem; color:var(--nevoa); line-height:1.6; margin:24px 0; }
+  .note strong { color:var(--areia); }
+  footer { padding:28px 40px; border-top:1px solid rgba(128,150,167,0.1); display:flex; justify-content:space-between; }
+  footer p { font-size:0.72rem; color:var(--nevoa); }
+</style>
+</head>
+<body>
+<header>
+  <h1>PULSO</h1>
+  <span class="badge">v5 PIXEL PERFECT</span>
+</header>
+<div class="container">
+
+  <div class="note">
+    <strong>Metodologia v5:</strong> SVG original do board usado como base exata (formas preservadas pixel a pixel). Apenas as cores foram substituídas pela paleta oficial da marca: Noite #0D1B2A · Areia #F0E9DC · Branco #FAFAF8 · Teal #00BFA5. Nenhuma re-traçagem — estrutura de paths idêntica ao arquivo enviado.
+  </div>
+
+  <h2>WORDMARK — 4 VARIAÇÕES</h2>
+  <div class="grid">
+
+    <div class="card">
+      <img src="pulso-v5-dark-bg.png" alt="Dark background">
+      <div class="card-footer">
+        <span class="card-label">NOITE + AREIA</span>
+        <div class="dl-row">
+          <a href="pulso-v5-dark-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-dark-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pulso-v5-light-bg.png" alt="Light background">
+      <div class="card-footer">
+        <span class="card-label">BRANCO + NOITE</span>
+        <div class="dl-row">
+          <a href="pulso-v5-light-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-light-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pulso-v5-teal-bg.png" alt="Teal background">
+      <div class="card-footer">
+        <span class="card-label">TEAL + NOITE</span>
+        <div class="dl-row">
+          <a href="pulso-v5-teal-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-teal-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pulso-v5-areia-bg.png" alt="Areia background">
+      <div class="card-footer">
+        <span class="card-label">AREIA + NOITE</span>
+        <div class="dl-row">
+          <a href="pulso-v5-areia-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-areia-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>ÍCONE P — 2 VARIAÇÕES</h2>
+  <div class="grid-3">
+
+    <div class="card">
+      <img src="pulso-v5-icon-dark-bg.png" alt="Icon dark" style="background:#0D1B2A">
+      <div class="card-footer">
+        <span class="card-label">ÍCONE NOITE</span>
+        <div class="dl-row">
+          <a href="pulso-v5-icon-dark-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-icon-dark-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="pulso-v5-icon-light-bg.png" alt="Icon light" style="background:#FAFAF8">
+      <div class="card-footer">
+        <span class="card-label">ÍCONE BRANCO</span>
+        <div class="dl-row">
+          <a href="pulso-v5-icon-light-bg.svg" download class="dl svg-dl">SVG</a>
+          <a href="pulso-v5-icon-light-bg-2x.png" download class="dl png-dl">PNG 2×</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="padding:20px;display:flex;flex-direction:column;justify-content:center;gap:12px;">
+      <p style="font-family:'Bruno Ace SC',monospace;font-size:0.65rem;color:var(--pulso);letter-spacing:2px">REFERÊNCIA ORIGINAL</p>
+      <p style="font-size:0.78rem;color:var(--nevoa);line-height:1.5">SVG exato enviado pelo board, sem alterações.</p>
+      <a href="original-board.svg" download class="dl svg-dl" style="width:fit-content">↓ ORIGINAL</a>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <strong>Paleta aplicada:</strong><br>
+    Logo shapes: <strong style="color:#0D1B2A;background:#F0E9DC;padding:0 4px">Noite #0D1B2A</strong> / <strong style="color:#F0E9DC;background:#0D1B2A;padding:0 4px">Areia #F0E9DC</strong> &nbsp;
+    Backgrounds: Noite · Branco · Teal · Areia
+  </div>
+
+</div>
+<footer>
+  <p>Pulso Brand v5 · Pixel Perfect · DES-268</p>
+  <p>Board reference preserved · 2025</p>
+</footer>
+</body>
+</html>
