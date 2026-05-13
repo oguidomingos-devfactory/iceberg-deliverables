@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulso — Brand Identity v3 (Bruno Ace SC)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== TOKENS ===================== */
+    :root {
+      --noite:  #0D1B2A;
+      --pulso:  #00BFA5;
+      --areia:  #F0E9DC;
+      --nevoa:  #8096A7;
+      --branco: #FAFAF8;
+      --font-brand: 'Bruno Ace SC', 'Courier New', monospace;
+      --font-body:  'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--noite);
+      color: var(--areia);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* ===================== LAYOUT ===================== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+
+    section { padding: 72px 0; border-bottom: 1px solid rgba(128,150,167,0.15); }
+    section:last-child { border-bottom: none; }
+
+    h1 { font-family: var(--font-brand); font-size: 3rem; color: var(--branco); letter-spacing: 4px; }
+    h2 { font-family: var(--font-brand); font-size: 1.4rem; color: var(--pulso); letter-spacing: 3px; margin-bottom: 32px; }
+    h3 { font-family: var(--font-brand); font-size: 1rem; color: var(--areia); letter-spacing: 2px; margin-bottom: 16px; }
+    p  { color: var(--nevoa); max-width: 640px; }
+
+    /* ===================== HEADER ===================== */
+    header {
+      background: var(--noite);
+      border-bottom: 1px solid var(--pulso);
+      padding: 48px 0;
+    }
+    .header-inner { display: flex; align-items: center; gap: 32px; }
+    .badge {
+      background: var(--pulso);
+      color: var(--noite);
+      font-family: var(--font-brand);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+    .header-sub { font-family: var(--font-body); font-size: 0.85rem; color: var(--nevoa); margin-top: 6px; }
+
+    /* ===================== LOGO GRID ===================== */
+    .logo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .logo-card {
+      border-radius: 12px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      min-height: 200px;
+    }
+    .logo-card.light  { background: var(--branco); }
+    .logo-card.dark   { background: var(--noite); border: 1px solid rgba(128,150,167,0.25); }
+    .logo-card.teal   { background: var(--pulso); }
+    .logo-card.areia  { background: var(--areia); }
+    .logo-card.icon-dark  { background: var(--noite); border: 1px solid var(--pulso); align-items: center; justify-content: center; }
+    .logo-card.icon-light { background: var(--branco); align-items: center; justify-content: center; }
+
+    .logo-label {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      opacity: 0.6;
+      margin-top: auto;
+    }
+    .logo-label.dark-text { color: var(--noite); }
+    .logo-label.light-text { color: var(--areia); }
+
+    /* ===================== INLINE LOGO SVG ===================== */
+    .pulso-logo-inline { display: flex; align-items: center; gap: 16px; }
+    .pulso-p-icon svg { display: block; }
+
+    /* ===================== COLORS ===================== */
+    .color-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .color-swatch {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .swatch-fill { height: 80px; }
+    .swatch-info { padding: 12px 14px; background: rgba(255,255,255,0.04); }
+    .swatch-name { font-family: var(--font-brand); font-size: 0.8rem; letter-spacing: 1px; color: var(--branco); }
+    .swatch-hex  { font-family: monospace; font-size: 0.75rem; color: var(--nevoa); }
+    .swatch-use  { font-size: 0.7rem; color: var(--nevoa); margin-top: 4px; }
+
+    /* ===================== TYPOGRAPHY ===================== */
+    .type-samples { display: flex; flex-direction: column; gap: 32px; }
+    .type-sample-brand { font-family: var(--font-brand); font-size: 2.5rem; color: var(--branco); letter-spacing: 3px; }
+    .type-sample-sub   { font-family: var(--font-brand); font-size: 1rem; color: var(--pulso); letter-spacing: 2px; margin-top: -8px; }
+    .type-row { display: flex; gap: 48px; align-items: flex-start; }
+    .type-spec { font-size: 0.75rem; color: var(--nevoa); font-family: monospace; margin-top: 8px; }
+
+    .body-samples { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
+    .body-300 { font-weight: 300; font-size: 1rem; color: var(--areia); }
+    .body-400 { font-weight: 400; font-size: 1rem; color: var(--areia); }
+    .body-500 { font-weight: 500; font-size: 1rem; color: var(--branco); }
+
+    /* ===================== SOCIAL TEMPLATES ===================== */
+    .social-grid { display: grid; grid-template-columns: repeat(3, 1fr) 1fr; gap: 24px; align-items: start; }
+
+    /* Feed post 1x1 */
+    .post-feed {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--noite);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border: 1px solid rgba(128,150,167,0.2);
+    }
+
+    /* Feed 1 - Dark premium */
+    .post-feed-1 { background: var(--noite); }
+    .post-feed-1 .post-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #0D1B2A 0%, #1a3040 60%, #0D1B2A 100%);
+    }
+    .post-feed-1 .post-accent {
+      position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle at top right, rgba(0,191,165,0.15), transparent 70%);
+    }
+
+    /* Feed 2 - Teal hero */
+    .post-feed-2 { background: var(--pulso); }
+    .post-feed-2 .post-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, #00BFA5 0%, #00a38c 100%);
+    }
+
+    /* Feed 3 - Areia warm */
+    .post-feed-3 { background: var(--areia); }
+    .post-feed-3 .post-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, #F0E9DC 0%, #e8dece 100%);
+    }
+
+    .post-content {
+      position: relative; z-index: 2;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+      justify-content: space-between;
+    }
+
+    .post-logo-row { display: flex; align-items: center; gap: 10px; }
+    .post-logo-text {
+      font-family: var(--font-brand);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+    }
+    .post-body-text {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+    .post-headline {
+      font-family: var(--font-brand);
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+    .post-tag {
+      font-family: var(--font-brand);
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    /* Stories 9x16 */
+    .post-stories {
+      width: 100%;
+      aspect-ratio: 9/16;
+      background: var(--noite);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(128,150,167,0.2);
+    }
+    .post-stories .stories-bg {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, #0D1B2A 0%, #122030 40%, #0D1B2A 100%);
+    }
+    .post-stories .stories-accent-top {
+      position: absolute; top: -40px; left: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,191,165,0.12), transparent 70%);
+    }
+    .post-stories .stories-accent-bot {
+      position: absolute; bottom: -40px; right: -40px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, rgba(0,191,165,0.08), transparent 70%);
+    }
+    .stories-content {
+      position: relative; z-index: 2;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      gap: 16px;
+    }
+
+    /* Heartbeat SVG component reuse */
+    .hb-line { width: 52px; height: 20px; }
+
+    /* ===================== BUSINESS CARD ===================== */
+    .card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .biz-card {
+      width: 100%;
+      aspect-ratio: 1.75;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .biz-card.dark-card { background: var(--noite); border: 1px solid rgba(0,191,165,0.2); }
+    .biz-card.light-card { background: var(--branco); }
+
+    .biz-card-corner {
+      position: absolute; bottom: 0; right: 0;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle at bottom right, rgba(0,191,165,0.1), transparent 70%);
+    }
+    .biz-card-name {
+      font-family: var(--font-brand);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+    .biz-card-title {
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      opacity: 0.65;
+      margin-top: 4px;
+    }
+    .biz-card-contacts {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      opacity: 0.7;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .biz-card-brand {
+      font-family: var(--font-brand);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      opacity: 0.5;
+    }
+
+    /* ===================== EMAIL SIGNATURE ===================== */
+    .email-sig-wrapper {
+      background: var(--branco);
+      border-radius: 12px;
+      padding: 28px 32px;
+      border-left: 3px solid var(--pulso);
+      max-width: 520px;
+    }
+    .sig-name  { font-family: var(--font-brand); font-size: 1rem; color: var(--noite); letter-spacing: 1.5px; }
+    .sig-title { font-family: var(--font-body); font-size: 0.8rem; color: var(--nevoa); margin-top: 2px; }
+    .sig-divider { height: 1px; background: rgba(128,150,167,0.25); margin: 14px 0; }
+    .sig-contacts { font-family: var(--font-body); font-size: 0.8rem; color: var(--noite); display: flex; flex-direction: column; gap: 4px; }
+    .sig-brand-row { display: flex; align-items: center; gap: 10px; margin-top: 14px; }
+    .sig-brand-name { font-family: var(--font-brand); font-size: 0.85rem; color: var(--noite); letter-spacing: 2px; }
+    .sig-tagline { font-family: var(--font-body); font-size: 0.7rem; color: var(--nevoa); }
+
+    /* ===================== GUIDELINES TABLE ===================== */
+    .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .rule-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(128,150,167,0.15);
+      border-radius: 10px;
+      padding: 24px;
+    }
+    .rule-card h3 { margin-bottom: 12px; }
+    .rule-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .rule-list li { font-size: 0.85rem; color: var(--nevoa); padding-left: 18px; position: relative; }
+    .rule-list li::before { content: '→'; position: absolute; left: 0; color: var(--pulso); }
+    .rule-list li.no::before { content: '✕'; color: #e05252; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(128,150,167,0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer p { font-size: 0.75rem; color: var(--nevoa); }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <!-- Inline P logo mark -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="48" height="60">
+        <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+        <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+        <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+        <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                  fill="none" stroke="#00BFA5" stroke-width="2.2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <h1>PULSO</h1>
+        <div class="header-sub">Brand Identity v3 — Bruno Ace SC Edition</div>
+      </div>
+      <span class="badge">v3.0</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     LOGO VARIATIONS
+     ============================================================ -->
+<section id="logos">
+  <div class="container">
+    <h2>01 — LOGO SYSTEM</h2>
+    <div class="logo-grid">
+
+      <!-- 1: Light BG -->
+      <div class="logo-card light">
+        <div class="pulso-logo-inline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="36" height="45">
+            <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+            <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+            <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#FAFAF8"/>
+            <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                      fill="none" stroke="#00BFA5" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:var(--font-brand);font-size:1.8rem;color:#0D1B2A;letter-spacing:3px">PULSO</span>
+        </div>
+        <span class="logo-label dark-text">FUNDO CLARO / #FAFAF8</span>
+      </div>
+
+      <!-- 2: Dark BG -->
+      <div class="logo-card dark">
+        <div class="pulso-logo-inline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="36" height="45">
+            <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+            <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+            <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+            <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                      fill="none" stroke="#00BFA5" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:var(--font-brand);font-size:1.8rem;color:#F0E9DC;letter-spacing:3px">PULSO</span>
+        </div>
+        <span class="logo-label light-text">FUNDO NOITE / #0D1B2A</span>
+      </div>
+
+      <!-- 3: Teal BG -->
+      <div class="logo-card teal">
+        <div class="pulso-logo-inline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="36" height="45">
+            <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+            <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+            <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#00BFA5"/>
+            <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                      fill="none" stroke="#FAFAF8" stroke-width="2.2"
+                      stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:var(--font-brand);font-size:1.8rem;color:#0D1B2A;letter-spacing:3px">PULSO</span>
+        </div>
+        <span class="logo-label dark-text">FUNDO PULSO / #00BFA5</span>
+      </div>
+
+      <!-- 4: Areia BG with tagline -->
+      <div class="logo-card areia">
+        <div class="pulso-logo-inline" style="flex-direction:column;align-items:flex-start;gap:6px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="28" height="35">
+              <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+              <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+              <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#F0E9DC"/>
+              <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                        fill="none" stroke="#00BFA5" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:var(--font-brand);font-size:1.4rem;color:#0D1B2A;letter-spacing:3px">PULSO</span>
+          </div>
+          <span style="font-family:var(--font-brand);font-size:0.55rem;color:#8096A7;letter-spacing:2px">MARKETING DE PRECISÃO PARA MEDICINA</span>
+        </div>
+        <span class="logo-label dark-text">FUNDO AREIA + TAGLINE</span>
+      </div>
+
+      <!-- 5: Icon only dark -->
+      <div class="logo-card icon-dark">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="56" height="70">
+          <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+          <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+          <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+          <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                    fill="none" stroke="#00BFA5" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-label light-text">ÍCONE / FUNDO ESCURO</span>
+      </div>
+
+      <!-- 6: Icon only light -->
+      <div class="logo-card icon-light">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="56" height="70">
+          <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+          <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+          <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#FAFAF8"/>
+          <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28"
+                    fill="none" stroke="#00BFA5" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="logo-label dark-text">ÍCONE / FUNDO CLARO</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COLORS
+     ============================================================ -->
+<section id="colors">
+  <div class="container">
+    <h2>02 — PALETA DE CORES</h2>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="swatch-fill" style="background:#0D1B2A"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">NOITE</div>
+          <div class="swatch-hex">#0D1B2A</div>
+          <div class="swatch-use">Primária · fundo escuro</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-fill" style="background:#00BFA5"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">PULSO</div>
+          <div class="swatch-hex">#00BFA5</div>
+          <div class="swatch-use">Acento · tecnologia viva</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-fill" style="background:#F0E9DC"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">AREIA</div>
+          <div class="swatch-hex">#F0E9DC</div>
+          <div class="swatch-use">Quente · humanidade</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-fill" style="background:#8096A7"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">NÉVOA</div>
+          <div class="swatch-hex">#8096A7</div>
+          <div class="swatch-use">Suporte · textos secundários</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-fill" style="background:#FAFAF8; border: 1px solid rgba(128,150,167,0.3)"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">BRANCO</div>
+          <div class="swatch-hex">#FAFAF8</div>
+          <div class="swatch-use">Fundo claro · documentos</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TYPOGRAPHY
+     ============================================================ -->
+<section id="typography">
+  <div class="container">
+    <h2>03 — TIPOGRAFIA</h2>
+
+    <div class="type-row">
+      <div style="flex:1">
+        <h3>BRAND / HEADLINES</h3>
+        <div class="type-sample-brand">BRUNO ACE SC</div>
+        <div class="type-sample-sub">Geométrica · Tecnológica · Precisa</div>
+        <div class="type-spec">font-family: 'Bruno Ace SC' — Google Fonts<br>Uso: logotipo, headlines, taglines, botões</div>
+      </div>
+      <div style="flex:1">
+        <h3>CORPO / INTERFACE</h3>
+        <div class="body-samples">
+          <div class="body-300" style="font-family:var(--font-body)">DM Sans 300 — Corpo de texto e apoio</div>
+          <div class="body-400" style="font-family:var(--font-body)">DM Sans 400 — Texto padrão e interface</div>
+          <div class="body-500" style="font-family:var(--font-body)">DM Sans 500 — Destaques e labels</div>
+        </div>
+        <div class="type-spec" style="margin-top:12px">font-family: 'DM Sans' — Google Fonts<br>Weights: 300, 400, 500 — Clareza sem frieza</div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;padding:24px;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(128,150,167,0.15)">
+      <div style="font-family:var(--font-brand);font-size:2rem;color:var(--branco);letter-spacing:3px;margin-bottom:8px">MARKETING DE PRECISÃO</div>
+      <div style="font-family:var(--font-brand);font-size:1rem;color:var(--pulso);letter-spacing:2px;margin-bottom:16px">PARA MEDICINA</div>
+      <div style="font-family:var(--font-body);font-weight:300;color:var(--nevoa);font-size:0.95rem">O crescimento do seu consultório em ritmo constante.<br>Resultados mensuráveis. Estratégia de precisão.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOCIAL MEDIA TEMPLATES
+     ============================================================ -->
+<section id="social">
+  <div class="container">
+    <h2>04 — SOCIAL MEDIA</h2>
+    <div class="social-grid">
+
+      <!-- Feed Post 1 — Dark premium -->
+      <div class="post-feed post-feed-1">
+        <div class="post-bg"></div>
+        <div class="post-accent"></div>
+        <div class="post-content">
+          <div>
+            <div class="post-logo-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="18" height="22">
+                <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+                <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+                <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+                <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="post-logo-text" style="color:var(--areia)">PULSO</span>
+            </div>
+          </div>
+          <div>
+            <div class="post-tag" style="background:rgba(0,191,165,0.15);color:var(--pulso)">RESULTADO</div>
+            <div class="post-headline" style="color:var(--branco);margin-top:8px">+312% de novos<br>pacientes em 90 dias</div>
+            <div class="post-body-text" style="color:var(--nevoa);margin-top:6px">Estratégia de presença digital<br>para clínica de ortopedia.</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <svg viewBox="0 0 52 20" width="52" height="20" style="flex-shrink:0">
+              <polyline points="0,10 8,10 11,3 16,18 20,6 24,14 27,10 44,10" fill="none" stroke="#00BFA5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:var(--font-body);font-size:0.65rem;color:var(--nevoa)">pulso.med.br</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed Post 2 — Teal hero -->
+      <div class="post-feed post-feed-2">
+        <div class="post-bg"></div>
+        <div class="post-content">
+          <div>
+            <div class="post-logo-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="18" height="22">
+                <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+                <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+                <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#00BFA5"/>
+                <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#FAFAF8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="post-logo-text" style="color:var(--noite)">PULSO</span>
+            </div>
+          </div>
+          <div style="text-align:center;padding:0 10px">
+            <div style="font-family:var(--font-brand);font-size:2.5rem;color:var(--noite);line-height:1;letter-spacing:2px">3X</div>
+            <div style="font-family:var(--font-brand);font-size:0.75rem;color:var(--noite);letter-spacing:2px;margin-top:4px;opacity:0.8">MAIS AGENDAMENTOS</div>
+          </div>
+          <div>
+            <div class="post-body-text" style="color:var(--noite);text-align:center">Marketing de precisão<br>para médicos.</div>
+            <div class="post-tag" style="background:rgba(13,27,42,0.15);color:var(--noite);margin-top:10px;font-size:0.6rem">SAIBA MAIS →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed Post 3 — Warm areia -->
+      <div class="post-feed post-feed-3">
+        <div class="post-bg"></div>
+        <div class="post-content">
+          <div>
+            <div class="post-logo-row">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="18" height="22">
+                <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+                <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+                <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#F0E9DC"/>
+                <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="post-logo-text" style="color:var(--noite)">PULSO</span>
+            </div>
+          </div>
+          <div>
+            <div class="post-headline" style="color:var(--noite)">Seu consultório<br>merece pacientes<br>certos.</div>
+          </div>
+          <div>
+            <div class="post-body-text" style="color:var(--nevoa);font-size:0.7rem">Estratégia digital feita<br>para a medicina.</div>
+            <div style="display:flex;align-items:center;gap:6px;margin-top:10px">
+              <svg viewBox="0 0 52 20" width="40" height="14">
+                <polyline points="0,10 8,10 11,3 16,18 20,6 24,14 27,10 44,10" fill="none" stroke="#00BFA5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span style="font-family:var(--font-brand);font-size:0.6rem;color:var(--noite);letter-spacing:1px">PULSO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stories -->
+      <div class="post-stories">
+        <div class="stories-bg"></div>
+        <div class="stories-accent-top"></div>
+        <div class="stories-accent-bot"></div>
+        <div class="stories-content">
+          <div class="post-logo-row">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="20" height="25">
+              <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+              <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+              <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+              <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span style="font-family:var(--font-brand);font-size:0.75rem;color:var(--areia);letter-spacing:2px">PULSO</span>
+          </div>
+
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px">
+            <div style="font-family:var(--font-brand);font-size:1.4rem;color:var(--branco);letter-spacing:2px;line-height:1.3">CRESÇA<br>COM<br>PRECISÃO</div>
+            <svg viewBox="0 0 52 20" width="52" height="20">
+              <polyline points="0,10 8,10 11,3 16,18 20,6 24,14 27,10 44,10" fill="none" stroke="#00BFA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div style="font-family:var(--font-body);font-size:0.7rem;color:var(--nevoa);line-height:1.5">Marketing de precisão<br>para medicina.<br>Resultados reais.</div>
+          </div>
+
+          <div>
+            <div style="font-family:var(--font-brand);font-size:0.6rem;color:var(--pulso);letter-spacing:2px">LINK NA BIO →</div>
+            <div style="font-family:var(--font-body);font-size:0.65rem;color:var(--nevoa);margin-top:4px">pulso.med.br</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUSINESS CARD
+     ============================================================ -->
+<section id="business-card">
+  <div class="container">
+    <h2>05 — CARTÃO DE VISITA</h2>
+    <div class="card-grid">
+
+      <!-- Front — dark -->
+      <div class="biz-card dark-card">
+        <div class="biz-card-corner"></div>
+        <div class="pulso-logo-inline">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="22" height="27">
+            <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+            <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+            <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+            <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span style="font-family:var(--font-brand);font-size:1rem;color:var(--areia);letter-spacing:3px">PULSO</span>
+        </div>
+        <div>
+          <div class="biz-card-name" style="color:var(--areia)">DR. PEDRO ALVES</div>
+          <div class="biz-card-title" style="color:var(--nevoa)">Clínica de Ortopedia e Traumatologia</div>
+        </div>
+        <div class="biz-card-contacts" style="color:var(--nevoa)">
+          <span>📞 (11) 99999-0000</span>
+          <span>✉ contato@drpedroalves.com.br</span>
+          <span>🌐 drpedroalves.com.br</span>
+        </div>
+      </div>
+
+      <!-- Back — light -->
+      <div class="biz-card light-card">
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <svg viewBox="0 0 52 20" width="52" height="20">
+            <polyline points="0,10 8,10 11,3 16,18 20,6 24,14 27,10 44,10" fill="none" stroke="#00BFA5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div style="font-family:var(--font-brand);font-size:0.7rem;color:var(--noite);letter-spacing:2px">MARKETING DE PRECISÃO</div>
+        </div>
+        <div>
+          <div style="font-family:var(--font-body);font-size:0.7rem;color:var(--nevoa);line-height:1.6;max-width:200px">Estratégia digital para médicos e clínicas que buscam crescimento consistente.</div>
+        </div>
+        <div style="font-family:var(--font-brand);font-size:0.65rem;color:var(--pulso);letter-spacing:2px">PULSO.MED.BR</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EMAIL SIGNATURE
+     ============================================================ -->
+<section id="email-signature">
+  <div class="container">
+    <h2>06 — ASSINATURA DE EMAIL</h2>
+    <div class="email-sig-wrapper">
+      <div class="sig-name">DR. PEDRO ALVES</div>
+      <div class="sig-title">Clínica de Ortopedia e Traumatologia</div>
+      <div class="sig-divider"></div>
+      <div class="sig-contacts">
+        <span style="color:#8096A7">📞 (11) 99999-0000</span>
+        <span style="color:#8096A7">✉ contato@drpedroalves.com.br</span>
+        <span style="color:#8096A7">🌐 drpedroalves.com.br</span>
+      </div>
+      <div class="sig-divider"></div>
+      <div class="sig-brand-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="18" height="22">
+          <rect x="8" y="6" width="10" height="68" fill="#0D1B2A" rx="2"/>
+          <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#0D1B2A"/>
+          <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#FAFAF8"/>
+          <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div class="sig-brand-name">PULSO</div>
+          <div class="sig-tagline">Marketing de Precisão para Medicina</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BRAND RULES
+     ============================================================ -->
+<section id="guidelines">
+  <div class="container">
+    <h2>07 — REGRAS DE USO</h2>
+    <div class="rules-grid">
+      <div class="rule-card">
+        <h3>✓ PERMITIDO</h3>
+        <ul class="rule-list">
+          <li>Logo apenas nas versões aprovadas (6 variações)</li>
+          <li>Cores somente da paleta oficial</li>
+          <li>Bruno Ace SC em títulos e logo</li>
+          <li>DM Sans 300/400/500 para corpo</li>
+          <li>Heartbeat sempre em #00BFA5</li>
+          <li>Proporções do logo preservadas</li>
+        </ul>
+      </div>
+      <div class="rule-card">
+        <h3>✕ PROIBIDO</h3>
+        <ul class="rule-list">
+          <li class="no">Usar Inter ou outras fontes não autorizadas</li>
+          <li class="no">Alterar cores do logo</li>
+          <li class="no">Distorcer ou inclinar o logo</li>
+          <li class="no">Colocar logo sobre fotos sem overlay</li>
+          <li class="no">Remover o heartbeat do ícone P</li>
+          <li class="no">Criar novas cores além da paleta</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<div class="container">
+  <footer>
+    <div style="display:flex;align-items:center;gap:10px">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 80" width="16" height="20">
+        <rect x="8" y="6" width="10" height="68" fill="#F0E9DC" rx="2"/>
+        <path d="M 18 6 L 46 6 Q 62 6 62 28 Q 62 46 46 46 L 18 46" fill="#F0E9DC"/>
+        <path d="M 23 13 L 46 13 Q 54 13 54 28 Q 54 39 46 39 L 23 39" fill="#0D1B2A"/>
+        <polyline points="25,28 32,28 35,19 40,39 44,25 48,35 51,28 62,28" fill="none" stroke="#00BFA5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span style="font-family:var(--font-brand);font-size:0.75rem;color:var(--areia);letter-spacing:2px">PULSO</span>
+    </div>
+    <p>Brand Identity v3 — Bruno Ace SC · 2025 · Confidencial</p>
+    <p>DES-268 · Iceberg Agency</p>
+  </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Light background square icon -->
+  <rect width="120" height="120" fill="#FAFAF8" rx="16"/>
+  <rect width="120" height="120" fill="none" rx="16" stroke="#F0E9DC" stroke-width="1.5"/>
+
+  <!-- P Icon centered, geometric sans -->
+  <g transform="translate(18, 12)">
+    <!-- P letter stem -->
+    <rect x="10" y="8" width="11" height="90" fill="#0D1B2A" rx="2"/>
+    <!-- P bowl outer -->
+    <path d="M 21 8 L 55 8 Q 75 8 75 35 Q 75 58 55 58 L 21 58" fill="#0D1B2A"/>
+    <!-- P bowl inner cutout -->
+    <path d="M 27 17 L 55 17 Q 65 17 65 35 Q 65 49 55 49 L 27 49" fill="#FAFAF8"/>
+
+    <!-- Heartbeat inside P bowl -->
+    <polyline points="29,35 36,35 39,24 44,48 48,30 53,43 56,35 70,35"
+              fill="none" stroke="#00BFA5" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

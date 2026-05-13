@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="400" height="200" fill="#0D1B2A"/>
+
+  <!-- P Icon: geometric sans-serif style P with heartbeat -->
+  <g transform="translate(24, 30)">
+    <!-- P letter stem -->
+    <rect x="10" y="10" width="13" height="110" fill="#F0E9DC" rx="2"/>
+    <!-- P bowl outer -->
+    <path d="M 23 10 L 62 10 Q 88 10 88 42 Q 88 70 62 70 L 23 70" fill="#F0E9DC"/>
+    <!-- P bowl inner cutout -->
+    <path d="M 30 20 L 62 20 Q 76 20 76 42 Q 76 60 62 60 L 30 60" fill="#0D1B2A"/>
+
+    <!-- Heartbeat inside P bowl -->
+    <polyline points="33,42 42,42 46,28 52,58 57,35 62,50 66,42 84,42"
+              fill="none" stroke="#00BFA5" stroke-width="2.8"
+              stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark: PULSO -->
+  <text x="140" y="105"
+        font-family="'Bruno Ace SC', 'Courier New', monospace"
+        font-size="52"
+        fill="#F0E9DC"
+        letter-spacing="4">PULSO</text>
+
+  <!-- Divider line -->
+  <line x1="140" y1="118" x2="390" y2="118" stroke="#00BFA5" stroke-width="1" opacity="0.5"/>
+
+  <!-- Full tagline -->
+  <text x="140" y="140"
+        font-family="'Bruno Ace SC', 'Courier New', monospace"
+        font-size="11"
+        fill="#8096A7"
+        letter-spacing="2.5">MARKETING DE PRECISÃO PARA MEDICINA</text>
+</svg>
