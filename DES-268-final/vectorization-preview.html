@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Pulso — Vectorization Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  body { background:#0D1B2A; color:#F0E9DC; font-family:'DM Sans',sans-serif; padding:40px; }
+  h1 { font-family:'Bruno Ace SC',monospace; color:#00BFA5; letter-spacing:3px; margin-bottom:8px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:32px; margin-top:32px; }
+  .card { background:rgba(255,255,255,0.04); border:1px solid rgba(128,150,167,0.2); border-radius:12px; padding:20px; }
+  .card h2 { font-family:'Bruno Ace SC',monospace; font-size:0.8rem; color:#8096A7; letter-spacing:2px; margin-bottom:16px; }
+  img, object { max-width:100%; border-radius:6px; }
+  p { font-size:0.8rem; color:#8096A7; margin-top:10px; line-height:1.5; }
+  .download-link { display:inline-block; margin-top:12px; padding:8px 16px; background:#00BFA5; color:#0D1B2A; font-family:'Bruno Ace SC',monospace; font-size:0.7rem; letter-spacing:1px; border-radius:6px; text-decoration:none; }
+</style>
+</head>
+<body>
+<h1>PULSO — VECTORIZATION</h1>
+<p style="color:#8096A7">Referência original vetorizada com vtracer 0.6.12. Use os SVGs abaixo como base para refinamento no Illustrator ou Figma.</p>
+
+<div class="grid">
+  <div class="card">
+    <h2>ORIGINAL (JPEG)</h2>
+    <img src="ref-original.jpeg" alt="Original reference">
+    <p>Imagem de referência fornecida pelo board. 1024×559px, JPEG.</p>
+    <a href="ref-original.jpeg" download class="download-link">↓ DOWNLOAD JPEG</a>
+  </div>
+
+  <div class="card">
+    <h2>VETORIZADO — COR (SVG)</h2>
+    <img src="ref-logo-vectorized-color.svg" alt="Color vectorization">
+    <p>Vetorização completa em cor. Ideal para preservar gradientes e detalhes de cor da referência.</p>
+    <a href="ref-logo-vectorized-color.svg" download class="download-link">↓ DOWNLOAD SVG COR</a>
+  </div>
+
+  <div class="card">
+    <h2>VETORIZADO — BINÁRIO (SVG)</h2>
+    <img src="ref-logo-vectorized-binary.svg" alt="Binary vectorization">
+    <p>Vetorização binária (P&B). Ideal para extrair os paths limpos do logo para redesenho.</p>
+    <a href="ref-logo-vectorized-binary.svg" download class="download-link">↓ DOWNLOAD SVG BINÁRIO</a>
+  </div>
+</div>
+
+<div style="margin-top:40px; padding:24px; background:rgba(0,191,165,0.08); border:1px solid rgba(0,191,165,0.2); border-radius:10px;">
+  <h2 style="font-family:'Bruno Ace SC',monospace; color:#00BFA5; letter-spacing:2px; margin-bottom:12px;">PRÓXIMOS PASSOS PARA O DESIGNER</h2>
+  <ul style="list-style:none; display:flex; flex-direction:column; gap:8px;">
+    <li style="font-size:0.85rem; color:#F0E9DC;">→ Abrir <code>ref-logo-vectorized-binary.svg</code> no Illustrator/Figma</li>
+    <li style="font-size:0.85rem; color:#F0E9DC;">→ Usar como base de tracing para reconstruir paths limpos do logo</li>
+    <li style="font-size:0.85rem; color:#F0E9DC;">→ Aplicar paleta da marca: Noite #0D1B2A · Pulso #00BFA5 · Areia #F0E9DC</li>
+    <li style="font-size:0.85rem; color:#F0E9DC;">→ Wordmark em Bruno Ace SC (Google Fonts)</li>
+    <li style="font-size:0.85rem; color:#F0E9DC;">→ Heartbeat em stroke #00BFA5</li>
+  </ul>
+</div>
+</body>
+</html>
