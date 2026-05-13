@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pulso — Logo v4 Final (Board Reference)</title>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --noite: #0D1B2A; --pulso: #00BFA5; --areia: #F0E9DC;
+    --nevoa: #8096A7; --branco: #FAFAF8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--noite); color: var(--areia); font-family: 'DM Sans', sans-serif; }
+  header { padding: 40px; border-bottom: 1px solid var(--pulso); }
+  h1 { font-family: 'Bruno Ace SC', monospace; font-size: 1.5rem; color: var(--branco); letter-spacing: 3px; }
+  .badge { background: var(--pulso); color: var(--noite); font-family: 'Bruno Ace SC', monospace; font-size: 0.6rem; letter-spacing: 2px; padding: 3px 8px; border-radius: 3px; margin-left: 12px; }
+  .sub { color: var(--nevoa); font-size: 0.85rem; margin-top: 6px; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 32px 0; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin: 32px 0; }
+  .card { border-radius: 12px; overflow: hidden; }
+  .card-label { padding: 12px 16px; font-family: 'Bruno Ace SC', monospace; font-size: 0.65rem; letter-spacing: 2px; display: flex; justify-content: space-between; align-items: center; }
+  .card-label.dark-lbl { background: rgba(0,0,0,0.3); color: var(--nevoa); }
+  .card-label.light-lbl { background: rgba(255,255,255,0.1); color: var(--nevoa); }
+  .card img { width: 100%; display: block; }
+  .dl-row { display: flex; gap: 8px; margin-top: 8px; }
+  .dl-btn { font-family: 'Bruno Ace SC', monospace; font-size: 0.6rem; letter-spacing: 1px; padding: 4px 10px; border-radius: 4px; text-decoration: none; }
+  .dl-btn.svg { background: rgba(0,191,165,0.15); color: var(--pulso); border: 1px solid rgba(0,191,165,0.3); }
+  .dl-btn.png { background: rgba(240,233,220,0.1); color: var(--areia); border: 1px solid rgba(240,233,220,0.2); }
+  h2 { font-family: 'Bruno Ace SC', monospace; font-size: 1rem; color: var(--pulso); letter-spacing: 2px; margin-bottom: 16px; }
+  .note { background: rgba(0,191,165,0.08); border: 1px solid rgba(0,191,165,0.2); border-radius: 8px; padding: 16px 20px; font-size: 0.85rem; color: var(--nevoa); line-height: 1.6; margin: 24px 0; }
+  .note strong { color: var(--areia); }
+  footer { padding: 32px 40px; border-top: 1px solid rgba(128,150,167,0.15); display: flex; justify-content: space-between; }
+  footer p { font-size: 0.75rem; color: var(--nevoa); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>PULSO <span class="badge">v4 FINAL</span></h1>
+  <p class="sub">Logo baseado exatamente na referência do board — polido com potrace (Bezier curves suaves)</p>
+</header>
+
+<div class="container">
+
+  <div class="note">
+    <strong>Metodologia:</strong> O SVG de referência fornecido pelo board foi reprojetado usando potrace com curvas Bézier otimizadas — eliminando os paths retangulares pixelados do vtracer anterior. O resultado tem cantos e curvas limpos, prontos para escalar em qualquer tamanho.
+  </div>
+
+  <h2>VARIAÇÕES COMPLETAS (WORDMARK)</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="pulso-v4-dark-bg.png" alt="Fundo escuro">
+      <div class="card-label dark-lbl">
+        FUNDO NOITE / AREIA LETTERS
+        <div class="dl-row">
+          <a href="pulso-v4-dark-bg.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-dark-bg-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="pulso-v4-light-bg.png" alt="Fundo claro">
+      <div class="card-label dark-lbl">
+        FUNDO BRANCO / NOITE LETTERS
+        <div class="dl-row">
+          <a href="pulso-v4-light-bg.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-light-bg-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="pulso-v4-teal-bg.png" alt="Fundo teal">
+      <div class="card-label dark-lbl">
+        FUNDO PULSO TEAL / NOITE LETTERS
+        <div class="dl-row">
+          <a href="pulso-v4-teal-bg.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-teal-bg-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="pulso-v4-areia-bg.png" alt="Fundo areia">
+      <div class="card-label dark-lbl">
+        FUNDO AREIA / NOITE LETTERS
+        <div class="dl-row">
+          <a href="pulso-v4-areia-bg.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-areia-bg-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2>ÍCONE (SOMENTE P)</h2>
+  <div class="grid-3">
+    <div class="card">
+      <img src="pulso-v4-icon-dark.png" alt="Ícone escuro" style="background:#0D1B2A">
+      <div class="card-label dark-lbl">
+        ÍCONE / FUNDO NOITE
+        <div class="dl-row">
+          <a href="pulso-v4-icon-dark.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-icon-dark-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="pulso-v4-icon-light.png" alt="Ícone claro" style="background:#FAFAF8">
+      <div class="card-label dark-lbl">
+        ÍCONE / FUNDO BRANCO
+        <div class="dl-row">
+          <a href="pulso-v4-icon-light.svg" download class="dl-btn svg">SVG</a>
+          <a href="pulso-v4-icon-light-2x.png" download class="dl-btn png">PNG 2x</a>
+        </div>
+      </div>
+    </div>
+    <div class="card" style="background:rgba(255,255,255,0.03);border:1px solid rgba(128,150,167,0.15);border-radius:12px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;">
+      <div>
+        <p style="font-family:'Bruno Ace SC',monospace;font-size:0.7rem;color:var(--pulso);letter-spacing:2px;margin-bottom:12px">ORIGINAL DO BOARD</p>
+        <p style="font-size:0.8rem;color:var(--nevoa);line-height:1.5">SVG de referência original fornecido pelo board (vtracer, paths angulares).</p>
+      </div>
+      <div class="dl-row" style="margin-top:16px">
+        <a href="original-board-ref.svg" download class="dl-btn svg">↓ REF ORIGINAL</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Técnica:</strong> potrace 1.16 com alphamax=1.33 e opttolerance=0.3 → curvas Bézier cúbicas suaves.
+    Cantos e quinas polidos automaticamente. SVGs finais com apenas 2 paths (vs 31 no vtracer original).<br><br>
+    <strong>Paleta aplicada:</strong> Noite #0D1B2A · Areia #F0E9DC · Branco #FAFAF8 · Pulso Teal #00BFA5
+  </div>
+
+</div>
+
+<footer>
+  <p>Pulso Brand v4 · Polished from board reference · DES-268</p>
+  <p>potrace Bézier curves · 2025</p>
+</footer>
+
+</body>
+</html>
