@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 240" width="800" height="240">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&amp;family=DM+Sans:wght@300;400;500&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="800" height="240" fill="#0D1B2A"/>
+  <polyline points="60.0,120.0 75.0,120.0 81.0,99.0 88.5,141.0 96.0,111.0 103.5,129.0 109.5,120.0 138.0,120.0" stroke="#00BFA5" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <text x="158.0" y="134.0" 
+    font-family="'DM Serif Display', Georgia, serif" 
+    font-size="72" 
+    fill="#FAFAF8" 
+    text-anchor="start">Pulso</text>
+  <text x="158.0" y="170.0" 
+    font-family="'DM Sans', system-ui, sans-serif" 
+    font-size="18" font-weight="300" 
+    letter-spacing="2" 
+    fill="#8096A7" 
+    text-anchor="start">MARKETING DE PRECISÃO PARA MEDICINA</text>
+</svg>
