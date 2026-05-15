@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="638" viewBox="0 0 850 638">
+  <!-- Background -->
+  <rect width="850" height="638" fill="#0D1B2A"/>
+
+  <!-- Contact title -->
+  <text x="53" y="100" font-family="DM Serif Display, serif" font-size="24" fill="#00BFA5" font-weight="700" letter-spacing="3">CONTATO</text>
+
+  <!-- Contact info -->
+  <text x="53" y="180" font-family="DM Sans, sans-serif" font-size="22" fill="#F0E9DC" font-weight="400">+55 (11) 98765-4321</text>
+  <text x="53" y="235" font-family="DM Sans, sans-serif" font-size="22" fill="#F0E9DC" font-weight="400">marina.silva@pulso.com</text>
+  <text x="53" y="290" font-family="DM Sans, sans-serif" font-size="22" fill="#F0E9DC" font-weight="400">www.pulso.com/marina</text>
+  <text x="53" y="345" font-family="DM Sans, sans-serif" font-size="22" fill="#F0E9DC" font-weight="400">São Paulo, SP</text>
+</svg>
