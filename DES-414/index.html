@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulso Reels - Dr. Thiago (12 Assets)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+        .header {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+        .header h1 { font-size: 36px; margin-bottom: 10px; color: #1E3A5F; }
+        .header p { color: #666; font-size: 16px; }
+        
+        .gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .reel-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .reel-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .reel-card img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+        }
+        .reel-info {
+            padding: 16px;
+        }
+        .reel-title {
+            font-weight: 600;
+            font-size: 14px;
+            color: #1E3A5F;
+            margin-bottom: 4px;
+        }
+        .reel-type {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .category {
+            margin: 40px 0 20px;
+            padding-left: 20px;
+            border-left: 4px solid #00B4D8;
+        }
+        .category h2 {
+            font-size: 20px;
+            color: #1E3A5F;
+            margin-bottom: 8px;
+        }
+        .category p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            color: #999;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Pulso - Dr. Thiago</h1>
+    <p>12 Reels Educativos em Alta Qualidade (1080x1920px)</p>
+</div>
+
+<div class="category">
+    <h2>Patologias</h2>
+    <p>6 Reels educativos sobre condições ortopédicas</p>
+</div>
+
+<div class="gallery" id="patologias">
+    <div class="reel-card">
+        <img src="pulso-patologia-01-osteoporose.png" alt="Osteoporose">
+        <div class="reel-info">
+            <div class="reel-title">Osteoporose</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-patologia-02-cervical.png" alt="Cervical">
+        <div class="reel-info">
+            <div class="reel-title">Cervical</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-patologia-03-lombalgia.png" alt="Lombalgia">
+        <div class="reel-info">
+            <div class="reel-title">Lombalgia</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-patologia-04-artrose.png" alt="Artrose">
+        <div class="reel-info">
+            <div class="reel-title">Artrose</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-patologia-05-fibromialgia.png" alt="Fibromialgia">
+        <div class="reel-info">
+            <div class="reel-title">Fibromialgia</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-patologia-06-joelho.png" alt="Dor de Joelho">
+        <div class="reel-info">
+            <div class="reel-title">Dor de Joelho</div>
+            <div class="reel-type">Patologia</div>
+        </div>
+    </div>
+</div>
+
+<div class="category">
+    <h2>Procedimentos</h2>
+    <p>4 Reels sobre tratamentos e procedimentos médicos</p>
+</div>
+
+<div class="gallery" id="procedimentos">
+    <div class="reel-card">
+        <img src="pulso-procedimento-07-infiltracao.png" alt="Infiltração">
+        <div class="reel-info">
+            <div class="reel-title">Infiltração</div>
+            <div class="reel-type">Procedimento</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-procedimento-08-ondas-choque.png" alt="Ondas de Choque">
+        <div class="reel-info">
+            <div class="reel-title">Ondas de Choque</div>
+            <div class="reel-type">Procedimento</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-procedimento-09-medicina-regenerativa.png" alt="Medicina Regenerativa">
+        <div class="reel-info">
+            <div class="reel-title">Medicina Regenerativa</div>
+            <div class="reel-type">Procedimento</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-procedimento-10-bloqueios.png" alt="Bloqueios Nervosos">
+        <div class="reel-info">
+            <div class="reel-title">Bloqueios Nervosos</div>
+            <div class="reel-type">Procedimento</div>
+        </div>
+    </div>
+</div>
+
+<div class="category">
+    <h2>Oportunidades</h2>
+    <p>2 Reels de autoridade e notícias sobre saúde</p>
+</div>
+
+<div class="gallery" id="oportunidades">
+    <div class="reel-card">
+        <img src="pulso-oportunidade-11-saiba-mais.png" alt="Saiba Mais">
+        <div class="reel-info">
+            <div class="reel-title">Saiba Mais</div>
+            <div class="reel-type">Oportunidade</div>
+        </div>
+    </div>
+    <div class="reel-card">
+        <img src="pulso-oportunidade-12-saude-movimento.png" alt="Saúde e Movimento">
+        <div class="reel-info">
+            <div class="reel-title">Saúde e Movimento</div>
+            <div class="reel-type">Oportunidade</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>Criado com design editorial sóbrio, tons azul/cinza com autoridade médica</p>
+    <p>Formato: 1080x1920px (Stories/Reels) • sRGB PNG</p>
+</div>
+
+</body>
+</html>
