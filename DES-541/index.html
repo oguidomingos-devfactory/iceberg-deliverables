@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Teste Marketing - Ortopedia Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --teal: #00BFA5;
+            --white: #FFFFFF;
+            --light-gray: #e0e0e0;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.2);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0d1f3c 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin-bottom: 1rem; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1.5rem; }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); margin-bottom: 1rem; }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--teal); }
+
+        /* HERO */
+        .hero {
+            padding: clamp(4rem, 10vh, 8rem) 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--teal);
+            margin-bottom: 2rem;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.3s; }
+        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(6) { animation-delay: 0.5s; }
+        section:nth-of-type(7) { animation-delay: 0.6s; }
+        section:nth-of-type(8) { animation-delay: 0.7s; }
+        section:nth-of-type(9) { animation-delay: 0.8s; }
+        section:nth-of-type(10) { animation-delay: 0.9s; }
+        section:nth-of-type(11) { animation-delay: 1s; }
+        section:nth-of-type(12) { animation-delay: 1.1s; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--green);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(37, 211, 102, 0.15);
+        }
+
+        .card-title {
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.3rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .metric {
+            background: var(--card-bg);
+            border-left: 3px solid var(--green);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .metric-value {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2.2rem;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 2px solid var(--green);
+        }
+
+        .timeline-label {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--green);
+            transform: scale(1.05);
+        }
+
+        .pricing-card:hover {
+            border-color: var(--teal);
+        }
+
+        .price {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 3rem;
+            color: var(--green);
+            margin: 1rem 0;
+        }
+
+        .price-currency {
+            font-size: 1.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+
+        .features-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .features-list li:before {
+            content: '✓ ';
+            color: var(--green);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .post-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .post-card:hover {
+            border-color: var(--green);
+            transform: translateY(-5px);
+        }
+
+        .post-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.2), rgba(0, 191, 165, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .post-content {
+            padding: 1.5rem;
+        }
+
+        .post-title {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .guarantee-box {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1), rgba(0, 191, 165, 0.1));
+            border: 1px solid var(--green);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .guarantee-title {
+            color: var(--green);
+            margin-bottom: 1rem;
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.8rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                padding-left: 0;
+                border-left: none;
+                border-top: 2px solid var(--green);
+                padding-top: 1rem;
+            }
+
+            .timeline-label {
+                order: -1;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- SEÇÃO 1: HERO -->
+    <section class="hero">
+        <h1>Dr. Teste Marketing</h1>
+        <div class="subtitle">Ortopedia Premium</div>
+        <p class="tagline">Sua clínica merece crescer. Aqui está o plano para triplicar seus leads qualificados.</p>
+        <button class="cta-button">💬 Conversar no WhatsApp</button>
+    </section>
+
+    <!-- SEÇÃO 2: RECAP CALL -->
+    <section>
+        <h2>O que conversamos</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">Desafio Real</div>
+                <p>Seus pacientes estão no Google procurando soluções para dor nas costas, joelho e ombro. Você não está lá.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Oportunidade</div>
+                <p>3 a 5 pacientes por mês precisam apenas de uma busca online para encontrá-lo. Vamos capturá-los.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">Investimento</div>
+                <p>Marketing digital bem feito custa bem menos que anúncios no consultório. E traz pacientes que QUEREM ser tratados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 3: DESAFIO CENTRAL -->
+    <section>
+        <h2>Seu Desafio Hoje</h2>
+        <div class="card">
+            <h3>Pacientes com dor crônica buscam saída online, mas não encontram você</h3>
+            <p style="margin-top: 1rem; line-height: 1.8;">
+                Você é excelente no que faz. Mas 95% dos pacientes potenciais nunca vão saber disso porque você não está onde eles procuram.
+                <br><br>
+                <strong>Resultado:</strong> Consultório com 40% de ociosidade. Fila de espera curta. Sem estratégia digital clara.
+                <br><br>
+                <strong>Raiz do problema:</strong> Sem presença no Google. Instagram desatualizado. Landing page não converte.
+            </p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 4: DIAGNÓSTICO -->
+    <section>
+        <h2>O Que Está Faltando</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">🔍 SEO</div>
+                <p>Nenhuma estratégia de palavras-chave. Você é invisível no Google para "ortopedista em [sua cidade]".</p>
+            </div>
+            <div class="card">
+                <div class="card-title">📱 Instagram</div>
+                <p>Sem conteúdo educativo. Sem agenda de posts. Seus pacientes atuais não vêm seus procedimentos.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">🌐 Landing Page</div>
+                <p>Site genérico. Sem CTA claro. Pacientes chegam, mas não sabem como agendar uma consulta.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">📊 Ads</div>
+                <p>Zero campanhas no Google Ads. Competidores estão capturando seus pacientes em busca pagos.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">📈 Dados</div>
+                <p>Sem analytics. Não sabe qual canal traz leads. Decisões baseadas em achismo.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">🤝 CRM</div>
+                <p>Sem follow-up automático. Pacientes consultam e somem porque não há estratégia de reengajamento.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 5: OPORTUNIDADES -->
+    <section>
+        <h2>Nossas 5 Oportunidades de Melhoria</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">1. Conteúdo Educativo</div>
+                <p>60 posts em 90 dias sobre: Exercícios, procedimentos, recuperação. Posiciona você como autoridade.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">2. Landing Page Otimizada</div>
+                <p>Hero com foto sua. Serviços. Depoimentos reais. CTA agressivo. Conversão: 5-8% dos visitantes.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">3. Google Ads + SEO</div>
+                <p>Apareça no topo da busca por "ortopedista [cidade]" e "dor de joelho" em 60 dias.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">4. Telemedicina</div>
+                <p>Consultas iniciais online. Menor fricção. Mais agendamentos. Diferencial competitivo.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">5. E-book + Lead Magnet</div>
+                <p>"Guia de Recuperação em Casa" captura 20-30 emails/mês de pacientes interessados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 6: MÉTRICAS PROJETADAS -->
+    <section>
+        <h2>Resultados Projetados (90 dias)</h2>
+        <div class="metrics-grid">
+            <div class="metric">
+                <div class="metric-value">R$ 150</div>
+                <div class="metric-label">Custo por Lead</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">3.5x</div>
+                <div class="metric-label">ROAS</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">20</div>
+                <div class="metric-label">Leads/Mês</div>
+            </div>
+            <div class="metric">
+                <div class="metric-value">280%</div>
+                <div class="metric-label">ROI</div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.95rem; color: #a0a0a0;">
+            * Projeções baseadas em ortopedistas similares em segmento de mkt digital. Seus resultados podem variar.
+        </p>
+    </section>
+
+    <!-- SEÇÃO 7: PLANO DE IMPLEMENTAÇÃO -->
+    <section>
+        <h2>Plano de Implementação</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-label">Semana 1-2</div>
+                <div>
+                    <h3>Setup & Strategy</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Análise competitiva</li>
+                        <li>Audit SEO</li>
+                        <li>Planejamento de conteúdo</li>
+                        <li>Setup Google Ads</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Semana 3-4</div>
+                <div>
+                    <h3>Launch & Content</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Landing page ao vivo</li>
+                        <li>Primeiros 20 posts no ar</li>
+                        <li>Google Ads rodando</li>
+                        <li>Analytics tracking</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Mês 2</div>
+                <div>
+                    <h3>Otimização & Escala</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Análise de dados (30 dias)</li>
+                        <li>Ajuste de palabras-chave</li>
+                        <li>A/B testing de anúncios</li>
+                        <li>Aumento de budget</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-label">Mês 3+</div>
+                <div>
+                    <h3>Automação & ROI</h3>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Funil de conversão automático</li>
+                        <li>Lives mensais (educativas)</li>
+                        <li>Relatórios mensais</li>
+                        <li>Escalação de budget lucrativo</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 8: O QUE VOCÊ RECEBE -->
+    <section>
+        <h2>O Que Você Recebe</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-title">📱 Landing Page Premium</div>
+                <p>Design custom. Conversor. Mobile-first. Hospedada e mantida.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">📸 60 Posts Instagram</div>
+                <p>90 dias de conteúdo pronto. Calendário, captions, hashtags.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">🎯 Google Ads</div>
+                <p>Setup, palavras-chave, landing page de anúncios, otimização.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">📊 Analytics & CRM</div>
+                <p>Rastreamento de leads. Relatórios mensais. Dashboard.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">🎥 4 Lives Mensais</div>
+                <p>Conteúdo ao vivo. Educativo. Engaja comunidade.</p>
+            </div>
+            <div class="card">
+                <div class="card-title">💬 Suporte</div>
+                <p>Whatsapp direto. Dúvidas respondidas em até 4h.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 9: LP PREVIEW -->
+    <section>
+        <h2>Preview: Landing Page</h2>
+        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-top: 1.5rem;">
+            <div style="background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(0, 191, 165, 0.15)); border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1.5rem;">
+                <h3 style="color: var(--white); margin-bottom: 0.5rem;">Crescer sua clínica com marketing digital</h3>
+                <p style="color: #a0a0a0; font-size: 0.95rem;">Agende sua primeira consulta online gratuita</p>
+            </div>
+            <p style="font-size: 0.9rem; color: #a0a0a0; text-align: center;">
+                ↓ Hero com foto do médico + Serviços + Depoimentos + FAQ + CTA WhatsApp + Footer
+            </p>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 10: POSTS PREVIEW -->
+    <section>
+        <h2>Preview: 4 Posts-Chave</h2>
+        <div class="post-preview">
+            <div class="post-card">
+                <div class="post-image">Foto/Vídeo</div>
+                <div class="post-content">
+                    <div class="post-title">Post 1: Apresentação</div>
+                    <p style="font-size: 0.9rem;">Dr. Teste apresenta: Especialista em dor crônica. 15 anos experência.</p>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-image">Foto/Vídeo</div>
+                <div class="post-content">
+                    <div class="post-title">Post 2: Case Paciente</div>
+                    <p style="font-size: 0.9rem;">Como Maria se livrou de dor de joelho em 30 dias. Método comprovado.</p>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-image">Foto/Vídeo</div>
+                <div class="post-content">
+                    <div class="post-title">Post 3: Procedimento</div>
+                    <p style="font-size: 0.9rem;">Entenda a cirurgia artroscópica. Passo a passo. Segurança garantida.</p>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-image">Foto/Vídeo</div>
+                <div class="post-content">
+                    <div class="post-title">Post 4: FAQ</div>
+                    <p style="font-size: 0.9rem;">Dúvidas frequentes: Quanto custa? Quanto dura? É seguro?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 11: PRICING -->
+    <section>
+        <h2>Planos e Preços</h2>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Essencial</h3>
+                <div class="price"><span class="price-currency">R$</span>1.500</div>
+                <p style="color: #a0a0a0; font-size: 0.9rem;">por mês</p>
+                <ul class="features-list">
+                    <li>Landing page básica</li>
+                    <li>20 posts/mês</li>
+                    <li>Setup SEO</li>
+                    <li>Analytics</li>
+                </ul>
+                <button class="cta-button" style="width: 100%;">Escolher</button>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Marketing</h3>
+                <div class="price"><span class="price-currency">R$</span>3.500</div>
+                <p style="color: #a0a0a0; font-size: 0.9rem;">por mês</p>
+                <ul class="features-list">
+                    <li>Landing page premium</li>
+                    <li>60 posts/mês</li>
+                    <li>Google Ads (R$1.5k)</li>
+                    <li>SEO avançado</li>
+                    <li>2 lives/mês</li>
+                    <li>Suporte prioritário</li>
+                </ul>
+                <button class="cta-button" style="width: 100%;">Escolher (Recomendado)</button>
+            </div>
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price"><span class="price-currency">R$</span>6.000</div>
+                <p style="color: #a0a0a0; font-size: 0.9rem;">por mês</p>
+                <ul class="features-list">
+                    <li>Tudo em Marketing</li>
+                    <li>Google Ads (R$3k)</li>
+                    <li>4 lives/mês</li>
+                    <li>E-book customizado</li>
+                    <li>Telemedicina setup</li>
+                    <li>Suporte 24h</li>
+                </ul>
+                <button class="cta-button" style="width: 100%;">Escolher</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO 12: GARANTIA + CTA FINAL -->
+    <section>
+        <div class="guarantee-box">
+            <div class="guarantee-title">Nossa Garantia</div>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">
+                Se você não receber no mínimo <strong>10 leads qualificados</strong> no primeiro mês, oferecemos <strong>mês 2 grátis</strong>.
+                <br><br>
+                Isso é feito. Vamos fazer juntos.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <h2>Próximos Passos</h2>
+            <p style="margin-top: 1rem; font-size: 1.1rem;">
+                Responda sim a esta proposta. <br>
+                Marcaremos uma call de 30 min para esclarecer dúvidas e começar.
+            </p>
+            <button class="cta-button" style="margin-top: 2rem; font-size: 1.1rem; padding: 1.2rem 3rem;">
+                💬 Vamos Conversar (WhatsApp)
+            </button>
+        </div>
+
+        <div style="text-align: center; margin-top: 4rem; padding-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.08); color: #a0a0a0; font-size: 0.9rem;">
+            <p>
+                Pulso Agência Digital | Especialista em Marketing para Saúde<br>
+                <a href="https://wa.me/5511999999999">WhatsApp</a> |
+                <a href="mailto:contato@pulso.digital">contato@pulso.digital</a>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

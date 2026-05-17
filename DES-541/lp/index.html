@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Teste Marketing - Ortopedia Especializada</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:wght@400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --teal: #00BFA5;
+            --white: #FFFFFF;
+            --light-bg: #f8fafb;
+            --dark-text: #1a1a1a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--white);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 1rem; }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: 1.5rem; }
+        h3 { font-size: clamp(1rem, 2.2vw, 1.4rem); margin-bottom: 1rem; }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--teal); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 100%);
+            color: var(--white);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--green);
+        }
+
+        nav a {
+            margin-left: 2rem;
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--teal);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--white) 0%, var(--light-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-image {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.15), rgba(0, 191, 165, 0.15));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .cta-primary {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--teal) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.2);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 4rem 0;
+        }
+
+        section.alt {
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            color: var(--navy);
+        }
+
+        .section-title p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            border-color: var(--green);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CREDENTIALS */
+        .credentials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .credential-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--green);
+        }
+
+        .credential-item h3 {
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .credential-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .testimonial-stars {
+            color: #ffc107;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+            font-style: normal;
+        }
+
+        .testimonial-role {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .faq-question {
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, #0d1f3c 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--teal);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .services-grid,
+            .credentials,
+            .testimonials-grid,
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        section:nth-of-type(1) { animation-delay: 0.1s; }
+        section:nth-of-type(2) { animation-delay: 0.2s; }
+        section:nth-of-type(3) { animation-delay: 0.3s; }
+        section:nth-of-type(4) { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="logo">Dr. Teste Marketing</div>
+            <nav>
+                <a href="#services">Serviços</a>
+                <a href="#credentials">Credenciais</a>
+                <a href="#testimonials">Depoimentos</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Crescer sua Clínica com Marketing Digital</h1>
+                <p>Ortopedia especializada em dor crônica. Mais de 15 anos de experiência tratando pacientes com excelência.</p>
+                <button class="cta-primary">💬 Agende sua Consulta Gratuita</button>
+            </div>
+            <div class="hero-image">👨‍⚕️</div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="alt" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Especialidades</h2>
+                <p>Procedimentos e tratamentos principais</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🦵</div>
+                    <h3>Joelho</h3>
+                    <p>Artroscopia, LCA, menisco. Tratamentos minimamente invasivos.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔙</div>
+                    <h3>Coluna</h3>
+                    <p>Hérnia, escoliose, dor crônica. Abordagem conservadora primeiro.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💪</div>
+                    <h3>Ombro</h3>
+                    <p>Luxação, síndrome do impacto, tendinite. Reabilitação especializada.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦶</div>
+                    <h3>Pé & Tornozelo</h3>
+                    <p>Entorse, fascite plantar, joanete. Soluções conservadoras e cirúrgicas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏃</div>
+                    <h3>Esportes</h3>
+                    <p>Lesões em atletas. Reabilitação rápida e segura.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Reabilitação</h3>
+                    <p>Fisioterapia pós-operatória. Recuperação completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CREDENTIALS -->
+    <section id="credentials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Formação & Credenciais</h2>
+                <p>Especialista em Ortopedia Clínica e Cirúrgica</p>
+            </div>
+            <div class="credentials">
+                <div class="credential-item">
+                    <h3>🎓 Formação</h3>
+                    <p>Medicina na USP. Residência em Ortopedia (3 anos). Especialização em Artroscopia (França).</p>
+                </div>
+                <div class="credential-item">
+                    <h3>🏥 Experiência</h3>
+                    <p>15+ anos atendendo. 2.500+ cirurgias bem-sucedidas. Membro da SBOT.</p>
+                </div>
+                <div class="credential-item">
+                    <h3>🔬 Pesquisa</h3>
+                    <p>Publicações em revistas ortopédicas. Palestrante em congressos nacionais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="alt" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O Que Dizem Nossos Pacientes</h2>
+                <p>Histórias reais de recuperação e satisfação</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "Sofria com dor no joelho há 2 anos. Depois da cirurgia com o Dr. Teste, voltei a correr sem dor."
+                    </div>
+                    <div class="testimonial-author">João Silva</div>
+                    <div class="testimonial-role">Atleta / São Paulo</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "Consultei várias opiniões. O Dr. Teste explicou tudo com clareza e o resultado foi perfeito."
+                    </div>
+                    <div class="testimonial-author">Maria Santos</div>
+                    <div class="testimonial-role">Paciente / Rio de Janeiro</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <div class="testimonial-text">
+                        "Excelente profissional. Humanizado. Reabilitação foi um processo bem guiado e rápido."
+                    </div>
+                    <div class="testimonial-author">Carlos Oliveira</div>
+                    <div class="testimonial-role">Executivo / Belo Horizonte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Perguntas Frequentes</h2>
+                <p>Dúvidas mais comuns respondidas</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Quanto custa uma consulta?</div>
+                    <div class="faq-answer">Primeira consulta: R$ 250. Retorno: R$ 150. Procedimentos têm valores específicos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo dura uma cirurgia?</div>
+                    <div class="faq-answer">De 30 min a 2h, dependendo da complexidade. Sempre com anestesia segura.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso fazer consulta online?</div>
+                    <div class="faq-answer">Sim. Primeira avaliação pode ser online. Se necessário, agendamos presencial.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto tempo de reabilitação?</div>
+                    <div class="faq-answer">Varia. Artroscopia: 4-6 semanas. Cirurgias maiores: 2-3 meses.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Convênio médico?</div>
+                    <div class="faq-answer">Aceito os principais. Consulte sua cobertura. Particular também disponível.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Dá para agendar rapidamente?</div>
+                    <div class="faq-answer">Geralmente em 3-7 dias. Emergências atendidas no mesmo dia.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Qual a taxa de sucesso?</div>
+                    <div class="faq-answer">Artroscopia: 95%+. Satisfação de pacientes: 98%. Complicações são raras.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto para Voltar a Viver Sem Dor?</h2>
+            <p>Agende sua consulta gratuita hoje. Vamos discutir sua situação e criar um plano de tratamento personalizado.</p>
+            <button class="cta-primary">💬 Conversar no WhatsApp Agora</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p><strong>Dr. Teste Marketing</strong> | Especialista em Ortopedia</p>
+            <p>
+                <a href="https://wa.me/5511999999999">WhatsApp</a> |
+                <a href="mailto:contato@drtestemarketing.com">Email</a> |
+                <a href="#">Instagram</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: #a0a0a0;">
+                Powered by Pulso Agência Digital
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
