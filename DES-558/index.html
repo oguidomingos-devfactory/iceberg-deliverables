@@ -1,0 +1,1941 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Premium | Dr. Teste — Iceberg Company</title>
+    <meta name="description" content="Proposta comercial personalizada para Dr. Teste Premium — Estratégia digital de alta performance para médicos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --green-dark: #1aab52;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --pulso: #00C9A7;
+            --gold: #C9A84C;
+            --dark-bg: #070D18;
+            --dark-surface: #0d1625;
+            --dark-card: rgba(255, 255, 255, 0.04);
+            --border: rgba(255, 255, 255, 0.08);
+            --border-green: rgba(37, 211, 102, 0.2);
+            --text-primary: #f0f0f0;
+            --text-secondary: #a8b2c0;
+            --text-muted: #626e7e;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: clamp(2.4rem, 6vw, 3.8rem); }
+        h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); }
+        h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        /* ── NOISE OVERLAY ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.025'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.4;
+        }
+
+        /* ── TOP NAVIGATION ── */
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(7, 13, 24, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .topbar-logo span { color: var(--green); }
+
+        .topbar-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .topbar-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: clamp(6rem, 14vh, 10rem) 2rem clamp(4rem, 8vh, 6rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-glow-1 {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            bottom: -10%;
+            right: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 201, 167, 0.08) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--border-green);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--green);
+            font-weight: 500;
+            margin-bottom: 2rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s ease-out both;
+        }
+
+        .hero-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-card) 0%, rgba(37, 211, 102, 0.15) 100%);
+            border: 3px solid var(--border-green);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            animation: scaleIn 0.8s ease-out 0.1s both;
+            box-shadow: 0 0 40px rgba(37, 211, 102, 0.2);
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-specialty {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--pulso);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 2.2rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            padding: 1rem 2.2rem;
+            background: transparent;
+            color: var(--text-primary);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--border-green);
+            color: var(--green);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 4rem;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .stat-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--green);
+            display: block;
+        }
+
+        .hero-stat .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── SECTION SHARED ── */
+        .section {
+            position: relative;
+            padding: clamp(3rem, 7vh, 5rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-title {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 0 auto;
+        }
+
+        /* ── GLASS CARD ── */
+        .card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ── SECTION 2: RECAP CONVERSA ── */
+        .recap-section {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.05) 0%, rgba(0, 201, 167, 0.03) 100%);
+            border: 1px solid var(--border-green);
+            border-radius: 20px;
+            padding: clamp(2.5rem, 5vh, 4rem) clamp(1.5rem, 4vw, 3.5rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .recap-section::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 10rem;
+            color: rgba(37, 211, 102, 0.08);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .recap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .recap-item {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .recap-item .recap-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .recap-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        .recap-item strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        /* ── SECTION 3: DESAFIO ── */
+        .challenge-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .challenge-highlight {
+            background: linear-gradient(135deg, rgba(255, 80, 80, 0.08) 0%, rgba(255, 120, 60, 0.05) 100%);
+            border: 1px solid rgba(255, 80, 80, 0.2);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .challenge-highlight h3 {
+            color: #ff7070;
+            margin-bottom: 1.5rem;
+        }
+
+        .challenge-point {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+            align-items: flex-start;
+        }
+
+        .challenge-point .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ff7070;
+            flex-shrink: 0;
+            margin-top: 0.55rem;
+        }
+
+        .challenge-point p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .challenge-number-box {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        .big-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            background: linear-gradient(135deg, #ff7070, #ffb347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── SECTION 4: DIAGNÓSTICO ── */
+        .diagnostic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .diagnostic-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .diagnostic-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--pulso));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: left;
+        }
+
+        .diagnostic-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .diagnostic-card:hover {
+            border-color: rgba(255, 255, 255, 0.12);
+            transform: translateY(-4px);
+        }
+
+        .diagnostic-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .diagnostic-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 0.6rem;
+        }
+
+        .diagnostic-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── SECTION 5: OPORTUNIDADES ── */
+        .opportunity-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .opportunity-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            transition: all 0.3s;
+            align-items: start;
+        }
+
+        .opportunity-item:hover {
+            border-color: var(--border-green);
+            background: rgba(37, 211, 102, 0.04);
+        }
+
+        .opportunity-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .opportunity-content h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.4rem;
+        }
+
+        .opportunity-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── SECTION 6: MÉTRICAS ── */
+        .metrics-full {
+            background: var(--dark-surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .metrics-header {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(0, 201, 167, 0.08) 100%);
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .metrics-body {
+            padding: 2.5rem 3rem;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .metric-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .metric-item .metric-val {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+            color: var(--green);
+            display: block;
+            line-height: 1.1;
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-item .metric-lbl {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+        }
+
+        .roi-callout {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(0, 201, 167, 0.08) 100%);
+            border: 1px solid var(--border-green);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .roi-callout p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .roi-callout strong {
+            color: var(--green);
+        }
+
+        /* ── SECTION 7: IMPLEMENTAÇÃO ── */
+        .phases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .phase-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .phase-card.active {
+            border-color: var(--border-green);
+            background: rgba(37, 211, 102, 0.04);
+        }
+
+        .phase-badge {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+        }
+
+        .phase-badge.setup { background: rgba(37, 211, 102, 0.15); color: var(--green); }
+        .phase-badge.growth { background: rgba(0, 201, 167, 0.15); color: var(--pulso); }
+        .phase-badge.scale { background: rgba(201, 168, 76, 0.15); color: var(--gold); }
+
+        .phase-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1.2rem;
+        }
+
+        .phase-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .phase-item::before {
+            content: '→';
+            color: var(--green);
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        /* ── SECTION 8: DELIVERABLES ── */
+        .deliverables-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            padding: 0.6rem 1.2rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: rgba(37, 211, 102, 0.1);
+            border-color: var(--border-green);
+            color: var(--green);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+
+        .deliverable-item {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .deliverable-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: rgba(37, 211, 102, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .deliverable-item h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .deliverable-item p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── SECTION 9: LP PREVIEW ── */
+        .preview-shell {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .preview-shell-bar {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .preview-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .preview-dot.red { background: #ff5f56; }
+        .preview-dot.yellow { background: #ffbd2e; }
+        .preview-dot.green { background: #27c93f; }
+
+        .preview-url {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-left: 0.5rem;
+        }
+
+        .preview-iframe-wrap {
+            width: 100%;
+            height: 70vh;
+            min-height: 480px;
+            position: relative;
+        }
+
+        .preview-iframe-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ── SECTION 10: POSTS PREVIEW ── */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .post-card {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+            background: var(--dark-card);
+        }
+
+        .post-card:hover {
+            transform: scale(1.04);
+            border-color: var(--border-green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .post-card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .post-mockup-1 { background: linear-gradient(135deg, #0a2a1a 0%, #0f3d25 50%, #1a5c38 100%); }
+        .post-mockup-2 { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); }
+        .post-mockup-3 { background: linear-gradient(135deg, #0d0d0d 0%, #1a0a0a 50%, #2d0808 100%); }
+        .post-mockup-4 { background: linear-gradient(135deg, #0a1628 0%, #0d2040 50%, #112d5c 100%); }
+
+        .post-mockup-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-mockup-text {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+
+        .post-mockup-tag {
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.5rem;
+            background: rgba(37, 211, 102, 0.2);
+            border: 1px solid var(--border-green);
+            color: var(--green);
+            font-size: 0.65rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        /* ── SECTION 11: PLANOS ── */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .plan-card {
+            background: var(--dark-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .plan-card.featured {
+            border-color: var(--border-green);
+            background: rgba(37, 211, 102, 0.04);
+            box-shadow: 0 0 60px rgba(37, 211, 102, 0.08);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .plan-name {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .plan-tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .plan-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .plan-price .currency {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .plan-price .amount {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--green);
+            line-height: 1;
+        }
+
+        .plan-price .period {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .plan-setup {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .plan-divider {
+            height: 1px;
+            background: var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .plan-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .plan-feature .check {
+            color: var(--green);
+            flex-shrink: 0;
+            font-weight: 600;
+            margin-top: 0.05rem;
+        }
+
+        .plan-feature.muted .check { color: var(--text-muted); }
+        .plan-feature.muted { color: var(--text-muted); }
+
+        .plan-cta {
+            margin-top: auto;
+            padding-top: 2rem;
+        }
+
+        .plan-btn {
+            display: block;
+            width: 100%;
+            padding: 0.9rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .plan-btn.outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .plan-btn.outline:hover {
+            border-color: var(--border-green);
+            color: var(--green);
+        }
+
+        .plan-btn.solid {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+        }
+
+        .plan-btn.solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.35);
+        }
+
+        /* ── SECTION 12: GARANTIA + CTA ── */
+        .guarantee-block {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.07) 0%, rgba(0, 201, 167, 0.05) 100%);
+            border: 1px solid var(--border-green);
+            border-radius: 20px;
+            padding: clamp(2.5rem, 5vh, 4rem) clamp(1.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .guarantee-block h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-block p {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .guarantee-bullets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0 3rem;
+        }
+
+        .guarantee-bullet {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.2rem;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--border-green);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--green);
+        }
+
+        .final-cta-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 4rem;
+        }
+
+        footer span { color: var(--text-secondary); }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .topbar-logo { font-size: 0.95rem; }
+
+            .challenge-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .plans-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card.featured {
+                order: -1;
+            }
+
+            .metrics-header, .metrics-body {
+                padding: 1.5rem;
+            }
+
+            .hero-stats { gap: 1.5rem; }
+
+            .opportunity-item {
+                padding: 1rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-actions { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-secondary { width: 100%; max-width: 300px; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <nav class="topbar">
+        <div class="topbar-logo">Iceberg<span>.</span>Company</div>
+        <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20a%20proposta%20premium" class="topbar-cta" target="_blank">
+            💬 Falar com especialista
+        </a>
+    </nav>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 1 — HERO PERSONALIZADO
+    ════════════════════════════════════════════════ -->
+    <div class="hero">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+
+        <div class="hero-badge">✦ Proposta Exclusiva · Premium</div>
+
+        <div class="hero-avatar">👨‍⚕️</div>
+
+        <h1>Dr. Teste Premium</h1>
+        <p class="hero-specialty">Médico Especialista · Alta Performance Digital</p>
+        <p class="hero-tagline">
+            Sua prática merece uma presença digital à altura do seu trabalho.
+            Aqui está nosso plano personalizado para transformar sua visibilidade em agenda cheia.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#planos" class="btn-primary">
+                Ver planos e valores
+            </a>
+            <a href="#lp-preview" class="btn-secondary">
+                Ver prévia do site
+            </a>
+        </div>
+
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="stat-value">+215</span>
+                <span class="stat-label">Leads/mês projetados</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-value">R$14</span>
+                <span class="stat-label">CPL estimado</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-value">3×</span>
+                <span class="stat-label">Retorno sobre investimento</span>
+            </div>
+            <div class="hero-stat">
+                <span class="stat-value">30d</span>
+                <span class="stat-label">Para lançar tudo no ar</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 2 — RECAP DA CONVERSA
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <div class="recap-section">
+            <span class="section-label">📋 Recap da nossa conversa</span>
+            <h2 class="section-title">O que entendemos sobre você</h2>
+            <p class="section-subtitle">
+                Aqui está o resumo do que conversamos — para garantir que estamos 100% alinhados antes de apresentar a proposta.
+            </p>
+
+            <div class="recap-grid">
+                <div class="recap-item">
+                    <span class="recap-icon">🏥</span>
+                    <div>
+                        <strong>Especialidade</strong>
+                        Médico com foco em consultas particulares e procedimentos de valor elevado
+                    </div>
+                </div>
+                <div class="recap-item">
+                    <span class="recap-icon">📍</span>
+                    <div>
+                        <strong>Situação atual</strong>
+                        Presença digital iniciante ou em estágio de crescimento — site sem conversão, sem tráfego otimizado
+                    </div>
+                </div>
+                <div class="recap-item">
+                    <span class="recap-icon">🎯</span>
+                    <div>
+                        <strong>Objetivo principal</strong>
+                        Aumentar volume de consultas particulares e construir autoridade digital na especialidade
+                    </div>
+                </div>
+                <div class="recap-item">
+                    <span class="recap-icon">💡</span>
+                    <div>
+                        <strong>Ponto-chave</strong>
+                        Você sabe que precisa de uma estratégia digital — falta o parceiro certo para executar com precisão
+                    </div>
+                </div>
+                <div class="recap-item">
+                    <span class="recap-icon">💰</span>
+                    <div>
+                        <strong>Orçamento</strong>
+                        Aberto a investir entre R$3.000–R$5.000/mês em marketing digital com ROI comprovado
+                    </div>
+                </div>
+                <div class="recap-item">
+                    <span class="recap-icon">⚡</span>
+                    <div>
+                        <strong>Urgência</strong>
+                        Quer resultados rápidos — não daqui a 6 meses. Primeiras conversões em até 30 dias
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 3 — DESAFIO CENTRAL
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">⚠️ O problema real</span>
+        <h2 class="section-title">Por que sua agenda não está cheia ainda</h2>
+        <p class="section-subtitle">
+            Médicos com sua qualificação deveriam estar com agenda lotada semanas à frente.
+            Se isso não está acontecendo, existe uma razão técnica clara.
+        </p>
+
+        <div class="challenge-wrapper">
+            <div class="challenge-highlight">
+                <h3>Os bloqueios identificados</h3>
+
+                <div class="challenge-point">
+                    <div class="dot"></div>
+                    <p><strong>Site sem conversão:</strong> visitantes chegam, não agendam. Sem CTA claro, sem urgência, sem prova social.</p>
+                </div>
+                <div class="challenge-point">
+                    <div class="dot"></div>
+                    <p><strong>Tráfego não segmentado:</strong> campanhas genéricas que atraem curiosos, não pacientes qualificados.</p>
+                </div>
+                <div class="challenge-point">
+                    <div class="dot"></div>
+                    <p><strong>Ausência de automação:</strong> leads chegam, mas sem follow-up automático = 60–70% perdidos no caminho.</p>
+                </div>
+                <div class="challenge-point">
+                    <div class="dot"></div>
+                    <p><strong>Reputação digital fraca:</strong> Google Meu Negócio desatualizado, poucas avaliações, sem gestão ativa.</p>
+                </div>
+                <div class="challenge-point">
+                    <div class="dot"></div>
+                    <p><strong>Conteúdo sem estratégia:</strong> posts que não convertem, sem funil, sem posicionamento de autoridade.</p>
+                </div>
+            </div>
+
+            <div class="challenge-number-box">
+                <span class="big-number">70%</span>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1rem;">dos leads médicos sem automação são perdidos nos primeiros 5 minutos após contato</p>
+
+                <span class="big-number" style="background: linear-gradient(135deg, #ffb347, #ff7070); -webkit-background-clip: text; background-clip: text;">R$0</span>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; font-size: 1rem;">retorno de campanhas sem landing page específica para conversão</p>
+
+                <span class="big-number" style="background: linear-gradient(135deg, var(--green), var(--pulso)); -webkit-background-clip: text; background-clip: text;">3x</span>
+                <p style="color: var(--text-secondary); font-size: 1rem;">mais consultas possíveis com a estratégia certa no mesmo orçamento atual</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 4 — DIAGNÓSTICO
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">🔍 Diagnóstico estratégico</span>
+        <h2 class="section-title">O que está faltando — e onde a concorrência ganha</h2>
+        <p class="section-subtitle">
+            Analisamos o mercado médico digital em Brasília e encontramos 4 gaps críticos no seu posicionamento atual.
+        </p>
+
+        <div class="diagnostic-grid">
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">🌐</div>
+                <h4>Site sem funil de conversão</h4>
+                <p>Sua concorrência já tem landing pages dedicadas para cada especialidade/procedimento, com taxa de conversão 3–5× maior que sites institucionais genéricos.</p>
+            </div>
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">📱</div>
+                <h4>Experiência mobile precária</h4>
+                <p>78% dos pacientes pesquisam médicos pelo celular. Sites lentos ou não otimizados perdem esses pacientes para quem carrega em menos de 2 segundos.</p>
+            </div>
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">🤖</div>
+                <h4>Zero automação de follow-up</h4>
+                <p>Clínicas concorrentes já usam WhatsApp Business + CRM para reconectar automaticamente com leads que não agendaram. Você perde essas oportunidades todos os dias.</p>
+            </div>
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">⭐</div>
+                <h4>Gestão de reputação ausente</h4>
+                <p>Médicos com mais de 4.7 estrelas no Google captam 40% mais pacientes particulares. Sem gestão ativa de avaliações, você cede terreno para a concorrência.</p>
+            </div>
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">🎯</div>
+                <h4>Tráfego sem segmentação precisa</h4>
+                <p>Campanhas abertas atraem pacientes fora do perfil. Estratégia correta: segmentação por renda, localização e intenção de compra = CPL 50–60% menor.</p>
+            </div>
+            <div class="diagnostic-card">
+                <div class="diagnostic-icon">📊</div>
+                <h4>Sem dados para otimizar</h4>
+                <p>Sem pixel instalado, GA4 configurado e rastreamento de conversão, você toma decisões no escuro. Cada real investido sem tracking é desperdício.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 5 — OPORTUNIDADES
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">🚀 Plano de ação</span>
+        <h2 class="section-title">5 oportunidades concretas para você</h2>
+        <p class="section-subtitle">Cada oportunidade tem um prazo, uma métrica de sucesso e um responsável claro.</p>
+
+        <div class="opportunity-list">
+            <div class="opportunity-item">
+                <div class="opportunity-number">1</div>
+                <div class="opportunity-content">
+                    <h4>Landing page de alta conversão — ativa em 10 dias</h4>
+                    <p>Página focada em dor/resultado, mobile-first, com prova social, CTA WhatsApp e estrutura otimizada para conversão. Meta: 5–12% de taxa de conversão.</p>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-number">2</div>
+                <div class="opportunity-content">
+                    <h4>Campanhas segmentadas Meta + Google — lançamento em 7 dias</h4>
+                    <p>Configuração de campanhas com segmentação por renda (A/B), localização em raio de 15km, remarketing para visitantes do site. CPL projetado: R$14–20.</p>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-number">3</div>
+                <div class="opportunity-content">
+                    <h4>Automação WhatsApp + CRM — configuração em 14 dias</h4>
+                    <p>Fluxo automático de boas-vindas, qualificação do lead e agendamento. Leads que não respondem recebem follow-up automático em 1h, 24h e 72h.</p>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-number">4</div>
+                <div class="opportunity-content">
+                    <h4>Grid de conteúdo fundacional — 12 posts em 15 dias</h4>
+                    <p>Posts de autoridade, educação do paciente e provas sociais que posicionam você como referência antes mesmo do primeiro anúncio ir no ar.</p>
+                </div>
+            </div>
+            <div class="opportunity-item">
+                <div class="opportunity-number">5</div>
+                <div class="opportunity-content">
+                    <h4>Dashboard de resultados em tempo real — acesso no dia 1</h4>
+                    <p>Painel personalizado com CPL, ROAS, agendamentos, custo por paciente e projeções. Você acompanha cada real investido e o retorno gerado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 6 — MÉTRICAS PROJETADAS
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">📈 Projeção de resultados</span>
+        <h2 class="section-title">Números reais, metas alcançáveis</h2>
+        <p class="section-subtitle">
+            Baseado em resultados de clínicas similares que gerenciamos em Brasília nos últimos 18 meses.
+        </p>
+
+        <div class="metrics-full">
+            <div class="metrics-header">
+                <h3 style="color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 0.5rem;">Benchmark real — clínicas médicas em Brasília (2024–2025)</h3>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">Dados médios de 4 clínicas sob nossa gestão. Investimento de tráfego: R$3.000–R$6.000/mês.</p>
+            </div>
+            <div class="metrics-body">
+                <div class="metrics-row">
+                    <div class="metric-item">
+                        <span class="metric-val">~215</span>
+                        <span class="metric-lbl">Contatos qualificados/mês</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">~85</span>
+                        <span class="metric-lbl">Agendamentos confirmados</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">R$14</span>
+                        <span class="metric-lbl">Custo por lead (CPL)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">R$35</span>
+                        <span class="metric-lbl">Custo por paciente</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">4.8★</span>
+                        <span class="metric-lbl">Média Google após 90 dias</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-val">3.2×</span>
+                        <span class="metric-lbl">ROAS médio (retorno/gasto)</span>
+                    </div>
+                </div>
+
+                <div class="roi-callout">
+                    <div>
+                        <p>Com investimento de <strong>R$3.000/mês em tráfego</strong></p>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Ticket médio estimado R$550/consulta × 85 novos pacientes</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green);">R$46.750</span>
+                        <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">receita projetada/mês</span>
+                    </div>
+                    <div style="text-align: center;">
+                        <span style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--green);">15.6×</span>
+                        <span style="display: block; font-size: 0.8rem; color: var(--text-muted);">ROI sobre management fee</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 7 — FASES DE IMPLEMENTAÇÃO
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">🗓️ Cronograma</span>
+        <h2 class="section-title">Implementação por fase — sem esperar meses</h2>
+        <p class="section-subtitle">De zero a campanha rodando em 30 dias. Cada fase com entregáveis claros e datas fixas.</p>
+
+        <div class="phases-grid">
+            <div class="phase-card active">
+                <span class="phase-badge setup">Mês 1 — Setup</span>
+                <h3>Fundação e lançamento</h3>
+                <div class="phase-item">Onboarding e acesso a plataformas (Dias 1–3)</div>
+                <div class="phase-item">Landing page premium no ar (Dias 3–10)</div>
+                <div class="phase-item">Pixel + GA4 + rastreamento de conversão (Dias 5–7)</div>
+                <div class="phase-item">Campanhas Meta + Google ativas (Dia 7–14)</div>
+                <div class="phase-item">CRM + automações WhatsApp (Dias 10–20)</div>
+                <div class="phase-item">Grid de conteúdo fundacional (12 posts)</div>
+                <div class="phase-item">Primeiros leads chegando em até 14 dias</div>
+            </div>
+            <div class="phase-card">
+                <span class="phase-badge growth">Mês 2 — Crescimento</span>
+                <h3>Otimização e escala</h3>
+                <div class="phase-item">Análise de performance das campanhas</div>
+                <div class="phase-item">Otimização de criativos e segmentação</div>
+                <div class="phase-item">Ativação de campanhas de remarketing</div>
+                <div class="phase-item">Relatório de resultados + ajustes estratégicos</div>
+                <div class="phase-item">Conteúdo de autoridade (educativo + provas)</div>
+                <div class="phase-item">Gestão ativa de avaliações Google</div>
+                <div class="phase-item">Dashboard de resultados refinado</div>
+            </div>
+            <div class="phase-card">
+                <span class="phase-badge scale">Mês 3+ — Consolidação</span>
+                <h3>Dominância de mercado</h3>
+                <div class="phase-item">Estratégia de conteúdo de longo prazo</div>
+                <div class="phase-item">Expansão de canais (YouTube Ads, TikTok)</div>
+                <div class="phase-item">Segmentação avançada de audiências</div>
+                <div class="phase-item">Programa de indicações digitais</div>
+                <div class="phase-item">SEO técnico e local (Google Maps)</div>
+                <div class="phase-item">Revisão trimestral de estratégia</div>
+                <div class="phase-item">Escalada de orçamento com dados validados</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 8 — DELIVERABLES POR PLANO
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal" id="deliverables">
+        <span class="section-label">📦 O que você recebe</span>
+        <h2 class="section-title">Entregáveis detalhados por plano</h2>
+        <p class="section-subtitle">Cada entregável tem um responsável, prazo e critério de sucesso definido.</p>
+
+        <div class="deliverables-tabs">
+            <button class="tab-btn active" onclick="switchTab('essencial')">Essencial</button>
+            <button class="tab-btn" onclick="switchTab('marketing')">Marketing</button>
+            <button class="tab-btn" onclick="switchTab('premium')">Premium ⭐</button>
+        </div>
+
+        <div class="tab-content active" id="tab-essencial">
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🌐</div>
+                <div>
+                    <h4>Landing Page Premium</h4>
+                    <p>Mobile-first, acima do dobramento otimizado, CTA WhatsApp, prova social</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📊</div>
+                <div>
+                    <h4>Campanhas Meta Ads</h4>
+                    <p>Configuração, segmentação, criativos (3 variações), otimização semanal</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🎯</div>
+                <div>
+                    <h4>Pixel + Rastreamento</h4>
+                    <p>Meta Pixel, GA4, GTM, rastreamento de conversões e eventos</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📱</div>
+                <div>
+                    <h4>12 Posts/mês</h4>
+                    <p>Grid de conteúdo, artes, legendas e estratégia de publicação</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📋</div>
+                <div>
+                    <h4>Relatório Mensal</h4>
+                    <p>CPL, agendamentos, ROAS, recomendações e próximos passos</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">💬</div>
+                <div>
+                    <h4>Suporte via WhatsApp</h4>
+                    <p>Atendimento em horário comercial, SLA de 4h para respostas</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-marketing">
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🌐</div>
+                <div>
+                    <h4>Landing Page Premium + Site</h4>
+                    <p>LP de conversão + site institucional completo com SEO técnico</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📊</div>
+                <div>
+                    <h4>Meta Ads + Google Ads</h4>
+                    <p>Campanhas em ambas plataformas, Google Search + Display, YouTube pre-roll</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🤖</div>
+                <div>
+                    <h4>CRM + Automação WhatsApp</h4>
+                    <p>Fluxos de follow-up automático, qualificação de lead, agendamento integrado</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📱</div>
+                <div>
+                    <h4>20 Posts/mês</h4>
+                    <p>Reels, carrosséis, stories, conteúdo educativo e de autoridade</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">⭐</div>
+                <div>
+                    <h4>Gestão de Reputação</h4>
+                    <p>Estratégia de avaliações, respostas, Google Meu Negócio otimizado</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📊</div>
+                <div>
+                    <h4>Dashboard em Tempo Real</h4>
+                    <p>Acesso ao painel de resultados com métricas atualizadas diariamente</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="tab-premium">
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🌐</div>
+                <div>
+                    <h4>LP + Site + 3 Páginas Esp.</h4>
+                    <p>LP de conversão, site institucional e 3 páginas específicas por procedimento</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📊</div>
+                <div>
+                    <h4>Ecossistema de Tráfego Completo</h4>
+                    <p>Meta + Google + YouTube + estratégia de remarketing avançada</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">🤖</div>
+                <div>
+                    <h4>CRM Premium + Chatbot IA</h4>
+                    <p>Qualificação automática, chatbot com IA, agendamento integrado ao sistema da clínica</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📱</div>
+                <div>
+                    <h4>30 Posts + Reels Mensais</h4>
+                    <p>Produção completa de conteúdo, roteiros de reels, estratégia editorial premium</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">👥</div>
+                <div>
+                    <h4>Estratégia de Influencers</h4>
+                    <p>Mapeamento, contato e gestão de microinfluencers da área da saúde</p>
+                </div>
+            </div>
+            <div class="deliverable-item">
+                <div class="deliverable-icon">📞</div>
+                <div>
+                    <h4>Reuniões Semanais + Suporte 24/7</h4>
+                    <p>Check-in semanal de performance, suporte prioritário, gerente de conta dedicado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 9 — PREVIEW LP
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal" id="lp-preview">
+        <span class="section-label">🖥️ Preview da sua landing page</span>
+        <h2 class="section-title">Veja o site que seus pacientes vão acessar</h2>
+        <p class="section-subtitle">
+            Desenvolvemos um preview completo da sua landing page — responsiva, moderna e otimizada para converter visitas em agendamentos.
+        </p>
+
+        <div class="preview-shell">
+            <div class="preview-shell-bar">
+                <div class="preview-dot red"></div>
+                <div class="preview-dot yellow"></div>
+                <div class="preview-dot green"></div>
+                <div class="preview-url">https://oguidomingos-devfactory.github.io/iceberg-deliverables/DES-558/lp/</div>
+            </div>
+            <div class="preview-iframe-wrap">
+                <iframe src="./lp/" title="Landing Page Dr. Teste Premium" loading="lazy"></iframe>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="./lp/" target="_blank" class="btn-secondary">
+                🔗 Abrir em nova aba
+            </a>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 10 — POSTS PREVIEW
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <span class="section-label">📸 Preview de conteúdo</span>
+        <h2 class="section-title">Posts iniciais do grid de fundação</h2>
+        <p class="section-subtitle">
+            Os 4 posts-chave que lançamos no primeiro mês para estabelecer autoridade e atrair o perfil de paciente ideal.
+        </p>
+
+        <div class="posts-grid">
+            <div class="post-card">
+                <div class="post-card-inner post-mockup-1">
+                    <div class="post-mockup-icon">🩺</div>
+                    <div class="post-mockup-text">
+                        <strong style="color: #fff; font-size: 0.8rem;">Apresentação<br>de Autoridade</strong><br><br>
+                        "Quem sou, o que faço e por que me especializo em você"
+                    </div>
+                    <div class="post-mockup-tag">POST 1</div>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-card-inner post-mockup-2">
+                    <div class="post-mockup-icon">❓</div>
+                    <div class="post-mockup-text">
+                        <strong style="color: #fff; font-size: 0.8rem;">Dúvida Frequente</strong><br><br>
+                        "A pergunta que todo paciente tem mas tem vergonha de fazer"
+                    </div>
+                    <div class="post-mockup-tag">POST 2</div>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-card-inner post-mockup-3">
+                    <div class="post-mockup-icon">✅</div>
+                    <div class="post-mockup-text">
+                        <strong style="color: #fff; font-size: 0.8rem;">Prova Social</strong><br><br>
+                        "Resultado de paciente real — com autorização e emoção genuína"
+                    </div>
+                    <div class="post-mockup-tag">POST 3</div>
+                </div>
+            </div>
+            <div class="post-card">
+                <div class="post-card-inner post-mockup-4">
+                    <div class="post-mockup-icon">📅</div>
+                    <div class="post-mockup-text">
+                        <strong style="color: #fff; font-size: 0.8rem;">CTA de Agendamento</strong><br><br>
+                        "Agenda aberta — Link na bio para agendamento direto"
+                    </div>
+                    <div class="post-mockup-tag">POST 4</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 11 — PLANOS E PREÇOS
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal" id="planos">
+        <span class="section-label">💼 Planos e investimento</span>
+        <h2 class="section-title" style="text-align: center;">Escolha o plano ideal para o seu momento</h2>
+        <p class="section-subtitle" style="margin: 0 auto 0; text-align: center;">
+            Todos os planos incluem setup completo, sem taxa de adesão adicional. Contrato mensal, cancelamento a qualquer momento.
+        </p>
+
+        <div class="plans-grid">
+            <!-- PLANO ESSENCIAL -->
+            <div class="plan-card">
+                <div class="plan-name">Essencial</div>
+                <div class="plan-tagline">Para quem está começando com tráfego</div>
+                <div class="plan-price">
+                    <span class="currency">R$</span>
+                    <span class="amount">2.500</span>
+                    <span class="period">/mês</span>
+                </div>
+                <div class="plan-setup">+ R$3.500 setup único</div>
+
+                <div class="plan-divider"></div>
+
+                <div class="plan-feature"><span class="check">✓</span> Landing page de conversão</div>
+                <div class="plan-feature"><span class="check">✓</span> 1 campanha Meta Ads</div>
+                <div class="plan-feature"><span class="check">✓</span> Pixel + rastreamento básico</div>
+                <div class="plan-feature"><span class="check">✓</span> 12 posts por mês</div>
+                <div class="plan-feature"><span class="check">✓</span> Relatório mensal</div>
+                <div class="plan-feature"><span class="check">✓</span> Suporte comercial (WhatsApp)</div>
+                <div class="plan-feature muted"><span class="check">–</span> Google Ads</div>
+                <div class="plan-feature muted"><span class="check">–</span> CRM + automações</div>
+                <div class="plan-feature muted"><span class="check">–</span> Gestão de reputação</div>
+
+                <div class="plan-cta">
+                    <a href="https://wa.me/5561991465706?text=Quero%20o%20plano%20Essencial" class="plan-btn outline" target="_blank">
+                        Quero o Essencial
+                    </a>
+                </div>
+            </div>
+
+            <!-- PLANO MARKETING (DESTAQUE) -->
+            <div class="plan-card featured">
+                <div class="plan-badge">⭐ Mais popular</div>
+                <div class="plan-name">Marketing</div>
+                <div class="plan-tagline">Para quem quer crescer rápido</div>
+                <div class="plan-price">
+                    <span class="currency">R$</span>
+                    <span class="amount">3.900</span>
+                    <span class="period">/mês</span>
+                </div>
+                <div class="plan-setup">+ R$5.500 setup único</div>
+
+                <div class="plan-divider"></div>
+
+                <div class="plan-feature"><span class="check">✓</span> LP premium + site institucional</div>
+                <div class="plan-feature"><span class="check">✓</span> Meta Ads + Google Ads</div>
+                <div class="plan-feature"><span class="check">✓</span> CRM + automação WhatsApp</div>
+                <div class="plan-feature"><span class="check">✓</span> 20 posts + reels/mês</div>
+                <div class="plan-feature"><span class="check">✓</span> Gestão de reputação Google</div>
+                <div class="plan-feature"><span class="check">✓</span> Dashboard em tempo real</div>
+                <div class="plan-feature"><span class="check">✓</span> Reunião quinzenal de performance</div>
+                <div class="plan-feature"><span class="check">✓</span> Suporte prioritário</div>
+                <div class="plan-feature muted"><span class="check">–</span> Chatbot IA + influencers</div>
+
+                <div class="plan-cta">
+                    <a href="https://wa.me/5561991465706?text=Quero%20o%20plano%20Marketing" class="plan-btn solid" target="_blank">
+                        Quero o Marketing
+                    </a>
+                </div>
+            </div>
+
+            <!-- PLANO PREMIUM -->
+            <div class="plan-card">
+                <div class="plan-name">Premium</div>
+                <div class="plan-tagline">Para quem quer dominar o mercado</div>
+                <div class="plan-price">
+                    <span class="currency">R$</span>
+                    <span class="amount">6.500</span>
+                    <span class="period">/mês</span>
+                </div>
+                <div class="plan-setup">+ R$8.000 setup único</div>
+
+                <div class="plan-divider"></div>
+
+                <div class="plan-feature"><span class="check">✓</span> LP + site + 3 páginas esp.</div>
+                <div class="plan-feature"><span class="check">✓</span> Meta + Google + YouTube Ads</div>
+                <div class="plan-feature"><span class="check">✓</span> CRM premium + chatbot IA</div>
+                <div class="plan-feature"><span class="check">✓</span> 30 posts + reels mensais</div>
+                <div class="plan-feature"><span class="check">✓</span> Gestão de reputação avançada</div>
+                <div class="plan-feature"><span class="check">✓</span> Estratégia de influencers</div>
+                <div class="plan-feature"><span class="check">✓</span> Reuniões semanais</div>
+                <div class="plan-feature"><span class="check">✓</span> Gerente de conta dedicado</div>
+                <div class="plan-feature"><span class="check">✓</span> Suporte 24/7</div>
+
+                <div class="plan-cta">
+                    <a href="https://wa.me/5561991465706?text=Quero%20o%20plano%20Premium" class="plan-btn outline" target="_blank">
+                        Quero o Premium
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════
+         SEÇÃO 12 — GARANTIA + PRÓXIMOS PASSOS
+    ════════════════════════════════════════════════ -->
+    <div class="section reveal">
+        <div class="guarantee-block">
+            <span class="guarantee-icon">🛡️</span>
+            <h2>Nossa Garantia de Resultados</h2>
+            <p>
+                Trabalhamos com transparência total. Você acompanha cada ação, cada real investido e cada resultado gerado.
+                Se nos primeiros 30 dias você não ver leads chegando, revisamos a estratégia sem custo adicional.
+            </p>
+
+            <div class="guarantee-bullets">
+                <span class="guarantee-bullet">✓ Relatórios semanais</span>
+                <span class="guarantee-bullet">✓ Dashboard 24/7</span>
+                <span class="guarantee-bullet">✓ Sem fidelidade mínima</span>
+                <span class="guarantee-bullet">✓ Revisão gratuita se sem leads em 30d</span>
+                <span class="guarantee-bullet">✓ Reunião de alinhamento mensal</span>
+            </div>
+
+            <h3 style="color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 1rem;">Próximos passos são simples:</h3>
+            <p style="font-size: 0.95rem;">
+                1. Clique no botão abaixo e mande "Proposta Premium"<br>
+                2. Agendamos uma call de 30 min para alinhar detalhes<br>
+                3. Em até 3 dias úteis, você já tem o contrato e cronograma em mãos
+            </p>
+
+            <div class="final-cta-actions" style="margin-top: 2.5rem;">
+                <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20vi%20a%20proposta%20premium%20e%20quero%20dar%20pr%C3%B3ximos%20passos" class="btn-primary" target="_blank">
+                    💬 Quero fechar agora
+                </a>
+                <a href="#planos" class="btn-secondary">
+                    Ver os planos novamente
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><span>Iceberg Company</span> · Proposta exclusiva para <span>Dr. Teste Premium</span></p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">
+            Esta proposta é confidencial e personalizada. Válida por 15 dias a partir do envio.
+        </p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        revealEls.forEach(el => revealObserver.observe(el));
+
+        // Tabs
+        function switchTab(plan) {
+            document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', btn.getAttribute('onclick').includes(plan));
+            });
+            document.querySelectorAll('.tab-content').forEach(tc => {
+                tc.classList.remove('active');
+            });
+            document.getElementById('tab-' + plan).classList.add('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
