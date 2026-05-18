@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Luiz Sarmanho | Consultas e Tratamentos Especializados</title>
+  <meta name="description" content="Agende sua consulta com Dr. Luiz Sarmanho. Atendimento humanizado, diagnóstico preciso e tratamentos de alta eficácia. Agende agora pelo WhatsApp.">
+  <meta property="og:title" content="Dr. Luiz Sarmanho | Medicina Especializada">
+  <meta property="og:description" content="Diagnóstico preciso e tratamento individualizado. Agende sua consulta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:      #050E1A;
+      --deep:    #071428;
+      --teal:    #00C9A7;
+      --teal-dk: #009B82;
+      --gold:    #C9A63A;
+      --white:   #F8F9FA;
+      --muted:   #94A3B8;
+      --border:  rgba(0,201,167,.15);
+      --card:    rgba(255,255,255,.04);
+      --green:   #25D366;
+      --r:       14px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.65;
+    }
+    h1,h2,h3,h4 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    a { color: var(--teal); text-decoration: none; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 0 clamp(1rem, 5vw, 2rem); }
+
+    /* ── STICKY WA BAR ── */
+    .wa-bar {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+    }
+    .wa-float {
+      display: flex; align-items: center; gap: .6rem;
+      padding: .85rem 1.6rem;
+      background: var(--green);
+      color: #fff;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .95rem;
+      box-shadow: 0 8px 32px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    }
+    .wa-float:hover { transform: scale(1.05); box-shadow: 0 12px 40px rgba(37,211,102,.55); }
+    .wa-float svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 85% 20%, rgba(0,201,167,.13) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 10% 90%, rgba(201,166,58,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media(max-width:720px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .9rem;
+      background: rgba(0,201,167,.1);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: .76rem;
+      color: var(--teal);
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      margin-bottom: 1rem;
+    }
+    h1 em { font-style: italic; color: var(--teal); }
+    .hero-sub {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 460px;
+    }
+    @media(max-width:720px){ .hero-sub { margin: 0 auto 2rem; } }
+
+    .cta-main {
+      display: inline-flex; align-items: center; gap: .7rem;
+      padding: 1rem 2rem;
+      background: var(--green);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      box-shadow: 0 0 24px rgba(37,211,102,.35);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cta-main:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+    .cta-main svg { width: 22px; height: 22px; }
+
+    .hero-trust {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      margin-top: 2rem;
+    }
+    @media(max-width:720px){ .hero-trust { justify-content: center; } }
+    .trust-item {
+      display: flex; align-items: center; gap: .4rem;
+      font-size: .82rem; color: var(--muted);
+    }
+    .trust-item .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+    /* Doctor photo card */
+    .doctor-visual {
+      background: linear-gradient(145deg, rgba(0,201,167,.12) 0%, rgba(7,20,40,.8) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .doctor-visual::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--gold));
+    }
+    .doctor-photo {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0F4040 0%, #0A1828 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      margin: 0 auto 1.5rem;
+      border: 3px solid var(--teal);
+      box-shadow: 0 0 30px rgba(0,201,167,.3);
+    }
+    .doctor-visual .name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: .3rem;
+    }
+    .doctor-visual .crm {
+      font-size: .82rem;
+      color: var(--teal);
+      margin-bottom: 1.5rem;
+    }
+    .stars { color: #F0CC5A; font-size: 1.1rem; margin-bottom: .4rem; }
+    .doctor-visual .review-text {
+      font-size: .82rem;
+      color: var(--muted);
+      font-style: italic;
+      max-width: 260px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: clamp(3.5rem, 7vw, 5.5rem) 0; }
+    .sep { border: none; border-top: 1px solid var(--border); }
+    .s-label {
+      font-size: .76rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: .6rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    .s-label::before { content: ''; width: 20px; height: 2px; background: var(--teal); }
+    h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); margin-bottom: .75rem; }
+    .s-sub { color: var(--muted); font-size: 1rem; margin-bottom: 2.5rem; max-width: 580px; }
+
+    /* ── SERVICES ── */
+    #servicos { background: var(--deep); }
+    .serv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .serv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.75rem 1.5rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .serv-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+    .serv-icon { font-size: 2rem; margin-bottom: .8rem; }
+    .serv-card h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+    .serv-card p { font-size: .88rem; color: var(--muted); }
+
+    /* ── CREDENCIAIS ── */
+    #credenciais {}
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .cred-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .cred-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .cred-item h4 { font-size: .9rem; color: var(--white); margin-bottom: .2rem; }
+    .cred-item p { font-size: .8rem; color: var(--muted); }
+
+    /* ── DEPOIMENTOS ── */
+    #depoimentos { background: var(--deep); }
+    .dep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .dep-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.75rem;
+    }
+    .dep-stars { color: #F0CC5A; font-size: 1rem; margin-bottom: 1rem; }
+    .dep-text { font-size: .9rem; color: var(--muted); font-style: italic; margin-bottom: 1.25rem; line-height: 1.7; }
+    .dep-author { display: flex; align-items: center; gap: .75rem; }
+    .dep-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dk));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .dep-author-name { font-size: .88rem; font-weight: 600; }
+    .dep-author-sub { font-size: .75rem; color: var(--muted); }
+
+    /* ── CTA MID ── */
+    #cta-mid {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(0,201,167,.1) 0%, rgba(201,166,58,.04) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    #cta-mid h2 { margin-bottom: .75rem; }
+    #cta-mid p { color: var(--muted); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+    /* ── FAQ ── */
+    #faq {}
+    .faq-list { margin-top: 2rem; display: grid; gap: .75rem; }
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 500;
+      font-size: .95rem;
+      user-select: none;
+      transition: background .2s;
+    }
+    .faq-q:hover { background: var(--card); }
+    .faq-q .icon { transition: transform .3s; color: var(--teal); font-style: normal; font-size: 1.1rem; flex-shrink: 0; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height .35s ease, padding .35s ease;
+      font-size: .9rem; color: var(--muted);
+      padding: 0 1.5rem;
+    }
+    .faq-a.open { max-height: 200px; padding: 0 1.5rem 1.25rem; }
+    .faq-item.open .faq-q .icon { transform: rotate(45deg); }
+
+    /* ── CTA FINAL ── */
+    #cta-final {
+      background: var(--deep);
+      text-align: center;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(0,201,167,.12) 0%, rgba(7,20,40,.8) 100%);
+      border: 1px solid rgba(0,201,167,.25);
+      border-radius: 24px;
+      padding: clamp(3rem, 6vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+    }
+    .cta-box h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); margin-bottom: 1rem; }
+    .cta-box p { color: var(--muted); max-width: 500px; margin: 0 auto 2rem; }
+
+    /* footer */
+    footer {
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity:0; transform:translateY(24px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .anim { animation: fadeInUp .6s ease both; }
+    .d1 { animation-delay:.1s; }
+    .d2 { animation-delay:.2s; }
+    .d3 { animation-delay:.3s; }
+  </style>
+</head>
+<body>
+
+<!-- FLOATING WA -->
+<div class="wa-bar">
+  <a href="https://wa.me/5511999999999?text=Olá%20Dr.%20Luiz!%20Gostaria%20de%20agendar%20uma%20consulta." class="wa-float" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Agendar Consulta
+  </a>
+</div>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow anim">
+          ⭐ Medicina de excelência · São Paulo
+        </div>
+        <h1 class="anim d1">
+          Você merece um cuidado <em>que transforma</em> sua saúde de verdade.
+        </h1>
+        <p class="hero-sub anim d2">
+          Dr. Luiz Sarmanho oferece diagnóstico preciso, tratamento individualizado e acompanhamento humanizado. Sua saúde, nossa prioridade.
+        </p>
+        <a href="https://wa.me/5511999999999?text=Olá%20Dr.%20Luiz!%20Gostaria%20de%20agendar%20uma%20consulta." class="cta-main anim d3" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar pelo WhatsApp
+        </a>
+        <div class="hero-trust">
+          <div class="trust-item"><div class="dot"></div>Atendimento humanizado</div>
+          <div class="trust-item"><div class="dot"></div>Diagnóstico preciso</div>
+          <div class="trust-item"><div class="dot"></div>+500 pacientes atendidos</div>
+        </div>
+      </div>
+      <div class="anim d2">
+        <div class="doctor-visual">
+          <div class="doctor-photo">👨‍⚕️</div>
+          <div class="name">Dr. Luiz Sarmanho</div>
+          <div class="crm">Medicina Especializada · CRM-SP 000000</div>
+          <div class="stars">★★★★★</div>
+          <p class="review-text">"O Dr. Luiz me devolveu a qualidade de vida. Atendimento preciso e muito humano."</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ SERVIÇOS ══════════════════ -->
+<section id="servicos">
+  <div class="container">
+    <div class="s-label">Especialidades</div>
+    <h2>Procedimentos e <span style="color:var(--teal)">tratamentos</span></h2>
+    <p class="s-sub">Atendimento completo com tecnologia de ponta e protocolos validados pela medicina baseada em evidências.</p>
+    <div class="serv-grid">
+      <div class="serv-card">
+        <div class="serv-icon">🩺</div>
+        <h3>Consulta Clínica</h3>
+        <p>Anamnese completa, exame físico detalhado e diagnóstico preciso com foco no histórico do paciente.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">🧪</div>
+        <h3>Avaliação Laboratorial</h3>
+        <p>Interpretação aprofundada de exames, correlação clínica e ajuste de tratamentos baseado em dados.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">💊</div>
+        <h3>Medicina Preventiva</h3>
+        <p>Check-up anual, rastreamento de doenças e estratégias de prevenção personalizadas por faixa etária.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">🫀</div>
+        <h3>Acompanhamento Crônico</h3>
+        <p>Gestão de condições crônicas como hipertensão, diabetes e dislipidemia com protocolos atualizados.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">🧬</div>
+        <h3>Medicina Integrativa</h3>
+        <p>Abordagem que integra medicina convencional com estratégias de saúde do estilo de vida.</p>
+      </div>
+      <div class="serv-card">
+        <div class="serv-icon">📋</div>
+        <h3>Segunda Opinião</h3>
+        <p>Revisão criteriosa de diagnósticos e tratamentos com olhar especializado e imparcial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ CREDENCIAIS ══════════════════ -->
+<section id="credenciais">
+  <div class="container">
+    <div class="s-label">Por que Dr. Luiz?</div>
+    <h2>Formação e <span style="color:var(--teal)">credenciais</span></h2>
+    <p class="s-sub">Anos de formação e experiência a serviço da sua saúde.</p>
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <h4>Graduação em Medicina</h4>
+          <p>Formado com distinção por conceituada instituição de ensino superior</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">🏥</div>
+        <div>
+          <h4>Residência Médica</h4>
+          <p>Residência completa em hospital de referência com atuação em casos complexos</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">📜</div>
+        <div>
+          <h4>Títulos e Especializações</h4>
+          <p>Membro de sociedades médicas e certificações em protocolos clínicos avançados</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">🔬</div>
+        <div>
+          <h4>Atualização Contínua</h4>
+          <p>Participação regular em congressos nacionais e internacionais da especialidade</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">⭐</div>
+        <div>
+          <h4>+500 Pacientes Atendidos</h4>
+          <p>Histórico de alta satisfação e resultados clínicos comprovados</p>
+        </div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">🤝</div>
+        <div>
+          <h4>Atendimento Humanizado</h4>
+          <p>Escuta ativa, transparência e relação de confiança com cada paciente</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ DEPOIMENTOS ══════════════════ -->
+<section id="depoimentos">
+  <div class="container">
+    <div class="s-label">O que dizem os pacientes</div>
+    <h2>Resultados que <span style="color:var(--teal)">transformam vidas</span></h2>
+    <p class="s-sub">Histórias reais de pacientes que encontraram a saúde que mereciam.</p>
+    <div class="dep-grid">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Depois de anos buscando diagnóstico preciso, o Dr. Luiz encontrou a causa do meu problema em duas consultas. Me devolveu a qualidade de vida que eu não tinha há anos."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <div class="dep-author-name">Maria C., 54 anos</div>
+            <div class="dep-author-sub">Paciente há 3 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Atendimento impecável. O Dr. Luiz explica tudo com clareza, ouve com atenção e o tratamento funcionou muito além das minhas expectativas. Recomendo sem hesitar."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👨</div>
+          <div>
+            <div class="dep-author-name">Roberto S., 47 anos</div>
+            <div class="dep-author-sub">Paciente há 2 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-text">"Fui por indicação de uma amiga e não me arrependo. A consulta durou mais de 45 minutos — ele realmente presta atenção no paciente. Profissional de referência."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <div class="dep-author-name">Fernanda L., 38 anos</div>
+            <div class="dep-author-sub">Paciente há 1 ano</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ CTA MID ══════════════════ -->
+<section id="cta-mid">
+  <div class="container" style="padding-top:4rem; padding-bottom:4rem;">
+    <h2>Pronto para cuidar da sua <span style="color:var(--teal)">saúde de verdade?</span></h2>
+    <p>Agende sua consulta agora e dê o primeiro passo para uma vida com mais saúde e qualidade.</p>
+    <a href="https://wa.me/5511999999999?text=Olá%20Dr.%20Luiz!%20Gostaria%20de%20agendar%20uma%20consulta." class="cta-main" style="display:inline-flex;" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Agendar pelo WhatsApp
+    </a>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ FAQ ══════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="s-label">Dúvidas frequentes</div>
+    <h2>Perguntas <span style="color:var(--teal)">frequentes</span></h2>
+    <p class="s-sub">Tudo o que você precisa saber antes de agendar sua consulta.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Como faço para agendar uma consulta?
+          <i class="icon">+</i>
+        </div>
+        <div class="faq-a">
+          O agendamento é feito diretamente pelo WhatsApp. Basta clicar no botão "Agendar Consulta" e entrar em contato. Nossa equipe responde em até 2 horas durante o horário comercial.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quais convênios são aceitos?
+          <i class="icon">+</i>
+        </div>
+        <div class="faq-a">
+          Aceitamos os principais convênios médicos da região. Entre em contato pelo WhatsApp para confirmar se o seu plano está na lista atualizada. Também atendemos particular.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Quanto tempo dura a consulta?
+          <i class="icon">+</i>
+        </div>
+        <div class="faq-a">
+          As consultas têm duração média de 40 a 50 minutos. O Dr. Luiz dedica tempo suficiente para ouvir você, realizar exame físico completo e elaborar o plano de tratamento.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso levar exames anteriores?
+          <i class="icon">+</i>
+        </div>
+        <div class="faq-a">
+          Sim, é recomendável levar todos os exames anteriores, receitas e histórico médico. Isso ajuda o Dr. Luiz a ter uma visão completa da sua saúde e otimizar o tempo de consulta.
+        </div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          O consultório fica em qual região?
+          <i class="icon">+</i>
+        </div>
+        <div class="faq-a">
+          O consultório está localizado em São Paulo. O endereço completo é enviado após a confirmação do agendamento pelo WhatsApp.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sep">
+
+<!-- ══════════════════ CTA FINAL ══════════════════ -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-box">
+      <h2>Sua saúde não pode <span style="color:var(--teal)">esperar mais.</span></h2>
+      <p>Agende agora sua consulta com o Dr. Luiz Sarmanho. Atendimento humanizado, diagnóstico preciso e tratamento que funciona.</p>
+      <a href="https://wa.me/5511999999999?text=Olá%20Dr.%20Luiz!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20uma%20consulta." class="cta-main" style="display:inline-flex;" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Agendar Consulta Agora
+      </a>
+      <p style="margin-top:1rem; font-size:.8rem; color:rgba(148,163,184,.6);">Resposta em até 2 horas · Seg–Sex 8h–18h</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Dr. Luiz Sarmanho · CRM-SP 000000</p>
+  <p style="margin-top:.3rem;">Todos os direitos reservados · São Paulo, SP</p>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').classList.remove('open');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.classList.add('open');
+    }
+  }
+</script>
+
+</body>
+</html>
