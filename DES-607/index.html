@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Thiago Cerqueira — Medicina Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0B1526;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #00BFA5;
+            --gold: #C9A85C;
+            --dark-bg: #080e1a;
+            --card-bg: rgba(255, 255, 255, 0.04);
+            --card-bg-hover: rgba(255, 255, 255, 0.07);
+            --border: rgba(201, 168, 92, 0.2);
+            --border-subtle: rgba(255, 255, 255, 0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark-bg);
+            color: #d8d8d8;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            color: var(--white);
+        }
+
+        h1 { font-size: clamp(2.8rem, 6vw, 4.2rem); line-height: 1.1; }
+        h2 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); line-height: 1.2; }
+        h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+
+        a { color: var(--gold); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 clamp(1.2rem, 4vw, 2.5rem);
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(8, 14, 26, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        nav .logo {
+            font-family: 'DM Serif Display', serif;
+            color: var(--gold);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        nav .nav-cta {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(6rem, 12vh, 10rem) 2rem clamp(4rem, 8vh, 6rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(201, 168, 92, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 191, 165, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(37, 211, 102, 0.04) 0%, transparent 50%);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(201, 168, 92, 0.1);
+            border: 1px solid rgba(201, 168, 92, 0.3);
+            color: var(--gold);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 0.6s ease-out both;
+        }
+
+        .hero h1 {
+            margin-bottom: 0.6rem;
+            animation: fadeInUp 0.7s ease-out 0.1s both;
+        }
+
+        .hero .specialty {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--gold);
+            font-family: 'DM Serif Display', serif;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.7s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: #9aabb8;
+            max-width: 640px;
+            margin: 1.5rem auto 3rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.7s ease-out 0.3s both;
+        }
+
+        .hero-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px solid var(--gold);
+            margin: 0 auto 2rem;
+            overflow: hidden;
+            box-shadow: 0 0 60px rgba(201, 168, 92, 0.2);
+            animation: fadeIn 0.8s ease-out both;
+            background: linear-gradient(135deg, rgba(201,168,92,0.15), rgba(0,191,165,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.7s ease-out 0.5s both;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.2);
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--gold);
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(201, 168, 92, 0.08);
+            color: var(--gold);
+        }
+
+        /* ─── SECTION BASE ─── */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 0;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+        }
+
+        .section-heading {
+            margin-bottom: 1rem;
+        }
+
+        .section-sub {
+            color: #8a9aaa;
+            font-size: 1.05rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* ─── CARDS ─── */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            background: var(--card-bg-hover);
+            border-color: rgba(201, 168, 92, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h4 {
+            color: var(--white);
+            margin-bottom: 0.6rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .card p {
+            color: #8a9aaa;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        /* ─── GRID LAYOUTS ─── */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+
+        /* ─── RECAP ─── */
+        .recap-section {
+            background: linear-gradient(135deg, rgba(201, 168, 92, 0.04), rgba(0, 191, 165, 0.03));
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .recap-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .recap-item:last-child { border: none; }
+
+        .recap-item .ico {
+            width: 32px;
+            height: 32px;
+            background: rgba(201, 168, 92, 0.12);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* ─── DIAGNOSIS ─── */
+        .diagnosis-highlight {
+            background: rgba(255, 100, 80, 0.06);
+            border: 1px solid rgba(255, 100, 80, 0.15);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+
+        .diagnosis-ok {
+            background: rgba(37, 211, 102, 0.05);
+            border: 1px solid rgba(37, 211, 102, 0.15);
+            border-radius: 14px;
+            padding: 2rem;
+        }
+
+        /* ─── METRICS ─── */
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.9rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .metric-row:last-child { border: none; }
+
+        .metric-label { color: #7a8a98; font-size: 0.9rem; }
+        .metric-value { font-weight: 700; color: var(--green); font-size: 1.1rem; }
+        .metric-value.gold { color: var(--gold); }
+        .metric-value.white { color: var(--white); }
+
+        .metric-big {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .metric-big .number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'DM Serif Display', serif;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-big .label {
+            color: #7a8a98;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ─── PHASES ─── */
+        .phase {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .phase-number {
+            min-width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold), rgba(201, 168, 92, 0.5));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--navy);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .phase-content h4 {
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .phase-content p { color: #8a9aaa; font-size: 0.92rem; }
+
+        .phase-connector {
+            width: 2px;
+            height: 24px;
+            background: linear-gradient(to bottom, rgba(201, 168, 92, 0.4), transparent);
+            margin-left: 23px;
+            margin-bottom: -8px;
+        }
+
+        /* ─── POSTS GRID ─── */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .posts-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        .post-card {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .post-card:hover {
+            border-color: var(--gold);
+            transform: scale(1.03);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.4);
+        }
+
+        .post-card-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            text-align: center;
+            gap: 0.6rem;
+        }
+
+        .post-card-icon { font-size: 2rem; }
+        .post-card-title { font-size: 0.75rem; font-weight: 600; color: var(--white); line-height: 1.3; }
+        .post-card-tag { font-size: 0.65rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+
+        .post-card-1 { background: linear-gradient(135deg, rgba(201,168,92,0.12), rgba(201,168,92,0.04)); }
+        .post-card-2 { background: linear-gradient(135deg, rgba(0,191,165,0.12), rgba(0,191,165,0.04)); }
+        .post-card-3 { background: linear-gradient(135deg, rgba(37,211,102,0.10), rgba(37,211,102,0.03)); }
+        .post-card-4 { background: linear-gradient(135deg, rgba(80,120,200,0.10), rgba(80,120,200,0.03)); }
+
+        /* ─── PRICING ─── */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 2.2rem;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(201, 168, 92, 0.2);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--gold);
+            background: linear-gradient(160deg, rgba(201,168,92,0.07), rgba(201,168,92,0.02));
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,92,0.08);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), #e8c77a);
+            color: var(--navy);
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pricing-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .pricing-desc {
+            font-size: 0.85rem;
+            color: #7a8a98;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-price {
+            font-size: 2.8rem;
+            font-family: 'DM Serif Display', serif;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .pricing-period {
+            font-size: 0.85rem;
+            color: #6a7a88;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+            color: #b0bec5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .pricing-features li:last-child { border: none; }
+
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .pricing-cta.featured-cta {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+        }
+
+        .pricing-cta.featured-cta:hover {
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            color: var(--navy);
+        }
+
+        .pricing-cta.outline-cta {
+            border: 1px solid var(--border);
+            color: var(--gold);
+        }
+
+        .pricing-cta.outline-cta:hover {
+            background: rgba(201, 168, 92, 0.08);
+            color: var(--gold);
+        }
+
+        /* ─── LP PREVIEW ─── */
+        .lp-preview-wrap {
+            background: var(--card-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+
+        .lp-preview-bar {
+            background: rgba(255,255,255,0.03);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .lp-preview-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .lp-preview-dots { display: flex; gap: 6px; }
+
+        .lp-preview-url {
+            flex: 1;
+            background: rgba(255,255,255,0.05);
+            border-radius: 6px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.78rem;
+            color: #6a7a88;
+            margin: 0 0.8rem;
+            font-family: monospace;
+        }
+
+        .lp-frame {
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            border: none;
+            display: block;
+        }
+
+        /* ─── GUARANTEE ─── */
+        .guarantee-wrap {
+            background: linear-gradient(135deg, rgba(37,211,102,0.04), rgba(0,191,165,0.03));
+            border: 1px solid rgba(37, 211, 102, 0.1);
+            border-radius: 20px;
+            padding: clamp(2.5rem, 5vw, 4rem);
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ─── FINAL CTA ─── */
+        .final-cta-section {
+            text-align: center;
+            padding: clamp(5rem, 10vh, 8rem) 0;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: var(--white);
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 35px rgba(37, 211, 102, 0.25);
+            margin-bottom: 2rem;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.4);
+            color: var(--white);
+        }
+
+        /* ─── DIVIDER ─── */
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), transparent);
+            margin: 1rem 0 2rem;
+        }
+
+        /* ─── TAGS ─── */
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(201,168,92,0.1);
+            border: 1px solid rgba(201,168,92,0.2);
+            color: var(--gold);
+        }
+
+        .tag.green {
+            background: rgba(37,211,102,0.08);
+            border-color: rgba(37,211,102,0.2);
+            color: var(--green);
+        }
+
+        .tag.red {
+            background: rgba(255,80,80,0.08);
+            border-color: rgba(255,80,80,0.2);
+            color: #ff7070;
+        }
+
+        /* ─── SEPARATOR ─── */
+        hr.fancy {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: 0;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        footer p { color: #4a5a68; font-size: 0.85rem; }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.65s ease, transform 0.65s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            nav .nav-links { display: none; }
+            .pricing-card.featured { transform: scale(1); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 480px) {
+            .hero-cta-group { flex-direction: column; align-items: center; }
+            .grid-4 { grid-template-columns: 1fr 1fr; }
+        }
+
+        /* ─── SCROLL PROGRESS ─── */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--green));
+            z-index: 200;
+            transition: width 0.1s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="progress-bar" style="width:0%"></div>
+
+<!-- NAV -->
+<nav>
+    <span class="logo">Proposta Personalizada</span>
+    <a href="https://wa.me/5561991465706?text=Oi%21+Vi+a+proposta+do+Dr+Thiago+e+gostaria+de+conversar" class="nav-cta" target="_blank">
+        💬 WhatsApp
+    </a>
+</nav>
+
+<!-- ─── 1. HERO ─── -->
+<section class="hero">
+    <div style="position:relative;z-index:1;">
+        <div class="hero-badge">Proposta Exclusiva</div>
+
+        <div class="hero-photo">👨‍⚕️</div>
+
+        <h1>Dr. Thiago Cerqueira</h1>
+        <p class="specialty">Medicina Premium</p>
+        <p class="hero-tagline" style="font-size:clamp(1rem,2vw,1.25rem);color:#9aabb8;max-width:640px;margin:1.5rem auto 3rem;line-height:1.7;">
+            Você tem a expertise. Falta a presença digital que transforma autoridade médica em agenda cheia — sem depender de indicação.
+        </p>
+
+        <div class="hero-cta-group">
+            <a href="https://wa.me/5561991465706?text=Oi%21+Vi+a+proposta+do+Dr+Thiago+e+gostaria+de+conversar" class="cta-primary" target="_blank">
+                💬 Falar pelo WhatsApp
+            </a>
+            <a href="#planos" class="cta-secondary">
+                Ver Planos
+            </a>
+        </div>
+    </div>
+</section>
+
+<hr class="fancy">
+
+<!-- ─── 2. RECAP DA CONVERSA ─── -->
+<section class="recap-section">
+    <div class="container">
+        <div class="section-label">Nossa conversa</div>
+        <h2 class="section-heading">O que alinhamos juntos</h2>
+        <p class="section-sub">Pontos principais da nossa call — para garantir que estamos 100% alinhados nos objetivos.</p>
+
+        <div style="max-width:720px;">
+            <div class="recap-item">
+                <div class="ico">🎯</div>
+                <div>
+                    <strong style="color:var(--white);display:block;margin-bottom:0.3rem;">Presença digital inconsistente</strong>
+                    <span style="color:#8a9aaa;font-size:0.95rem;">Instagram sem estratégia clara, sem calendário, sem identidade visual consolidada — dificultando atrair novos pacientes organicamente.</span>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="ico">📉</div>
+                <div>
+                    <strong style="color:var(--white);display:block;margin-bottom:0.3rem;">Dependência de indicações</strong>
+                    <span style="color:#8a9aaa;font-size:0.95rem;">A agenda funciona quando pacientes indicam, mas não há sistema ativo gerando novos leads continuamente — risco de sazonalidade.</span>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="ico">🌐</div>
+                <div>
+                    <strong style="color:var(--white);display:block;margin-bottom:0.3rem;">Sem landing page de conversão</strong>
+                    <span style="color:#8a9aaa;font-size:0.95rem;">Não existe uma página profissional que capture leads de forma automatizada, 24h por dia — cada clique em anúncio hoje é dinheiro perdido.</span>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="ico">🚀</div>
+                <div>
+                    <strong style="color:var(--white);display:block;margin-bottom:0.3rem;">Objetivo: crescimento previsível</strong>
+                    <span style="color:#8a9aaa;font-size:0.95rem;">Construir um sistema completo: marca sólida, LP de alta conversão, tráfego pago otimizado e automações de follow-up — agenda previsível todo mês.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 3. DESAFIO CENTRAL ─── -->
+<section>
+    <div class="container reveal">
+        <div class="section-label">O cenário atual</div>
+        <h2 class="section-heading">O desafio que você enfrenta</h2>
+        <p class="section-sub">Sua expertise é reconhecida — o problema está em como o mercado te enxerga digitalmente.</p>
+
+        <div class="grid-2" style="gap:1.5rem;">
+            <div class="diagnosis-highlight">
+                <div style="margin-bottom:1.2rem;">
+                    <span class="tag red">Problema</span>
+                </div>
+                <h3 style="color:#ff8080;margin-bottom:1.2rem;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;">Onde está o vazamento</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Leads mensais estimados (atual)</span>
+                    <span class="metric-value" style="color:#ff7070;">~8–15</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Custo por lead (sem sistema)</span>
+                    <span class="metric-value" style="color:#ff7070;">R$ 80–150</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Taxa de conversão site/instagram</span>
+                    <span class="metric-value" style="color:#ff7070;">&lt; 1%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Previsibilidade de agenda</span>
+                    <span class="metric-value" style="color:#ff7070;">Baixa</span>
+                </div>
+            </div>
+
+            <div class="diagnosis-ok">
+                <div style="margin-bottom:1.2rem;">
+                    <span class="tag green">Com Pulso</span>
+                </div>
+                <h3 style="color:var(--green);margin-bottom:1.2rem;font-family:'DM Sans',sans-serif;font-weight:600;font-size:1rem;">O que acontece com sistema</h3>
+                <div class="metric-row">
+                    <span class="metric-label">Leads mensais projetados</span>
+                    <span class="metric-value">~80–150</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Custo por lead otimizado</span>
+                    <span class="metric-value">R$ 14–25</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Taxa de conversão LP</span>
+                    <span class="metric-value">3–7%</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Previsibilidade de agenda</span>
+                    <span class="metric-value">Alta</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 4. DIAGNÓSTICO ─── -->
+<section style="background:rgba(255,255,255,0.015);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div class="container reveal">
+        <div class="section-label">Diagnóstico</div>
+        <h2 class="section-heading">O que está faltando</h2>
+        <p class="section-sub">Onde a concorrência sai na frente — e como fechamos essas lacunas rapidamente.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h4>Identidade visual indefinida</h4>
+                <p>Sem um MIV consistente (paleta, tipografia, tom de voz), cada post parece vir de um perfil diferente. Confiança é construída com consistência visual.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h4>Instagram sem estratégia</h4>
+                <p>Posting esporádico, sem linha editorial, sem stories estratégicos. O algoritmo penaliza inconsistência — e pacientes buscam autoridade, não apenas posts bonitos.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏠</div>
+                <h4>Sem landing page dedicada</h4>
+                <p>Sem uma página otimizada para conversão, cada real gasto em anúncio vai para um funil sem fundo. LP de alta conversão é o alicerce de qualquer estratégia de tráfego.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h4>Sem automações de follow-up</h4>
+                <p>Leads que entram em contato e não recebem resposta imediata têm 80% de chance de ir para a concorrência. Automação resolve isso em escala.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h4>Tráfego pago sem estrutura</h4>
+                <p>Campanhas genéricas sem segmentação de público médico geram CPL alto e leads frios. Estrutura correta multiplica resultados com o mesmo orçamento.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <h4>Reputação online não gerida</h4>
+                <p>Google Meu Negócio sem otimização, avaliações sem resposta. Pacientes pesquisam antes de agendar — e sua reputação online vale mais que qualquer anúncio.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 5. OPORTUNIDADES ─── -->
+<section>
+    <div class="container reveal">
+        <div class="section-label">Oportunidades</div>
+        <h2 class="section-heading">3 alavancas de crescimento</h2>
+        <p class="section-sub">Pontos concretos com maior impacto imediato para o seu caso específico.</p>
+
+        <div style="max-width:780px;">
+            <div class="phase">
+                <div class="phase-number">1</div>
+                <div class="phase-content">
+                    <h4>Vitrine profissional + linha editorial</h4>
+                    <p>9 posts de fundação para estabelecer autoridade imediata. Identidade visual consolidada que faz o paciente reconhecer você antes de qualquer contato. Resultado estimado: +40% de seguidores orgânicos no primeiro mês.</p>
+                </div>
+            </div>
+            <div class="phase-connector"></div>
+
+            <div class="phase">
+                <div class="phase-number">2</div>
+                <div class="phase-content">
+                    <h4>Landing page + funil de captação</h4>
+                    <p>Página de alta conversão focada na sua principal especialidade, com formulário de agendamento, gatilhos de urgência e prova social. Meta: 3–7% de conversão de visitante em lead.</p>
+                </div>
+            </div>
+            <div class="phase-connector"></div>
+
+            <div class="phase">
+                <div class="phase-number">3</div>
+                <div class="phase-content">
+                    <h4>Tráfego pago otimizado desde o dia 1</h4>
+                    <p>Campanhas Meta + Google com segmentação de público de alta renda na sua região. CPL projetado: R$ 14–25. Pacientes certos, no momento certo, com orçamento controlado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 6. MÉTRICAS PROJETADAS ─── -->
+<section style="background:rgba(37,211,102,0.025);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div class="container reveal">
+        <div class="section-label">Projeção de resultados</div>
+        <h2 class="section-heading">O que esperar nos próximos 90 dias</h2>
+        <p class="section-sub">Baseado em resultados reais de médicos com perfil similar na nossa base.</p>
+
+        <div class="grid-4" style="margin-bottom:3rem;">
+            <div class="metric-big card">
+                <div class="number">~120</div>
+                <div class="label">Leads/mês (90 dias)</div>
+            </div>
+            <div class="metric-big card">
+                <div class="number">R$18</div>
+                <div class="label">CPL médio projetado</div>
+            </div>
+            <div class="metric-big card">
+                <div class="number">~48</div>
+                <div class="label">Agendamentos/mês</div>
+            </div>
+            <div class="metric-big card">
+                <div class="number">8–12×</div>
+                <div class="label" style="color:var(--gold);">ROAS estimado</div>
+            </div>
+        </div>
+
+        <div style="max-width:700px;margin:0 auto;">
+            <div class="card">
+                <h4 style="margin-bottom:1.2rem;">Benchmark real — clínicas médicas similares</h4>
+                <div class="metric-row">
+                    <span class="metric-label">Clínica A (SP) — Dez 2025 – Fev 2026</span>
+                    <span class="metric-value">104 leads · CPL R$ 10,72</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Clínica B (DF) — Set–Dez 2024</span>
+                    <span class="metric-value">468 leads · CPL R$ 14,00</span>
+                </div>
+                <div class="metric-row">
+                    <span class="metric-label">Projeção Dr. Thiago — 90 dias</span>
+                    <span class="metric-value gold">~120 leads · CPL R$ 18</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 7. PLANO DE IMPLEMENTAÇÃO ─── -->
+<section>
+    <div class="container reveal">
+        <div class="section-label">Cronograma</div>
+        <h2 class="section-heading">Plano de implementação por fase</h2>
+        <p class="section-sub">Implementação estruturada para resultados desde a primeira semana.</p>
+
+        <div class="grid-3">
+            <div class="card" style="border-color:rgba(201,168,92,0.25);">
+                <div class="section-label" style="margin-bottom:0.5rem;">Semanas 1–4</div>
+                <h3 style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:1rem;color:var(--gold);">Fundação</h3>
+                <ul style="list-style:none;font-size:0.9rem;color:#8a9aaa;">
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Onboarding + anamnese</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Diagnóstico estratégico completo</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ MIV (identidade visual)</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ 9 posts fundação do Instagram</li>
+                    <li style="padding:0.4rem 0;">✓ Setup Google Meu Negócio</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-color:rgba(0,191,165,0.25);">
+                <div class="section-label" style="margin-bottom:0.5rem;color:var(--pulso);">Mês 2</div>
+                <h3 style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:1rem;color:var(--pulso);">Ativação</h3>
+                <ul style="list-style:none;font-size:0.9rem;color:#8a9aaa;">
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Landing page de alta conversão</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Setup Meta Ads + Google Ads</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Pixel de rastreamento</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Funil de agendamento</li>
+                    <li style="padding:0.4rem 0;">✓ Primeiros relatórios de tráfego</li>
+                </ul>
+            </div>
+
+            <div class="card" style="border-color:rgba(37,211,102,0.25);">
+                <div class="section-label" style="margin-bottom:0.5rem;color:var(--green);">Mês 3+</div>
+                <h3 style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:1rem;color:var(--green);">Escala</h3>
+                <ul style="list-style:none;font-size:0.9rem;color:#8a9aaa;">
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Otimização contínua de campanhas</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Automações de follow-up</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ A/B test de headlines e criativos</li>
+                    <li style="padding:0.4rem 0;border-bottom:1px solid var(--border-subtle);">✓ Relatório mensal detalhado</li>
+                    <li style="padding:0.4rem 0;">✓ Reunião quinzenal de acompanhamento</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 8. O QUE VOCÊ RECEBE ─── -->
+<section style="background:rgba(255,255,255,0.015);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div class="container reveal">
+        <div class="section-label">Deliverables</div>
+        <h2 class="section-heading">O que você recebe no Plano Essencial</h2>
+        <p class="section-sub">Tudo que você precisa para ter presença profissional, captar leads e escalar a agenda.</p>
+
+        <div class="grid-4">
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h4>Manual de Identidade Visual</h4>
+                <p>Paleta, tipografia, logo, templates para posts e stories. Consistência que gera autoridade.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h4>9 Posts de Fundação</h4>
+                <p>Grid inicial profissional para o Instagram. Primeira impressão que converte visitante em seguidor.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h4>Landing Page Premium</h4>
+                <p>Página mobile-first de alta conversão com CTA de agendamento, depoimentos e formulário otimizado.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📣</div>
+                <h4>Gestão de Tráfego Pago</h4>
+                <p>Campanhas Meta + Google com segmentação precisa. CPL otimizado mês a mês.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h4>CRM + Automações</h4>
+                <p>Fluxo automático de resposta a leads, follow-up e nutrição. Nunca mais perder um paciente por demora.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⭐</div>
+                <h4>Google Meu Negócio</h4>
+                <p>Perfil otimizado para aparecer nas buscas locais. Avaliações geridas com estratégia.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h4>Relatório Mensal Detalhado</h4>
+                <p>Dashboard com CPL, ROAS, leads, agendamentos. Transparência total sobre onde seu investimento vai.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤝</div>
+                <h4>Suporte Dedicado</h4>
+                <p>Canal direto com a equipe. Reuniões quinzenais de acompanhamento de resultados.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 9. PREVIEW LP ─── -->
+<section>
+    <div class="container reveal">
+        <div class="section-label">Preview exclusivo</div>
+        <h2 class="section-heading">Sua landing page — como seus pacientes vão te ver</h2>
+        <p class="section-sub">Desenvolvemos um preview real da sua futura página de captação. Veja como ficaria.</p>
+
+        <div class="lp-preview-wrap">
+            <div class="lp-preview-bar">
+                <div class="lp-preview-dots">
+                    <div class="lp-preview-dot" style="background:#ff5f57;"></div>
+                    <div class="lp-preview-dot" style="background:#ffbd2e;"></div>
+                    <div class="lp-preview-dot" style="background:#28ca41;"></div>
+                </div>
+                <div class="lp-preview-url">drthiagocerqueira.com.br</div>
+                <span style="font-size:0.75rem;color:#3a4a58;">🔒 Preview</span>
+            </div>
+            <iframe class="lp-frame" src="./lp/" title="Preview Landing Page Dr. Thiago Cerqueira"></iframe>
+        </div>
+
+        <div style="margin-top:1.5rem;text-align:center;">
+            <a href="./lp/" target="_blank" class="cta-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+                ↗ Abrir em tela cheia
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── 10. PREVIEW POSTS ─── -->
+<section style="background:rgba(255,255,255,0.015);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle);">
+    <div class="container reveal">
+        <div class="section-label">Vitrine do Instagram</div>
+        <h2 class="section-heading">4 posts-chave do grid de fundação</h2>
+        <p class="section-sub">Exemplos do padrão visual que vamos criar para estabelecer sua autoridade desde o primeiro dia.</p>
+
+        <div class="posts-grid">
+            <div class="post-card post-card-1">
+                <div class="post-card-inner">
+                    <div class="post-card-icon">👨‍⚕️</div>
+                    <div class="post-card-title">Apresentação pessoal do Dr. Thiago</div>
+                    <div class="post-card-tag">Autoridade</div>
+                </div>
+            </div>
+            <div class="post-card post-card-2">
+                <div class="post-card-inner">
+                    <div class="post-card-icon">🏥</div>
+                    <div class="post-card-title">Procedimentos e especialidades</div>
+                    <div class="post-card-tag">Educacional</div>
+                </div>
+            </div>
+            <div class="post-card post-card-3">
+                <div class="post-card-inner">
+                    <div class="post-card-icon">✅</div>
+                    <div class="post-card-title">Resultados e depoimentos reais</div>
+                    <div class="post-card-tag">Prova Social</div>
+                </div>
+            </div>
+            <div class="post-card post-card-4">
+                <div class="post-card-inner">
+                    <div class="post-card-icon">📞</div>
+                    <div class="post-card-title">CTA de agendamento</div>
+                    <div class="post-card-tag">Conversão</div>
+                </div>
+            </div>
+        </div>
+
+        <p style="color:#5a6a78;font-size:0.85rem;margin-top:1.5rem;text-align:center;">
+            * Artes finais produzidas após sessão de briefing visual com Dr. Thiago — utilizando suas fotos e identidade consolidada.
+        </p>
+    </div>
+</section>
+
+<!-- ─── 11. PLANOS ─── -->
+<section id="planos">
+    <div class="container reveal">
+        <div class="section-label">Investimento</div>
+        <h2 class="section-heading" style="text-align:center;">Escolha o seu plano</h2>
+        <p class="section-sub" style="text-align:center;margin:0 auto 0;">Três caminhos para o mesmo destino: uma agenda cheia e previsível.</p>
+
+        <div class="pricing-grid">
+            <!-- ESSENCIAL -->
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Recomendado para você</div>
+                <div class="pricing-name">Essencial</div>
+                <div class="pricing-desc">Tudo para começar com tráfego pago e presença digital sólida</div>
+                <div class="pricing-price">R$ 3.500</div>
+                <div class="pricing-period">por mês · + R$ 6.000 de setup único</div>
+                <ul class="pricing-features">
+                    <li>Diagnóstico estratégico completo</li>
+                    <li>Manual de identidade visual (MIV)</li>
+                    <li>9 posts de fundação do Instagram</li>
+                    <li>Landing page premium de alta conversão</li>
+                    <li>Gestão de campanhas Meta + Google</li>
+                    <li>CRM + automações de follow-up</li>
+                    <li>Google Meu Negócio otimizado</li>
+                    <li>Relatório mensal + reunião quinzenal</li>
+                    <li>Suporte prioritário via WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Quero+o+Plano+Essencial+para+o+Dr+Thiago+Cerqueira" target="_blank" class="pricing-cta featured-cta">
+                    💬 Quero este plano
+                </a>
+            </div>
+
+            <!-- MARKETING -->
+            <div class="pricing-card">
+                <div class="pricing-name">Marketing</div>
+                <div class="pricing-desc">Para quem quer escalar mais rápido com conteúdo profissional</div>
+                <div class="pricing-price">R$ 5.500</div>
+                <div class="pricing-period">por mês · + R$ 8.000 de setup único</div>
+                <ul class="pricing-features">
+                    <li>Tudo do Plano Essencial</li>
+                    <li>Gestão de conteúdo mensal (16 posts)</li>
+                    <li>Stories estratégicos semanais</li>
+                    <li>Edição de Reels profissional</li>
+                    <li>Estratégia de hashtags e SEO local</li>
+                    <li>A/B test de criativos e headlines</li>
+                    <li>Relatório semanal de performance</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Tenho+interesse+no+Plano+Marketing+para+o+Dr+Thiago" target="_blank" class="pricing-cta outline-cta">
+                    Saber mais
+                </a>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="pricing-card">
+                <div class="pricing-name">Premium</div>
+                <div class="pricing-desc">Solução 360° para crescimento acelerado e dominância de mercado</div>
+                <div class="pricing-price">R$ 8.500</div>
+                <div class="pricing-period">por mês · + R$ 12.000 de setup único</div>
+                <ul class="pricing-features">
+                    <li>Tudo do Plano Marketing</li>
+                    <li>Gestão de reputação online completa</li>
+                    <li>Vídeo institucional profissional</li>
+                    <li>Estratégia de influencers / PR digital</li>
+                    <li>Dashboard de BI em tempo real</li>
+                    <li>Reunião semanal de acompanhamento</li>
+                    <li>Suporte 24/7 em canais exclusivos</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Tenho+interesse+no+Plano+Premium+para+o+Dr+Thiago" target="_blank" class="pricing-cta outline-cta">
+                    Saber mais
+                </a>
+            </div>
+        </div>
+
+        <p style="text-align:center;color:#4a5a68;font-size:0.85rem;margin-top:2rem;">
+            * Valores de verba de tráfego (Meta/Google) são separados e ficam 100% na sua conta. Sugerimos R$ 2.000–5.000/mês de verba para o Plano Essencial.
+        </p>
+    </div>
+</section>
+
+<!-- ─── 12. GARANTIA + CTA FINAL ─── -->
+<section>
+    <div class="container reveal">
+        <div class="guarantee-wrap">
+            <div class="guarantee-icon">🛡️</div>
+            <h2 style="margin-bottom:1rem;">Nossa garantia</h2>
+            <p style="color:#8a9aaa;max-width:600px;margin:0 auto 2rem;font-size:1.05rem;">
+                Transparência total em cada etapa. Relatórios detalhados, dashboards em tempo real e reuniões de acompanhamento quinzenais. Você sabe exatamente onde cada real é investido.
+            </p>
+            <p style="color:var(--green);font-weight:600;font-size:1.1rem;margin-bottom:2rem;">
+                Se não atingirmos as metas projetadas nos primeiros 90 dias, revisamos a estratégia sem custo adicional.
+            </p>
+            <div style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.3rem;">📊</div>
+                    <div style="font-size:0.85rem;color:#6a7a88;">Relatório quinzenal</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.3rem;">🤝</div>
+                    <div style="font-size:0.85rem;color:#6a7a88;">Reunião de acompanhamento</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.3rem;">📱</div>
+                    <div style="font-size:0.85rem;color:#6a7a88;">Suporte prioritário</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2rem;margin-bottom:0.3rem;">🎯</div>
+                    <div style="font-size:0.85rem;color:#6a7a88;">Metas claras e mensuráveis</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="final-cta-section" style="padding:4rem 0 2rem;">
+            <div class="section-label" style="justify-content:center;display:flex;">Próximos passos</div>
+            <h2 style="margin-bottom:1rem;">Pronto para começar?</h2>
+            <p style="color:#8a9aaa;max-width:500px;margin:0 auto 2.5rem;font-size:1.05rem;">
+                Vamos conversar sobre a sua situação específica e definir o melhor caminho para o seu crescimento.
+            </p>
+
+            <a href="https://wa.me/5561991465706?text=Oi%21+Vi+a+proposta+do+Dr+Thiago+Cerqueira+e+quero+dar+o+pr%C3%B3ximo+passo" target="_blank" class="whatsapp-btn">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Conversar pelo WhatsApp
+            </a>
+
+            <p style="color:#4a5a68;font-size:0.85rem;">Seg–Sex, 9h–18h (horário de Brasília)</p>
+        </div>
+    </div>
+</section>
+
+<hr class="fancy">
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p style="margin-bottom:0.3rem;">© 2026 Proposta Personalizada | Dr. Thiago Cerqueira</p>
+        <p>Pulso Digital · Gestão Estratégica de Presença Médica</p>
+    </div>
+</footer>
+
+<script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+        const el = document.getElementById('progress-bar');
+        const docH = document.documentElement.scrollHeight - window.innerHeight;
+        el.style.width = (window.scrollY / docH * 100) + '%';
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+</script>
+</body>
+</html>

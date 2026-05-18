@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Thiago Cerqueira | Agende sua Consulta</title>
+    <meta name="description" content="Dr. Thiago Cerqueira — Medicina especializada de alta performance. Agende sua consulta com atendimento humanizado e expertise comprovada.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1A4A6B;
+            --primary-light: #2A6A9B;
+            --gold: #C9A85C;
+            --gold-light: #E8C77A;
+            --white: #FFFFFF;
+            --off-white: #F7F4EE;
+            --text: #1E2A35;
+            --text-light: #5A6A78;
+            --green-wa: #25D366;
+            --border: rgba(201, 168, 92, 0.2);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+        h3 { font-size: clamp(1.1rem, 2vw, 1.4rem); }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 clamp(1.2rem, 4vw, 2.5rem);
+        }
+
+        /* ─── NAV ─── */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 1.1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            color: var(--primary);
+            letter-spacing: -0.3px;
+        }
+
+        .nav-logo span { color: var(--gold); }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--green-wa), #128C7E);
+            color: white;
+            padding: 0.6rem 1.3rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,211,102,0.3);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #0D2D45 100%);
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(3rem, 8vh, 6rem) 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 70% 30%, rgba(201,168,92,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(2rem, 5vw, 4rem);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-photo-wrap { order: -1; }
+            .hero-badges { justify-content: center; }
+        }
+
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-desc {
+            color: rgba(255,255,255,0.72);
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-badge {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.8);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hero-cta-group { justify-content: center; }
+        }
+
+        .btn-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.8rem;
+            background: linear-gradient(135deg, var(--green-wa), #128C7E);
+            color: white;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 8px 28px rgba(37,211,102,0.3);
+        }
+
+        .btn-wa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(37,211,102,0.45);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.95rem 1.8rem;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .hero-photo-wrap {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo {
+            width: clamp(260px, 40vw, 360px);
+            aspect-ratio: 3/4;
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        }
+
+        .hero-photo-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, rgba(201,168,92,0.15), rgba(0,80,130,0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            border: 1px solid rgba(201,168,92,0.3);
+            border-radius: 24px;
+        }
+
+        .hero-photo-icon { font-size: 5rem; }
+        .hero-photo-name { color: white; font-family: 'DM Serif Display', serif; font-size: 1.3rem; }
+        .hero-photo-spec { color: var(--gold); font-size: 0.85rem; letter-spacing: 1px; }
+
+        .hero-photo-badge {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--text);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        /* ─── SOCIAL PROOF ─── */
+        .social-proof {
+            background: var(--off-white);
+            padding: 1.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .social-proof-inner {
+            display: flex;
+            gap: clamp(2rem, 5vw, 5rem);
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .proof-item {
+            text-align: center;
+        }
+
+        .proof-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        .proof-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ─── SECTIONS ─── */
+        section.light {
+            padding: clamp(4rem, 8vh, 6rem) 0;
+            background: var(--white);
+        }
+
+        section.alt {
+            padding: clamp(4rem, 8vh, 6rem) 0;
+            background: var(--off-white);
+        }
+
+        .section-label-lp {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .section-heading-lp {
+            margin-bottom: 0.8rem;
+            color: var(--text);
+        }
+
+        .section-sub-lp {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 2.5rem;
+            max-width: 560px;
+        }
+
+        /* ─── SERVICES ─── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 14px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            box-shadow: 0 10px 36px rgba(0,0,0,0.08);
+            transform: translateY(-4px);
+        }
+
+        .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+        .service-card h4 { color: var(--primary); margin-bottom: 0.5rem; font-family: 'DM Sans', sans-serif; font-weight: 600; }
+        .service-card p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; }
+
+        /* ─── CREDENTIALS ─── */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .credential-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .credential-card .ico { font-size: 1.8rem; margin-bottom: 0.8rem; }
+        .credential-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--primary); font-family: 'DM Sans', sans-serif; }
+        .credential-card p { font-size: 0.8rem; color: var(--text-light); margin-top: 0.3rem; }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border: 1px solid rgba(0,0,0,0.07);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -8px;
+            left: 20px;
+            font-size: 4rem;
+            font-family: Georgia, serif;
+            color: var(--gold);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .testimonial-text { color: var(--text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+
+        .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .author-name { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+        .author-role { font-size: 0.78rem; color: var(--text-light); }
+
+        .stars { color: #F5A623; font-size: 0.85rem; margin-bottom: 0.3rem; }
+
+        /* ─── FAQ ─── */
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.07);
+            padding: 1.3rem 0;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .faq-question .toggle { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
+        .faq-answer { color: var(--text-light); font-size: 0.9rem; line-height: 1.7; margin-top: 0.8rem; display: none; }
+        .faq-item.open .faq-answer { display: block; }
+        .faq-item.open .toggle { transform: rotate(45deg); }
+
+        /* ─── FINAL CTA ─── */
+        .final-cta-section {
+            background: linear-gradient(135deg, var(--primary), #0D2D45);
+            padding: clamp(4rem, 8vh, 6rem) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(201,168,92,0.1), transparent 60%);
+        }
+
+        .final-cta-section h2 { color: var(--white); margin-bottom: 1rem; position: relative; }
+        .final-cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2.5rem; font-size: 1.05rem; position: relative; }
+
+        .final-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green-wa), #128C7E);
+            color: white;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 12px 40px rgba(37,211,102,0.3);
+            position: relative;
+        }
+
+        .final-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 56px rgba(37,211,102,0.45);
+        }
+
+        /* ─── FORM CTA ─── */
+        .form-section {
+            background: var(--off-white);
+            padding: clamp(4rem, 8vh, 6rem) 0;
+        }
+
+        .form-wrap {
+            max-width: 560px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            padding: clamp(2rem, 5vw, 3rem);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .form-wrap h3 { margin-bottom: 0.5rem; color: var(--primary); }
+        .form-wrap p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1.8rem; }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(0,0,0,0.12);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--white);
+            transition: border 0.3s;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 0.95rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .form-submit:hover {
+            box-shadow: 0 8px 28px rgba(26,74,107,0.3);
+            transform: translateY(-2px);
+        }
+
+        .or-divider {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin: 1.2rem 0;
+            position: relative;
+        }
+
+        .or-divider::before, .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: rgba(0,0,0,0.1);
+        }
+
+        .or-divider::before { left: 0; }
+        .or-divider::after { right: 0; }
+
+        .wa-form-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            width: 100%;
+            padding: 0.95rem;
+            background: linear-gradient(135deg, var(--green-wa), #128C7E);
+            color: white;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .wa-form-btn:hover {
+            box-shadow: 0 8px 28px rgba(37,211,102,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.5);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        footer a { color: var(--gold); }
+
+        /* ─── FLOAT WA ─── */
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 100;
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--green-wa), #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 28px rgba(37,211,102,0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.1);
+            box-shadow: 0 16px 40px rgba(37,211,102,0.5);
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">Dr. Thiago <span>Cerqueira</span></div>
+    <a href="https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Quero+agendar+uma+consulta." target="_blank" class="nav-cta">
+        💬 Agendar consulta
+    </a>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-eyebrow">Medicina de excelência</div>
+                <h1>Você merece um médico que <em>realmente te ouve</em></h1>
+                <p class="hero-desc">Atendimento personalizado, diagnóstico preciso e tratamento focado nos seus resultados. Da consulta ao acompanhamento — estou com você em cada etapa.</p>
+
+                <div class="hero-badges">
+                    <span class="hero-badge">✓ CRM Regularizado</span>
+                    <span class="hero-badge">✓ Especialização comprovada</span>
+                    <span class="hero-badge">✓ Atendimento humanizado</span>
+                </div>
+
+                <div class="hero-cta-group">
+                    <a href="https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Vi+seu+site+e+quero+agendar+uma+consulta." target="_blank" class="btn-wa">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Agendar pelo WhatsApp
+                    </a>
+                    <a href="#consulta" class="btn-outline">
+                        Preencher formulário
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-photo-wrap">
+                <div class="hero-photo">
+                    <div class="hero-photo-inner">
+                        <div class="hero-photo-icon">👨‍⚕️</div>
+                        <div class="hero-photo-name">Dr. Thiago Cerqueira</div>
+                        <div class="hero-photo-spec">Medicina Premium</div>
+                    </div>
+                    <div class="hero-photo-badge">⭐ 4.9 · +500 pacientes atendidos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SOCIAL PROOF BAR -->
+<div class="social-proof">
+    <div class="container">
+        <div class="social-proof-inner">
+            <div class="proof-item">
+                <div class="proof-number">500+</div>
+                <div class="proof-label">Pacientes atendidos</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">4.9★</div>
+                <div class="proof-label">Avaliação Google</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">98%</div>
+                <div class="proof-label">Satisfação pacientes</div>
+            </div>
+            <div class="proof-item">
+                <div class="proof-number">8+</div>
+                <div class="proof-label">Anos de experiência</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ─── SERVIÇOS ─── -->
+<section class="light">
+    <div class="container">
+        <div class="section-label-lp">Especialidades</div>
+        <h2 class="section-heading-lp">Como posso te ajudar</h2>
+        <p class="section-sub-lp">Tratamentos com base em evidências, tecnologia de ponta e foco total no seu bem-estar.</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h4>Consulta Clínica</h4>
+                <p>Avaliação completa e diagnóstico preciso. Atendimento sem pressa, com escuta ativa e plano de tratamento personalizado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h4>Diagnóstico Avançado</h4>
+                <p>Solicitação e interpretação de exames com raciocínio clínico apurado. Resultados que fazem diferença no tratamento.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h4>Tratamento Personalizado</h4>
+                <p>Cada paciente é único. Protocolos adaptados à sua realidade, com acompanhamento próximo de cada etapa.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h4>Acompanhamento Contínuo</h4>
+                <p>Retornos estruturados, resultados monitorados e comunicação direta — presença médica quando você mais precisa.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h4>Prevenção e Saúde</h4>
+                <p>Check-up preventivo, orientações de estilo de vida e estratégias para manter sua saúde em longo prazo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h4>Teleconsulta</h4>
+                <p>Consultas online com a mesma qualidade do atendimento presencial. Agende de qualquer lugar, sem deslocamento.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── CREDENCIAIS ─── -->
+<section class="alt">
+    <div class="container">
+        <div class="section-label-lp">Formação & Credenciais</div>
+        <h2 class="section-heading-lp">Experiência que gera confiança</h2>
+        <p class="section-sub-lp">Formação sólida e atualização constante para oferecer o que há de melhor na medicina contemporânea.</p>
+
+        <div class="credentials-grid">
+            <div class="credential-card">
+                <div class="ico">🎓</div>
+                <h4>Graduação em Medicina</h4>
+                <p>Formado por instituição de excelência reconhecida pelo MEC</p>
+            </div>
+            <div class="credential-card">
+                <div class="ico">🏥</div>
+                <h4>Residência Médica</h4>
+                <p>Especialização em hospital de referência nacional</p>
+            </div>
+            <div class="credential-card">
+                <div class="ico">🏆</div>
+                <h4>Certificação CFM</h4>
+                <p>Regularizado no Conselho Federal de Medicina — CRM ativo</p>
+            </div>
+            <div class="credential-card">
+                <div class="ico">📚</div>
+                <h4>Atualização Contínua</h4>
+                <p>Congressos nacionais e internacionais anuais</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── DEPOIMENTOS ─── -->
+<section class="light">
+    <div class="container">
+        <div class="section-label-lp">Depoimentos</div>
+        <h2 class="section-heading-lp">O que dizem nossos pacientes</h2>
+        <p class="section-sub-lp">Resultados reais de pacientes que transformaram sua qualidade de vida com nosso acompanhamento.</p>
+
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Finalmente encontrei um médico que realmente me ouve. O Dr. Thiago foi muito cuidadoso, explicou tudo com clareza e o tratamento funcionou perfeitamente. Me sinto uma nova pessoa.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">M</div>
+                    <div>
+                        <div class="author-name">Mariana S.</div>
+                        <div class="author-role">Paciente desde 2024</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">Profissional excepcional. Diagnóstico preciso, tratamento eficaz e acompanhamento constante. Recomendo para todos que buscam um médico de confiança com atendimento humanizado.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">R</div>
+                    <div>
+                        <div class="author-name">Roberto C.</div>
+                        <div class="author-role">Paciente desde 2023</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">O atendimento é diferenciado. Não fui só mais um número — o Dr. Thiago conhece meu histórico, me chama pelo nome e sempre está disponível quando preciso. Excelente profissional.</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">A</div>
+                    <div>
+                        <div class="author-name">Ana P.</div>
+                        <div class="author-role">Paciente desde 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="alt">
+    <div class="container">
+        <div class="section-label-lp">Dúvidas frequentes</div>
+        <h2 class="section-heading-lp">Perguntas & Respostas</h2>
+
+        <div style="max-width:700px;margin-top:2rem;">
+            <div class="faq-item open">
+                <div class="faq-question">
+                    <span>Como funciona o agendamento de consulta?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">Você pode agendar pelo WhatsApp ou preenchendo o formulário nesta página. Respondemos em até 1 hora útil para confirmar data e horário disponível. Simples e sem burocracia.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Atende pelo plano de saúde?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">Atendemos pacientes particulares e por convênio. Entre em contato pelo WhatsApp para verificar a disponibilidade do seu plano específico.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Vocês fazem teleconsulta?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">Sim! Realizamos teleconsultas com a mesma qualidade do atendimento presencial. Agende pelo WhatsApp e receba o link para a videoconferência no momento da consulta.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Qual o tempo médio de espera para agendar?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">Nossa agenda é organizada para garantir disponibilidade rápida. Em geral, conseguimos encaixar novos pacientes em até 3 dias úteis. Para urgências, entre em contato diretamente.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Posso enviar exames antes da consulta?</span>
+                    <span class="toggle">+</span>
+                </div>
+                <div class="faq-answer">Sim, e é altamente recomendado. Enviar seus exames anteriores e histórico médico com antecedência permite que o Dr. Thiago chegue na consulta já preparado para uma análise mais aprofundada.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FORMULÁRIO ─── -->
+<section class="form-section" id="consulta">
+    <div class="container">
+        <div class="form-wrap">
+            <h3>Agende sua consulta</h3>
+            <p>Preencha abaixo e entraremos em contato em até 1 hora útil.</p>
+
+            <form onsubmit="handleForm(event)">
+                <div class="form-group">
+                    <label>Seu nome completo *</label>
+                    <input type="text" placeholder="Nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp / Telefone *</label>
+                    <input type="tel" placeholder="(61) 99999-9999" required>
+                </div>
+                <div class="form-group">
+                    <label>Motivo da consulta</label>
+                    <select>
+                        <option value="">Selecione...</option>
+                        <option>Consulta clínica geral</option>
+                        <option>Retorno / acompanhamento</option>
+                        <option>Resultado de exames</option>
+                        <option>Check-up preventivo</option>
+                        <option>Outro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensagem adicional (opcional)</label>
+                    <textarea rows="3" placeholder="Descreva brevemente o que você precisa..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">✓ Solicitar agendamento</button>
+            </form>
+
+            <div class="or-divider">ou</div>
+
+            <a href="https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Vi+seu+site+e+quero+agendar+uma+consulta." target="_blank" class="wa-form-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Agendar pelo WhatsApp
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ─── FINAL CTA ─── -->
+<section class="final-cta-section">
+    <div class="container">
+        <h2>Dê o primeiro passo para cuidar da sua saúde</h2>
+        <p>Atendimento com excelência, humanidade e resultados comprovados. Sua saúde é prioridade.</p>
+        <a href="https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Quero+agendar+minha+consulta." target="_blank" class="final-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Agendar consulta agora
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© 2026 Dr. Thiago Cerqueira · Medicina Premium</p>
+        <p style="margin-top:0.3rem;">Site desenvolvido pela <a href="#">Pulso Digital</a></p>
+    </div>
+</footer>
+
+<!-- FLOAT WA -->
+<a href="https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Quero+agendar+uma+consulta." target="_blank" class="float-wa" title="Falar pelo WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+    // FAQ toggle
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            item.classList.toggle('open');
+        });
+    });
+
+    // Form handler
+    function handleForm(e) {
+        e.preventDefault();
+        const btn = e.target.querySelector('.form-submit');
+        btn.textContent = '✓ Solicitação enviada!';
+        btn.style.background = 'linear-gradient(135deg, #25D366, #128C7E)';
+        setTimeout(() => window.open('https://wa.me/5561991465706?text=Oi+Dr+Thiago%21+Preenchi+o+formulário+e+quero+agendar.', '_blank'), 1000);
+    }
+</script>
+
+</body>
+</html>
