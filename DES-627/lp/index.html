@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Breno Lima — Ortopedista | Agende sua Consulta</title>
+  <meta name="description" content="Dr. Breno Lima — Ortopedista especialista. Agende sua consulta e resolva sua dor hoje.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===================== RESET & TOKENS ===================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --deep: #04090f;
+      --dark: #081020;
+      --navy: #0c1a38;
+      --gold: #b8944a;
+      --gold-l: #d4b070;
+      --gold-xl: #e8c88a;
+      --gold-dim: rgba(184,148,74,0.12);
+      --teal: #1a9e92;
+      --white: #f5f3ee;
+      --off: rgba(245,243,238,0.65);
+      --border: rgba(184,148,74,0.18);
+      --card: rgba(12,26,56,0.7);
+      --rad: 12px;
+      --rad-full: 100px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--deep);
+      color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    h1 { font-size: clamp(2.8rem, 7vw, 4.5rem); }
+    h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
+    h3 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+
+    p { color: var(--off); }
+    strong { color: var(--white); }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+    }
+
+    /* ===================== SCROLL REVEAL ===================== */
+    .sr {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .sr.on { opacity: 1; transform: translateY(0); }
+    .sr.d1 { transition-delay: 0.1s; }
+    .sr.d2 { transition-delay: 0.2s; }
+    .sr.d3 { transition-delay: 0.3s; }
+
+    /* ===================== FLOATING CTA ===================== */
+    .float-cta {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 200;
+      background: linear-gradient(135deg, var(--gold), var(--gold-xl));
+      color: var(--deep);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.9rem 2.5rem;
+      border-radius: var(--rad-full);
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(184,148,74,0.5);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .float-cta:hover { transform: translateX(-50%) translateY(-3px); box-shadow: 0 16px 48px rgba(184,148,74,0.6); }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      background: rgba(4,9,15,0.9);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nav-brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
+    .nav-brand-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--gold); }
+    .nav-brand-text span { font-weight: 300; color: var(--off); }
+
+    .nav-btn {
+      padding: 0.55rem 1.4rem;
+      background: var(--gold);
+      color: var(--deep);
+      font-weight: 700;
+      font-size: 0.85rem;
+      border-radius: var(--rad-full);
+      text-decoration: none;
+      transition: all 0.25s;
+    }
+    .nav-btn:hover { background: var(--gold-l); transform: translateY(-1px); }
+
+    /* ===================== HERO ===================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 110% 20%, rgba(184,148,74,0.1) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 80% at -10% 80%, rgba(26,158,146,0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #04090f 0%, #081020 60%, #04090f 100%);
+    }
+
+    /* Decorative geometric */
+    .hero-geo {
+      position: absolute;
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: min(500px, 50vw);
+      height: min(500px, 50vw);
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .hero-geo::before {
+      content: '';
+      position: absolute;
+      inset: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(184,148,74,0.2);
+    }
+    .hero-geo::after {
+      content: '';
+      position: absolute;
+      inset: 80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184,148,74,0.08) 0%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .hero-kicker::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 { margin-bottom: 1.5rem; }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, var(--gold), var(--gold-l));
+      color: var(--deep);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--rad-full);
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 32px rgba(184,148,74,0.3);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 40px rgba(184,148,74,0.45); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: var(--rad-full);
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover { background: var(--gold-dim); }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--off);
+    }
+
+    .trust-item .icon { font-size: 1rem; }
+
+    /* ===================== SECTION BASE ===================== */
+    .section { padding: clamp(4rem, 9vh, 7rem) 0; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.9rem;
+      border-radius: var(--rad-full);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-divider {
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 1.2rem 0 2rem;
+    }
+
+    /* ===================== SOBRE ===================== */
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) { .sobre-grid { grid-template-columns: 1fr; } }
+
+    .sobre-img {
+      aspect-ratio: 4/5;
+      border-radius: 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: var(--off);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sobre-img::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(184,148,74,0.05) 0%, transparent 60%);
+    }
+
+    .sobre-img-icon { font-size: 4rem; opacity: 0.3; }
+
+    .credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cred-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+
+    .cred-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .cred-text { font-size: 0.9rem; color: var(--off); line-height: 1.4; }
+    .cred-text strong { color: var(--white); font-size: 0.95rem; display: block; }
+
+    /* ===================== SERVIÇOS ===================== */
+    .servicos-section { background: var(--dark); }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+    }
+
+    .servico-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--rad);
+      padding: 2rem 1.75rem;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .servico-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .servico-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+    .servico-card:hover::before { opacity: 1; }
+
+    .servico-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+    .servico-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .servico-card p { font-size: 0.875rem; }
+
+    /* ===================== COMO FUNCIONA ===================== */
+    .como-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .como-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .como-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 1;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .como-card h4 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .como-card p { font-size: 0.85rem; }
+
+    /* ===================== SOCIAL PROOF ===================== */
+    .proof-section { background: var(--dark); }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .proof-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--rad);
+      padding: 2rem;
+    }
+
+    .proof-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 1rem; }
+
+    .proof-text {
+      font-size: 0.95rem;
+      color: var(--off);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .proof-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .proof-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .proof-author-text .name { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+    .proof-author-text .role { font-size: 0.75rem; color: var(--off); }
+
+    /* ===================== FAQ ===================== */
+    .faq-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--rad);
+      overflow: hidden;
+    }
+
+    .faq-q {
+      width: 100%;
+      padding: 1.25rem 1.5rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .faq-q .arrow {
+      font-size: 0.8rem;
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); }
+
+    .faq-a {
+      padding: 0 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .faq-a p { font-size: 0.9rem; }
+
+    /* ===================== CTA FINAL ===================== */
+    .cta-section {
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(184,148,74,0.08) 0%, transparent 60%),
+        var(--dark);
+      text-align: center;
+    }
+
+    .cta-section h2 { margin-bottom: 1rem; }
+    .cta-section p { font-size: 1.05rem; max-width: 500px; margin: 0 auto 2.5rem; }
+
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: #020508;
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+    }
+
+    footer p { font-size: 0.8rem; color: rgba(245,243,238,0.3); }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 600px) {
+      .float-cta { bottom: 1rem; font-size: 0.85rem; padding: 0.8rem 1.8rem; }
+      .hero-geo { display: none; }
+    }
+
+    /* ===================== SCROLLBAR ===================== */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--deep); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+  </style>
+</head>
+<body>
+
+  <!-- Floating CTA -->
+  <a href="https://wa.me/5561999999999?text=Oi+Dr.+Breno%2C+quero+agendar+uma+consulta"
+     class="float-cta" target="_blank" rel="noopener">
+    💬 Agendar pelo WhatsApp
+  </a>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-brand-icon">🩺</div>
+        <span class="nav-brand-text">Dr. Breno Lima <span>· Ortopedista</span></span>
+      </div>
+      <a href="https://wa.me/5561999999999?text=Oi+Dr.+Breno%2C+quero+agendar+uma+consulta"
+         class="nav-btn" target="_blank" rel="noopener">Agendar</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-geo"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-kicker sr">Ortopedia · Traumatologia</span>
+        <h1 class="sr d1">
+          Resolva sua dor.<br>
+          Volte a <em>viver.</em>
+        </h1>
+        <p class="hero-desc sr d2">
+          Diagnóstico preciso, tratamento personalizado e acompanhamento dedicado.
+          <strong>Dr. Breno Lima</strong> cuida da sua saúde óssea com excelência.
+        </p>
+        <div class="hero-ctas sr d3">
+          <a href="https://wa.me/5561999999999?text=Oi+Dr.+Breno%2C+quero+agendar+uma+consulta"
+             class="btn-gold" target="_blank" rel="noopener">
+            💬 Agendar Consulta →
+          </a>
+          <a href="#servicos" class="btn-outline">Ver Especialidades</a>
+        </div>
+        <div class="hero-trust sr d3">
+          <div class="trust-item"><span class="icon">✅</span> CRM Ativo</div>
+          <div class="trust-item"><span class="icon">📍</span> Atendimento Presencial</div>
+          <div class="trust-item"><span class="icon">⭐</span> Alta Satisfação</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SOBRE ==================== -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sr">
+          <div class="sobre-img">
+            <div class="sobre-img-icon">👨‍⚕️</div>
+            <span style="font-size:0.85rem; color:var(--off);">Dr. Breno Lima<br>Foto do Médico</span>
+          </div>
+        </div>
+
+        <div class="sr d1">
+          <span class="section-tag">Sobre o Médico</span>
+          <h2>Dr. Breno Lima</h2>
+          <div class="section-divider"></div>
+          <p style="margin-bottom:1.5rem;">
+            Ortopedista e traumatologista com formação de excelência, dedicado a devolver
+            qualidade de vida aos seus pacientes. Atendimento humanizado, diagnóstico preciso,
+            tratamento focado em resultado.
+          </p>
+
+          <div class="credentials">
+            <div class="cred-item">
+              <div class="cred-icon">🎓</div>
+              <div class="cred-text">
+                <strong>Especialista em Ortopedia e Traumatologia</strong>
+                Residência médica em centro de referência nacional
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-icon">🏥</div>
+              <div class="cred-text">
+                <strong>CRM Ativo</strong>
+                Registro no Conselho Regional de Medicina
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-icon">⚕️</div>
+              <div class="cred-text">
+                <strong>Planos de Saúde</strong>
+                Atende os principais convênios da região
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-icon">📱</div>
+              <div class="cred-text">
+                <strong>Consulta via WhatsApp</strong>
+                Agendamento rápido e sem burocracia
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SERVIÇOS ==================== -->
+  <section id="servicos" class="section servicos-section">
+    <div class="container">
+      <div class="sr">
+        <span class="section-tag">Especialidades</span>
+        <h2>O que eu trato</h2>
+        <div class="section-divider"></div>
+        <p style="max-width:520px;">
+          Diagnóstico e tratamento das principais condições ortopédicas e traumatológicas:
+        </p>
+      </div>
+
+      <div class="servicos-grid">
+        <div class="servico-card sr">
+          <span class="servico-icon">🦴</span>
+          <h3>Fraturas e Traumas</h3>
+          <p>Diagnóstico e tratamento de fraturas ósseas, luxações e lesões traumáticas.</p>
+        </div>
+
+        <div class="servico-card sr d1">
+          <span class="servico-icon">🦵</span>
+          <h3>Joelho e Quadril</h3>
+          <p>Lesões de menisco, ligamentos, artrose e cuidados pós-operatórios.</p>
+        </div>
+
+        <div class="servico-card sr d2">
+          <span class="servico-icon">🦷</span>
+          <h3>Coluna Vertebral</h3>
+          <p>Hérnia de disco, lombalgia, cervicalgia e desvios posturais.</p>
+        </div>
+
+        <div class="servico-card sr">
+          <span class="servico-icon">💪</span>
+          <h3>Ombro e Cotovelo</h3>
+          <p>Tendinites, bursites, lesões no manguito rotador e instabilidades.</p>
+        </div>
+
+        <div class="servico-card sr d1">
+          <span class="servico-icon">🏃</span>
+          <h3>Medicina Esportiva</h3>
+          <p>Lesões esportivas, reabilitação e prevenção para atletas e praticantes.</p>
+        </div>
+
+        <div class="servico-card sr d2">
+          <span class="servico-icon">🩻</span>
+          <h3>Ortopedia Geral</h3>
+          <p>Consultas, laudos, pedidos de exames e acompanhamento ortopédico completo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== COMO FUNCIONA ==================== -->
+  <section class="section">
+    <div class="container">
+      <div class="sr">
+        <span class="section-tag">Processo</span>
+        <h2>Como agendar</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="como-grid">
+        <div class="como-card sr">
+          <span class="como-num">01</span>
+          <h4>Mande uma mensagem</h4>
+          <p>Clique no botão do WhatsApp e envie uma mensagem simples.</p>
+        </div>
+
+        <div class="como-card sr d1">
+          <span class="como-num">02</span>
+          <h4>Escolha data e horário</h4>
+          <p>Nossa equipe apresenta as próximas datas disponíveis.</p>
+        </div>
+
+        <div class="como-card sr d2">
+          <span class="como-num">03</span>
+          <h4>Confirme a consulta</h4>
+          <p>Receba o endereço e todas as informações necessárias.</p>
+        </div>
+
+        <div class="como-card sr d3">
+          <span class="como-num">04</span>
+          <h4>Compareça e resolva</h4>
+          <p>Atendimento dedicado, diagnóstico claro, plano de tratamento.</p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;" class="sr">
+        <a href="https://wa.me/5561999999999?text=Oi+Dr.+Breno%2C+quero+agendar+uma+consulta"
+           class="btn-gold" target="_blank" rel="noopener">
+          💬 Agendar Agora →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== DEPOIMENTOS ==================== -->
+  <section class="section proof-section">
+    <div class="container">
+      <div class="sr">
+        <span class="section-tag">Depoimentos</span>
+        <h2>O que dizem os pacientes</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="proof-grid">
+        <div class="proof-card sr">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">
+            "O Dr. Breno é muito atencioso. Explicou tudo com clareza, sem pressa.
+            Fui com dor no joelho há meses e finalmente tive um diagnóstico preciso."
+          </p>
+          <div class="proof-author">
+            <div class="proof-avatar">👩</div>
+            <div class="proof-author-text">
+              <div class="name">M. Santos</div>
+              <div class="role">Paciente</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-card sr d1">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">
+            "Tive uma fratura no tornozelo e o atendimento foi impecável.
+            Desde o diagnóstico até a alta, me senti acompanhado em todo o processo."
+          </p>
+          <div class="proof-author">
+            <div class="proof-avatar">👨</div>
+            <div class="proof-author-text">
+              <div class="name">R. Oliveira</div>
+              <div class="role">Paciente</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proof-card sr d2">
+          <div class="proof-stars">★★★★★</div>
+          <p class="proof-text">
+            "Pratico esporte e já consultei vários ortopedistas. O Dr. Breno
+            foi o mais completo: exame clínico minucioso e orientações práticas."
+          </p>
+          <div class="proof-author">
+            <div class="proof-avatar">👩</div>
+            <div class="proof-author-text">
+              <div class="name">C. Almeida</div>
+              <div class="role">Paciente</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section id="faq" class="section">
+    <div class="container" style="max-width:720px;">
+      <div class="sr">
+        <span class="section-tag">Dúvidas</span>
+        <h2>Perguntas Frequentes</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="faq-list sr d1">
+        <div class="faq-item">
+          <button class="faq-q">
+            Preciso de encaminhamento médico?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Não é necessário encaminhamento para consulta particular.
+               Para planos de saúde, verifique as regras do seu convênio.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Quais convênios são aceitos?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Atendemos os principais planos de saúde da região. Entre em contato via
+               WhatsApp para confirmar o seu convênio específico.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Qual a antecedência para agendar?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Geralmente temos disponibilidade para consultas em até 2–5 dias úteis.
+               Para urgências, entre em contato e verificamos disponibilidade imediata.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            O que levar na primeira consulta?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Documento de identidade, carteirinha do plano (se aplicável),
+               exames anteriores relacionados ao problema (raio-x, ressonância, laudos)
+               e lista de medicamentos em uso.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">
+            Atende cirurgias ortopédicas?
+            <span class="arrow">▼</span>
+          </button>
+          <div class="faq-a">
+            <p>Sim. Realizamos procedimentos cirúrgicos quando indicados clinicamente,
+               com toda a orientação e acompanhamento pré e pós-operatório.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA FINAL ==================== -->
+  <section class="section cta-section">
+    <div class="container">
+      <span class="section-tag sr">Agende Agora</span>
+      <h2 class="sr d1">
+        Dor não é normal.<br>
+        <em style="color:var(--gold); font-style:italic;">Você pode melhorar.</em>
+      </h2>
+      <p class="sr d2">
+        Entre em contato agora pelo WhatsApp e agende sua consulta.
+        Atendimento ágil, sem burocracia.
+      </p>
+      <div class="cta-btns sr d3">
+        <a href="https://wa.me/5561999999999?text=Oi+Dr.+Breno%2C+quero+agendar+uma+consulta"
+           class="btn-gold" target="_blank" rel="noopener">
+          💬 Falar pelo WhatsApp →
+        </a>
+        <a href="tel:+5561999999999" class="btn-outline">
+          📞 Ligar
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Dr. Breno Lima — Ortopedista</div>
+      <p>Plano de Marketing Digital · Iceberg Company</p>
+      <p>Esta é uma landing page preview criada para demonstração da proposta comercial.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const sr = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.sr').forEach(el => sr.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // Hide float CTA when footer visible
+    const footer = document.querySelector('footer');
+    const floatCta = document.querySelector('.float-cta');
+    const footerObs = new IntersectionObserver((entries) => {
+      floatCta.style.opacity = entries[0].isIntersecting ? '0' : '1';
+      floatCta.style.pointerEvents = entries[0].isIntersecting ? 'none' : 'auto';
+    });
+    footerObs.observe(footer);
+  </script>
+</body>
+</html>
