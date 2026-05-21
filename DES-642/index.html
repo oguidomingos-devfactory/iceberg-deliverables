@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contrato de Prestação de Serviços — Pulso | Plano Crescimento</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --noite: #0D1B2A;
+    --noite2: #122032;
+    --noite3: #1a2d42;
+    --pulso: #00BFA5;
+    --pulso2: #00e5c8;
+    --areia: #F0E9DC;
+    --areia2: #e8ddd0;
+    --texto: #e2eeef;
+    --muted: #7a9aaa;
+    --borda: #1e3347;
+    --danger: #ef4444;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--noite);
+    color: var(--texto);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 15px;
+    line-height: 1.75;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* ── CAPA ── */
+  .capa {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #071220 0%, #0D1B2A 40%, #0d2a24 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+
+  .capa::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 50% at 50% 60%, rgba(0,191,165,0.12) 0%, transparent 70%);
+  }
+
+  .ecg-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ecg-line {
+    width: 100%;
+    height: 80px;
+    overflow: visible;
+  }
+
+  .ecg-path {
+    fill: none;
+    stroke: var(--pulso);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: drop-shadow(0 0 8px rgba(0,191,165,0.6));
+    animation: ecg-draw 3s ease-in-out infinite;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+
+  @keyframes ecg-draw {
+    0% { stroke-dashoffset: 800; opacity: 0.3; }
+    50% { stroke-dashoffset: 0; opacity: 1; }
+    100% { stroke-dashoffset: -800; opacity: 0.3; }
+  }
+
+  .logo-pulso {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 32px;
+  }
+
+  .logo-pulso svg { filter: drop-shadow(0 0 12px rgba(0,191,165,0.4)); }
+
+  .badge-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0,191,165,0.12);
+    border: 1px solid rgba(0,191,165,0.3);
+    color: var(--pulso);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .capa h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    color: var(--areia);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .capa h1 em {
+    color: var(--pulso);
+    font-style: italic;
+  }
+
+  .capa-sub {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .capa-meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-item {
+    text-align: center;
+  }
+
+  .meta-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .meta-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--areia);
+  }
+
+  .capa-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pulso), transparent);
+    margin: 40px auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── LAYOUT PRINCIPAL ── */
+  .doc {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ── SEÇÕES ── */
+  .section {
+    margin-bottom: 48px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .section-num {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    background: rgba(0,191,165,0.12);
+    border: 1px solid rgba(0,191,165,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--pulso);
+    margin-top: 2px;
+  }
+
+  .section-title-wrap {}
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--areia);
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 3px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--noite2);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+
+  .card-highlight {
+    border-color: rgba(0,191,165,0.3);
+    background: linear-gradient(135deg, var(--noite2) 0%, rgba(0,191,165,0.05) 100%);
+  }
+
+  .card-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--pulso);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ── PARTES ── */
+  .partes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .partes-grid { grid-template-columns: 1fr; }
+  }
+
+  .parte-card {
+    background: var(--noite2);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+
+  .parte-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pulso);
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--borda);
+  }
+
+  .parte-field {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .parte-field span {
+    color: var(--texto);
+    font-weight: 500;
+  }
+
+  /* ── PRICING ── */
+  .pricing-destaque {
+    background: linear-gradient(135deg, rgba(0,191,165,0.08) 0%, rgba(0,191,165,0.03) 100%);
+    border: 1px solid rgba(0,191,165,0.25);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 16px;
+  }
+
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--pulso);
+    color: var(--noite);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 600px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+  }
+
+  .pricing-item {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .pricing-item .label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .pricing-item .valor {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    color: var(--pulso);
+    line-height: 1;
+  }
+
+  .pricing-item .valor small {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    margin-top: 3px;
+  }
+
+  /* ── ENTREGÁVEIS ── */
+  .entregaveis-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .entregaveis-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--texto);
+    padding: 10px 12px;
+    background: rgba(0,0,0,0.15);
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .entregaveis-list li:hover { border-left-color: var(--pulso); }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: rgba(0,191,165,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+
+  .check-icon::after {
+    content: '✓';
+    font-size: 11px;
+    color: var(--pulso);
+    font-weight: 700;
+  }
+
+  /* ── FASES ── */
+  .fases-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+  }
+
+  .fase-item {
+    display: flex;
+    gap: 16px;
+  }
+
+  .fase-num-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fase-num {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    border: 2px solid var(--pulso);
+    color: var(--pulso);
+    background: rgba(0,191,165,0.08);
+  }
+
+  .fase-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, rgba(0,191,165,0.3), transparent);
+    margin: 4px auto;
+    min-height: 20px;
+  }
+
+  .fase-content {
+    flex: 1;
+    background: var(--noite2);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 0;
+  }
+
+  .fase-title {
+    font-weight: 700;
+    color: var(--areia);
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+
+  .fase-prazo {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--pulso);
+    background: rgba(0,191,165,0.1);
+    border-radius: 100px;
+    padding: 2px 10px;
+    margin-bottom: 8px;
+  }
+
+  .fase-desc { font-size: 13.5px; color: var(--muted); }
+
+  /* ── TABELAS ── */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .styled-table th {
+    background: rgba(0,191,165,0.08);
+    color: var(--pulso);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,191,165,0.2);
+  }
+
+  .styled-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto);
+    vertical-align: top;
+  }
+
+  .styled-table tr:last-child td { border-bottom: none; }
+  .styled-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── SLAs ── */
+  .sla-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+  }
+
+  .sla-item {
+    background: var(--noite2);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sla-valor {
+    font-size: 22px;
+    font-family: 'DM Serif Display', serif;
+    color: var(--pulso);
+    line-height: 1;
+  }
+
+  .sla-desc {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  /* ── CLAUSULAS ── */
+  .clausula p {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    line-height: 1.8;
+  }
+
+  .clausula p strong { color: var(--texto); }
+
+  .clausula-sub {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--areia2);
+    margin: 16px 0 8px;
+  }
+
+  /* ── RESCISAO ── */
+  .alert-box {
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+
+  .alert-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ef4444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+
+  .alert-box p {
+    font-size: 13.5px;
+    color: #aab8c2;
+    margin: 0;
+  }
+
+  /* ── ASSINATURAS ── */
+  .assinaturas {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--borda);
+    page-break-before: always;
+  }
+
+  .assinaturas h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--areia);
+    margin-bottom: 8px;
+  }
+
+  .assinaturas-intro {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+
+  .assinaturas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  @media (max-width: 600px) {
+    .assinaturas-grid { grid-template-columns: 1fr; }
+  }
+
+  .assinatura-bloco {
+    padding: 24px;
+    background: var(--noite2);
+    border: 1px solid var(--borda);
+    border-radius: var(--radius);
+  }
+
+  .assinatura-role {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pulso);
+    margin-bottom: 40px;
+  }
+
+  .assinatura-linha {
+    border-top: 1px solid var(--borda);
+    margin-bottom: 8px;
+  }
+
+  .assinatura-nome {
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .assinatura-campo {
+    margin-top: 12px;
+  }
+
+  .assinatura-campo label {
+    font-size: 11px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .assinatura-campo .field {
+    height: 32px;
+    border-bottom: 1px solid var(--borda);
+    width: 100%;
+  }
+
+  /* ── RODAPÉ ── */
+  .rodape {
+    margin-top: 48px;
+    padding: 24px 40px;
+    background: var(--noite2);
+    border-top: 1px solid var(--borda);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .rodape-brand {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: var(--pulso);
+  }
+
+  .rodape-info {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white !important; color: #1a1a1a !important; }
+    .capa { min-height: auto; }
+  }
+
+  /* ── UTILITIES ── */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+
+  .tag-pulso { background: rgba(0,191,165,0.12); color: var(--pulso); border: 1px solid rgba(0,191,165,0.25); }
+  .tag-aviso { background: rgba(255,193,7,0.1); color: #ffc107; border: 1px solid rgba(255,193,7,0.2); }
+  .tag-info  { background: rgba(99,179,237,0.1); color: #63b3ed; border: 1px solid rgba(99,179,237,0.2); }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--borda);
+    margin: 32px 0;
+  }
+
+  .text-muted { color: var(--muted); }
+  .text-pulso { color: var(--pulso); }
+  .font-serif { font-family: 'DM Serif Display', serif; }
+
+  .nota-box {
+    background: rgba(0,191,165,0.05);
+    border: 1px solid rgba(0,191,165,0.15);
+    border-left: 3px solid var(--pulso);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+
+  .nota-box strong { color: var(--texto); }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <div class="ecg-container">
+    <svg class="ecg-line" viewBox="0 0 600 80" preserveAspectRatio="none">
+      <path class="ecg-path" d="M0,40 L60,40 L80,40 L100,40 L120,40 L130,60 L140,15 L150,65 L160,10 L170,40 L180,40 L200,40 L210,48 L220,30 L230,40 L240,40 L260,40 L280,40 L300,40 L310,60 L320,15 L330,65 L340,10 L350,40 L360,40 L380,40 L390,48 L400,30 L410,40 L420,40 L450,40 L460,60 L470,15 L480,65 L490,10 L500,40 L540,40 L600,40"/>
+    </svg>
+  </div>
+
+  <div class="logo-pulso">
+    <svg width="180" height="52" viewBox="0 0 180 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Pulso logo wordmark -->
+      <text x="0" y="40" font-family="DM Serif Display, serif" font-size="42" fill="#00BFA5" letter-spacing="-1">Pulso</text>
+      <circle cx="168" cy="26" r="7" fill="none" stroke="#00BFA5" stroke-width="2"/>
+      <circle cx="168" cy="26" r="3" fill="#00BFA5"/>
+    </svg>
+  </div>
+
+  <div class="badge-tipo">
+    <span>⚕</span> Tech Medical · Plano Crescimento
+  </div>
+
+  <h1>Contrato de<br/><em>Prestação de Serviços</em></h1>
+
+  <p class="capa-sub">Assessoria de Marketing Digital para Clínicas Médicas — Sistema completo de atração, conversão e retenção de pacientes baseado em dados</p>
+
+  <div class="capa-divider"></div>
+
+  <div class="capa-meta">
+    <div class="meta-item">
+      <div class="meta-label">Modalidade</div>
+      <div class="meta-value">Plano Crescimento</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Vigência mínima</div>
+      <div class="meta-value">6 meses</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Mensalidade</div>
+      <div class="meta-value">R$ 5.500</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Setup</div>
+      <div class="meta-value">R$ 6.500</div>
+    </div>
+  </div>
+</div>
+
+<!-- DOCUMENTO PRINCIPAL -->
+<div class="doc">
+
+  <!-- CLÁUSULA 1 — PARTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Identificação das Partes</div>
+        <div class="section-subtitle">Contratante e Contratada</div>
+      </div>
+    </div>
+
+    <div class="partes-grid">
+      <div class="parte-card">
+        <div class="parte-role">◆ Contratada</div>
+        <div class="parte-field"><span>Iceberg Content Ltda.</span></div>
+        <div class="parte-field">CNPJ: <span>XX.XXX.XXX/0001-XX</span></div>
+        <div class="parte-field">Representante: <span>______________________</span></div>
+        <div class="parte-field">Endereço: <span>______________________</span></div>
+        <div class="parte-field">E-mail: <span>contato@icebergcontent.com.br</span></div>
+        <div style="margin-top:10px;">
+          <span class="tag tag-pulso">Operado via Pulso</span>
+        </div>
+      </div>
+      <div class="parte-card">
+        <div class="parte-role">◇ Contratante</div>
+        <div class="parte-field">Razão Social: <span>______________________</span></div>
+        <div class="parte-field">CNPJ / CPF: <span>______________________</span></div>
+        <div class="parte-field">Representante: <span>______________________</span></div>
+        <div class="parte-field">Especialidade: <span>______________________</span></div>
+        <div class="parte-field">E-mail: <span>______________________</span></div>
+        <div class="parte-field">WhatsApp: <span>______________________</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 2 — OBJETO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Objeto do Contrato</div>
+        <div class="section-subtitle">Escopo e descrição dos serviços</div>
+      </div>
+    </div>
+
+    <div class="card card-highlight">
+      <div class="card-title">✦ Plano Crescimento — Escopo Completo</div>
+      <p class="clausula" style="margin-bottom:0;">
+        <p>O presente instrumento tem por objeto a prestação de serviços de <strong>assessoria de marketing digital especializada para clínicas médicas</strong>, operada sob a marca <strong>Pulso</strong>, compreendendo todas as atividades descritas na Cláusula 3, com foco em aquisição, engajamento e retenção de pacientes por meio de um sistema integrado de dados, conteúdo e mídia paga.</p>
+        <p>O serviço abrange o <strong>Plano Crescimento</strong>, o nível mais completo da oferta Pulso, incluindo operação recorrente de social media, captações mensais e acompanhamento executivo de performance.</p>
+      </p>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 3 — ENTREGAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Obrigações da Contratada</div>
+        <div class="section-subtitle">Entregáveis mensais e recorrentes</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">📊 Diagnóstico & Estratégia (Setup)</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Diagnóstico estratégico completo (comercial + digital)</li>
+        <li><span class="check-icon"></span>Pesquisa de público-alvo, keywords e concorrentes</li>
+        <li><span class="check-icon"></span>Score de posicionamento digital (Google · Instagram · Site)</li>
+        <li><span class="check-icon"></span>Definição de objetivo, oferta prioritária e plano de aquisição</li>
+        <li><span class="check-icon"></span>Auditoria comercial + treinamento da equipe de atendimento</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">📣 Tráfego Pago (Mensal Recorrente)</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Gestão de campanhas em Google Ads (Pesquisa · Display · YouTube)</li>
+        <li><span class="check-icon"></span>Gestão de campanhas em Meta Ads (Instagram · Facebook)</li>
+        <li><span class="check-icon"></span>Criação e otimização contínua de criativos (8–18 por mês, conforme desempenho)</li>
+        <li><span class="check-icon"></span>Segmentação avançada por procedimento, localização e perfil de paciente</li>
+        <li><span class="check-icon"></span>Otimizações semanais de lances, orçamentos e criativos</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">🌐 Ativos Digitais</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Criação de 2 landing pages de captação ou institucional</li>
+        <li><span class="check-icon"></span>Otimização de Google Meu Negócio (GMB) — Map Pack</li>
+        <li><span class="check-icon"></span>Setup de WhatsApp Business com mensagens automáticas</li>
+        <li><span class="check-icon"></span>Perfil em diretórios médicos (Doctoralia, Boa Consulta)</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">📱 Social Media (Mensal Recorrente — Crescimento)</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Vitrine inicial para redes sociais com 12 posts/stories</li>
+        <li><span class="check-icon"></span>2 captações mensais (sessão de fotos ou vídeos)</li>
+        <li><span class="check-icon"></span>12 posts mensais produzidos e publicados</li>
+        <li><span class="check-icon"></span>Gestão de postagens e acompanhamento de performance no Instagram</li>
+        <li><span class="check-icon"></span>Pauta mensal alinhada à estratégia e sazonalidade</li>
+      </ul>
+    </div>
+
+    <div class="card" style="margin-bottom:12px;">
+      <div class="card-title">🤖 CRM & Automações</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Setup completo de CRM médico</li>
+        <li><span class="check-icon"></span>Automações de atendimento: first-response, follow-up e reagendamento</li>
+        <li><span class="check-icon"></span>Fluxo de pós-consulta e coleta de avaliações</li>
+        <li><span class="check-icon"></span>Integração WhatsApp + formulários de captação</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📈 Relatórios & Acompanhamento</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Relatório quinzenal de campanhas (tráfego + resultados)</li>
+        <li><span class="check-icon"></span>Relatório mensal executivo consolidado</li>
+        <li><span class="check-icon"></span>Reunião mensal estratégica de alinhamento</li>
+        <li><span class="check-icon"></span>Suporte via WhatsApp em horário comercial (seg–sex, 9h–18h)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 4 — VIGÊNCIA E VALORES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Vigência e Valores</div>
+        <div class="section-subtitle">Investimento, prazos e condições</div>
+      </div>
+    </div>
+
+    <div class="pricing-destaque">
+      <div class="pricing-badge">⭐ Plano Crescimento</div>
+      <p style="font-size:13px; color: var(--muted); margin-bottom:4px;">Investimento completo — assessoria, setup e operação recorrente</p>
+      <div class="pricing-grid">
+        <div class="pricing-item">
+          <div class="label">Setup</div>
+          <div class="valor">R$ 6.500<small>pago no início</small></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Mensalidade</div>
+          <div class="valor">R$ 5.500<small>por mês</small></div>
+        </div>
+        <div class="pricing-item">
+          <div class="label">Mídia mínima</div>
+          <div class="valor">R$ 2.000<small>investido pelo cliente</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Modalidade de Pagamento</th>
+            <th>Condição</th>
+            <th>Vencimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-pulso">Setup</span></td>
+            <td>Taxa única de entrada</td>
+            <td>Ato da assinatura</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-info">Mensalidade</span></td>
+            <td>Recorrência mensal</td>
+            <td>Todo dia ___ do mês</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-aviso">Mídia Paga</span></td>
+            <td>Investimento direto do cliente nas plataformas</td>
+            <td>Conforme plataforma</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="nota-box">
+      <strong>Vigência mínima:</strong> 6 (seis) meses contados da data de assinatura. Após o período mínimo, o contrato renova-se automaticamente por períodos iguais e sucessivos, salvo comunicação formal de rescisão com 30 dias de antecedência.
+    </div>
+
+    <div class="nota-box" style="margin-top:8px;">
+      <strong>Reajuste:</strong> Após 12 meses, os valores poderão ser reajustados pelo IPCA acumulado do período, mediante comunicação prévia de 30 dias.
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 5 — PLANO DE TRABALHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Plano de Trabalho</div>
+        <div class="section-subtitle">Fases de execução e prazos</div>
+      </div>
+    </div>
+
+    <div class="fases-timeline">
+      <div class="fase-item">
+        <div class="fase-num-wrap">
+          <div class="fase-num">1</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-content">
+          <div class="fase-prazo">⏱ Dias 1–14</div>
+          <div class="fase-title">Setup & Diagnóstico</div>
+          <div class="fase-desc">Imersão inicial, coleta de contexto comercial e operacional. Criação de landing pages, configuração de rastreamento, setup de CRM, otimização de GMB e WhatsApp Business. Primeiros criativos e estruturação das campanhas.</div>
+        </div>
+      </div>
+      <div class="fase-item">
+        <div class="fase-num-wrap">
+          <div class="fase-num">2</div>
+          <div class="fase-line"></div>
+        </div>
+        <div class="fase-content">
+          <div class="fase-prazo">⏱ Semanas 3–8</div>
+          <div class="fase-title">Ativação & Primeiros Resultados</div>
+          <div class="fase-desc">Publicação das campanhas. Organização do fluxo de entrada de leads. Captações mensais de conteúdo. Primeiros ajustes com base em dados de conversão, resposta comercial e performance das redes sociais.</div>
+        </div>
+      </div>
+      <div class="fase-item">
+        <div class="fase-num-wrap">
+          <div class="fase-num">3</div>
+        </div>
+        <div class="fase-content">
+          <div class="fase-prazo">⏱ Mês 3 em diante</div>
+          <div class="fase-title">Otimização Contínua & Escala</div>
+          <div class="fase-desc">Leitura periódica de desempenho, refinamento de segmentação, mensagens e criativos. Ajustes na jornada de captação e atendimento. Relatórios mensais executivos e reunião estratégica mensal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 6 — SLAs -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Níveis de Serviço (SLA)</div>
+        <div class="section-subtitle">Compromissos de tempo e qualidade</div>
+      </div>
+    </div>
+
+    <div class="sla-grid">
+      <div class="sla-item">
+        <div class="sla-valor">48h</div>
+        <div class="sla-desc">Resposta a solicitações e dúvidas via WhatsApp (horário comercial)</div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-valor">5 dias</div>
+        <div class="sla-desc">Prazo para correção de erros nas campanhas após notificação</div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-valor">14 dias</div>
+        <div class="sla-desc">Prazo máximo para conclusão do setup inicial</div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-valor">Quinzenal</div>
+        <div class="sla-desc">Frequência mínima de relatórios de campanha entregues</div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-valor">Mensal</div>
+        <div class="sla-desc">Reunião estratégica de alinhamento com o cliente</div>
+      </div>
+      <div class="sla-item">
+        <div class="sla-valor">8–18</div>
+        <div class="sla-desc">Faixa de criativos mensais conforme desempenho da conta</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 7 — PERFORMANCE ADAPTATIVA -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Política de Performance Adaptativa</div>
+        <div class="section-subtitle">Métricas e ajuste de criativos</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>Os criativos de mídia paga são ajustados conforme o desempenho real das campanhas, com faixa de <strong>8 a 18 criativos mensais</strong>. O volume específico é definido pela equipe Pulso com base em:</p>
+
+      <div class="clausula-sub">Critérios de ajuste:</div>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Indicador</th>
+            <th>Referência</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CTR (taxa de clique)</td>
+            <td>&lt; 1,5% por 7 dias</td>
+            <td>Substituição de criativo</td>
+          </tr>
+          <tr>
+            <td>CPL (custo por lead)</td>
+            <td>&gt; 3× meta acordada</td>
+            <td>Revisão de segmentação + criativo</td>
+          </tr>
+          <tr>
+            <td>Frequência de exibição</td>
+            <td>&gt; 4× por usuário/semana</td>
+            <td>Renovação obrigatória do criativo</td>
+          </tr>
+          <tr>
+            <td>Agendamentos gerados</td>
+            <td>Meta mensal definida em reunião</td>
+            <td>Escala ou revisão de estratégia</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 8 — OBRIGAÇÕES DO CONTRATANTE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Obrigações do Contratante</div>
+        <div class="section-subtitle">Responsabilidades e fornecimento de insumos</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>Para a correta execução dos serviços, o Contratante obriga-se a:</p>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Fornecer acesso às contas de anúncios (Google Ads e Meta Ads) ou autorizar a criação</li>
+        <li><span class="check-icon"></span>Disponibilizar materiais de imagem, vídeo e identidade visual quando solicitado</li>
+        <li><span class="check-icon"></span>Participar das captações mensais agendadas (sessões de foto/vídeo)</li>
+        <li><span class="check-icon"></span>Realizar o investimento mínimo em mídia paga diretamente nas plataformas (R$ 2.000/mês)</li>
+        <li><span class="check-icon"></span>Responder às solicitações da equipe Pulso em até 48h úteis</li>
+        <li><span class="check-icon"></span>Comparecer ou enviar representante às reuniões mensais agendadas</li>
+        <li><span class="check-icon"></span>Manter os dados cadastrais e de faturamento atualizados</li>
+        <li><span class="check-icon"></span>Efetuar os pagamentos nos prazos estabelecidos</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 9 — FORA DO ESCOPO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Itens Fora do Escopo</div>
+        <div class="section-subtitle">O que não está incluído no plano</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>Os seguintes serviços <strong>não estão incluídos</strong> no Plano Crescimento e devem ser orçados separadamente:</p>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Operação para múltiplas unidades com gestão independente</li>
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Desenvolvimento de sistemas, aplicativos ou integrações sob demanda</li>
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Produção audiovisual além das 2 captações mensais previstas</li>
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Volumes adicionais de landing pages, campanhas ou conteúdo fora da cadência</li>
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Gestão de mídia com orçamento abaixo de R$ 2.000/mês</li>
+        <li><span class="check-icon" style="background: rgba(239,68,68,0.1);"><span style="color:#ef4444; font-weight:700; font-size:11px;">✕</span></span>Serviços de assessoria de imprensa ou RP</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 10 — RESCISÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Rescisão Contratual</div>
+        <div class="section-subtitle">Condições e penalidades</div>
+      </div>
+    </div>
+
+    <div class="alert-box">
+      <div class="alert-title">⚠ Rescisão Antecipada pelo Contratante</div>
+      <p>Em caso de rescisão pelo Contratante antes do término da vigência mínima de 6 meses, incidirá multa equivalente a <strong>30% do valor restante</strong> do contrato (mensalidades a vencer), além da retenção integral do setup pago, sem direito a reembolso.</p>
+    </div>
+
+    <div class="card clausula">
+      <div class="clausula-sub">Rescisão por justa causa:</div>
+      <p>O contrato poderá ser rescindido por justa causa, sem ônus, nos seguintes casos:</p>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Inadimplência superior a 15 dias após o vencimento</li>
+        <li><span class="check-icon"></span>Descumprimento reiterado das obrigações do Contratante previstas na Cláusula 8</li>
+        <li><span class="check-icon"></span>Conduta que comprometa a reputação da Contratada ou de seus profissionais</li>
+      </ul>
+
+      <div class="clausula-sub">Aviso prévio após período mínimo:</div>
+      <p>Após o cumprimento dos 6 meses, qualquer das partes poderá rescindir mediante comunicação formal por escrito com <strong>30 dias de antecedência</strong>, sem incidência de multa.</p>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 11 — PROPRIEDADE INTELECTUAL -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">11</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Propriedade Intelectual</div>
+        <div class="section-subtitle">Titularidade de ativos e criativos</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>Os <strong>criativos, artes, textos e materiais</strong> produzidos pela Contratada durante a vigência do contrato são de propriedade do Contratante, podendo ser utilizados livremente após o término da relação contratual.</p>
+      <p>As <strong>metodologias, frameworks, templates e processos internos</strong> da Contratada são de sua exclusiva propriedade e não estão incluídos na cessão.</p>
+      <p>O Contratante autoriza a Contratada a utilizar resultados, métricas agregadas e casos de sucesso (sem identificar dados sensíveis do paciente) para fins de portfólio e divulgação comercial, respeitando a LGPD.</p>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 12 — LGPD -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">12</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Proteção de Dados (LGPD)</div>
+        <div class="section-subtitle">Tratamento de dados pessoais de pacientes</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>As partes comprometem-se a observar integralmente a <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018)</strong> no tratamento de quaisquer dados pessoais relacionados à execução deste contrato.</p>
+
+      <div class="clausula-sub">Responsabilidades da Contratada:</div>
+      <ul class="entregaveis-list">
+        <li><span class="check-icon"></span>Tratar dados de leads e pacientes exclusivamente para fins de marketing autorizado pelo Contratante</li>
+        <li><span class="check-icon"></span>Não compartilhar dados com terceiros sem autorização expressa</li>
+        <li><span class="check-icon"></span>Adotar medidas técnicas e organizacionais para proteção dos dados</li>
+        <li><span class="check-icon"></span>Notificar o Contratante em até 72h em caso de incidente de segurança</li>
+      </ul>
+
+      <div class="clausula-sub">Responsabilidades do Contratante:</div>
+      <p>O Contratante é responsável por garantir que os dados de pacientes coletados em suas instalações sejam tratados conforme as exigências do CFM e da LGPD, incluindo obtenção de consentimento adequado para ações de marketing.</p>
+    </div>
+  </div>
+
+  <!-- CLÁUSULA 13 — DISPOSIÇÕES GERAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">13</div>
+      <div class="section-title-wrap">
+        <div class="section-title">Disposições Gerais</div>
+        <div class="section-subtitle">Foro, lei aplicável e demais condições</div>
+      </div>
+    </div>
+
+    <div class="card clausula">
+      <p>Este instrumento, juntamente com seus anexos, representa a integralidade do acordo entre as partes, substituindo todos os entendimentos anteriores sobre o mesmo objeto.</p>
+      <p>Qualquer alteração deste contrato somente terá validade se formalizada por escrito e assinada por ambas as partes.</p>
+      <p>As partes elegem o <strong>Foro da Comarca de _____________, Estado de _____________</strong>, para dirimir quaisquer controvérsias decorrentes deste instrumento, com renúncia expressa a qualquer outro, por mais privilegiado que seja.</p>
+      <p>Aplica-se ao presente contrato a <strong>legislação brasileira vigente</strong>, em especial o Código Civil (Lei nº 10.406/2002) e as normas do CFM pertinentes à publicidade médica.</p>
+    </div>
+  </div>
+
+  <!-- ASSINATURAS -->
+  <div class="assinaturas">
+    <h2>Assinaturas</h2>
+    <p class="assinaturas-intro">Por estarem assim justas e contratadas, as partes assinam o presente instrumento em 2 (duas) vias de igual teor e forma, na presença das testemunhas abaixo.</p>
+
+    <p style="font-size:13px; color: var(--muted); margin-bottom: 24px;">Local e data: _________________________, ______ de __________________ de 2026.</p>
+
+    <div class="assinaturas-grid">
+      <div class="assinatura-bloco">
+        <div class="assinatura-role">Contratada</div>
+        <div class="assinatura-linha"></div>
+        <div class="assinatura-nome">Iceberg Content Ltda. — Pulso</div>
+        <div class="assinatura-campo">
+          <label>Nome completo do representante</label>
+          <div class="field"></div>
+        </div>
+        <div class="assinatura-campo">
+          <label>CPF</label>
+          <div class="field"></div>
+        </div>
+      </div>
+      <div class="assinatura-bloco">
+        <div class="assinatura-role">Contratante</div>
+        <div class="assinatura-linha"></div>
+        <div class="assinatura-nome">Clínica / Médico Contratante</div>
+        <div class="assinatura-campo">
+          <label>Nome completo</label>
+          <div class="field"></div>
+        </div>
+        <div class="assinatura-campo">
+          <label>CPF / CNPJ</label>
+          <div class="field"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px;">
+      <p style="font-size:12px; color: var(--muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700;">Testemunhas</p>
+      <div class="assinaturas-grid">
+        <div class="assinatura-bloco">
+          <div class="assinatura-role">Testemunha 1</div>
+          <div class="assinatura-linha"></div>
+          <div class="assinatura-campo">
+            <label>Nome completo</label>
+            <div class="field"></div>
+          </div>
+          <div class="assinatura-campo">
+            <label>CPF</label>
+            <div class="field"></div>
+          </div>
+        </div>
+        <div class="assinatura-bloco">
+          <div class="assinatura-role">Testemunha 2</div>
+          <div class="assinatura-linha"></div>
+          <div class="assinatura-campo">
+            <label>Nome completo</label>
+            <div class="field"></div>
+          </div>
+          <div class="assinatura-campo">
+            <label>CPF</label>
+            <div class="field"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- RODAPÉ -->
+<div class="rodape">
+  <div class="rodape-brand">Pulso — Tech Medical</div>
+  <div class="rodape-info">Iceberg Content Ltda. · Contrato de Prestação de Serviços · Plano Crescimento · v1.0 · 2026</div>
+</div>
+
+</body>
+</html>
