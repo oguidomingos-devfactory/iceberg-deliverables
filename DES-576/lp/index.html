@@ -217,81 +217,81 @@
         /* HERO PHOTO SIDE */
         .hero-visual {
             position: relative;
-        }
-
-        .hero-card {
-            background: linear-gradient(160deg, rgba(196,104,122,0.08) 0%, rgba(9,17,29,0.6) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 2.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-card::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -20%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(196,104,122,0.12) 0%, transparent 65%);
-            border-radius: 50%;
-        }
-
-        .hero-doc-info {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .doc-avatar {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 3px solid rgba(196,104,122,0.5);
-            margin: 0 auto 1.5rem;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(196,104,122,0.25);
-        }
-
-        .doc-avatar img {
-            width: 100%;
             height: 100%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-photo-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .hero-photo-wrap img {
+            width: 100%;
+            height: 580px;
             object-fit: cover;
             object-position: top center;
+            border-radius: 24px;
+            display: block;
         }
 
-        .hero-doc-info h2 {
-            font-size: 1.6rem;
-            margin-bottom: 0.3rem;
+        .hero-photo-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            background: rgba(10,18,30,0.88);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(196,104,122,0.25);
+            border-radius: 16px;
+            padding: 1rem 1.4rem;
         }
 
-        .hero-doc-info p {
+        .hero-photo-badge h3 {
+            font-size: 1.1rem;
+            margin: 0 0 0.2rem;
+        }
+
+        .hero-photo-badge p {
+            font-size: 0.8rem;
             color: var(--rose-light);
             font-style: italic;
             font-family: 'DM Serif Display', serif;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+            margin: 0;
         }
 
-        .doc-badges {
-            display: flex;
-            gap: 0.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .doc-badge {
-            padding: 0.3rem 0.8rem;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.1);
+        .hero-photo-online {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(10,18,30,0.82);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(37,211,102,0.3);
             border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            padding: 0.4rem 0.9rem;
+            font-size: 0.78rem;
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
+        .hero-photo-online::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            background: #25d366;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #25d366;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* legacy card classes — keep for stats grid below */
         .hero-card-stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -640,8 +640,9 @@
 
         /* MOBILE */
         @media (max-width: 768px) {
-            .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
-            .hero-visual { display: none; }
+            .hero-inner { grid-template-columns: 1fr; gap: 2rem; }
+            .hero-visual { order: -1; }
+            .hero-photo-wrap img { height: 380px; border-radius: 16px; }
             header { padding: 0.8rem 1.2rem; }
             .header-cta span { display: none; }
         }
@@ -700,40 +701,12 @@
         </div>
 
         <div class="hero-visual">
-            <div class="hero-card">
-                <div class="hero-doc-info">
-                    <div class="doc-avatar"><img src="../lara-foto.jpg" alt="Dra. Lara Andrade"></div>
-                    <h2>Dra. Lara Andrade</h2>
-                    <p>Médica · CRM/DF</p>
-
-                    <div class="doc-badges">
-                        <div class="doc-badge">CRM ativo</div>
-                        <div class="doc-badge">CFM registrado</div>
-                        <div class="doc-badge">Brasília · DF</div>
-                    </div>
-
-                    <div style="padding: 1rem; background: rgba(37,211,102,0.08); border: 1px solid rgba(37,211,102,0.2); border-radius: 12px; font-size: 0.85rem; color: #4ade80;">
-                        🟢 Agenda aberta para novos pacientes
-                    </div>
-                </div>
-
-                <div class="hero-card-stats">
-                    <div class="hero-card-stat">
-                        <strong>500+</strong>
-                        <span>pacientes atendidos</span>
-                    </div>
-                    <div class="hero-card-stat">
-                        <strong>5★</strong>
-                        <span>avaliação média</span>
-                    </div>
-                    <div class="hero-card-stat">
-                        <strong>24h</strong>
-                        <span>resposta garantida</span>
-                    </div>
-                    <div class="hero-card-stat">
-                        <strong>Online</strong>
-                        <span>telemedicina ativa</span>
-                    </div>
+            <div class="hero-photo-wrap">
+                <img src="../lara-foto.jpg" alt="Dra. Lara Andrade — Ortopedista">
+                <div class="hero-photo-online">Agenda aberta</div>
+                <div class="hero-photo-badge">
+                    <h3>Dra. Lara Andrade</h3>
+                    <p>Ortopedista · Intervencionista da Dor · Brasília</p>
                 </div>
             </div>
         </div>
