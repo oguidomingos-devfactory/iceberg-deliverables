@@ -320,27 +320,26 @@
     .sobre-img {
       aspect-ratio: 4/5;
       border-radius: 16px;
-      background: var(--card);
       border: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.9rem;
-      color: var(--off);
       position: relative;
       overflow: hidden;
     }
 
-    .sobre-img::before {
+    .sobre-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .sobre-img::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(184,148,74,0.05) 0%, transparent 60%);
+      background: linear-gradient(180deg, transparent 60%, rgba(4,9,15,0.5) 100%);
+      pointer-events: none;
     }
-
-    .sobre-img-icon { font-size: 4rem; opacity: 0.3; }
 
     .credentials {
       display: flex;
@@ -654,8 +653,7 @@
       <div class="sobre-grid">
         <div class="sr">
           <div class="sobre-img">
-            <div class="sobre-img-icon">👨‍⚕️</div>
-            <span style="font-size:0.85rem; color:var(--off);">Dr. Breno Lima<br>Foto do Médico</span>
+            <img src="breno-foto.jpg" alt="Dr. Breno Lima — Ortopedista">
           </div>
         </div>
 
@@ -955,7 +953,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">Dr. Breno Lima — Ortopedista</div>
-      <p>Plano de Marketing Digital · Iceberg Company</p>
+      <p>Plano de Marketing Digital · Pulso</p>
       <p>Esta é uma landing page preview criada para demonstração da proposta comercial.</p>
     </div>
   </footer>

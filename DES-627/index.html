@@ -253,27 +253,12 @@
       justify-content: center;
     }
 
-    .hero-photo-placeholder {
+    .hero-photo-real {
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, var(--navy2) 0%, rgba(12,30,69,0.9) 100%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .hero-photo-icon {
-      font-size: 5rem;
-      opacity: 0.4;
-    }
-
-    .hero-photo-label {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-align: center;
-      padding: 0 1rem;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
     }
 
     .hero-card {
@@ -1105,7 +1090,7 @@
   <!-- NAV -->
   <nav>
     <div class="nav-inner">
-      <span class="nav-logo">Dr. Breno Lima × Iceberg</span>
+      <span class="nav-logo">Dr. Breno Lima × Pulso</span>
       <a href="https://wa.me/5561999999999?text=Oi%2C+vi+a+proposta+e+quero+conversar"
          class="nav-cta" target="_blank" rel="noopener">
         💬 Fechar Proposta
@@ -1148,10 +1133,7 @@
         <div class="hero-photo-wrap reveal reveal-delay-1">
           <div class="hero-photo-frame">
             <div class="hero-photo-inner">
-              <div class="hero-photo-placeholder">
-                <span class="hero-photo-icon">🩺</span>
-                <span class="hero-photo-label">Dr. Breno Lima<br>Ortopedista</span>
-              </div>
+              <img src="breno-foto.jpg" alt="Dr. Breno Lima — Ortopedista" class="hero-photo-real">
             </div>
           </div>
 
@@ -1304,7 +1286,7 @@
         </div>
 
         <div class="diagnosis-col reveal reveal-delay-1">
-          <h3>✅ Com a Iceberg</h3>
+          <h3>✅ Com a Pulso</h3>
 
           <div class="diag-item">
             <span class="diag-icon">🚀</span>
@@ -1784,7 +1766,7 @@
       <div class="guarantee-content">
         <div class="guarantee-seal reveal">
           <span>🛡️</span>
-          <span>Garantia Iceberg</span>
+          <span>Garantia Pulso</span>
         </div>
 
         <span class="section-label reveal">12 — Nossa Garantia</span>
@@ -1853,7 +1835,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-logo">Iceberg Company</div>
+      <div class="footer-logo">Pulso</div>
       <p style="margin-top:0.5rem;">Proposta exclusiva para Dr. Breno Lima · Maio 2026</p>
       <p style="margin-top:0.25rem;">Todos os dados de performance são projeções baseadas em clientes similares.</p>
     </div>
