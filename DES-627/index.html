@@ -707,79 +707,54 @@
     }
 
     /* ===================== POSTS PREVIEW ===================== */
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
+    /* posts replaced by single photo */
+    .post-photo-wrap {
       margin-top: 3rem;
-    }
-
-    @media (min-width: 768px) {
-      .posts-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .post-card {
-      aspect-ratio: 1;
       border-radius: var(--rad);
       overflow: hidden;
-      position: relative;
       border: 1px solid var(--border);
-      background: var(--card);
+      position: relative;
+      max-height: 560px;
     }
 
-    .post-card-inner {
+    .post-photo-wrap img {
       width: 100%;
       height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      text-align: center;
-      gap: 0.75rem;
-      position: relative;
-      overflow: hidden;
+      object-fit: cover;
+      display: block;
+      max-height: 560px;
     }
 
-    .post-card-inner::before {
-      content: '';
+    .post-photo-overlay {
       position: absolute;
       inset: 0;
-      opacity: 0.07;
+      background: linear-gradient(180deg, transparent 50%, rgba(4,13,31,0.85) 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      gap: 0.5rem;
     }
 
-    .post-1 .post-card-inner { background: linear-gradient(135deg, #1a3a2a, #0d2010); }
-    .post-1 .post-card-inner::before { background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a55a' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-
-    .post-2 .post-card-inner { background: linear-gradient(135deg, #1a2a3a, #0d1020); }
-    .post-3 .post-card-inner { background: linear-gradient(135deg, #2a1a10, #1a0d05); }
-    .post-4 .post-card-inner { background: linear-gradient(135deg, #1a1a2a, #0d0d1f); }
-
-    .post-type {
+    .post-photo-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: var(--gold);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.15em;
       background: var(--gold-dim);
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
       border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      display: inline-block;
+      width: fit-content;
     }
 
-    .post-title {
+    .post-photo-caption {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
       color: var(--white);
-      line-height: 1.3;
     }
-
-    .post-sub {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    .post-card:hover { border-color: var(--gold); }
 
     /* ===================== PRICING ===================== */
     .pricing-section { background: var(--midnight); }
@@ -1615,37 +1590,14 @@
         Posts de fundação que estabelecem sua autoridade e identidade visual:
       </p>
 
-      <div class="posts-grid">
-        <div class="post-card post-1 reveal">
-          <div class="post-card-inner">
-            <span class="post-type">Apresentação</span>
-            <span class="post-title">Quem é o Dr. Breno Lima?</span>
-            <span class="post-sub">Especialidade + Credenciais</span>
-          </div>
-        </div>
-
-        <div class="post-card post-2 reveal reveal-delay-1">
-          <div class="post-card-inner">
-            <span class="post-type">Educativo</span>
-            <span class="post-title">3 Sinais de que você precisa de um ortopedista</span>
-            <span class="post-sub">Conteúdo de valor</span>
-          </div>
-        </div>
-
-        <div class="post-card post-3 reveal reveal-delay-2">
-          <div class="post-card-inner">
-            <span class="post-type">Social Proof</span>
-            <span class="post-title">Resultado real de paciente</span>
-            <span class="post-sub">Depoimento + Antes/Depois</span>
-          </div>
-        </div>
-
-        <div class="post-card post-4 reveal reveal-delay-3">
-          <div class="post-card-inner">
-            <span class="post-type">CTA</span>
-            <span class="post-title">Agende sua consulta hoje</span>
-            <span class="post-sub">Link na bio → WhatsApp</span>
-          </div>
+      <div class="post-photo-wrap reveal reveal-delay-1">
+        <img
+          src="https://lh3.googleusercontent.com/rd-gg-dl/AFfU-fLQU4Vwk0EqWC7CYPlaVJb_h73Ib5T8Phihe-eOxTO0G-y1WN1scGpX1SD-rxsRUJUTZLEhDBN7qmGWKBSPAvtGbSOWCZIrDxNgio3zOqtXGxnc8F-Q6orgqwehG3o9U9qUYo3q6KWkEq9RTnlzLZ-fBDjOcb6WvUf4fgsgXuWVbcGVTpHUkXAumhnVHftX4E8nLB8NQuh_FzB6tz6w3imDVrW90GoMJuY14to9vhI7nBTKpW-hPviDbCq4o_UDOmcV9svwVjAuC9gqW-0Ie7CeBF9hC05yJYCCBTVoa9XH_dGzyddvw-3xbcVSLT5cboeXwC_zOfKH4xaQwy0yrkiEPQ9E3hwj1yetgicm6JMhPJoIZq4V2Y4fHv8HLt7aw2aQjvlQKwDf4uRGwRa6rPKFC3J8b9tpeZeyJqBSgqFIzPTPbIGP6vDnd30tVQakX6Ndsmouip4mlCphTYnMn_okym8u2pU8VAW9rbpommMbsLHsUf-6FsXJYmlCPoVx1Lp8NenL4RDoz92dvnn7dmBfA7mlSr7zwqbCyhNM1QRY3TqqEPWki2-oUQbxs8c7y-7yjJQr5IPxR742CpgnQPhq1fvvlfFsP0xR3wp_1h_4nakdR32X-LIoDrPLn9h1gfKL5ZnXRZuoIU3tYzvCE8gBYKRiDFZkwxq3huasfNjw53Ka3lhGF5cLzl2pgdz1esmqlChFr3QhNUAi10txSxXeLLcOhsPiMuvfUVWvLrMrpPojk68CXgSsVnKR90lWKCUFe60tuz_acKP9yyhm9AiI7XEJ2Vt-92JH12K-h375gfkzilUEh-L3AoHPKWv4m_OXqJONSItWr_Az1KTtO80Whg50tgT5Dwl8YOLB-FDjp3tS9-J5kEtgUzmZOSjPahkoMfSFE_4T5ol87q0EVxsIusuxrOsTqXeK1AtgYHcXSl7uYGxULFhpzRypuv3Bo8Kps4Ac2Epa2wFAwalTqpvnEY8sr9yvF6Qq--YgVpMsN3nhB1-dBDW1r2S8SSC_u93ZbvF2xjjrxwnDQmDTgJYQ5tVVEDED6VraLNHe4fwi0W7CDd4ytDbUDG5-bdgp7r7Nc_NvV-55WS8TPGMxjz9UkSzBnyFxiBA7arphVlvXP00myfPzeg1_h8TyAKsdKVP1lV_8msj9IAqDCVRCtVVOsXltH-W5SQburYtP6tMPQve7jGW4kFLgWfukuGe-xtHEo-DTPI6_h1aiq70wS_g=s1024-rj"
+          alt="Dr. Breno Lima — Conteúdo"
+          loading="lazy">
+        <div class="post-photo-overlay">
+          <span class="post-photo-label">Preview de Conteúdo</span>
+          <span class="post-photo-caption">Identidade visual e grid estratégico para o Dr. Breno Lima</span>
         </div>
       </div>
     </div>

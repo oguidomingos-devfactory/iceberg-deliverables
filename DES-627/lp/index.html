@@ -54,9 +54,9 @@
     strong { color: var(--white); }
 
     .container {
-      max-width: 1040px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 0 clamp(1.25rem, 5vw, 3rem);
+      padding: 0 clamp(1.25rem, 5vw, 4rem);
     }
 
     /* ===================== SCROLL REVEAL ===================== */
@@ -166,38 +166,76 @@
         linear-gradient(180deg, #04090f 0%, #081020 60%, #04090f 100%);
     }
 
-    /* Decorative geometric */
-    .hero-geo {
-      position: absolute;
-      right: -5%;
-      top: 50%;
-      transform: translateY(-50%);
-      width: min(500px, 50vw);
-      height: min(500px, 50vw);
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      opacity: 0.4;
-      pointer-events: none;
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      width: 100%;
     }
-    .hero-geo::before {
-      content: '';
-      position: absolute;
-      inset: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(184,148,74,0.2);
-    }
-    .hero-geo::after {
-      content: '';
-      position: absolute;
-      inset: 80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(184,148,74,0.08) 0%, transparent 70%);
+
+    @media (max-width: 860px) {
+      .hero .container { grid-template-columns: 1fr; gap: 3rem; }
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 620px;
+    }
+
+    .hero-img-col {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-img-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 3/4;
+      background: var(--card);
+    }
+
+    .hero-img-frame::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(135deg, var(--gold) 0%, transparent 50%, rgba(26,158,146,0.5) 100%);
+      border-radius: 21px;
+      z-index: -1;
+    }
+
+    .hero-img-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-img-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(4,9,15,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--rad);
+      padding: 0.75rem 1.2rem;
+    }
+
+    .hero-img-badge .badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      line-height: 1;
+      display: block;
+    }
+
+    .hero-img-badge .badge-txt {
+      font-size: 0.75rem;
+      color: var(--off);
     }
 
     .hero-kicker {
@@ -315,7 +353,13 @@
       align-items: center;
     }
 
-    @media (max-width: 768px) { .sobre-grid { grid-template-columns: 1fr; } }
+    /* hide photo col on desktop (already shown in hero) */
+    @media (min-width: 861px) {
+      .sobre-grid { grid-template-columns: 1fr; max-width: 680px; }
+      .sobre-img-col { display: none; }
+    }
+
+    @media (max-width: 860px) { .sobre-grid { grid-template-columns: 1fr; } }
 
     .sobre-img {
       aspect-ratio: 4/5;
@@ -375,9 +419,17 @@
 
     .servicos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.25rem;
       margin-top: 2.5rem;
+    }
+
+    @media (max-width: 860px) {
+      .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 540px) {
+      .servicos-grid { grid-template-columns: 1fr; }
     }
 
     .servico-card {
@@ -415,10 +467,18 @@
     /* ===================== COMO FUNCIONA ===================== */
     .como-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
       position: relative;
+    }
+
+    @media (max-width: 860px) {
+      .como-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .como-grid { grid-template-columns: 1fr; }
     }
 
     .como-card {
@@ -451,9 +511,13 @@
 
     .proof-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 3rem;
+    }
+
+    @media (max-width: 860px) {
+      .proof-grid { grid-template-columns: 1fr; }
     }
 
     .proof-card {
@@ -619,7 +683,6 @@
   <!-- ==================== HERO ==================== -->
   <section class="hero">
     <div class="hero-bg"></div>
-    <div class="hero-geo"></div>
     <div class="container">
       <div class="hero-content">
         <span class="hero-kicker sr">Ortopedia · Traumatologia</span>
@@ -644,6 +707,16 @@
           <div class="trust-item"><span class="icon">⭐</span> Alta Satisfação</div>
         </div>
       </div>
+
+      <div class="hero-img-col sr d2">
+        <div class="hero-img-frame">
+          <img src="breno-foto.jpg" alt="Dr. Breno Lima — Ortopedista">
+          <div class="hero-img-badge">
+            <span class="badge-num">+500</span>
+            <span class="badge-txt">pacientes atendidos</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -651,7 +724,7 @@
   <section id="sobre" class="section">
     <div class="container">
       <div class="sobre-grid">
-        <div class="sr">
+        <div class="sr sobre-img-col">
           <div class="sobre-img">
             <img src="breno-foto.jpg" alt="Dr. Breno Lima — Ortopedista">
           </div>
