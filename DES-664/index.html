@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta Comercial | Dr. Rafael Rocha — Médico da Dor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #070d18;
+      --bg2: #0b1425;
+      --bg3: #0f1b30;
+      --surface: rgba(255,255,255,0.04);
+      --surface2: rgba(255,255,255,0.07);
+      --border: rgba(255,255,255,0.08);
+      --border-gold: rgba(196,160,90,0.3);
+      --gold: #c4a05a;
+      --gold-light: #e8c97a;
+      --gold-dim: rgba(196,160,90,0.15);
+      --teal: #00b4a6;
+      --teal-dim: rgba(0,180,166,0.15);
+      --green: #25D366;
+      --white: #f8f4ee;
+      --gray: #8a9ab5;
+      --gray-light: #c4cfe0;
+      --red: #e05656;
+      --pulso: #00b4a6;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; font-weight: 400; }
+    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); line-height: 1.1; letter-spacing: -1px; }
+    h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; letter-spacing: -0.5px; }
+    h3 { font-size: clamp(1.3rem, 2.5vw, 1.8rem); }
+
+    a { color: var(--teal); text-decoration: none; }
+
+    /* ───── NOISE OVERLAY ───── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ───── NAV ───── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(7,13,24,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-badge {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--gray);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.25rem;
+      background: var(--green);
+      color: #000;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: #20c55d;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    }
+
+    /* ───── HERO ───── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 900px;
+      background: radial-gradient(ellipse, rgba(196,160,90,0.12) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(ellipse, rgba(0,180,166,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border-gold);
+      border-radius: 50px;
+      background: var(--gold-dim);
+      animation: fadeSlideDown 0.8s ease-out both;
+    }
+
+    .hero-photo-wrap {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 2.5rem;
+      border: 3px solid var(--border-gold);
+      overflow: hidden;
+      box-shadow: 0 0 0 8px rgba(196,160,90,0.08), 0 24px 64px rgba(0,0,0,0.5);
+      animation: fadeSlideDown 0.8s ease-out 0.1s both;
+      background: linear-gradient(135deg, #1a2a4a, #0f1b30);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+
+    .hero h1 {
+      animation: fadeSlideUp 0.9s ease-out 0.2s both;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 span { color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--teal);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.5rem;
+      animation: fadeSlideUp 0.9s ease-out 0.3s both;
+    }
+
+    .hero-desc {
+      max-width: 640px;
+      color: var(--gray-light);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 3rem;
+      animation: fadeSlideUp 0.9s ease-out 0.4s both;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeSlideUp 0.9s ease-out 0.5s both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, var(--green), #1db954);
+      color: #000;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(37,211,102,0.4);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--gray-light);
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--gray);
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      animation: fadeIn 1s ease-out 1s both;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* ───── SECTIONS ───── */
+    section {
+      padding: clamp(5rem, 10vh, 8rem) 2rem;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .section-title span { color: var(--gold); }
+
+    .section-lead {
+      font-size: 1.1rem;
+      color: var(--gray-light);
+      max-width: 680px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    /* ───── RECAP ───── */
+    .recap-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .recap-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.5;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--gold);
+    }
+
+    .recap-points {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .recap-point {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1.2rem;
+      background: var(--surface2);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: border-color 0.3s;
+    }
+
+    .recap-point:hover { border-color: var(--border-gold); }
+
+    .recap-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--gold-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .recap-point h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .recap-point p { font-size: 0.85rem; color: var(--gray); }
+
+    /* ───── CHALLENGE ───── */
+    .challenge-bg {
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-radius: 24px;
+      padding: clamp(3rem, 6vw, 5rem);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .challenge-bg::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(196,160,90,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .challenge-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.8rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--gray);
+      letter-spacing: 0.5px;
+    }
+
+    /* ───── DIAGNOSIS ───── */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 640px) { .diag-grid { grid-template-columns: 1fr; } }
+
+    .diag-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+
+    .diag-card.problem { border-left: 3px solid var(--red); }
+    .diag-card.opportunity { border-left: 3px solid var(--teal); }
+
+    .diag-card:hover { border-color: var(--border-gold); border-left-color: inherit; }
+
+    .diag-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+
+    .diag-tag.red { background: rgba(224,86,86,0.12); color: #e05656; }
+    .diag-tag.teal { background: var(--teal-dim); color: var(--teal); }
+
+    .diag-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .diag-card p { font-size: 0.88rem; color: var(--gray); line-height: 1.65; }
+
+    /* ───── OPPORTUNITIES ───── */
+    .opp-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .opp-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.8rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      transition: all 0.3s;
+    }
+
+    .opp-item:hover {
+      border-color: var(--border-gold);
+      background: var(--surface2);
+      transform: translateX(6px);
+    }
+
+    .opp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--gold-light);
+      opacity: 0.4;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 48px;
+    }
+
+    .opp-content h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .opp-content p { font-size: 0.88rem; color: var(--gray); }
+
+    /* ───── METRICS ───── */
+    .metrics-wrap {
+      background: var(--bg2);
+      border-radius: 24px;
+      padding: clamp(3rem, 6vw, 5rem);
+      border: 1px solid var(--border-gold);
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .metric-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .metric-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .metric-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      color: var(--gold);
+      line-height: 1;
+      margin: 0.8rem 0 0.4rem;
+    }
+
+    .metric-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    .metric-note {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* ───── PHASES ───── */
+    .phases-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+    }
+
+    .phases-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .phase-item {
+      display: flex;
+      gap: 2rem;
+      padding: 0 0 3rem 0;
+    }
+
+    .phase-dot {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--bg2);
+      border: 2px solid var(--border-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: var(--gold);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+
+    .phase-content {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      flex: 1;
+      transition: border-color 0.3s;
+    }
+
+    .phase-content:hover { border-color: var(--border-gold); }
+
+    .phase-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .phase-content h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.8rem; }
+
+    .phase-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .phase-items li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--gray-light);
+      list-style: none;
+    }
+
+    .phase-items li::before {
+      content: '→';
+      color: var(--teal);
+      flex-shrink: 0;
+    }
+
+    /* ───── DELIVERABLES ───── */
+    .delivers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .deliver-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .deliver-card:hover {
+      border-color: var(--border-gold);
+      background: var(--surface2);
+    }
+
+    .deliver-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .deliver-card h4 { font-size: 1rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .deliver-card p { font-size: 0.85rem; color: var(--gray); margin-bottom: 1rem; }
+
+    .deliver-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 0.25rem 0.65rem;
+      border-radius: 4px;
+      background: var(--teal-dim);
+      color: var(--teal);
+      border: 1px solid rgba(0,180,166,0.2);
+    }
+
+    /* ───── LP PREVIEW ───── */
+    .preview-wrap {
+      background: var(--bg2);
+      border-radius: 24px;
+      border: 1px solid var(--border-gold);
+      overflow: hidden;
+    }
+
+    .preview-bar {
+      background: var(--bg3);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .browser-url {
+      flex: 1;
+      padding: 0.4rem 1rem;
+      background: rgba(255,255,255,0.05);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--gray);
+      font-family: monospace;
+    }
+
+    .preview-iframe-wrap {
+      position: relative;
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .preview-iframe-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* ───── POSTS PREVIEW ───── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    @media (max-width: 768px) { .posts-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .post-card {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .post-card:hover { transform: scale(1.03); }
+
+    .post-inner {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      position: relative;
+    }
+
+    .post-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .post-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+    }
+
+    .post-content { position: relative; z-index: 1; }
+
+    .post-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .post-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #fff;
+    }
+
+    /* ───── PLANS ───── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) { .plans-grid { grid-template-columns: 1fr; } }
+
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .plan-card.featured {
+      background: linear-gradient(145deg, rgba(196,160,90,0.1), rgba(0,180,166,0.05));
+      border-color: var(--gold);
+      transform: scale(1.04);
+    }
+
+    .plan-card:hover:not(.featured) {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+    }
+
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      color: #000;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .plan-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .plan-price .amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .plan-price .currency { font-size: 1.2rem; color: var(--gold); }
+    .plan-price .period { font-size: 0.85rem; color: var(--gray); }
+
+    .plan-setup {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .plan-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      color: var(--gray-light);
+    }
+
+    .plan-feat .check {
+      color: var(--teal);
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+
+    .plan-feat .no { color: var(--red); }
+
+    .plan-cta {
+      display: block;
+      text-align: center;
+      padding: 0.9rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .plan-cta.primary {
+      background: var(--green);
+      color: #000;
+    }
+
+    .plan-cta.primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37,211,102,0.35);
+    }
+
+    .plan-cta.secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gray-light);
+    }
+
+    .plan-cta.secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ───── GUARANTEE ───── */
+    .guarantee-wrap {
+      text-align: center;
+      background: linear-gradient(135deg, var(--bg2), var(--bg3));
+      border-radius: 32px;
+      padding: clamp(4rem, 8vw, 7rem) 3rem;
+      border: 1px solid var(--border-gold);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(196,160,90,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .guarantee-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .guarantee-wrap h2 { margin-bottom: 1rem; }
+
+    .guarantee-wrap p {
+      font-size: 1.05rem;
+      color: var(--gray-light);
+      max-width: 560px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .steps-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .step-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.88rem;
+      color: var(--gray-light);
+      transition: all 0.3s;
+    }
+
+    .step-pill:hover { border-color: var(--border-gold); color: var(--gold); }
+
+    .step-pill .num {
+      width: 24px;
+      height: 24px;
+      background: var(--gold-dim);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .final-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1.2rem 3rem;
+      background: linear-gradient(135deg, var(--green), #1db954);
+      color: #000;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      font-family: 'Outfit', sans-serif;
+      text-decoration: none;
+    }
+
+    .final-cta:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(37,211,102,0.45);
+    }
+
+    /* ───── FOOTER ───── */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* ───── DIVIDER ───── */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+      margin: 0 auto;
+      max-width: 1180px;
+    }
+
+    /* ───── FULL-WIDTH WRAPPER ───── */
+    .full-bg {
+      background: linear-gradient(135deg, var(--bg2) 0%, var(--bg) 100%);
+      padding: 1px 0;
+    }
+
+    /* ───── ANIMATIONS ───── */
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.5; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 768px) {
+      nav .nav-badge { display: none; }
+      .plan-card.featured { transform: scale(1); }
+    }
+
+    @media (max-width: 480px) {
+      .hero-cta-row { flex-direction: column; align-items: center; }
+      .plans-grid { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Pulso Digital</div>
+  <div class="nav-badge">Proposta confidencial · Maio 2026</div>
+  <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Ol%C3%A1%2C+quero+fechar+o+plano+Essencial!" class="nav-cta" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Falar Agora
+  </a>
+</nav>
+
+<!-- ──────────────────── HERO ──────────────────── -->
+<div class="hero">
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    Proposta Exclusiva · Plano Essencial
+  </div>
+
+  <div class="hero-photo-wrap">🩺</div>
+
+  <h1>Dr. <span>Rafael Rocha</span><br>Médico da Dor</h1>
+
+  <p class="hero-sub">Ortopedista · Medicina da Dor · Clínica Santa Isabel — Brasília-DF</p>
+
+  <p class="hero-desc">
+    Dr. Rafael, preparamos uma proposta personalizada baseada no seu contexto real. Aqui está o plano para posicionar sua expertise em dor intervencionista como referência no DF — com resultados mensuráveis desde o primeiro mês.
+  </p>
+
+  <div class="hero-cta-row">
+    <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Ol%C3%A1%2C+li+a+proposta+e+quero+fechar!" class="btn-primary" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero Fechar Agora
+    </a>
+    <a href="#planos" class="btn-ghost">Ver os Planos ↓</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Role para ver</span>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 2: RECAP ──────────────────── -->
+<section>
+  <div class="section-eyebrow">02 — Conversa</div>
+  <h2 class="section-title">O que <span>levantamos</span> junto</h2>
+  <p class="section-lead">
+    Antes de montar qualquer proposta, ouvimos você. Esses foram os pontos que ficaram claros na nossa conversa:
+  </p>
+
+  <div class="recap-card">
+    <p class="recap-quote">
+      "Tenho diferencial real — residência em dor pelo HC Clínicas, mais de 500 procedimentos guiados por ultrassom — mas minha presença digital não reflete isso. Pacientes chegam me confundindo com fisioterapeuta."
+    </p>
+
+    <div class="recap-points">
+      <div class="recap-point">
+        <div class="recap-icon">🎯</div>
+        <div>
+          <h4>Especialidade mal comunicada</h4>
+          <p>Medicina da Dor + ortopedia intervencionista não têm posicionamento claro no DF</p>
+        </div>
+      </div>
+      <div class="recap-point">
+        <div class="recap-icon">📱</div>
+        <div>
+          <h4>Instagram sem estratégia</h4>
+          <p>@fisiosantaisabel ativo, mas sem calendário, funil nem posicionamento do Dr. Rafael como autoridade</p>
+        </div>
+      </div>
+      <div class="recap-point">
+        <div class="recap-icon">🏥</div>
+        <div>
+          <h4>Múltiplos consultórios sem unidade</h4>
+          <p>Santa Isabel (Guará), Clínica Bem (Pátio Brasil), CITI (Águas Claras), Cardiocor — presença sem fio condutor</p>
+        </div>
+      </div>
+      <div class="recap-point">
+        <div class="recap-icon">💉</div>
+        <div>
+          <h4>Procedimentos de alto valor não anunciados</h4>
+          <p>Ácido hialurônico, rizotomia, Botox enxaqueca, onda de choque — zero conteúdo sobre esses procedimentos</p>
+        </div>
+      </div>
+      <div class="recap-point">
+        <div class="recap-icon">🏆</div>
+        <div>
+          <h4>Atende convênio — diferencial ignorado</h4>
+          <p>Poucos especialistas em dor atendem plano em Brasília — isso é ouro e não está sendo aproveitado</p>
+        </div>
+      </div>
+      <div class="recap-point">
+        <div class="recap-icon">🎯</div>
+        <div>
+          <h4>Público amplo e bem definido</h4>
+          <p>18–95 anos, 50% acima de 60, foco ideal 20–55 — dor crônica, pós-cirúrgico, esporte</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 3: DESAFIO ──────────────────── -->
+<div class="full-bg">
+<section>
+  <div class="section-eyebrow">03 — Diagnóstico</div>
+  <h2 class="section-title">O <span>desafio central</span></h2>
+  <p class="section-lead">
+    Você tem formação de topo, procedimentos de alta complexidade e atende múltiplos locais no DF. O problema: quase nenhum potencial paciente sabe disso.
+  </p>
+
+  <div class="challenge-bg">
+    <div class="challenge-stats">
+      <div class="stat-card">
+        <div class="stat-number">~0%</div>
+        <div class="stat-label">Share of voice em "médico da dor Brasília"</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">73%</div>
+        <div class="stat-label">Pacientes pesquisam online antes de agendar</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">4×</div>
+        <div class="stat-label">Mais leads quando especialista tem LP + Instagram alinhados</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">3–5×</div>
+        <div class="stat-label">ROI médio em tráfego para especialistas médicos (primeiros 6 meses)</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; padding: 1.5rem; background: rgba(224,86,86,0.08); border: 1px solid rgba(224,86,86,0.2); border-radius: 12px;">
+      <h4 style="color: #e05656; font-size: 0.9rem; margin-bottom: 0.6rem;">⚠️ O que está acontecendo agora (sem intervenção)</h4>
+      <p style="font-size: 0.88rem; color: var(--gray-light); line-height: 1.7;">
+        Pacientes com dor crônica no DF estão buscando "médico da dor Brasília", "infiltração joelho DF", "ácido hialurônico ortopedista" — e encontrando concorrentes com LP, Google Meu Negócio otimizado e Instagram com conteúdo educativo. Enquanto isso, o Dr. Rafael, com formação superior, aparece depois deles (ou não aparece).
+      </p>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 4: DIAGNÓSTICO ──────────────────── -->
+<section>
+  <div class="section-eyebrow">04 — Lacunas</div>
+  <h2 class="section-title">Onde a <span>concorrência ganha</span></h2>
+  <p class="section-lead">
+    Analisamos os principais perfis de médicos da dor e ortopedistas em Brasília. Essas são as lacunas que eles exploram — e que vamos fechar.
+  </p>
+
+  <div class="diag-grid">
+    <div class="diag-card problem">
+      <span class="diag-tag red">Problema atual</span>
+      <h4>Site genérico ou inexistente</h4>
+      <p>Não há landing page dedicada para o Dr. Rafael como especialista em dor. Visitantes chegam em uma página institucional da Santa Isabel sem conexão com o médico.</p>
+    </div>
+    <div class="diag-card opportunity">
+      <span class="diag-tag teal">Oportunidade</span>
+      <h4>LP de alta conversão personalizada</h4>
+      <p>Uma LP focada em dor crônica com prova social, antes/depois de procedimentos e CTA direto para WhatsApp pode converter até 8–12% dos visitantes.</p>
+    </div>
+    <div class="diag-card problem">
+      <span class="diag-tag red">Problema atual</span>
+      <h4>Instagram sem posicionamento médico</h4>
+      <p>O perfil @fisiosantaisabel fala da clínica, não do Dr. Rafael como autoridade em dor. Pacientes não associam o profissional à especialidade.</p>
+    </div>
+    <div class="diag-card opportunity">
+      <span class="diag-tag teal">Oportunidade</span>
+      <h4>Conteúdo educativo posicionador</h4>
+      <p>Conteúdo sobre "quando a dor precisa de tratamento médico", "tipos de infiltração", "Botox para enxaqueca" cria demanda qualificada antes da consulta.</p>
+    </div>
+    <div class="diag-card problem">
+      <span class="diag-tag red">Problema atual</span>
+      <h4>Tráfego zero para procedimentos caros</h4>
+      <p>Ácido hialurônico, rizotomia, bloqueio de nervo — nenhum anúncio rodando. Concorrentes capturam essa demanda.</p>
+    </div>
+    <div class="diag-card opportunity">
+      <span class="diag-tag teal">Oportunidade</span>
+      <h4>Tráfego cirúrgico para procedimentos</h4>
+      <p>Meta Ads com landing pages dedicadas por procedimento = CPL de R$15–40 para pacientes de ácido hialurônico com intenção real de agendar.</p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 5: OPORTUNIDADES ──────────────────── -->
+<div class="full-bg">
+<section>
+  <div class="section-eyebrow">05 — Plano</div>
+  <h2 class="section-title">5 alavancas de <span>crescimento</span></h2>
+  <p class="section-lead">
+    Identificamos as ações com maior impacto para o seu contexto específico. São intervenções cirúrgicas na presença digital — não generalistas.
+  </p>
+
+  <div class="opp-list">
+    <div class="opp-item">
+      <div class="opp-num">01</div>
+      <div class="opp-content">
+        <h4>Posicionamento como Especialista em Dor (não ortopedista genérico)</h4>
+        <p>Narrativa central: "O médico que resolve a dor que ninguém mais resolveu". Comunicar a residência no HC, o ultrassom-guiado e os +500 procedimentos como diferencial técnico inegável.</p>
+      </div>
+    </div>
+    <div class="opp-item">
+      <div class="opp-num">02</div>
+      <div class="opp-content">
+        <h4>Landing Page de Alta Conversão para Consulta + Procedimentos</h4>
+        <p>Uma LP focada em dor crônica e procedimentos intervencionistas, com CTA para WhatsApp, depoimentos reais, e seção dedicada para cada procedimento-chave. Mobile-first.</p>
+      </div>
+    </div>
+    <div class="opp-item">
+      <div class="opp-num">03</div>
+      <div class="opp-content">
+        <h4>Grid de Fundação Instagram — 12 posts posicionadores</h4>
+        <p>Conteúdo que establece autoridade: educativo sobre dor, explicativo sobre procedimentos, depoimentos adaptados para stories/feed, e bastidores da consulta com ultrassom.</p>
+      </div>
+    </div>
+    <div class="opp-item">
+      <div class="opp-num">04</div>
+      <div class="opp-content">
+        <h4>Google Meu Negócio Otimizado para "médico da dor Brasília"</h4>
+        <p>Perfil completo com fotos do consultório, procedimentos listados, resposta a avaliações, horários de atendimento dos 4 locais. Captura orgânica de pacientes com intenção alta.</p>
+      </div>
+    </div>
+    <div class="opp-item">
+      <div class="opp-num">05</div>
+      <div class="opp-content">
+        <h4>Funil Meta Ads para Ácido Hialurônico e Dor Crônica</h4>
+        <p>Campanha segmentada por faixa etária (+35), interesses em saúde/dor/ortopedia, geolocalizada no DF. Meta: R$15–35 por lead qualificado, 15–25 consultas/mês no 3º mês.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 6: MÉTRICAS ──────────────────── -->
+<section>
+  <div class="section-eyebrow">06 — Projeções</div>
+  <h2 class="section-title">Métricas <span>projetadas</span></h2>
+  <p class="section-lead">
+    Baseado em resultados de clientes similares (especialistas médicos no DF). Conservadores para mês 1–2, realistas a partir do mês 3.
+  </p>
+
+  <div class="metrics-wrap">
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">CPL médio</div>
+        <div class="metric-value">R$25</div>
+        <div class="metric-note">por lead qualificado via Meta Ads (mês 3+)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Leads/mês</div>
+        <div class="metric-value">20–35</div>
+        <div class="metric-note">leads qualificados chegando no WhatsApp (mês 3)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Taxa conversão LP</div>
+        <div class="metric-value">8–12%</div>
+        <div class="metric-note">visitantes → consulta agendada (benchmarks médicos)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Ticket médio</div>
+        <div class="metric-value">R$350+</div>
+        <div class="metric-note">consulta + procedimento (ácido hialurônico R$800–1500)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">ROI projetado</div>
+        <div class="metric-value">3–5×</div>
+        <div class="metric-note">sobre investimento em marketing (6 meses)</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Seguidores orgânicos</div>
+        <div class="metric-value">+800</div>
+        <div class="metric-note">seguidores qualificados nos primeiros 90 dias</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--gold-dim); border: 1px solid var(--border-gold); border-radius: 12px; text-align: center;">
+      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--white); font-style: italic;">
+        "Com ticket médio de R$800 em ácido hialurônico e 5 procedimentos/mês via digital, o investimento se paga no primeiro mês de campanha ativa."
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 7: FASES ──────────────────── -->
+<div class="full-bg">
+<section>
+  <div class="section-eyebrow">07 — Cronograma</div>
+  <h2 class="section-title">Plano de <span>implementação</span></h2>
+  <p class="section-lead">
+    Três fases com entregas claras, sem "mês 1–4 de setup eterno". Resultados começam a aparecer no mês 1.
+  </p>
+
+  <div class="phases-timeline">
+    <div class="phase-item">
+      <div class="phase-dot">1</div>
+      <div class="phase-content">
+        <div class="phase-label">Fundação · Semana 1–2</div>
+        <h4>Setup + primeiras entregas</h4>
+        <ul class="phase-items">
+          <li>Landing page completa no ar (mobile-first, alta conversão)</li>
+          <li>Google Meu Negócio otimizado (fotos, procedimentos, horários)</li>
+          <li>12 posts de fundação do grid Instagram</li>
+          <li>Bio, destaques e identidade visual do perfil</li>
+          <li>WhatsApp Business configurado com mensagens automáticas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item">
+      <div class="phase-dot">2</div>
+      <div class="phase-content">
+        <div class="phase-label">Ativação · Mês 2</div>
+        <h4>Tráfego pago + conteúdo contínuo</h4>
+        <ul class="phase-items">
+          <li>Campanha Meta Ads ativa (dor crônica + ácido hialurônico)</li>
+          <li>8 posts/mês Instagram com calendário editorial</li>
+          <li>Relatório semanal de leads e otimizações</li>
+          <li>Primeiro conjunto de stories e reels educativos</li>
+          <li>Pixel instalado e público personalizado criado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-item" style="padding-bottom: 0;">
+      <div class="phase-dot">3</div>
+      <div class="phase-content">
+        <div class="phase-label">Escala · Mês 3+</div>
+        <h4>Otimização + crescimento sustentável</h4>
+        <ul class="phase-items">
+          <li>Escala dos criativos que performam (ROAS 3×+)</li>
+          <li>Expansão para campanhas de remarketing</li>
+          <li>Conteúdo de autoridade (procedimentos, cases de sucesso)</li>
+          <li>Relatório mensal completo + reunião de estratégia</li>
+          <li>Ajustes de segmentação e budget para maximizar CPL</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 8: ENTREGAS ──────────────────── -->
+<section>
+  <div class="section-eyebrow">08 — Entregas</div>
+  <h2 class="section-title">O que você <span>recebe</span></h2>
+  <p class="section-lead">
+    No Plano Essencial, essas são as entregas concretas — não promessas vagas.
+  </p>
+
+  <div class="delivers-grid">
+    <div class="deliver-card">
+      <div class="deliver-icon">🌐</div>
+      <h4>Landing Page Premium</h4>
+      <p>LP personalizada mobile-first com hero, serviços, credenciais, depoimentos, FAQ e CTA WhatsApp. Otimizada para conversão.</p>
+      <div class="deliver-tags">
+        <span class="tag">Mobile-first</span>
+        <span class="tag">SEO</span>
+        <span class="tag">Alta conversão</span>
+      </div>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">📸</div>
+      <h4>12 Posts Instagram (Grid de Fundação)</h4>
+      <p>Design profissional + copy persuasivo. Mix de educativo, procedimentos e autoridade. Calendário editorial incluso.</p>
+      <div class="deliver-tags">
+        <span class="tag">Design</span>
+        <span class="tag">Copy</span>
+        <span class="tag">Calendário</span>
+      </div>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">📍</div>
+      <h4>Google Meu Negócio Otimizado</h4>
+      <p>Perfil completo com fotos, procedimentos, respostas a avaliações e configuração dos 4 consultórios no DF.</p>
+      <div class="deliver-tags">
+        <span class="tag">GMB</span>
+        <span class="tag">Local SEO</span>
+        <span class="tag">Maps</span>
+      </div>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">🎯</div>
+      <h4>Configuração Meta Ads</h4>
+      <p>Pixel Facebook instalado, públicos criados, campanha de conversão rodando com criativos para ácido hialurônico + consulta dor crônica.</p>
+      <div class="deliver-tags">
+        <span class="tag">Meta Ads</span>
+        <span class="tag">Criativos</span>
+        <span class="tag">Otimização</span>
+      </div>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">📊</div>
+      <h4>Relatórios Mensais</h4>
+      <p>Dashboard com leads, CPL, conversões, alcance e ROI. Reunião mensal de estratégia inclusa.</p>
+      <div class="deliver-tags">
+        <span class="tag">Analytics</span>
+        <span class="tag">Reunião</span>
+        <span class="tag">ROI</span>
+      </div>
+    </div>
+    <div class="deliver-card">
+      <div class="deliver-icon">💬</div>
+      <h4>WhatsApp Business Estruturado</h4>
+      <p>Mensagens automáticas de boas-vindas, catálogo de procedimentos e funil de agendamento pelo WhatsApp.</p>
+      <div class="deliver-tags">
+        <span class="tag">WhatsApp</span>
+        <span class="tag">Automação</span>
+        <span class="tag">Funil</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 9: PREVIEW LP ──────────────────── -->
+<div class="full-bg">
+<section>
+  <div class="section-eyebrow">09 — Preview</div>
+  <h2 class="section-title">Sua <span>Landing Page</span> — ao vivo</h2>
+  <p class="section-lead">
+    Já criamos o primeiro protótipo da sua LP. Veja como ela fica — com seu nome, especialidade e serviços reais.
+  </p>
+
+  <div class="preview-wrap">
+    <div class="preview-bar">
+      <div class="browser-dots">
+        <div class="browser-dot" style="background: #ff5f57;"></div>
+        <div class="browser-dot" style="background: #febc2e;"></div>
+        <div class="browser-dot" style="background: #28c840;"></div>
+      </div>
+      <div class="browser-url">drrafaelrocha.com.br — preview</div>
+    </div>
+    <div class="preview-iframe-wrap">
+      <iframe src="lp/index.html" title="Preview Landing Page Dr. Rafael Rocha" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div style="margin-top: 1.5rem; text-align: center;">
+    <a href="lp/index.html" target="_blank" class="btn-ghost" style="display: inline-flex;">
+      Abrir LP em tela cheia ↗
+    </a>
+  </div>
+</section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 10: POSTS ──────────────────── -->
+<section>
+  <div class="section-eyebrow">10 — Conteúdo</div>
+  <h2 class="section-title">Posts de <span>fundação</span> do grid</h2>
+  <p class="section-lead">
+    Os 4 posts iniciais que estabelecem autoridade e posicionamento — design e copy já desenvolvidos.
+  </p>
+
+  <div class="posts-grid">
+    <!-- Post 1 -->
+    <div class="post-card" style="background: linear-gradient(135deg, #0d1425, #1a2a4a);">
+      <div class="post-inner">
+        <div class="post-bg" style="background: linear-gradient(135deg, #0d1425 0%, #1a3060 100%);"></div>
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;text-align:center;">
+          <div style="font-size:2rem;margin-bottom:0.8rem;">💉</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#e8c97a;line-height:1.3;margin-bottom:0.5rem;">Ácido Hialurônico</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);line-height:1.4;">Guiado por ultrassom · Mais precisão · Menos dor</div>
+        </div>
+        <div class="post-overlay"></div>
+        <div class="post-content">
+          <div class="post-tag">Procedimento</div>
+          <div class="post-title">Saiba quando indicar</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 2 -->
+    <div class="post-card" style="background: linear-gradient(135deg, #0f2018, #1a3a2a);">
+      <div class="post-inner">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;text-align:center;background:linear-gradient(135deg,#0f2018,#1a3a2a);">
+          <div style="font-size:2rem;margin-bottom:0.8rem;">🔬</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:#e8c97a;line-height:1.3;margin-bottom:0.5rem;">Residência em Dor</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);line-height:1.4;">HC Clínicas da Federal · +500 procedimentos</div>
+        </div>
+        <div class="post-overlay"></div>
+        <div class="post-content">
+          <div class="post-tag">Autoridade</div>
+          <div class="post-title">Quem é Dr. Rafael</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 3 -->
+    <div class="post-card" style="background: linear-gradient(135deg, #1a0f20, #2a1a3a);">
+      <div class="post-inner">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;text-align:center;background:linear-gradient(135deg,#1a0f20,#2a1a3a);">
+          <div style="font-size:2rem;margin-bottom:0.8rem;">🧠</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:#e8c97a;line-height:1.3;margin-bottom:0.5rem;">Botox p/ Enxaqueca</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);line-height:1.4;">Resultado duradouro · Protocolo médico</div>
+        </div>
+        <div class="post-overlay"></div>
+        <div class="post-content">
+          <div class="post-tag">Procedimento</div>
+          <div class="post-title">Fim da enxaqueca crônica</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post 4 -->
+    <div class="post-card" style="background: linear-gradient(135deg, #1a1508, #2a2010);">
+      <div class="post-inner">
+        <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:1.5rem;text-align:center;background:linear-gradient(135deg,#1a1508,#2a2010);">
+          <div style="font-size:2rem;margin-bottom:0.8rem;">📋</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:#e8c97a;line-height:1.3;margin-bottom:0.5rem;">Atende Convênio</div>
+          <div style="font-size:0.7rem;color:rgba(255,255,255,0.6);line-height:1.4;">Poucos especialistas em dor atendem plano no DF</div>
+        </div>
+        <div class="post-overlay"></div>
+        <div class="post-content">
+          <div class="post-tag">Diferencial</div>
+          <div class="post-title">Seu plano cobre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px;">
+    <p style="font-size: 0.9rem; color: var(--gray-light); text-align: center;">
+      ✦ No plano Essencial: 12 posts completos (design + copy) para fundação do grid. Calendário editorial para 30 dias incluso.
+    </p>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 11: PLANOS ──────────────────── -->
+<div id="planos" class="full-bg">
+<section>
+  <div class="section-eyebrow">11 — Investimento</div>
+  <h2 class="section-title">Escolha seu <span>plano</span></h2>
+  <p class="section-lead">
+    Três níveis de parceria. Todos incluem setup completo e sem contrato de 12 meses.
+  </p>
+
+  <div class="plans-grid">
+    <!-- ESSENCIAL -->
+    <div class="plan-card">
+      <div class="plan-name">Plano</div>
+      <div class="plan-title">Essencial</div>
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">1.997</span>
+        <span class="period">/mês</span>
+      </div>
+      <div class="plan-setup">+ R$1.997 setup (único)</div>
+
+      <div class="plan-features">
+        <div class="plan-feat"><span class="check">✓</span> Landing page premium</div>
+        <div class="plan-feat"><span class="check">✓</span> 12 posts/mês (design + copy)</div>
+        <div class="plan-feat"><span class="check">✓</span> Google Meu Negócio otimizado</div>
+        <div class="plan-feat"><span class="check">✓</span> Calendário editorial</div>
+        <div class="plan-feat"><span class="check">✓</span> WhatsApp Business configurado</div>
+        <div class="plan-feat"><span class="check">✓</span> Relatório mensal</div>
+        <div class="plan-feat"><span class="no">✗</span> <span style="color:var(--gray)">Gestão Meta Ads</span></div>
+        <div class="plan-feat"><span class="no">✗</span> <span style="color:var(--gray)">Gestão Google Ads</span></div>
+        <div class="plan-feat"><span class="no">✗</span> <span style="color:var(--gray)">Reuniões quinzenais</span></div>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Quero+fechar+o+Plano+Essencial!" class="plan-cta secondary" target="_blank">
+        Quero o Essencial
+      </a>
+    </div>
+
+    <!-- MARKETING (FEATURED) -->
+    <div class="plan-card featured">
+      <div class="plan-badge">⭐ Recomendado</div>
+      <div class="plan-name">Plano</div>
+      <div class="plan-title">Marketing</div>
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">3.497</span>
+        <span class="period">/mês</span>
+      </div>
+      <div class="plan-setup">+ R$2.497 setup (único)</div>
+
+      <div class="plan-features">
+        <div class="plan-feat"><span class="check">✓</span> Tudo do Essencial</div>
+        <div class="plan-feat"><span class="check">✓</span> Gestão Meta Ads (orçamento separado)</div>
+        <div class="plan-feat"><span class="check">✓</span> 20 posts/mês + stories</div>
+        <div class="plan-feat"><span class="check">✓</span> 4 reels/mês roteirizados</div>
+        <div class="plan-feat"><span class="check">✓</span> Criativos para anúncios</div>
+        <div class="plan-feat"><span class="check">✓</span> Relatório semanal</div>
+        <div class="plan-feat"><span class="check">✓</span> Reunião quinzenal</div>
+        <div class="plan-feat"><span class="no">✗</span> <span style="color:var(--gray)">Google Ads</span></div>
+        <div class="plan-feat"><span class="no">✗</span> <span style="color:var(--gray)">Gestor de conta dedicado</span></div>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Quero+fechar+o+Plano+Marketing!" class="plan-cta primary" target="_blank">
+        Quero o Marketing
+      </a>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="plan-card">
+      <div class="plan-name">Plano</div>
+      <div class="plan-title">Premium</div>
+      <div class="plan-price">
+        <span class="currency">R$</span>
+        <span class="amount">5.997</span>
+        <span class="period">/mês</span>
+      </div>
+      <div class="plan-setup">+ R$3.497 setup (único)</div>
+
+      <div class="plan-features">
+        <div class="plan-feat"><span class="check">✓</span> Tudo do Marketing</div>
+        <div class="plan-feat"><span class="check">✓</span> Google Ads (Search + Display)</div>
+        <div class="plan-feat"><span class="check">✓</span> Gestor de conta dedicado</div>
+        <div class="plan-feat"><span class="check">✓</span> 30 posts/mês + reels + stories</div>
+        <div class="plan-feat"><span class="check">✓</span> LP por procedimento (3 LPs)</div>
+        <div class="plan-feat"><span class="check">✓</span> SEO on-page + blog</div>
+        <div class="plan-feat"><span class="check">✓</span> Reunião semanal</div>
+        <div class="plan-feat"><span class="check">✓</span> Prioridade de suporte</div>
+      </div>
+
+      <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Quero+saber+mais+sobre+o+Plano+Premium!" class="plan-cta secondary" target="_blank">
+        Quero o Premium
+      </a>
+    </div>
+  </div>
+
+  <div style="margin-top: 3rem; padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; text-align: center;">
+    <p style="font-size: 0.85rem; color: var(--gray);">
+      💳 Parcelamento em até 6x no cartão · Sem contrato de fidelidade (cancele com 30 dias de aviso) · Budget de anúncios não incluso (recomendamos R$600–1200/mês para começar)
+    </p>
+  </div>
+</section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ──────────────────── SEÇÃO 12: GARANTIA + CTA ──────────────────── -->
+<section>
+  <div class="guarantee-wrap">
+    <div class="guarantee-icon">🛡️</div>
+    <h2>Garantia de <span style="color: var(--gold);">resultado</span></h2>
+    <p>
+      Se em 60 dias você não tiver sua LP no ar, Instagram estruturado e primeiro relatório de leads — devolvemos 100% do setup. Simples assim.
+    </p>
+
+    <div class="steps-row">
+      <div class="step-pill">
+        <div class="num">1</div>
+        Você aprova a proposta
+      </div>
+      <div class="step-pill">
+        <div class="num">2</div>
+        Enviamos contrato + NF
+      </div>
+      <div class="step-pill">
+        <div class="num">3</div>
+        Onboarding em 48h
+      </div>
+      <div class="step-pill">
+        <div class="num">4</div>
+        LP no ar em 7 dias
+      </div>
+    </div>
+
+    <a href="https://api.whatsapp.com/send?phone=5561999999999&text=Dr.+Rafael%2C+li+a+proposta+e+quero+fechar+o+Plano+Essencial!+Qual+o+pr%C3%B3ximo+passo%3F" class="final-cta" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Fechar o Plano Essencial Agora
+    </a>
+
+    <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--gray);">
+      Resposta em até 2h · Sem compromisso inicial · Esclarecemos qualquer dúvida
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Pulso Digital</div>
+  <p>Proposta personalizada para Dr. Rafael Rocha — Clínica Santa Isabel · Brasília-DF</p>
+  <p style="margin-top: 0.5rem; font-size: 0.75rem; color: rgba(138,154,181,0.5);">Documento confidencial · Válido por 15 dias · © 2026 Pulso Digital</p>
+</footer>
+
+<script>
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.opp-item, .diag-card, .deliver-card, .metric-card, .plan-card, .stat-card, .phase-item, .recap-point').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
