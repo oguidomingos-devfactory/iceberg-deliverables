@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta | Dr. Rafael Rocha — Clínica Santa Isabel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #060d18;
+      --bg2: #0b1628;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --white: #ffffff;
+      --muted: #8b9ab0;
+      --accent: #1a5c7a;      /* azul fisioterapia */
+      --accent2: #2ab4e8;     /* azul vibrante */
+      --teal: #00c9b1;        /* verde-água */
+      --gold: #c8a96e;        /* dourado credencial */
+      --danger: #e05252;
+      --pulso: #00bfa5;
+
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAVBAR ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(6,13,24,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      z-index: 100;
+    }
+    .nav img { height: 36px; width: 36px; object-fit: contain; border-radius: 50%; }
+    .nav span { font-size: 0.85rem; color: var(--muted); }
+    .nav-badge {
+      margin-left: auto;
+      background: rgba(42,180,232,0.15);
+      border: 1px solid rgba(42,180,232,0.3);
+      color: var(--accent2);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 99px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 5rem 1.5rem; max-width: 900px; margin: 0 auto; }
+    section + section { padding-top: 0; }
+
+    .section-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block; width: 24px; height: 1px;
+      background: var(--accent2);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-family: var(--sans);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    p { color: var(--muted); font-size: 1rem; }
+    .lead { color: rgba(255,255,255,0.85); font-size: 1.05rem; }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+      max-width: 100%;
+      background: linear-gradient(135deg, #060d18 0%, #0b1628 50%, #071420 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(26,92,122,0.25) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 640px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+    #hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-sub {
+      color: var(--accent2);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+    }
+    .hero-desc {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+    .btn-cta {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: #25d366;
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+    .hero-photo {
+      width: 240px; height: 300px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .hero-badges {
+      display: flex; gap: 0.75rem; flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── RECAP ── */
+    .recap-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .recap-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .recap-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .recap-item h4 { font-size: 0.9rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+    .recap-item p { font-size: 0.85rem; }
+
+    /* ── DESAFIO ── */
+    .challenge-box {
+      background: linear-gradient(135deg, rgba(42,180,232,0.08), rgba(0,201,177,0.05));
+      border: 1px solid rgba(42,180,232,0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 1.5rem;
+    }
+    .challenge-stat {
+      font-family: var(--serif);
+      font-size: 3rem;
+      color: var(--accent2);
+      line-height: 1;
+    }
+    .challenge-stat-label { color: var(--muted); font-size: 0.85rem; margin-top: 0.25rem; }
+
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    @media (max-width: 500px) { .stat-row { grid-template-columns: 1fr; } }
+
+    /* ── DIAGNÓSTICO ── */
+    .diag-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+    }
+    .diag-table th {
+      background: rgba(255,255,255,0.06);
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+    .diag-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      vertical-align: top;
+    }
+    .diag-table td:first-child { color: var(--white); font-weight: 500; }
+    .diag-table td:last-child { color: var(--accent2); }
+
+    /* ── OPORTUNIDADES ── */
+    .opp-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .opp-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 1.25rem 1.5rem;
+    }
+    .opp-list li h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .opp-list li p { font-size: 0.88rem; }
+
+    /* ── MÉTRICAS ── */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .metric-card {
+      background: linear-gradient(135deg, rgba(42,180,232,0.08), rgba(0,201,177,0.04));
+      border: 1px solid rgba(42,180,232,0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .metric-value {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .metric-label { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+    .metric-note { font-size: 0.7rem; color: var(--teal); margin-top: 0.4rem; }
+
+    /* ── FASES ── */
+    .phase-list {
+      list-style: none;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+    .phase-list::before {
+      content: '';
+      position: absolute; left: 1.25rem; top: 0; bottom: 0;
+      width: 1px; background: var(--border);
+    }
+    .phase-item {
+      padding: 0 0 2rem 3.5rem;
+      position: relative;
+    }
+    .phase-dot {
+      position: absolute; left: 0; top: 0;
+      width: 2.5rem; height: 2.5rem;
+      background: var(--bg2);
+      border: 2px solid var(--accent2);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem; font-weight: 700; color: var(--accent2);
+    }
+    .phase-item h4 { color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; }
+    .phase-item p { font-size: 0.88rem; }
+    .phase-tag {
+      display: inline-block;
+      background: rgba(42,180,232,0.1);
+      border: 1px solid rgba(42,180,232,0.2);
+      color: var(--accent2);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.6rem;
+      border-radius: 99px;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ── DELIVERABLES ── */
+    .deliv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .deliv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .deliv-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .deliv-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.75rem; color: var(--white); }
+    .deliv-card ul { list-style: none; }
+    .deliv-card li {
+      display: flex; align-items: flex-start; gap: 0.4rem;
+      font-size: 0.82rem; color: var(--muted);
+      padding: 0.2rem 0;
+    }
+    .deliv-card li::before {
+      content: '✓';
+      color: var(--teal);
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── LP PREVIEW ── */
+    .preview-wrapper {
+      margin-top: 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+    }
+    .preview-bar {
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid var(--border);
+      padding: 0.6rem 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .preview-url {
+      flex: 1;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-family: monospace;
+    }
+    .preview-iframe-wrap {
+      width: 100%;
+      height: 480px;
+      position: relative;
+    }
+    .preview-iframe-wrap iframe {
+      width: 100%; height: 100%;
+      border: none;
+      pointer-events: none;
+    }
+    .preview-overlay {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 1rem;
+      background: rgba(6,13,24,0.85);
+      text-align: center;
+      padding: 2rem;
+    }
+    .preview-overlay h4 { font-size: 1.1rem; font-weight: 600; }
+    .preview-overlay p { font-size: 0.88rem; max-width: 380px; }
+    .btn-preview {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent2);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .btn-preview:hover { opacity: 0.85; }
+
+    /* ── POSTS PREVIEW ── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) { .posts-grid { grid-template-columns: repeat(4, 1fr); } }
+    .post-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      aspect-ratio: 1;
+      position: relative;
+    }
+    .post-card img { width: 100%; height: 100%; object-fit: cover; }
+    .post-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0.75rem;
+    }
+    .post-title { font-size: 0.75rem; font-weight: 600; color: #fff; line-height: 1.3; }
+    .post-type {
+      font-size: 0.62rem;
+      background: rgba(42,180,232,0.3);
+      border: 1px solid rgba(42,180,232,0.4);
+      color: var(--accent2);
+      padding: 0.1rem 0.4rem;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 0.35rem;
+    }
+    .hashtags { font-size: 0.62rem; color: rgba(255,255,255,0.4); margin-top: 0.25rem; }
+
+    /* ── PLANOS ── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+    }
+    .plan-card.featured {
+      border-color: var(--accent2);
+      background: linear-gradient(135deg, rgba(42,180,232,0.08), rgba(0,201,177,0.04));
+    }
+    .plan-featured-tag {
+      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      background: var(--accent2);
+      color: #000;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 0.2rem 0.8rem;
+      border-radius: 99px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .plan-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .plan-price {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .plan-price span { font-family: var(--sans); font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .plan-sub { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .plan-list { list-style: none; }
+    .plan-list li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      padding: 0.4rem 0;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-list li:last-child { border: none; }
+    .plan-check { color: var(--teal); flex-shrink: 0; }
+    .plan-x { color: #444; flex-shrink: 0; }
+    .plan-list li.disabled { color: var(--muted); }
+
+    /* ── GARANTIA ── */
+    .guarantee-box {
+      background: linear-gradient(135deg, rgba(0,201,177,0.08), rgba(42,180,232,0.05));
+      border: 1px solid rgba(0,201,177,0.2);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .guarantee-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .guarantee-box h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--white); }
+    .guarantee-box p { max-width: 540px; margin: 0 auto 1.5rem; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .step-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .step-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--accent2);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .step-item h4 { font-size: 0.9rem; color: var(--white); margin-bottom: 0.3rem; }
+    .step-item p { font-size: 0.82rem; }
+
+    .final-cta {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 3rem 1.5rem;
+    }
+    .final-cta p { margin-bottom: 1.5rem; max-width: 440px; margin-left: auto; margin-right: auto; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <img src="assets/photos/navbar-logo.png" alt="Dr. Rafael Rocha" onerror="this.style.display='none'">
+  <span>Dr. Rafael Rocha · Proposta Personalizada</span>
+  <span class="nav-badge">Proposta Exclusiva</span>
+</nav>
+
+<!-- ════════════════════════════════════
+     01 · HERO
+════════════════════════════════════ -->
+<div id="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Proposta Personalizada · Clínica Santa Isabel</p>
+      <h1>Dr. Rafael<br>Rocha</h1>
+      <p class="hero-sub">Fisioterapia · Guará II, Brasília-DF</p>
+      <p class="hero-desc">
+        Dr. Rafael, essa proposta foi construída especialmente para você e para o momento que a Clínica Santa Isabel está vivendo. Aqui você vai encontrar diagnóstico honesto, oportunidades concretas e o plano que a Pulso vai executar pra transformar a visibilidade da clínica em novos pacientes.
+      </p>
+      <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20a%20proposta!" class="btn-cta" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <div class="hero-badges">
+        <span class="badge">46 anos de história</span>
+        <span class="badge">Maior reabilitação privada do DF</span>
+        <span class="badge">Plano Essencial</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/photos/foto-sem-fundo.png" alt="Dr. Rafael Rocha" loading="eager">
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     02 · RECAP DA CONVERSA
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Nossa conversa</div>
+  <h2>O que ficou claro na nossa call</h2>
+  <p class="lead" style="margin-bottom: 1.5rem;">
+    A Santa Isabel tem um ativo que pouquíssimas clínicas no DF têm: 46 anos de reputação, estrutura completa de reabilitação e um nome consolidado no Guará. O desafio é que esse ativo ainda não aparece online como deveria.
+  </p>
+  <div class="recap-grid">
+    <div class="recap-item">
+      <div class="recap-icon">🏥</div>
+      <h4>A clínica tem história</h4>
+      <p>46 anos de operação, a maior e mais completa clínica de reabilitação privada do DF — mas o paciente novo não sabe disso antes de pesquisar.</p>
+    </div>
+    <div class="recap-item">
+      <div class="recap-icon">📲</div>
+      <h4>Presença digital inconsistente</h4>
+      <p>Posts esporádicos, sem pilares de conteúdo definidos. A comunicação não transmite a credibilidade que a clínica já conquistou fisicamente.</p>
+    </div>
+    <div class="recap-item">
+      <div class="recap-icon">🎯</div>
+      <h4>Novos pacientes precisam aparecer</h4>
+      <p>Você quer aumentar o fluxo de consultas e procedimentos. Agendamento pelo site ou WhatsApp ainda é subaproveitado.</p>
+    </div>
+    <div class="recap-item">
+      <div class="recap-icon">💡</div>
+      <h4>A oportunidade é agora</h4>
+      <p>O Guará II e entorno cresceram. A demanda por fisioterapia e reabilitação é alta — quem aparece primeiro, convence primeiro.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     03 · DESAFIO CENTRAL
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Diagnóstico rápido</div>
+  <h2>O problema que está custando pacientes</h2>
+  <div class="challenge-box">
+    <p class="lead" style="margin-bottom: 1.5rem;">
+      Em Brasília, <strong style="color: var(--white)">a busca por fisioterapia cresceu 68% nos últimos 3 anos.</strong> Clínicas com metade da sua estrutura estão investindo em presença digital e capturando pacientes que deveriam ser seus.
+    </p>
+    <p style="margin-bottom: 1.5rem;">
+      <strong style="color: var(--accent2);">O problema não é a sua clínica.</strong> É a invisibilidade digital. O paciente com dor nas costas, joelho inflamado ou pós-cirúrgico pesquisa no Google e no Instagram antes de ligar — e quem aparece primeiro, convence primeiro.
+    </p>
+    <p style="color: var(--muted);">
+      A Santa Isabel tem reputação, equipe e estrutura. Falta traduzir isso em presença digital que converta visitante em paciente agendado.
+    </p>
+    <div class="stat-row">
+      <div>
+        <div class="challenge-stat">68%</div>
+        <div class="challenge-stat-label">Crescimento nas buscas por fisioterapia em Brasília (3 anos)</div>
+      </div>
+      <div>
+        <div class="challenge-stat">3x</div>
+        <div class="challenge-stat-label">Mais agendamentos para clínicas com presença digital ativa</div>
+      </div>
+      <div>
+        <div class="challenge-stat">46</div>
+        <div class="challenge-stat-label">Anos de história que precisam ser contados online</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     04 · DIAGNÓSTICO
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Onde a concorrência ganha</div>
+  <h2>O que está faltando hoje</h2>
+  <p style="margin-bottom: 1rem;">Análise honesta do cenário atual versus o potencial que a clínica tem:</p>
+  <table class="diag-table">
+    <thead>
+      <tr>
+        <th>Ponto de análise</th>
+        <th>Hoje</th>
+        <th>Com a Pulso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Presença no Instagram</td>
+        <td>Posts esporádicos, sem estratégia de conteúdo</td>
+        <td>Calendário editorial, pilares definidos, crescimento consistente</td>
+      </tr>
+      <tr>
+        <td>Landing page de conversão</td>
+        <td>Site sem CTA claro, sem prova social destacada</td>
+        <td>LP otimizada para agendamento via WhatsApp</td>
+      </tr>
+      <tr>
+        <td>Tráfego pago</td>
+        <td>Sem campanhas ativas</td>
+        <td>Meta Ads segmentado para Guará II + entorno</td>
+      </tr>
+      <tr>
+        <td>Prova social</td>
+        <td>Reputação offline não comunicada online</td>
+        <td>Depoimentos, credenciais e 46 anos de história em destaque</td>
+      </tr>
+      <tr>
+        <td>Agendamento online</td>
+        <td>Subaproveitado</td>
+        <td>CTA WhatsApp em todos os pontos de contato</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     05 · OPORTUNIDADES
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Onde o dinheiro está</div>
+  <h2>5 oportunidades concretas</h2>
+  <ul class="opp-list">
+    <li>
+      <h4>1 — Conteúdo educativo sobre fisioterapia e reabilitação</h4>
+      <p>Pacientes buscam informação antes de agendar. Posts sobre dores comuns, técnicas de reabilitação e cases de recuperação posicionam a Santa Isabel como referência antes mesmo do primeiro contato.</p>
+    </li>
+    <li>
+      <h4>2 — Os 46 anos como diferencial competitivo</h4>
+      <p>Nenhum concorrente tem essa história. A tradição da Santa Isabel precisa ser contada — em Reels, carrosséis históricos e depoimentos de pacientes de longa data que os diferenciam de clínicas novas.</p>
+    </li>
+    <li>
+      <h4>3 — Campanha de tráfego local para o Guará II</h4>
+      <p>Meta Ads com segmentação hiperlocal (Guará II, Águas Claras, Taguatinga) e criativos focados em urgência de dor crônica/aguda. Custo por lead estimado: R$15–35.</p>
+    </li>
+    <li>
+      <h4>4 — LP de agendamento com foco em dor e resultado</h4>
+      <p>Headline clara, prova social, especialidades em destaque e botão WhatsApp acima da dobra. Cada visita vira uma oportunidade real de agendamento.</p>
+    </li>
+    <li>
+      <h4>5 — Humanização da equipe</h4>
+      <p>Apresentar a equipe de fisioterapeutas, seus especialidades e personalidades. Pacientes escolhem profissionais que conhecem — mesmo antes da consulta.</p>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     06 · MÉTRICAS PROJETADAS
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Projeções</div>
+  <h2>O que esperar nos primeiros 90 dias</h2>
+  <p style="margin-bottom: 0.5rem;">Projeções conservadoras baseadas em clínicas similares (fisioterapia, reabilitação, Brasília-DF)</p>
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-value">R$25</div>
+      <div class="metric-label">CPL estimado<br>custo por lead</div>
+      <div class="metric-note">Meta Ads · Guará II</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">25+</div>
+      <div class="metric-label">Novos leads<br>por mês</div>
+      <div class="metric-note">Mês 2 em diante</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">15–20</div>
+      <div class="metric-label">Novos pacientes<br>agendados/mês</div>
+      <div class="metric-note">Taxa conversão 60–80%</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">400+</div>
+      <div class="metric-label">Seguidores qualificados<br>em 90 dias</div>
+      <div class="metric-note">Instagram orgânico</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">3–5x</div>
+      <div class="metric-label">ROAS estimado<br>retorno sobre ads</div>
+      <div class="metric-note">Cenário conservador</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-value">R$20k+</div>
+      <div class="metric-label">Receita incremental<br>estimada/mês</div>
+      <div class="metric-note">Ticket médio R$350–500</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 1.5rem;">
+    <p><strong style="color: var(--accent2);">Cenário conservador:</strong> Com ticket médio de consulta + procedimento em torno de R$350–500, <strong style="color: var(--white);">15 novos pacientes/mês já representam R$5.000–7.500 em receita incremental.</strong> O investimento em Pulso se paga nos primeiros agendamentos do mês.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     07 · PLANO DE IMPLEMENTAÇÃO
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Implementação</div>
+  <h2>Como acontece na prática</h2>
+  <ul class="phase-list">
+    <li class="phase-item">
+      <div class="phase-dot">S1</div>
+      <span class="phase-tag">Semana 1–2</span>
+      <h4>Onboarding & Fundação</h4>
+      <p>Reunião de briefing, acesso às plataformas, definição de tom de voz e pilares de conteúdo. Configuração do perfil Instagram e bio otimizada. Criação da LP base com agendamento WhatsApp.</p>
+    </li>
+    <li class="phase-item">
+      <div class="phase-dot">S3</div>
+      <span class="phase-tag">Semana 3–4</span>
+      <h4>Primeiros 9 Posts + Campanha Piloto</h4>
+      <p>Grid de fundação: quem é a Santa Isabel, equipe, especialidades principais, história de 46 anos. Lançamento de campanha piloto Meta Ads para validação de criativo e público.</p>
+    </li>
+    <li class="phase-item">
+      <div class="phase-dot">M2</div>
+      <span class="phase-tag">Mês 2</span>
+      <h4>Otimização & Escala</h4>
+      <p>Análise dos primeiros dados: o que funciona, o que ajustar. Escala do investimento em ads. Conteúdo avançado: cases de recuperação, depoimentos, Reels educativos de alta performance.</p>
+    </li>
+    <li class="phase-item">
+      <div class="phase-dot">M3</div>
+      <span class="phase-tag">Mês 3+</span>
+      <h4>Crescimento Contínuo</h4>
+      <p>Ritmo de publicação consolidado, leads chegando de forma previsível, relatório mensal com resultados reais e próximos passos. A clínica visível para quem precisa de reabilitação em Brasília.</p>
+    </li>
+  </ul>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     08 · O QUE VOCÊ RECEBE
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Entregas do Plano Essencial</div>
+  <h2>O que a Pulso entrega pra você</h2>
+  <div class="deliv-grid">
+    <div class="deliv-card">
+      <div class="deliv-icon">📱</div>
+      <h4>Gestão de Instagram</h4>
+      <ul>
+        <li>12 posts/mês (feed + stories)</li>
+        <li>Calendário editorial estratégico</li>
+        <li>Copywriting otimizado</li>
+        <li>Design profissional no padrão da clínica</li>
+        <li>Hashtags e SEO de busca</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-icon">🎯</div>
+      <h4>Tráfego Pago (Meta Ads)</h4>
+      <ul>
+        <li>Criação e gestão de campanhas</li>
+        <li>Segmentação local Guará II + DF</li>
+        <li>3–5 criativos/mês</li>
+        <li>Otimização contínua de CPL</li>
+        <li>Relatório semanal</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-icon">🌐</div>
+      <h4>Landing Page</h4>
+      <ul>
+        <li>LP de conversão otimizada</li>
+        <li>Hero com dor e resultado</li>
+        <li>Prova social e credenciais</li>
+        <li>CTA WhatsApp em destaque</li>
+        <li>Mobile-first, velocidade máxima</li>
+      </ul>
+    </div>
+    <div class="deliv-card">
+      <div class="deliv-icon">📊</div>
+      <h4>Relatório & Estratégia</h4>
+      <ul>
+        <li>Reunião mensal de resultados</li>
+        <li>Dashboard com métricas-chave</li>
+        <li>Ajuste de estratégia mensal</li>
+        <li>Suporte direto via WhatsApp</li>
+        <li>Acesso ao Plane (gestão de tasks)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     09 · PREVIEW LANDING PAGE
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Preview real</div>
+  <h2>A Landing Page que vamos entregar</h2>
+  <p style="margin-bottom: 0.5rem;">Esta é uma prévia real da LP de conversão — otimizada para fisioterapia e agendamento na Santa Isabel.</p>
+  <div class="preview-wrapper">
+    <div class="preview-bar">
+      <div class="preview-dot" style="background:#ff5f57"></div>
+      <div class="preview-dot" style="background:#febc2e"></div>
+      <div class="preview-dot" style="background:#28c840"></div>
+      <div class="preview-url">clinicasantaisabel.com.br</div>
+    </div>
+    <div class="preview-iframe-wrap">
+      <iframe src="lp/index.html" title="Preview Landing Page Dr. Rafael Rocha" loading="lazy"></iframe>
+      <div class="preview-overlay" id="lp-overlay">
+        <h4>Preview da Landing Page</h4>
+        <p>Prévia real da LP de conversão que será entregue para a Clínica Santa Isabel — mobile-first, focada em agendamento.</p>
+        <a href="lp/index.html" class="btn-preview" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Ver LP em tela cheia
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     10 · PREVIEW POSTS
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Preview do conteúdo</div>
+  <h2>Os primeiros 4 posts do grid</h2>
+  <p style="margin-bottom: 0.5rem;">Conceito visual dos posts de fundação — apresentando a Santa Isabel para novos pacientes.</p>
+  <div class="posts-grid">
+    <div class="post-card">
+      <img src="assets/photos/foto-sem-fundo.png" alt="Dr. Rafael Rocha" loading="lazy">
+      <div class="post-overlay">
+        <div class="post-type">Apresentação</div>
+        <div class="post-title">Quem é Dr. Rafael Rocha e a Clínica Santa Isabel?</div>
+        <div class="hashtags">#ClínicaSantaIsabel #Fisioterapia #Guará</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <img src="assets/photos/IMG_1990.jpg" alt="Clínica Santa Isabel" loading="lazy">
+      <div class="post-overlay">
+        <div class="post-type">História</div>
+        <div class="post-title">46 anos cuidando de Brasília: nossa história</div>
+        <div class="hashtags">#SantaIsabel #ReabilitaçãoDF #Brasília</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <img src="assets/photos/foto-exame1.jpeg" alt="Procedimento" loading="lazy">
+      <div class="post-overlay">
+        <div class="post-type">Educativo</div>
+        <div class="post-title">Quando ir ao fisioterapeuta? Sinais que você não pode ignorar</div>
+        <div class="hashtags">#Fisioterapia #Saúde #DicasDeSaúde</div>
+      </div>
+    </div>
+    <div class="post-card">
+      <img src="assets/photos/foto-mesa.jpg" alt="Estrutura" loading="lazy">
+      <div class="post-overlay">
+        <div class="post-type">Estrutura</div>
+        <div class="post-title">Nossa estrutura: tudo que você precisa para se recuperar</div>
+        <div class="hashtags">#ReabilitaçãoCompleta #FisioterapiaGuará</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     11 · COMPARATIVO DE PLANOS
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Planos e investimento</div>
+  <h2>Escolha o plano ideal para a clínica</h2>
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-name">Essencial</div>
+      <div class="plan-price">R$2.200 <span>/mês</span></div>
+      <div class="plan-sub">Ideal para começar com consistência</div>
+      <ul class="plan-list">
+        <li><span class="plan-check">✓</span> 12 posts/mês (feed)</li>
+        <li><span class="plan-check">✓</span> Stories semanais</li>
+        <li><span class="plan-check">✓</span> Gestão Meta Ads</li>
+        <li><span class="plan-check">✓</span> Landing Page</li>
+        <li><span class="plan-check">✓</span> Relatório mensal</li>
+        <li><span class="plan-check">✓</span> Suporte WhatsApp</li>
+        <li class="disabled"><span class="plan-x">✕</span> Reels estratégicos</li>
+        <li class="disabled"><span class="plan-x">✕</span> Google Ads</li>
+        <li class="disabled"><span class="plan-x">✕</span> Gestão de Reputação</li>
+      </ul>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-featured-tag">⭐ Mais popular</div>
+      <div class="plan-name">Marketing</div>
+      <div class="plan-price">R$3.900 <span>/mês</span></div>
+      <div class="plan-sub">Crescimento acelerado com Reels</div>
+      <ul class="plan-list">
+        <li><span class="plan-check">✓</span> 20 posts/mês (feed + Reels)</li>
+        <li><span class="plan-check">✓</span> Stories diários</li>
+        <li><span class="plan-check">✓</span> Meta Ads + Google Ads</li>
+        <li><span class="plan-check">✓</span> LP + otimização mensal</li>
+        <li><span class="plan-check">✓</span> Relatório semanal</li>
+        <li><span class="plan-check">✓</span> Suporte prioritário</li>
+        <li><span class="plan-check">✓</span> 4 Reels/mês</li>
+        <li><span class="plan-check">✓</span> Google Meu Negócio</li>
+        <li class="disabled"><span class="plan-x">✕</span> Gestão de Reputação</li>
+      </ul>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-price">R$6.500 <span>/mês</span></div>
+      <div class="plan-sub">Presença digital completa</div>
+      <ul class="plan-list">
+        <li><span class="plan-check">✓</span> Posts ilimitados</li>
+        <li><span class="plan-check">✓</span> Reels semanais</li>
+        <li><span class="plan-check">✓</span> Meta + Google + YouTube</li>
+        <li><span class="plan-check">✓</span> Site completo + SEO</li>
+        <li><span class="plan-check">✓</span> Relatório em tempo real</li>
+        <li><span class="plan-check">✓</span> Gerente de conta dedicado</li>
+        <li><span class="plan-check">✓</span> Produção de vídeo</li>
+        <li><span class="plan-check">✓</span> Gestão de Reputação</li>
+        <li><span class="plan-check">✓</span> Fotografia mensal</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 1.5rem; text-align:center;">
+    <p style="margin-bottom: 0.5rem;">💡 <strong style="color: var(--white);">Plano Essencial recomendado para início.</strong></p>
+    <p>Com investimento mensal de R$2.200 + verba de ads (~R$800–1.500/mês), o retorno se paga com 5–7 novos pacientes agendados.</p>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     12 · GARANTIA + PRÓXIMOS PASSOS
+════════════════════════════════════ -->
+<section>
+  <div class="section-tag">Garantia</div>
+  <h2>Nosso compromisso com você</h2>
+  <div class="guarantee-box">
+    <div class="guarantee-icon">🛡️</div>
+    <h3>Garantia de 30 dias ou devolvemos</h3>
+    <p>
+      Se nos primeiros 30 dias você não ver progresso real na sua presença digital — conteúdo publicado, campanha no ar, LP entregue — devolvemos 100% do valor. Sem letras miúdas.
+    </p>
+    <a href="https://wa.me/5561999999999?text=Dr.%20Rafael%2C%20quero%20fechar%20o%20plano%20Essencial!" class="btn-cta" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Quero fechar o Plano Essencial
+    </a>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <h4>Você responde aqui</h4>
+      <p>Manda mensagem no WhatsApp confirmando interesse no plano.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <h4>Contrato & acesso</h4>
+      <p>Enviamos contrato simples, você assina e garante os acessos necessários.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <h4>Kickoff em 48h</h4>
+      <p>Reunião de onboarding, briefing completo e definição do calendário.</p>
+    </div>
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <h4>Primeiros posts no ar</h4>
+      <p>Na semana 1 já tem conteúdo publicado e campanha configurada.</p>
+    </div>
+  </div>
+
+  <div class="final-cta">
+    <p>Tem alguma dúvida antes de fechar? Manda mensagem — a gente resolve rapidinho.</p>
+    <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20vi%20a%20proposta%20da%20Pulso%20e%20tenho%20uma%20d%C3%BAvida!" class="btn-cta" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Tirar dúvida no WhatsApp
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>Proposta elaborada pela <strong style="color: var(--white);">Pulso</strong> · Exclusiva para Dr. Rafael Rocha — Clínica Santa Isabel · Guará II, Brasília-DF</p>
+  <p style="margin-top: 0.5rem; font-size: 0.72rem;">Documento confidencial · Não compartilhar</p>
+</footer>
+
+<script>
+  // Remove LP overlay after click (show iframe)
+  const overlay = document.getElementById('lp-overlay');
+  if (overlay) {
+    overlay.querySelector('a').addEventListener('click', function(e) {
+      // Let the link open normally in new tab
+    });
+  }
+</script>
+</body>
+</html>

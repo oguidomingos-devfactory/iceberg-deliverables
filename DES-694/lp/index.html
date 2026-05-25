@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clínica Santa Isabel — Fisioterapia e Reabilitação | Guará II, Brasília</title>
+  <meta name="description" content="Maior clínica de reabilitação privada do DF com 46 anos de história. Fisioterapia especializada no Guará II. Agende sua consulta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #1a5c7a;
+      --blue-light: #2ab4e8;
+      --teal: #00c9b1;
+      --dark: #071420;
+      --dark2: #0d2035;
+      --white: #ffffff;
+      --off-white: #f4f8fb;
+      --text: #1a2a3a;
+      --muted: #6b7f8f;
+      --border: #dce8ef;
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.9rem 1.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo img { height: 32px; border-radius: 4px; }
+    .nav-brand { font-weight: 700; font-size: 0.9rem; color: var(--blue); }
+    .nav-brand span { font-weight: 400; color: var(--muted); }
+    .nav-cta {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: #25d366;
+      color: #000;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #0a1e30 100%);
+      display: flex; align-items: center;
+      padding: 7rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 70% at 80% 50%, rgba(26,92,122,0.3) 0%, transparent 70%);
+    }
+    .hero-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 3rem; align-items: center;
+      position: relative; z-index: 1;
+      width: 100%;
+    }
+    @media (max-width: 680px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-img-wrap { display: none; }
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block; width: 20px; height: 1px;
+      background: var(--teal);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--blue-light); font-style: normal; }
+
+    .hero-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .btn-main {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: #25d366;
+      color: #000;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+    .btn-main:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(37,211,102,0.4); }
+
+    .hero-trust {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 0.4rem;
+      font-size: 0.82rem; color: rgba(255,255,255,0.6);
+    }
+    .trust-icon { color: var(--teal); font-size: 1rem; }
+
+    .hero-img-wrap {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,0.1);
+      height: 380px;
+    }
+    .hero-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── SOCIAL PROOF STRIP ── */
+    .proof-strip {
+      background: var(--blue);
+      padding: 1.5rem;
+    }
+    .proof-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+      justify-content: center;
+    }
+    .proof-item {
+      text-align: center;
+      color: var(--white);
+    }
+    .proof-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .proof-label { font-size: 0.75rem; opacity: 0.8; margin-top: 0.2rem; }
+    .proof-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.2); }
+    @media (max-width: 480px) { .proof-divider { display: none; } }
+
+    /* ── SEÇÕES GERAIS ── */
+    .section { padding: 5rem 1.5rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-alt { background: var(--off-white); }
+
+    .section-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block; width: 20px; height: 2px;
+      background: var(--blue);
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+    .subtitle { color: var(--muted); font-size: 1rem; max-width: 580px; }
+
+    /* ── PROBLEMA ── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--blue);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .pain-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .pain-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .pain-card p { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── SERVIÇOS ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .service-card:hover { box-shadow: 0 8px 30px rgba(26,92,122,0.1); transform: translateY(-2px); }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, rgba(26,92,122,0.1), rgba(0,201,177,0.08));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    .service-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── POR QUE NÓS ── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+    @media (max-width: 640px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-img {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .why-img img { width: 100%; height: 100%; object-fit: cover; }
+    .why-list { list-style: none; }
+    .why-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .why-item:last-child { border: none; }
+    .why-check {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white); font-size: 0.85rem; flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .why-item h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .why-item p { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+    }
+    .stars { color: #f5a623; font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+    .testimonial-text {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .author-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--teal));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .author-name { font-weight: 700; font-size: 0.88rem; }
+    .author-desc { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── CREDENCIAIS ── */
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .cred-card {
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .cred-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--blue-light);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .cred-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+    /* ── FAQ ── */
+    .faq-list { margin-top: 2rem; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      padding: 1.25rem 0;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .faq-q .arrow {
+      font-size: 1.2rem; color: var(--blue); flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-q[aria-expanded="true"] .arrow { transform: rotate(45deg); }
+    .faq-a {
+      overflow: hidden; max-height: 0;
+      transition: max-height 0.3s ease;
+    }
+    .faq-a p {
+      font-size: 0.9rem; color: var(--muted);
+      padding-bottom: 1.25rem; line-height: 1.7;
+    }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--dark), var(--dark2));
+      padding: 5rem 1.5rem;
+      text-align: center;
+    }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-section h2 { color: var(--white); margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.7); margin-bottom: 2rem; }
+    .cta-address {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 1.5rem;
+      line-height: 1.7;
+    }
+    .cta-address strong { color: rgba(255,255,255,0.8); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #030a12;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    /* ── FLOATING CTA (mobile) ── */
+    .floating-cta {
+      display: none;
+      position: fixed; bottom: 1.5rem; right: 1.5rem;
+      background: #25d366;
+      color: #000;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      z-index: 99;
+      transition: transform 0.2s;
+    }
+    .floating-cta:hover { transform: scale(1.08); }
+    @media (max-width: 768px) { .floating-cta { display: flex; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="../assets/photos/navbar-logo.png" alt="Santa Isabel" onerror="this.style.display='none'">
+    <div>
+      <div class="nav-brand">Clínica Santa Isabel <span>· Fisioterapia</span></div>
+    </div>
+  </div>
+  <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta%20na%20Cl%C3%ADnica%20Santa%20Isabel!" class="nav-cta" target="_blank">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    Agendar consulta
+  </a>
+</nav>
+
+<!-- ════════════════════════════════════
+     HERO — ABOVE THE FOLD
+════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow">Guará II, Brasília-DF · Desde 1978</p>
+      <h1>Chega de viver com dor.<br>A <em>recuperação começa</em><br>aqui.</h1>
+      <p class="hero-sub">
+        Fisioterapia especializada na maior clínica de reabilitação privada do Distrito Federal. Atendimento humanizado, equipe experiente e estrutura completa para você voltar à vida normal.
+      </p>
+      <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta%20na%20Santa%20Isabel!" class="btn-main" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar via WhatsApp
+      </a>
+      <div class="hero-trust">
+        <span class="trust-item"><span class="trust-icon">✓</span> 46 anos de história</span>
+        <span class="trust-item"><span class="trust-icon">✓</span> Maior clínica de reabilitação do DF</span>
+        <span class="trust-item"><span class="trust-icon">✓</span> Equipe especializada</span>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <img src="../assets/photos/foto-sem-fundo.png" alt="Dr. Rafael Rocha — Clínica Santa Isabel" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL STRIP -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <div class="proof-num">46</div>
+      <div class="proof-label">Anos de experiência</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num">+15.000</div>
+      <div class="proof-label">Pacientes atendidos</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num">100%</div>
+      <div class="proof-label">Convênio Geap aceito</div>
+    </div>
+    <div class="proof-divider"></div>
+    <div class="proof-item">
+      <div class="proof-num">#1</div>
+      <div class="proof-label">Maior reabilitação privada do DF</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     PROBLEMA / IDENTIFICAÇÃO
+════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-tag">Você se identifica?</div>
+    <h2>Condições que a gente trata<br>todos os dias</h2>
+    <p class="subtitle">Se você está passando por alguma dessas situações, a Clínica Santa Isabel tem o tratamento certo para você.</p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🦵</div>
+        <h3>Dor no joelho ou tornozelo</h3>
+        <p>Artrite, lesões esportivas, pós-operatório ou desgaste articular — temos protocolos específicos.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔄</div>
+        <h3>Coluna e postura</h3>
+        <p>Lombalgia, hérnia de disco, cervicalgia. Tratamento completo sem cirurgia na maioria dos casos.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">💪</div>
+        <h3>Reabilitação pós-cirúrgica</h3>
+        <p>Recuperação segura e eficiente após cirurgias ortopédicas com acompanhamento especializado.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🤝</div>
+        <h3>Ombro e punho</h3>
+        <p>Tendinite, síndrome do túnel do carpo, lesões por esforço repetitivo e traumas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SERVIÇOS
+════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-tag">Especialidades</div>
+    <h2>Serviços e procedimentos</h2>
+    <p class="subtitle">Estrutura completa de reabilitação para todas as fases do tratamento.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏋️</div>
+        <h3>Fisioterapia Ortopédica</h3>
+        <p>Tratamento de lesões musculoesqueléticas, pós-operatório e reabilitação funcional completa.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚡</div>
+        <h3>Eletroterapia</h3>
+        <p>TENS, ultrassom, laser e correntes analgésicas para alívio da dor e aceleração da cicatrização.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🧠</div>
+        <h3>Fisioterapia Neurológica</h3>
+        <p>Reabilitação para AVC, Parkinson, esclerose múltipla e sequelas neurológicas.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏃</div>
+        <h3>RPG e Pilates Clínico</h3>
+        <p>Reeducação postural global e pilates terapêutico para coluna, equilíbrio e força muscular.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Hidroterapia</h3>
+        <p>Reabilitação em piscina aquecida, ideal para artrite, reumatismo e sobrepeso articular.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👶</div>
+        <h3>Fisioterapia Pediátrica</h3>
+        <p>Atendimento especializado para crianças com atraso motor, paralisia cerebral e ortopedia infantil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     POR QUE SANTA ISABEL
+════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-tag">Nossa história</div>
+    <h2>Por que escolher a Santa Isabel?</h2>
+    <div class="why-grid">
+      <div class="why-img">
+        <img src="../assets/photos/foto-exame2.jpg" alt="Clínica Santa Isabel" loading="lazy">
+      </div>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>46 anos de tradição no Guará</h4>
+            <p>A maior e mais completa clínica de reabilitação privada do Distrito Federal, fundada em 1978.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Equipe multidisciplinar experiente</h4>
+            <p>Fisioterapeutas especializados em ortopedia, neurologia, pediatria e reabilitação cardiorrespiratória.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Convênio Geap e particulares</h4>
+            <p>Atendemos Geap, particulares e outros convênios. Sem burocracia, sem espera desnecessária.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Estrutura física completa</h4>
+            <p>Sala de ginástica, piscina terapêutica, salas individuais e equipamentos de última geração.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-check">✓</div>
+          <div>
+            <h4>Localização privilegiada</h4>
+            <p>Guará II — fácil acesso para Taguatinga, Águas Claras, Sudoeste e toda a região central.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CREDENCIAIS
+════════════════════════════════════ -->
+<section class="section section-alt" style="background: var(--dark);">
+  <div class="section-inner">
+    <div class="section-tag" style="color: var(--teal);">Em números</div>
+    <h2 style="color: var(--white);">A Santa Isabel em números</h2>
+    <div class="cred-grid">
+      <div class="cred-card">
+        <div class="cred-num">46</div>
+        <div class="cred-label">Anos cuidando de Brasília</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-num">+15k</div>
+        <div class="cred-label">Pacientes recuperados</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-num">+20</div>
+        <div class="cred-label">Especialistas na equipe</div>
+      </div>
+      <div class="cred-card">
+        <div class="cred-num">8</div>
+        <div class="cred-label">Especialidades atendidas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     DEPOIMENTOS
+════════════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-tag">O que nossos pacientes dizem</div>
+    <h2>Histórias reais de recuperação</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Depois de 3 meses de fisioterapia na Santa Isabel, consegui voltar a caminhar sem dor. A equipe é incrível, muito atenciosa e profissional. Recomendo para todos!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">Maria S.</div>
+            <div class="author-desc">Pós-operatório de joelho · Guará II</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Fui indicado por um amigo e não me arrependo. Tratamento de hérnia de disco sem cirurgia, em 2 meses estava 90% recuperado. Infraestrutura excelente!"</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👨</div>
+          <div>
+            <div class="author-name">Carlos M.</div>
+            <div class="author-desc">Hérnia de disco · Taguatinga</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Minha mãe faz hidroterapia aqui há 2 anos para artrite. A melhora foi impressionante, e o ambiente é muito acolhedor. A melhor clínica que já frequentei no DF."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">👩</div>
+          <div>
+            <div class="author-name">Ana R.</div>
+            <div class="author-desc">Hidroterapia · Águas Claras</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FAQ
+════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="section-inner">
+    <div class="section-tag">Perguntas frequentes</div>
+    <h2>Dúvidas antes de agendar</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Preciso de encaminhamento médico para fazer fisioterapia?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Não é obrigatório na maioria dos casos. Você pode nos procurar diretamente e nossos fisioterapeutas fazem a avaliação inicial e definem o protocolo mais adequado para você.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quais convênios são aceitos?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Aceitamos o convênio Geap e atendimentos particulares. Entre em contato pelo WhatsApp para verificar a cobertura do seu plano específico e os procedimentos incluídos.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Quantas sessões são necessárias para ver resultado?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Depende da condição e gravidade de cada caso. Em geral, nossos pacientes começam a notar melhora já nas primeiras sessões. O fisioterapeuta irá definir o número ideal de sessões após a avaliação inicial.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          Como funciona o agendamento?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>É simples: mande mensagem no WhatsApp, informe sua condição e disponibilidade de horários. Nossa equipe retorna rapidamente para confirmar o agendamento mais conveniente para você.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          A clínica tem estacionamento?
+          <span class="arrow">+</span>
+        </button>
+        <div class="faq-a"><p>Sim, dispomos de estacionamento para nossos pacientes. A clínica fica localizada no Guará II, com fácil acesso pela EPNB e pelas principais vias do DF.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════ -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="section-tag" style="color: var(--teal); justify-content: center;">Próximo passo</div>
+    <h2>Pronto para se recuperar<br>de vez?</h2>
+    <p>Agende sua avaliação fisioterapêutica e dê o primeiro passo para uma vida sem dor. Atendimento humanizado, equipe especializada e 46 anos de resultados.</p>
+    <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Santa%20Isabel!" class="btn-main" target="_blank">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Agendar avaliação gratuita
+    </a>
+    <div class="cta-address">
+      <strong>Clínica Santa Isabel</strong><br>
+      Guará II, Brasília-DF<br>
+      Atendimento seg–sex | Convênio Geap e particular
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 Clínica Santa Isabel · Fisioterapia e Reabilitação · Guará II, Brasília-DF</p>
+  <p style="margin-top: 0.3rem;"><a href="https://wa.me/5561999999999">WhatsApp</a> · CREFITO registrado</p>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C%20quero%20agendar%20na%20Santa%20Isabel!" class="floating-cta" target="_blank" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      // Close all
+      document.querySelectorAll('.faq-q').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.nextElementSibling.style.maxHeight = '0';
+      });
+      // Open clicked if was closed
+      if (!expanded) {
+        btn.setAttribute('aria-expanded', 'true');
+        const answer = btn.nextElementSibling;
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
