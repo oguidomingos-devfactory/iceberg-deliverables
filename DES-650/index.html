@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Rafael Rocha — Medicina da Dor</title>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --teal:#1a7a6e;
+            --teal-light:#2aa898;
+            --teal-dark:#0f5448;
+            --gold:#c9a84c;
+            --gold-light:#e8c56a;
+            --navy:#0c1a24;
+            --navy-mid:#132130;
+            --navy-card:rgba(19,33,48,0.95);
+            --white:#fff;
+            --off-white:#f4f8f6;
+            --text-muted:#9ab0ac;
+            --border:rgba(26,122,110,0.2);
+            --green-wa:#25D366;
+        }
+        html{scroll-behavior:smooth}
+        body{
+            font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+            background:linear-gradient(170deg,var(--navy) 0%,#091520 40%,#0d1f18 100%);
+            color:#d4e8e4;
+            line-height:1.65;
+            overflow-x:hidden;
+            min-height:100vh
+        }
+        h1,h2,h3,h4{font-family:'DM Serif Display',Georgia,serif;font-weight:400;letter-spacing:-0.3px}
+        h1{font-size:clamp(2.4rem,6vw,3.8rem)}
+        h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+        h3{font-size:clamp(1.2rem,2.5vw,1.7rem)}
+        h4{font-size:clamp(1rem,2vw,1.25rem);font-family:'DM Sans',sans-serif;font-weight:600}
+        a{color:var(--teal-light);text-decoration:none;transition:color .3s}
+        a:hover{color:var(--gold-light)}
+        p{margin-bottom:1rem}
+        p:last-child{margin-bottom:0}
+
+        /* NAV */
+        nav{
+            position:fixed;top:0;left:0;right:0;z-index:100;
+            display:flex;align-items:center;justify-content:space-between;
+            padding:.85rem 2rem;
+            background:rgba(12,26,36,0.92);
+            backdrop-filter:blur(12px);
+            border-bottom:1px solid var(--border)
+        }
+        .nav-logo img{height:36px;object-fit:contain}
+        .nav-cta{
+            display:inline-flex;align-items:center;gap:.5rem;
+            padding:.6rem 1.4rem;
+            background:linear-gradient(135deg,var(--teal),var(--teal-dark));
+            color:var(--white);border-radius:6px;
+            font-size:.9rem;font-weight:600;letter-spacing:.02em;
+            transition:opacity .2s,transform .2s
+        }
+        .nav-cta:hover{opacity:.9;color:var(--white);transform:translateY(-1px)}
+
+        /* SECTIONS */
+        section{
+            padding:clamp(3.5rem,8vw,6rem) 1.5rem;
+            opacity:0;transform:translateY(20px);
+            transition:opacity .7s ease,transform .7s ease;
+            animation:none
+        }
+        section.visible{opacity:1;transform:none}
+        .container{max-width:1080px;margin:0 auto}
+
+        /* HERO */
+        .hero{
+            padding-top:clamp(7rem,14vw,11rem);
+            padding-bottom:clamp(4rem,8vw,7rem);
+            text-align:center;
+            position:relative;overflow:hidden;
+            opacity:1;transform:none
+        }
+        .hero::before{
+            content:'';position:absolute;top:-30%;right:-15%;
+            width:600px;height:600px;
+            background:radial-gradient(circle,rgba(26,122,110,.18) 0%,transparent 65%);
+            border-radius:50%;z-index:-1;pointer-events:none
+        }
+        .hero::after{
+            content:'';position:absolute;bottom:-20%;left:-10%;
+            width:500px;height:500px;
+            background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 65%);
+            border-radius:50%;z-index:-1;pointer-events:none
+        }
+        .hero-badge{
+            display:inline-block;
+            padding:.35rem 1.1rem;
+            background:rgba(26,122,110,.15);
+            border:1px solid rgba(26,122,110,.35);
+            border-radius:20px;
+            font-size:.8rem;font-weight:600;color:var(--teal-light);
+            letter-spacing:.06em;text-transform:uppercase;
+            margin-bottom:2rem
+        }
+        .hero-photo-wrap{
+            width:clamp(140px,20vw,190px);height:clamp(140px,20vw,190px);
+            border-radius:50%;overflow:hidden;
+            border:3px solid var(--teal-light);
+            box-shadow:0 0 0 6px rgba(26,122,110,.12),0 20px 50px rgba(0,0,0,.5);
+            margin:0 auto 2rem
+        }
+        .hero-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:top center}
+        .hero h1{color:var(--white);margin-bottom:.5rem}
+        .hero .hero-subtitle{
+            font-size:clamp(1rem,2.2vw,1.35rem);
+            color:var(--teal-light);margin-bottom:.75rem;font-weight:500
+        }
+        .hero .hero-crm{
+            font-size:.85rem;color:var(--text-muted);margin-bottom:2.5rem;letter-spacing:.05em
+        }
+        .hero-cta-group{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+        .btn-primary{
+            display:inline-flex;align-items:center;gap:.55rem;
+            padding:.9rem 2.2rem;
+            background:linear-gradient(135deg,var(--green-wa),#1da851);
+            color:var(--white);border-radius:8px;
+            font-weight:700;font-size:1rem;
+            box-shadow:0 4px 18px rgba(37,211,102,.3);
+            transition:transform .2s,box-shadow .2s
+        }
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.4);color:var(--white)}
+        .btn-secondary{
+            display:inline-flex;align-items:center;gap:.55rem;
+            padding:.9rem 2rem;
+            background:rgba(26,122,110,.12);
+            border:1px solid var(--teal);
+            color:var(--teal-light);border-radius:8px;
+            font-weight:600;font-size:.95rem;
+            transition:background .2s,transform .2s
+        }
+        .btn-secondary:hover{background:rgba(26,122,110,.22);transform:translateY(-2px);color:var(--white)}
+        .hero-stats{
+            display:flex;gap:clamp(1.5rem,4vw,3rem);justify-content:center;
+            flex-wrap:wrap
+        }
+        .hero-stat .num{
+            font-family:'DM Serif Display',serif;
+            font-size:clamp(2rem,4vw,2.8rem);
+            color:var(--gold-light);display:block
+        }
+        .hero-stat .lbl{font-size:.8rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+
+        /* SECTION LABELS */
+        .section-label{
+            display:inline-block;
+            padding:.3rem .9rem;
+            background:rgba(26,122,110,.12);
+            border:1px solid var(--border);
+            border-radius:20px;
+            font-size:.75rem;font-weight:600;color:var(--teal-light);
+            letter-spacing:.08em;text-transform:uppercase;
+            margin-bottom:1.2rem
+        }
+
+        /* CARDS */
+        .card{
+            background:rgba(19,40,55,.6);
+            border:1px solid var(--border);
+            border-radius:12px;
+            padding:1.6rem;
+            transition:border-color .25s,transform .25s;
+            backdrop-filter:blur(6px)
+        }
+        .card:hover{border-color:rgba(26,122,110,.5);transform:translateY(-3px)}
+        .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem}
+        .card-icon{
+            width:44px;height:44px;
+            background:rgba(26,122,110,.15);
+            border-radius:10px;
+            display:flex;align-items:center;justify-content:center;
+            margin-bottom:1rem;color:var(--teal-light);font-size:1.3rem
+        }
+
+        /* RECAP */
+        .recap-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+        .recap-item{
+            display:flex;align-items:flex-start;gap:.9rem;
+            padding:1.2rem;
+            background:rgba(19,40,55,.5);
+            border:1px solid var(--border);
+            border-radius:10px
+        }
+        .recap-dot{
+            width:10px;height:10px;min-width:10px;
+            background:var(--teal-light);border-radius:50%;
+            margin-top:.45rem
+        }
+
+        /* METRICS TABLE */
+        .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.25rem}
+        .metric-card{
+            background:linear-gradient(135deg,rgba(26,122,110,.15),rgba(201,168,76,.06));
+            border:1px solid rgba(26,122,110,.25);
+            border-radius:12px;padding:1.5rem;text-align:center
+        }
+        .metric-card .num{
+            font-family:'DM Serif Display',serif;
+            font-size:clamp(1.6rem,3vw,2.2rem);
+            color:var(--gold-light);display:block;margin-bottom:.25rem
+        }
+        .metric-card .label{font-size:.78rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.07em}
+        .metric-card .note{font-size:.82rem;color:#8ab4ae;margin-top:.4rem}
+
+        /* PHASES */
+        .phase-row{
+            display:grid;grid-template-columns:clamp(80px,15%,120px) 1fr;
+            gap:1.5rem;align-items:start;
+            padding:1.5rem;
+            background:rgba(19,40,55,.5);
+            border:1px solid var(--border);
+            border-radius:10px;
+            margin-bottom:1rem
+        }
+        .phase-num{
+            font-family:'DM Serif Display',serif;
+            font-size:2.8rem;color:var(--teal);
+            line-height:1;text-align:center
+        }
+        .phase-tag{
+            display:inline-block;padding:.2rem .7rem;
+            background:rgba(26,122,110,.18);
+            border-radius:4px;font-size:.72rem;
+            color:var(--teal-light);font-weight:600;
+            letter-spacing:.06em;text-transform:uppercase;
+            margin-bottom:.5rem
+        }
+
+        /* LP PREVIEW */
+        .lp-preview-wrap{
+            border-radius:12px;overflow:hidden;
+            border:2px solid var(--border);
+            box-shadow:0 20px 60px rgba(0,0,0,.5);
+            position:relative
+        }
+        .lp-preview-bar{
+            background:#1c2b36;padding:.6rem 1rem;
+            display:flex;align-items:center;gap:.5rem
+        }
+        .lp-dot{width:10px;height:10px;border-radius:50%}
+        .lp-preview-frame{width:100%;height:520px;border:0;display:block}
+        .lp-preview-overlay{
+            position:absolute;bottom:0;left:0;right:0;
+            padding:1.5rem;
+            background:linear-gradient(to top,rgba(12,26,36,.95) 0%,transparent 100%);
+            text-align:center
+        }
+
+        /* POSTS PREVIEW */
+        .posts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
+        .post-card{
+            background:var(--navy-mid);
+            border:1px solid var(--border);
+            border-radius:10px;overflow:hidden;
+            transition:transform .25s,border-color .25s
+        }
+        .post-card:hover{transform:translateY(-4px);border-color:rgba(26,122,110,.5)}
+        .post-visual{
+            aspect-ratio:1/1;
+            display:flex;flex-direction:column;
+            align-items:center;justify-content:center;
+            padding:1.5rem;text-align:center;
+            position:relative;overflow:hidden
+        }
+        .post-visual.v1{background:linear-gradient(135deg,#0e2d3a,#1a7a6e)}
+        .post-visual.v2{background:linear-gradient(135deg,#122030,#0f5448)}
+        .post-visual.v3{background:linear-gradient(135deg,#1a2010,#2d5020)}
+        .post-visual.v4{background:linear-gradient(135deg,#25180a,#6b3a15)}
+        .post-visual .post-icon{font-size:2rem;margin-bottom:.75rem;opacity:.8}
+        .post-visual .post-title{
+            font-size:.9rem;font-weight:700;color:var(--white);
+            line-height:1.3;margin-bottom:.5rem
+        }
+        .post-visual .post-tag{
+            font-size:.68rem;color:rgba(255,255,255,.6);
+            text-transform:uppercase;letter-spacing:.07em
+        }
+        .post-meta{padding:.9rem 1rem}
+        .post-meta .caption{font-size:.82rem;color:#9ab0ac;line-height:1.45}
+        .post-meta .post-type{
+            font-size:.7rem;color:var(--teal-light);
+            text-transform:uppercase;letter-spacing:.07em;
+            margin-bottom:.4rem;font-weight:600
+        }
+
+        /* PRICING */
+        .plans-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;align-items:start}
+        .plan-card{
+            background:rgba(19,40,55,.7);
+            border:1px solid var(--border);
+            border-radius:14px;overflow:hidden;
+            transition:transform .25s,border-color .25s,box-shadow .25s
+        }
+        .plan-card:hover{transform:translateY(-4px);border-color:rgba(26,122,110,.5)}
+        .plan-card.featured{
+            border-color:var(--teal-light);
+            box-shadow:0 0 0 1px rgba(26,122,110,.3),0 20px 50px rgba(0,0,0,.4);
+            transform:scale(1.02)
+        }
+        .plan-card.featured:hover{transform:scale(1.02) translateY(-4px)}
+        .plan-header{padding:1.6rem 1.6rem 1.2rem}
+        .plan-badge{
+            display:inline-block;padding:.2rem .7rem;
+            border-radius:4px;font-size:.7rem;font-weight:700;
+            letter-spacing:.07em;text-transform:uppercase;
+            margin-bottom:.8rem
+        }
+        .plan-badge.essencial{background:rgba(26,122,110,.2);color:var(--teal-light)}
+        .plan-badge.marketing{background:rgba(201,168,76,.2);color:var(--gold-light)}
+        .plan-badge.premium{background:rgba(37,211,102,.15);color:#5ddb90}
+        .plan-badge.popular{background:var(--teal);color:var(--white)}
+        .plan-name{font-family:'DM Serif Display',serif;font-size:1.5rem;color:var(--white);margin-bottom:.3rem}
+        .plan-desc{font-size:.85rem;color:var(--text-muted);margin-bottom:1.2rem}
+        .plan-price{font-family:'DM Serif Display',serif;font-size:2.4rem;color:var(--gold-light)}
+        .plan-price span{font-size:1.1rem;font-family:'DM Sans',sans-serif;color:var(--text-muted)}
+        .plan-body{padding:0 1.6rem 1.6rem}
+        .plan-divider{border:0;border-top:1px solid var(--border);margin:1rem 0}
+        .plan-feature{
+            display:flex;align-items:flex-start;gap:.7rem;
+            padding:.45rem 0;font-size:.88rem;color:#c0d4d0
+        }
+        .plan-feature .chk{color:var(--teal-light);font-size:1rem;margin-top:1px}
+        .plan-feature .strike{text-decoration:line-through;color:#5a7070}
+        .plan-cta{
+            display:block;text-align:center;
+            padding:.85rem;margin-top:1.2rem;
+            border-radius:8px;font-weight:700;font-size:.95rem;
+            transition:transform .2s,opacity .2s
+        }
+        .plan-cta:hover{transform:translateY(-1px);opacity:.9}
+        .plan-cta.essencial-cta{background:var(--teal);color:var(--white)}
+        .plan-cta.marketing-cta{background:linear-gradient(135deg,var(--gold),#a87c25);color:var(--navy)}
+        .plan-cta.premium-cta{background:linear-gradient(135deg,#25D366,#1da851);color:var(--white)}
+
+        /* GUARANTEE */
+        .guarantee-box{
+            background:linear-gradient(135deg,rgba(26,122,110,.12),rgba(201,168,76,.06));
+            border:1px solid rgba(201,168,76,.25);
+            border-radius:14px;padding:2.5rem;text-align:center
+        }
+        .guarantee-icon{font-size:3rem;margin-bottom:1rem}
+
+        /* FOOTER */
+        footer{
+            padding:2.5rem 1.5rem;
+            text-align:center;
+            border-top:1px solid var(--border);
+            color:var(--text-muted);font-size:.85rem
+        }
+        footer .footer-logo img{height:32px;opacity:.6;margin-bottom:1rem}
+
+        /* DIVIDERS */
+        .section-divider{
+            border:0;
+            border-top:1px solid var(--border);
+            margin:0
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:640px){
+            nav{padding:.7rem 1rem}
+            .hero{padding-top:6rem}
+            .phase-row{grid-template-columns:1fr}
+            .phase-num{font-size:1.8rem;text-align:left}
+            .plan-card.featured{transform:scale(1)}
+            .plan-card.featured:hover{transform:translateY(-4px)}
+        }
+
+        /* SCROLL ANIMATIONS */
+        @keyframes fadeSlideUp{
+            from{opacity:0;transform:translateY(24px)}
+            to{opacity:1;transform:translateY(0)}
+        }
+        .hero{animation:fadeSlideUp .9s ease-out both}
+
+        /* PULSO BADGE */
+        .pulso-brand{
+            display:inline-flex;align-items:center;gap:.4rem;
+            font-size:.75rem;color:var(--text-muted)
+        }
+        .pulso-brand strong{color:var(--teal-light)}
+
+        /* INLINE ICON */
+        .inline-icon{width:18px;height:18px;vertical-align:middle}
+
+        /* LIST CHECK */
+        ul.check-list{list-style:none;padding:0}
+        ul.check-list li{
+            display:flex;align-items:flex-start;gap:.75rem;
+            padding:.5rem 0;font-size:.9rem;color:#c0d4d0
+        }
+        ul.check-list li::before{
+            content:'✓';color:var(--teal-light);
+            font-weight:700;flex-shrink:0;margin-top:1px
+        }
+
+        /* QUOTE BLOCK */
+        .quote-block{
+            border-left:3px solid var(--teal);
+            padding:1rem 1.5rem;
+            background:rgba(26,122,110,.07);
+            border-radius:0 8px 8px 0;
+            font-style:italic;
+            color:#b0cdc8;margin:1.5rem 0
+        }
+
+        /* TEXT UTILS */
+        .text-gold{color:var(--gold-light)}
+        .text-teal{color:var(--teal-light)}
+        .text-white{color:var(--white)}
+        .text-muted{color:var(--text-muted)}
+        .fw-600{font-weight:600}
+        .mb-0{margin-bottom:0}
+        .mt-2{margin-top:2rem}
+        .center{text-align:center}
+
+        /* COMPARISON ROW */
+        .comparison-table{width:100%;border-collapse:collapse;margin-top:1rem}
+        .comparison-table th{
+            padding:.75rem 1rem;text-align:left;
+            font-size:.8rem;text-transform:uppercase;letter-spacing:.07em;
+            color:var(--text-muted);border-bottom:1px solid var(--border)
+        }
+        .comparison-table td{
+            padding:.75rem 1rem;font-size:.88rem;
+            border-bottom:1px solid rgba(26,122,110,.08)
+        }
+        .comparison-table tr:last-child td{border-bottom:none}
+        .comparison-table .yes{color:var(--teal-light);font-weight:600}
+        .comparison-table .no{color:#5a7070}
+        .comparison-table .col-h{color:var(--white);font-weight:600}
+
+        /* TIMELINE */
+        .timeline{position:relative;padding-left:2rem}
+        .timeline::before{
+            content:'';position:absolute;left:.45rem;top:0;bottom:0;
+            width:2px;background:linear-gradient(to bottom,var(--teal),rgba(26,122,110,.1))
+        }
+        .timeline-item{position:relative;margin-bottom:1.5rem}
+        .timeline-item::before{
+            content:'';position:absolute;left:-1.75rem;top:.4rem;
+            width:12px;height:12px;
+            background:var(--teal);border-radius:50%;
+            border:2px solid var(--navy)
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-logo">
+        <img src="img/logo-horizontal.jpg" alt="Dr. Rafael Rocha" onerror="this.style.display='none'">
+    </div>
+    <a href="https://wa.me/5561999190221?text=Olá%2C%20vi%20a%20proposta%20e%20tenho%20interesse" class="nav-cta" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp
+    </a>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+  1. HERO
+═══════════════════════════════════════════ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">Proposta Personalizada · Pulso Digital</div>
+        <div class="hero-photo-wrap">
+            <img src="img/IMG_1990.jpg" alt="Dr. Rafael Rocha" onerror="this.src='img/foto-sem-fundo.png'">
+        </div>
+        <h1>Dr. Rafael Rocha</h1>
+        <div class="hero-subtitle">Ortopedista e Especialista em Medicina da Dor — Brasília-DF</div>
+        <div class="hero-crm">CRM/DF 31.365 &nbsp;·&nbsp; RQE 22.589 &nbsp;·&nbsp; Residência em Dor · HC Clínicas USP Federal</div>
+        <div class="hero-cta-group">
+            <a href="https://wa.me/5561999190221?text=Olá%20Dr.%20Rafael%2C%20quero%20saber%20mais%20sobre%20a%20proposta" class="btn-primary" target="_blank" rel="noopener">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Quero Começar
+            </a>
+            <a href="#planos" class="btn-secondary">Ver os Planos ↓</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="num">+500</span>
+                <span class="lbl">Procedimentos guiados por ultrassom</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">46</span>
+                <span class="lbl">Anos — Clínica Santa Isabel</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">HC USP</span>
+                <span class="lbl">Residência em Medicina da Dor</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">R$1.500</span>
+                <span class="lbl">Ticket médio (ácido hialurônico)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  2. RECAP DA CONVERSA
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Nossa Conversa</div>
+        <h2 class="text-white">O que a gente viu juntos</h2>
+        <p class="text-muted mt-2" style="max-width:680px">
+            Dr. Rafael, foi ótimo bater um papo e entender onde você quer chegar. Aqui tá um resumo do que ficou claro:
+        </p>
+        <div class="recap-grid mt-2">
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Marca médica do zero</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Você ainda não tem Instagram profissional, site ou Google Meu Negócio — ou seja, chegou na hora certa de construir do jeito certo.</p>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Ácido hialurônico como porta de entrada</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Procedimento prioritário (R$1.500 particular). É o produto que paga a conta dos anúncios e gera faturamento rápido.</p>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Convênio como diferencial</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Em Brasília é um ponto forte — a maioria dos especialistas em dor não aceita. Você aceita. Isso vira copy de anúncio.</p>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Múltiplos pontos de atendimento</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Santa Isabel (Guará II), Clínica Bem (Pátio Brasil), CITI (Águas Claras), Cardiocor (Valparaíso) — cobertura ampla no DF.</p>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Público 18+, maioria acima de 60</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Pessoas com dor crônica, joelho, coluna, pós-cirúrgico. Pedem referência, confiam em nota Google e foto profissional.</p>
+                </div>
+            </div>
+            <div class="recap-item">
+                <div class="recap-dot"></div>
+                <div>
+                    <strong class="text-white">Objetivo: escalar procedimentos de alto valor</strong>
+                    <p class="text-muted mb-0" style="font-size:.88rem">Depois do ácido hialurônico: infiltrações (~R$800), onda de choque, bloqueios, rizotomia. Cada um com margem diferente.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="quote-block mt-2">
+            "Médico com residência em dor pelo HC, +500 procedimentos guiados por ultrassom, atende convênio — e ainda não aparece no Google. Esse é exatamente o perfil que a gente transforma em referência regional em 90 dias."
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  3. DESAFIO CENTRAL
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">O Problema Real</div>
+        <h2 class="text-white">Por que pacientes ainda não chegam até você?</h2>
+
+        <div class="card-grid mt-2">
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <h4 class="text-white">Invisibilidade digital total</h4>
+                <p class="text-muted" style="font-size:.88rem">Quando alguém digita "médico dor joelho Brasília" no Google, você simplesmente não existe. Sem GMB, sem site, sem Instagram — zero presença. O paciente vai para quem aparece.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📉</div>
+                <h4 class="text-white">Autoridade desperdiçada</h4>
+                <p class="text-muted" style="font-size:.88rem">Residência em dor pelo HC Clínicas da Federal, +500 procedimentos guiados por ultrassom, 46 anos de tradição na Santa Isabel. Nada disso está no ar. Concorrentes com metade da formação aparecem primeiro.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💸</div>
+                <h4 class="text-white">Ticket alto, agenda vazia</h4>
+                <p class="text-muted" style="font-size:.88rem">Ácido hialurônico a R$1.500, infiltrações a R$800 — produtos com margem excelente. Mas sem fluxo de novos pacientes chegando, você depende de indicação. Lento, imprevisível, não escalável.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏥</div>
+                <h4 class="text-white">Concorrência crescendo</h4>
+                <p class="text-muted" style="font-size:.88rem">Outros especialistas em dor no DF já estão no Google Ads e Instagram. Cada mês sem presença digital é market share perdido para quem chegou antes no digital.</p>
+            </div>
+        </div>
+
+        <div style="background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:12px;padding:1.6rem;margin-top:1.5rem;display:flex;gap:1.2rem;align-items:flex-start">
+            <div style="font-size:2rem;flex-shrink:0">⚡</div>
+            <div>
+                <h4 class="text-gold" style="margin-bottom:.4rem">O gap de oportunidade</h4>
+                <p class="text-muted mb-0" style="font-size:.9rem">Existem <strong class="text-white">4.800+ buscas/mês</strong> por especialistas em dor e ortopedia em Brasília. Com o diferencial de convênio + formação HC, uma presença digital bem feita consegue capturar entre <strong class="text-white">40–80 leads qualificados por mês</strong> com investimento inicial de R$1.000 em mídia.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  4. DIAGNÓSTICO
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Diagnóstico</div>
+        <h2 class="text-white">O que está faltando — e onde a concorrência ganha</h2>
+
+        <div style="overflow-x:auto;margin-top:1.5rem">
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Critério</th>
+                        <th>Dr. Rafael (hoje)</th>
+                        <th>Concorrente Tipo A</th>
+                        <th>Dr. Rafael (com Pulso)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Site próprio</td>
+                        <td class="no">✗ Não tem</td>
+                        <td class="yes">✓ Tem (básico)</td>
+                        <td class="yes text-teal">✓ LP de alta conversão</td>
+                    </tr>
+                    <tr>
+                        <td>Google Meu Negócio</td>
+                        <td class="no">✗ Não tem</td>
+                        <td class="yes">✓ Cadastrado</td>
+                        <td class="yes text-teal">✓ Otimizado + avaliações</td>
+                    </tr>
+                    <tr>
+                        <td>Instagram profissional</td>
+                        <td class="no">✗ Não tem</td>
+                        <td class="yes">✓ Ativo (sem estratégia)</td>
+                        <td class="yes text-teal">✓ Grid curado + conteúdo</td>
+                    </tr>
+                    <tr>
+                        <td>Google Ads (ácido hialurônico)</td>
+                        <td class="no">✗ Zero</td>
+                        <td class="yes">✓ Investindo</td>
+                        <td class="yes text-teal">✓ Campanha otimizada</td>
+                    </tr>
+                    <tr>
+                        <td>Convênio Geap / outros</td>
+                        <td class="yes">✓ Aceita</td>
+                        <td class="no">✗ Só particular</td>
+                        <td class="yes text-teal">✓ Diferencial comunicado</td>
+                    </tr>
+                    <tr>
+                        <td>Formação diferenciada (HC)</td>
+                        <td class="yes">✓ Tem</td>
+                        <td class="no">✗ Formação comum</td>
+                        <td class="yes text-teal">✓ No ar em todo conteúdo</td>
+                    </tr>
+                    <tr>
+                        <td>Guiado por ultrassom (+500 proc.)</td>
+                        <td class="yes">✓ Tem</td>
+                        <td class="no">✗ Maioria não tem</td>
+                        <td class="yes text-teal">✓ Copy nos anúncios</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="text-muted mt-2" style="font-size:.9rem">
+            Conclusão: você tem mais diferenciais reais do que a maioria. O problema não é a qualidade do serviço — é que ninguém sabe que você existe.
+        </p>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  5. OPORTUNIDADES
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">O Que Vamos Construir</div>
+        <h2 class="text-white">5 oportunidades de crescimento identificadas</h2>
+
+        <div class="timeline mt-2">
+            <div class="timeline-item">
+                <h4 class="text-white">1. Captura de demanda existente (Google)</h4>
+                <p class="text-muted" style="font-size:.88rem">Pessoas que JÁ buscam "ácido hialurônico joelho Brasília", "médico dor coluna DF", "infiltração dor Brasília" não estão te achando. Google Ads + GMB resolvem isso nos primeiros 30 dias. Intenção de compra altíssima.</p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="text-white">2. Autoridade médica → confiança → agendamento</h4>
+                <p class="text-muted" style="font-size:.88rem">Conteúdo educativo no Instagram sobre procedimentos (como funciona o ácido hialurônico, quando indicar, diferença de tratamentos) posiciona você como especialista antes do paciente chegar. Ciclo mais curto de decisão.</p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="text-white">3. Diferencial convênio como aquisição</h4>
+                <p class="text-muted" style="font-size:.88rem">Campanha específica para beneficiários de Geap Saúde e outros convênios buscando especialista em dor. Segmentação geográfica por localização das clínicas (Guará, Águas Claras, Valparaíso).</p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="text-white">4. Funil de alto valor (viscosuplementação)</h4>
+                <p class="text-muted" style="font-size:.88rem">Landing page focada em dor no joelho → ácido hialurônico como solução → CTA direto para consulta. Ticket médio R$1.500. Anúncio com ROI positivo a partir do primeiro paciente.</p>
+            </div>
+            <div class="timeline-item">
+                <h4 class="text-white">5. Escada de procedimentos (upsell natural)</h4>
+                <p class="text-muted" style="font-size:.88rem">Ácido hialurônico → infiltrações → onda de choque → bloqueio de nervo → rizotomia. Cada paciente pode gerar múltiplos procedimentos. Conteúdo de nutrição mantém você presente na cabeça do paciente.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  6. MÉTRICAS PROJETADAS
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Projeções</div>
+        <h2 class="text-white">O que esperar nos primeiros 90 dias</h2>
+        <p class="text-muted mt-2" style="max-width:640px;font-size:.9rem">
+            Baseado em resultados reais de médicos similares na Pulso (ortopedia + dor, Brasília e outras capitais), com investimento de R$1.000/mês em mídia paga:
+        </p>
+        <div class="metrics-grid mt-2">
+            <div class="metric-card">
+                <span class="num">40–80</span>
+                <div class="label">Leads/mês</div>
+                <div class="note">Consultas + WhatsApp inbound</div>
+            </div>
+            <div class="metric-card">
+                <span class="num">R$15–40</span>
+                <div class="label">CPL (Custo por Lead)</div>
+                <div class="note">Google Ads + Meta Ads</div>
+            </div>
+            <div class="metric-card">
+                <span class="num">20–30%</span>
+                <div class="label">Taxa de conversão</div>
+                <div class="note">Lead → consulta agendada</div>
+            </div>
+            <div class="metric-card">
+                <span class="num">3–8×</span>
+                <div class="label">ROAS</div>
+                <div class="note">Retorno sobre invest. em ads</div>
+            </div>
+            <div class="metric-card">
+                <span class="num">R$15k+</span>
+                <div class="label">Potencial faturamento/mês</div>
+                <div class="note">10–15 consultas → procedimentos</div>
+            </div>
+            <div class="metric-card">
+                <span class="num">1.000+</span>
+                <div class="label">Seguidores Instagram</div>
+                <div class="note">Crescimento orgânico mês 1</div>
+            </div>
+        </div>
+
+        <div style="background:rgba(19,40,55,.7);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1.5rem">
+            <p style="font-size:.8rem;color:var(--text-muted);margin:0">
+                ⚠️ <strong>Aviso legal:</strong> Projeções baseadas em médias de clientes similares. Resultados individuais variam conforme mercado local, sazonalidade, execução e demanda. Não são garantias de receita.
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  7. PLANO DE IMPLEMENTAÇÃO
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Cronograma</div>
+        <h2 class="text-white">Como isso acontece na prática</h2>
+
+        <div style="margin-top:1.5rem">
+            <div class="phase-row">
+                <div>
+                    <div class="phase-num">01</div>
+                    <div class="phase-tag">Sem 1–4</div>
+                </div>
+                <div>
+                    <h4 class="text-white" style="margin-bottom:.6rem">Fundação Digital</h4>
+                    <ul class="check-list">
+                        <li>Setup Google Meu Negócio com fotos reais e categorias certas</li>
+                        <li>Landing page de alta conversão — foco em dor + procedimentos</li>
+                        <li>Identidade visual completa (logo, paleta, tipografia)</li>
+                        <li>Instagram profissional criado e configurado</li>
+                        <li>Grid de fundação: 4 posts que estabelecem autoridade</li>
+                        <li>Primeira campanha Google Ads ativa (ácido hialurônico)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-row">
+                <div>
+                    <div class="phase-num">02</div>
+                    <div class="phase-tag">Mês 2</div>
+                </div>
+                <div>
+                    <h4 class="text-white" style="margin-bottom:.6rem">Aceleração</h4>
+                    <ul class="check-list">
+                        <li>Campanha Meta Ads rodando (segmentada por convênio + localização)</li>
+                        <li>Calendário editorial mensal — 3 posts/semana no Instagram</li>
+                        <li>Otimização de campanhas com base nos primeiros dados</li>
+                        <li>Configuração de atendimento / CRM básico de leads</li>
+                        <li>Primeiras avaliações no Google coletadas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="phase-row">
+                <div>
+                    <div class="phase-num">03</div>
+                    <div class="phase-tag">Mês 3+</div>
+                </div>
+                <div>
+                    <h4 class="text-white" style="margin-bottom:.6rem">Escala + Autoridade</h4>
+                    <ul class="check-list">
+                        <li>Análise de dados: quais procedimentos convertem mais</li>
+                        <li>Expansão de campanhas para CITI, Cardiocor e Valparaíso</li>
+                        <li>Conteúdo de nutrição: reels educativos sobre dor</li>
+                        <li>Início de estratégia para procedimentos de maior ticket</li>
+                        <li>Relatório mensal de performance com recomendações</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  8. DELIVERABLES
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">O Que Você Recebe</div>
+        <h2 class="text-white">Entregas detalhadas — Plano Essencial</h2>
+
+        <div class="card-grid mt-2">
+            <div class="card">
+                <div class="card-icon">🌐</div>
+                <h4 class="text-white">Landing Page Premium</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Mobile-first, carregamento rápido</li>
+                    <li>Acima do fold: foto real + headline de dor</li>
+                    <li>Seções: serviços, credenciais, depoimentos, FAQ</li>
+                    <li>CTAs WhatsApp e formulário de contato</li>
+                    <li>Publicada em domínio próprio</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">📍</div>
+                <h4 class="text-white">Google Meu Negócio</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Cadastro e verificação completa</li>
+                    <li>Fotos profissionais do consultório</li>
+                    <li>Categorias e serviços otimizados</li>
+                    <li>Resposta a avaliações + coleta de reviews</li>
+                    <li>Cobertura por localização (Guará, Águas Claras)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">📸</div>
+                <h4 class="text-white">Instagram Profissional</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Setup completo da conta médica</li>
+                    <li>Grid de fundação — 4 posts de autoridade</li>
+                    <li>Gestão mensal: 3 posts/semana + stories</li>
+                    <li>Design alinhado à identidade visual</li>
+                    <li>Hashtags e estratégia de alcance</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎯</div>
+                <h4 class="text-white">Tráfego Pago</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Campanha Google Ads — ácido hialurônico (prioridade)</li>
+                    <li>Meta Ads — segmentação por convênio + localização</li>
+                    <li>Criação de criativos e copies de conversão</li>
+                    <li>Gestão, otimização e relatórios mensais</li>
+                    <li>Investimento inicial: R$1.000/mês (verba separada)</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <h4 class="text-white">Identidade Visual</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Logo profissional e variações</li>
+                    <li>Paleta de cores + tipografia</li>
+                    <li>Templates de posts Instagram</li>
+                    <li>Manual de marca básico</li>
+                    <li>Aplicação em todos os materiais</li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h4 class="text-white">Relatórios + Suporte</h4>
+                <ul class="check-list" style="margin-top:.6rem">
+                    <li>Relatório mensal de performance</li>
+                    <li>Acompanhamento via WhatsApp</li>
+                    <li>Reunião mensal de alinhamento</li>
+                    <li>Ajustes de campanha inclusos</li>
+                    <li>Acesso ao Pulso Painel (visão geral)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  9. LP PREVIEW
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Preview — Landing Page</div>
+        <h2 class="text-white">Sua landing page, do jeito que vai ficar</h2>
+        <p class="text-muted mt-2" style="max-width:640px;font-size:.9rem">
+            Abaixo está o preview real da LP que vamos criar para capturar pacientes que buscam por tratamentos de dor no DF. Mobile-first, com foto real, CTA WhatsApp e foco em conversão.
+        </p>
+        <div class="lp-preview-wrap mt-2">
+            <div class="lp-preview-bar">
+                <div class="lp-dot" style="background:#ff5f57"></div>
+                <div class="lp-dot" style="background:#febc2e"></div>
+                <div class="lp-dot" style="background:#28c840"></div>
+                <span style="font-size:.75rem;color:#5a7a8a;margin-left:.5rem">drrafaelrocha.com.br/dor-cronica</span>
+            </div>
+            <iframe
+                src="lp/index.html"
+                class="lp-preview-frame"
+                loading="lazy"
+                title="Preview Landing Page Dr. Rafael Rocha"
+                sandbox="allow-same-origin allow-scripts">
+            </iframe>
+            <div class="lp-preview-overlay">
+                <a href="lp/index.html" target="_blank" class="btn-secondary" style="display:inline-flex">
+                    Abrir LP Completa ↗
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  10. POSTS PREVIEW
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="section-label">Preview — Grid Instagram</div>
+        <h2 class="text-white">Os 4 posts que vão estabelecer sua autoridade</h2>
+        <p class="text-muted mt-2" style="max-width:640px;font-size:.9rem">
+            Grid de fundação: primeiros 4 posts que vão ao ar quando o Instagram for aberto. Cada um tem função estratégica clara.
+        </p>
+
+        <div class="posts-grid mt-2">
+            <div class="post-card">
+                <div class="post-visual v1">
+                    <div class="post-icon">💉</div>
+                    <div class="post-title">Ácido Hialurônico:<br>O que é e para quem é indicado?</div>
+                    <div class="post-tag">Educação · Carrossel</div>
+                </div>
+                <div class="post-meta">
+                    <div class="post-type">Post 1 — Educação</div>
+                    <div class="caption">"Dor no joelho não precisa terminar em cirurgia. Saiba quando a viscosuplementação pode ser a solução certa para você..."</div>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-visual v2">
+                    <div class="post-icon">👨‍⚕️</div>
+                    <div class="post-title">Dr. Rafael Rocha:<br>Quem é e por que ele é diferente?</div>
+                    <div class="post-tag">Apresentação · Post</div>
+                </div>
+                <div class="post-meta">
+                    <div class="post-type">Post 2 — Autoridade</div>
+                    <div class="caption">"Residência em Medicina da Dor pelo HC Clínicas da Federal. Mais de 500 procedimentos guiados por ultrassom. Aceito convênio..."</div>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-visual v3">
+                    <div class="post-icon">🏥</div>
+                    <div class="post-title">Clínica Santa Isabel:<br>46 anos cuidando de Brasília</div>
+                    <div class="post-tag">Institucional · Carrossel</div>
+                </div>
+                <div class="post-meta">
+                    <div class="post-type">Post 3 — Prova social</div>
+                    <div class="caption">"Maior centro de reabilitação privado do DF desde 1980. Estrutura completa, convênios, fisioterapia e ortopedia no mesmo lugar..."</div>
+                </div>
+            </div>
+
+            <div class="post-card">
+                <div class="post-visual v4">
+                    <div class="post-icon">🎯</div>
+                    <div class="post-title">Infiltração, bloqueio ou ácido<br>hialurônico — qual é o seu caso?</div>
+                    <div class="post-tag">Educação · Comparativo</div>
+                </div>
+                <div class="post-meta">
+                    <div class="post-type">Post 4 — Diferenciação</div>
+                    <div class="caption">"Cada tipo de dor tem o tratamento certo. Entenda as diferenças entre as principais técnicas da medicina da dor e quando cada uma é indicada..."</div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-muted mt-2" style="font-size:.82rem;text-align:center">
+            Design final entregue em formato editável (Canva/Figma) seguindo a identidade visual aprovada.
+        </p>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  11. PLANOS
+═══════════════════════════════════════════ -->
+<section id="planos">
+    <div class="container">
+        <div class="section-label center">Planos</div>
+        <h2 class="text-white center">Escolha como quer crescer</h2>
+        <p class="text-muted center mt-2" style="font-size:.9rem">Todos os planos incluem setup completo no primeiro mês. Sem taxa de setup adicional.</p>
+
+        <div class="plans-grid" style="margin-top:2rem">
+
+            <!-- ESSENCIAL -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-badge essencial">Essencial</div>
+                    <div class="plan-name">Fundação Digital</div>
+                    <div class="plan-desc">Para médicos começando do zero no digital. Presença, autoridade e primeiros leads.</div>
+                    <div class="plan-price">R$ 2.500<span>/mês</span></div>
+                </div>
+                <div class="plan-body">
+                    <hr class="plan-divider">
+                    <div class="plan-feature"><span class="chk">✓</span> Landing page de conversão</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Google Meu Negócio completo</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Identidade visual básica</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Instagram setup + 4 posts fundação</div>
+                    <div class="plan-feature"><span class="chk">✓</span> 1 campanha Google Ads gerenciada</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Relatório mensal</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Suporte WhatsApp</div>
+                    <div class="plan-feature"><span class="strike">✗ Gestão de redes mensalmente</span></div>
+                    <div class="plan-feature"><span class="strike">✗ Meta Ads</span></div>
+                    <div class="plan-feature"><span class="strike">✗ Conteúdo mensal (reels + posts)</span></div>
+                    <a href="https://wa.me/5561999190221?text=Quero%20o%20Plano%20Essencial" class="plan-cta essencial-cta" target="_blank" rel="noopener">Quero o Essencial</a>
+                </div>
+            </div>
+
+            <!-- MARKETING (FEATURED) -->
+            <div class="plan-card featured">
+                <div class="plan-header">
+                    <div class="plan-badge popular" style="margin-bottom:.4rem">Mais escolhido</div>
+                    <div class="plan-badge marketing">Marketing</div>
+                    <div class="plan-name">Crescimento Ativo</div>
+                    <div class="plan-desc">Para médicos que querem crescimento consistente com presença ativa e anúncios.</div>
+                    <div class="plan-price">R$ 4.500<span>/mês</span></div>
+                </div>
+                <div class="plan-body">
+                    <hr class="plan-divider">
+                    <div class="plan-feature"><span class="chk">✓</span> Tudo do Essencial</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Gestão Instagram: 3 posts/semana + stories</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Calendário editorial mensal</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Meta Ads gerenciado (Facebook + Instagram)</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Criativos de anúncio mensais (até 6)</div>
+                    <div class="plan-feature"><span class="chk">✓</span> 2 campanhas pagas gerenciadas</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Reunião quinzenal de alinhamento</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Relatório detalhado com análise</div>
+                    <div class="plan-feature"><span class="strike">✗ Produção de reels (só copy+design)</span></div>
+                    <a href="https://wa.me/5561999190221?text=Quero%20o%20Plano%20Marketing" class="plan-cta marketing-cta" target="_blank" rel="noopener">Quero o Marketing</a>
+                </div>
+            </div>
+
+            <!-- PREMIUM -->
+            <div class="plan-card">
+                <div class="plan-header">
+                    <div class="plan-badge premium">Premium</div>
+                    <div class="plan-name">Autoridade Total</div>
+                    <div class="plan-desc">Para médicos que querem se tornar referência regional e escalar faturamento.</div>
+                    <div class="plan-price">R$ 7.500<span>/mês</span></div>
+                </div>
+                <div class="plan-body">
+                    <hr class="plan-divider">
+                    <div class="plan-feature"><span class="chk">✓</span> Tudo do Marketing</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Produção de reels mensais (até 4)</div>
+                    <div class="plan-feature"><span class="chk">✓</span> SEO técnico do site (blog + artigos)</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Campanha para cada localização</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Estratégia de indicação médica</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Gestão de avaliações Google</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Gerente de conta dedicado</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Reunião semanal</div>
+                    <div class="plan-feature"><span class="chk">✓</span> Prioridade máxima em todas as filas</div>
+                    <a href="https://wa.me/5561999190221?text=Quero%20o%20Plano%20Premium" class="plan-cta premium-cta" target="_blank" rel="noopener">Quero o Premium</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="background:rgba(26,122,110,.07);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.6rem;margin-top:2rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
+            <div style="font-size:1.5rem">ℹ️</div>
+            <p class="mb-0" style="font-size:.85rem;color:var(--text-muted)">
+                <strong class="text-white">Verba de mídia paga (Google Ads + Meta Ads)</strong> não está incluída no valor do plano — é separada, diretamente na plataforma. Recomendado: mínimo R$1.000/mês para resultados consistentes.
+            </p>
+        </div>
+    </div>
+</section>
+
+<hr class="section-divider">
+
+<!-- ═══════════════════════════════════════════
+  12. GARANTIA + PRÓXIMOS PASSOS
+═══════════════════════════════════════════ -->
+<section>
+    <div class="container">
+        <div class="guarantee-box">
+            <div class="guarantee-icon">🛡️</div>
+            <h2 class="text-white" style="margin-bottom:1rem">Nossa Garantia</h2>
+            <p style="max-width:580px;margin:0 auto 1.5rem;color:#b0cdc8;font-size:.95rem">
+                Se ao final do primeiro mês você não estiver completamente satisfeito com o progresso e as entregas, a gente devolve integralmente o valor — sem burocracia, sem perguntas.
+            </p>
+            <p style="font-size:.8rem;color:var(--text-muted);max-width:480px;margin:0 auto">
+                Trabalhamos com mais de 40 clínicas e médicos desde 2025. Sabemos o que funciona. Só pedimos que você apareça para trabalhar com a gente.
+            </p>
+        </div>
+
+        <div style="margin-top:3rem;text-align:center">
+            <div class="section-label" style="display:inline-block">Próximo Passo</div>
+            <h2 class="text-white mt-2">Pronto para começar, Dr. Rafael?</h2>
+            <p class="text-muted mt-2" style="max-width:540px;margin:0 auto 2rem;font-size:.95rem">
+                Uma conversa de 15 minutos no WhatsApp é suficiente para definir o plano, alinhar prioridades e dar o kick-off. Sem compromisso.
+            </p>
+            <a href="https://wa.me/5561999190221?text=Dr.%20Rafael%2C%20vi%20a%20proposta%20da%20Pulso%20e%20quero%20conversar%20sobre%20o%20início" class="btn-primary" target="_blank" rel="noopener" style="font-size:1.1rem;padding:1.1rem 2.8rem">
+                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Falar no WhatsApp agora
+            </a>
+            <p class="text-muted mt-2" style="font-size:.8rem">Resposta em até 2 horas · Sem spam · Sem compromisso</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">
+        <img src="img/logo-horizontal.jpg" alt="Dr. Rafael Rocha" onerror="this.style.display='none'">
+    </div>
+    <div class="pulso-brand">
+        Proposta preparada por <strong>Pulso Digital</strong> &nbsp;·&nbsp; 2025
+    </div>
+    <div style="margin-top:.5rem;font-size:.75rem;color:#3a5a55">
+        Esta proposta é confidencial e destinada exclusivamente a Dr. Rafael Rocha.
+    </div>
+</footer>
+
+<script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if(e.isIntersecting){
+                e.target.classList.add('visible');
+                observer.unobserve(e.target);
+            }
+        });
+    }, {threshold:0.08,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('section:not(.hero)').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
