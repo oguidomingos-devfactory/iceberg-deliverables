@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Rafael Rocha — Especialista em Medicina da Dor · Brasília-DF</title>
+  <meta name="description" content="Dr. Rafael Rocha — Ortopedista especializado em Medicina da Dor. Ácido hialurônico, infiltrações, onda de choque guiados por ultrassom. Atende convênio. Guará II, Brasília-DF.">
+  <meta property="og:title" content="Dr. Rafael Rocha — Especialista em Medicina da Dor">
+  <meta property="og:description" content="Trate a dor crônica com procedimentos minimamente invasivos, guiados por ultrassom. Agende sua consulta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0a1628;
+      --navy2: #0f1f3d;
+      --white: #ffffff;
+      --off-white: #f4f7fc;
+      --text: #1a2540;
+      --muted: #5a6a8a;
+      --accent: #1a5c3e;       /* verde escuro médico */
+      --accent2: #2a9d6f;      /* verde claro */
+      --gold: #b8924a;         /* dourado */
+      --wa: #25D366;
+      --border: #e2e8f0;
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── UTILS ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 2.5rem); }
+    .section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
+    .section--dark { background: var(--navy); color: var(--white); }
+    .section--navy2 { background: var(--navy2); color: var(--white); }
+    .section--light { background: var(--off-white); }
+
+    h1 { font-family: var(--serif); font-size: clamp(2.2rem, 6vw, 3.8rem); line-height: 1.1; font-weight: 700; }
+    h2 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; }
+    h3 { font-family: var(--serif); font-size: clamp(1.3rem, 2.5vw, 1.6rem); font-weight: 700; }
+
+    .label {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent2);
+      border: 1px solid rgba(42,157,111,0.35);
+      background: rgba(42,157,111,0.06);
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .label--white {
+      color: rgba(255,255,255,0.8);
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.06);
+    }
+    .label--gold {
+      color: var(--gold);
+      border-color: rgba(184,146,74,0.35);
+      background: rgba(184,146,74,0.06);
+    }
+
+    .btn-wa {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--wa);
+      color: white;
+      font-weight: 700; font-size: 1rem;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+    }
+    .btn-wa:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(37,211,102,0.5); color: white; }
+    .btn-wa svg { width: 22px; height: 22px; fill: white; flex-shrink: 0; }
+
+    .btn-outline-wa {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      border: 2px solid var(--wa);
+      color: var(--wa);
+      font-weight: 600; font-size: 0.95rem;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .btn-outline-wa:hover { background: var(--wa); color: white; }
+
+    /* ── HEADER / NAV ── */
+    .header {
+      position: sticky; top: 0;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 100;
+      padding: 0.9rem 0;
+    }
+    .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .header-logo { display: flex; align-items: center; gap: 0.75rem; }
+    .header-logo img { height: 34px; filter: brightness(2); }
+    .header-logo-text { color: white; }
+    .header-logo-text strong { display: block; font-weight: 700; font-size: 0.95rem; line-height: 1; }
+    .header-logo-text span { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0f2540 50%, #0a1a30 100%);
+      color: white;
+      padding: clamp(4rem, 10vh, 7rem) 0 clamp(3rem, 7vh, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(26,92,62,0.25) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: 20%;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(42,157,111,0.1) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-eyebrow .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); }
+    .hero-eyebrow span { font-size: 0.85rem; color: var(--accent2); font-weight: 500; letter-spacing: 0.05em; }
+
+    .hero h1 { color: white; margin-bottom: 0.75rem; }
+    .hero h1 em { font-style: italic; color: rgba(255,255,255,0.7); }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-urgency {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--gold);
+      background: rgba(184,146,74,0.1);
+      border: 1px solid rgba(184,146,74,0.25);
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+
+    .hero-trust { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+    .trust-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+    .trust-item strong { color: rgba(255,255,255,0.9); }
+    .trust-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+
+    .hero-image-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .hero-image-wrapper img {
+      max-height: 480px;
+      max-width: 100%;
+      object-fit: contain;
+      position: relative; z-index: 1;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+    }
+    .hero-image-wrapper::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(42,157,111,0.18) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-card-floating {
+      position: absolute;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 0.75rem 1.25rem;
+      font-size: 0.82rem;
+      z-index: 2;
+    }
+    .hero-card-floating.card-1 { bottom: 30px; left: -20px; }
+    .hero-card-floating.card-2 { top: 60px; right: -10px; }
+    .hero-card-floating strong { display: block; color: var(--accent2); font-size: 1.1rem; }
+    .hero-card-floating span { color: rgba(255,255,255,0.6); }
+
+    /* ── DOR / PAIN SECTION ── */
+    .pain-section { background: var(--off-white); }
+    .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+    .pain-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border-top: 3px solid var(--accent2);
+    }
+    .pain-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,0.08); }
+    .pain-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .pain-card h3 { font-size: 1rem; font-family: var(--sans); font-weight: 700; margin-bottom: 0.5rem; }
+    .pain-card p { font-size: 0.88rem; color: var(--muted); }
+
+    /* ── SERVIÇOS ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .service-card:hover { border-color: rgba(42,157,111,0.4); transform: translateY(-3px); }
+    .service-card.highlight {
+      background: linear-gradient(135deg, rgba(42,157,111,0.12), rgba(26,92,62,0.08));
+      border-color: rgba(42,157,111,0.3);
+    }
+    .service-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      background: var(--accent2);
+      color: white;
+      padding: 0.15rem 0.65rem;
+      border-radius: 100px;
+      margin-bottom: 0.75rem;
+    }
+    .service-card .icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+    .service-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: white; }
+    .service-card p { font-size: 0.88rem; color: rgba(255,255,255,0.6); }
+    .service-detail {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem;
+    }
+    .service-detail span {
+      font-size: 0.75rem; color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* ── CREDENCIAIS ── */
+    .cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .cred-card {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      transition: transform 0.25s;
+    }
+    .cred-card:hover { transform: translateY(-3px); }
+    .cred-number { font-size: 2.8rem; font-weight: 800; color: var(--accent); line-height: 1; font-family: var(--serif); display: block; }
+    .cred-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.25rem; }
+
+    /* ── CONVÊNIO ── */
+    .convenio-box {
+      background: linear-gradient(135deg, #0f3028, #0a1e18);
+      border: 1px solid rgba(42,157,111,0.25);
+      border-radius: 20px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .convenio-check {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.95rem; color: rgba(255,255,255,0.8);
+    }
+    .convenio-check:last-child { border: none; }
+    .convenio-check::before { content: '✓'; color: var(--accent2); font-weight: 700; font-size: 1.1rem; }
+
+    /* ── DEPOIMENTOS ── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testimonial {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute; top: 1rem; left: 1.5rem;
+      font-size: 4rem; font-family: var(--serif);
+      color: rgba(42,157,111,0.15);
+      line-height: 1;
+    }
+    .testimonial-text { color: var(--text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.9rem; color: white;
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-weight: 600; font-size: 0.9rem; }
+    .testimonial-desc { font-size: 0.8rem; color: var(--muted); }
+    .testimonial-stars { color: #f59e0b; font-size: 0.85rem; margin-bottom: 0.75rem; }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer; gap: 1rem;
+    }
+    .faq-q strong { font-size: 1rem; font-weight: 600; flex: 1; }
+    .faq-toggle {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; color: var(--accent);
+      flex-shrink: 0;
+      transition: transform 0.25s;
+    }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s;
+    }
+    .faq-a p { padding-top: 1rem; color: var(--muted); font-size: 0.95rem; }
+    .faq-item.open .faq-a { max-height: 300px; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); background: var(--accent2); color: white; border-color: var(--accent2); }
+
+    /* ── CTA FINAL ── */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy), #0f2540);
+      text-align: center;
+      padding: clamp(4rem, 8vw, 7rem) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(42,157,111,0.15) 0%, transparent 65%);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { color: white; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.6); max-width: 540px; margin: 0 auto 2.5rem; font-size: 1.05rem; }
+    .cta-section .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050d1c;
+      color: rgba(255,255,255,0.4);
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+    footer strong { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-image-wrapper { order: -1; }
+      .hero-image-wrapper img { max-height: 300px; }
+      .hero-card-floating { display: none; }
+      .hero-cta { justify-content: center; }
+      .hero-trust { justify-content: center; }
+      .hero h1 { text-align: center; }
+      .hero-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+      .convenio-box { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    /* ── PHOTOS ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .photo-grid img {
+      width: 100%; aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .photo-grid img:first-child { grid-column: span 2; aspect-ratio: auto; }
+
+    /* WhatsApp Float */
+    .wa-float {
+      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+    }
+    .wa-float a {
+      display: flex; align-items: center; justify-content: center;
+      width: 58px; height: 58px;
+      background: var(--wa);
+      border-radius: 50%;
+      box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .wa-float a:hover { transform: scale(1.1); }
+    .wa-float svg { width: 30px; height: 30px; fill: white; }
+
+    /* Reveals */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s, transform 0.7s; }
+    .revealed { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-logo">
+        <img src="../assets/photos/navbar-logo.png" alt="Dr. Rafael Rocha" onerror="this.style.display='none'">
+        <div class="header-logo-text">
+          <strong>Dr. Rafael Rocha</strong>
+          <span>Ortopedia · Medicina da Dor · Brasília</span>
+        </div>
+      </div>
+      <a href="https://wa.me/5561999999999?text=Ol%C3%A1+Dr.+Rafael%2C+quero+agendar+uma+consulta!" class="btn-wa" target="_blank" rel="noopener" style="padding: 0.7rem 1.5rem; font-size: 0.9rem;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Agendar Consulta
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════
+  HERO
+══════════════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <div class="dot"></div>
+          <span>Especialista em Medicina da Dor · Brasília-DF</span>
+        </div>
+
+        <h1>Chega de conviver<br><em>com dor crônica</em></h1>
+
+        <p class="hero-subtitle">
+          Dr. Rafael Rocha é ortopedista especializado em Medicina da Dor. Tratamentos minimamente invasivos, guiados por ultrassom, com resultado duradouro — e sem cirurgia na maioria dos casos.
+        </p>
+
+        <div class="hero-urgency">
+          ✅ Atendemos pelo seu convênio · Geap e outros
+        </div>
+
+        <div class="hero-cta">
+          <a href="https://wa.me/5561999999999?text=Ol%C3%A1+Dr.+Rafael%2C+quero+agendar+uma+consulta!" class="btn-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a href="#servicos" class="btn-outline-wa">Ver Procedimentos</a>
+        </div>
+
+        <div class="hero-trust">
+          <div class="trust-item"><div class="trust-dot"></div><div><strong>+500</strong> procedimentos</div></div>
+          <div class="trust-item"><div class="trust-dot"></div><div><strong>Residência</strong> HC Clínicas</div></div>
+          <div class="trust-item"><div class="trust-dot"></div><div><strong>Ultrassom</strong> 100% dos casos</div></div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <img src="../assets/photos/foto-sem-fundo.png" alt="Dr. Rafael Rocha — Ortopedista Medicina da Dor Brasília" loading="eager">
+
+        <div class="hero-card-floating card-1">
+          <strong>+5.000</strong>
+          <span>Pacientes atendidos</span>
+        </div>
+        <div class="hero-card-floating card-2">
+          <strong style="color: #25D366;">✓ Convênio</strong>
+          <span>Geap e outros</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  DOR / QUEIXAS
+══════════════════════════════ -->
+<section class="section pain-section reveal" id="dores">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <div class="label">Você se identifica?</div>
+      <h2>Quando a dor manda na sua vida</h2>
+      <p style="color: var(--muted); max-width: 560px; margin: 0.75rem auto 0;">Você não precisa mais aceitar a dor crônica como parte do dia a dia. Existe tratamento eficaz e seguro.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-icon">🦵</span>
+        <h3>Dor no joelho</h3>
+        <p>Artrose, lesão de menisco, condromalácia. Tratamento sem cirurgia na maioria dos casos.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🦷</span>
+        <h3>Dor nas costas e coluna</h3>
+        <p>Hérnias, estenose, nervo pinçado. Bloqueio e rizotomia para alívio duradouro.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">🤕</span>
+        <h3>Enxaqueca crônica</h3>
+        <p>Mais de 15 dias de dor por mês? Botox aplicado pelo especialista tem eficácia comprovada.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-icon">💪</span>
+        <h3>Dor no ombro e cotovelo</h3>
+        <p>Tendinite, bursite, síndrome do manguito. Infiltração guiada resolve sem internação.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  SERVIÇOS / PROCEDIMENTOS
+══════════════════════════════ -->
+<section class="section section--dark reveal" id="servicos">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <div class="label label--white">Procedimentos</div>
+      <h2 style="color: white;">Tratamentos para quem não quer esperar pela dor passar</h2>
+      <p style="color: rgba(255,255,255,0.55); max-width: 560px; margin: 0.75rem auto 0;">Todos os procedimentos são realizados com guia de ultrassom — mais segurança, mais precisão, melhor resultado.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card highlight">
+        <div class="service-badge">⭐ Mais Solicitado</div>
+        <span class="icon">💉</span>
+        <h3>Ácido Hialurônico</h3>
+        <p>Viscossuplementação articular — o procedimento mais eficaz para artrose de joelho. Resultado que dura 6 a 12 meses, aplicado em consultório, sem internação.</p>
+        <div class="service-detail">
+          <span>Joelho</span><span>Quadril</span><span>Tornozelo</span><span>Ombro</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="icon">🎯</span>
+        <h3>Infiltração para Dor</h3>
+        <p>Corticoide e outras substâncias injetadas com precisão milimétrica no local da inflamação. Alívio em 24-48h.</p>
+        <div class="service-detail">
+          <span>Anti-inflamatório</span><span>Precisão ultrassom</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="icon">🔊</span>
+        <h3>Onda de Choque</h3>
+        <p>Terapia extracorpórea indicada para tendinites crônicas, fascite plantar e calcificações. Sem agulha, sem corte.</p>
+        <div class="service-detail">
+          <span>Fascite plantar</span><span>Tendinite</span><span>Calcificação</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="icon">⚡</span>
+        <h3>Bloqueio de Nervo</h3>
+        <p>Para dores neuropáticas intensas — herpes-zóster, neuralgia, dor fantasma. Técnica especializada com resultado expressivo.</p>
+        <div class="service-detail">
+          <span>Neuropatia</span><span>Neuralgia</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="icon">🔥</span>
+        <h3>Rizotomia</h3>
+        <p>Para dor crônica de coluna refratária. Denervação percutânea das facetas — procedimento definitivo para muitos pacientes.</p>
+        <div class="service-detail">
+          <span>Coluna lombar</span><span>Coluna cervical</span>
+        </div>
+      </div>
+      <div class="service-card">
+        <span class="icon">💆</span>
+        <h3>Botox para Enxaqueca</h3>
+        <p>Protocolo PREEMPT aplicado por especialista. FDA-aprovado para enxaqueca crônica. Eficácia comprovada em estudos clínicos.</p>
+        <div class="service-detail">
+          <span>Enxaqueca crônica</span><span>+15 dias/mês</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  CREDENCIAIS
+══════════════════════════════ -->
+<section class="section reveal" id="sobre">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+      <div>
+        <div class="label">Quem é Dr. Rafael Rocha</div>
+        <h2>Formado para tratar o que os outros não conseguem</h2>
+        <p style="color: var(--muted); margin-top: 1rem; margin-bottom: 1.5rem;">Ortopedista e Traumatologista com residência especializada em Medicina da Dor pelo HC Clínicas da Federal — um dos programas mais concorridos do país.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <div style="color: var(--accent2); font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: 2px;">✓</div>
+            <div><strong>Residência em Dor — HC Clínicas da Federal</strong><br><span style="color: var(--muted); font-size: 0.9rem;">Programa de referência nacional em Medicina da Dor</span></div>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <div style="color: var(--accent2); font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: 2px;">✓</div>
+            <div><strong>Todos os procedimentos guiados por ultrassom</strong><br><span style="color: var(--muted); font-size: 0.9rem;">Precisão máxima, menor risco, melhor resultado</span></div>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <div style="color: var(--accent2); font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: 2px;">✓</div>
+            <div><strong>Clínica Santa Isabel — 46 anos, Guará II</strong><br><span style="color: var(--muted); font-size: 0.9rem;">Maior centro de reabilitação privado do Distrito Federal</span></div>
+          </div>
+          <div style="display: flex; gap: 0.75rem; align-items: flex-start;">
+            <div style="color: var(--accent2); font-size: 1.2rem; line-height: 1; flex-shrink: 0; margin-top: 2px;">✓</div>
+            <div><strong>Atende em 4 clínicas no DF</strong><br><span style="color: var(--muted); font-size: 0.9rem;">Santa Isabel (Guará II), Clínica Bem (Pátio Brasil), CITI (Águas Claras), Cardiocor (Valparaíso)</span></div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/5561999999999?text=Quero+agendar+uma+consulta+com+Dr.+Rafael!" class="btn-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Agendar agora
+        </a>
+      </div>
+
+      <div>
+        <div class="cred-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 1.5rem;">
+          <div class="cred-card">
+            <span class="cred-number">+500</span>
+            <div class="cred-label">Procedimentos realizados</div>
+          </div>
+          <div class="cred-card">
+            <span class="cred-number">4</span>
+            <div class="cred-label">Clínicas no DF</div>
+          </div>
+          <div class="cred-card">
+            <span class="cred-number">46</span>
+            <div class="cred-label">Anos da Clínica Santa Isabel</div>
+          </div>
+          <div class="cred-card">
+            <span class="cred-number">100%</span>
+            <div class="cred-label">Guiado por ultrassom</div>
+          </div>
+        </div>
+        <img src="../assets/photos/foto-mesa.jpg" alt="Dr. Rafael Rocha em atendimento" style="width: 100%; border-radius: 16px; object-fit: cover; max-height: 200px;" onerror="this.style.display='none'">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  CONVÊNIO
+══════════════════════════════ -->
+<section class="section section--navy2 reveal">
+  <div class="container">
+    <div class="convenio-box">
+      <div>
+        <div class="label label--white">Convênio Médico</div>
+        <h2 style="color: white;">Trate a dor sem pesar no bolso</h2>
+        <p style="color: rgba(255,255,255,0.6); margin-top: 1rem; margin-bottom: 2rem;">Dr. Rafael Rocha atende com convênio. Consulta e muitos procedimentos cobertos — sem desembolso adicional na maioria dos casos.</p>
+        <a href="https://wa.me/5561999999999?text=Quero+saber+se+meu+conv%C3%AAnio+%C3%A9+aceito!" class="btn-wa" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Verificar meu convênio
+        </a>
+      </div>
+      <div>
+        <div class="convenio-check">Geap Saúde</div>
+        <div class="convenio-check">Consulte outros convênios via WhatsApp</div>
+        <div class="convenio-check">Consulta + avaliação cobertas</div>
+        <div class="convenio-check">Procedimentos: verificar cobertura</div>
+        <div class="convenio-check">Particular com formas de parcelamento</div>
+        <div style="margin-top: 1rem; padding: 1rem; background: rgba(255,255,255,0.04); border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);">
+          <p style="color: rgba(255,255,255,0.5); font-size: 0.82rem;">📍 Clínica Santa Isabel — Rua 15, Lote 26, Guará II SRIA II, Brasília-DF<br>📞 (61) 3301-7187</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  DEPOIMENTOS
+══════════════════════════════ -->
+<section class="section reveal" id="depoimentos">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <div class="label">Depoimentos</div>
+      <h2>O que dizem nossos pacientes</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Tinha dor no joelho há mais de 3 anos. Fiz o ácido hialurônico com Dr. Rafael e em 2 semanas estava andando normal. Recomendo sem hesitar a qualquer um com artrose.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M.L.</div>
+          <div>
+            <div class="testimonial-name">M. Lima</div>
+            <div class="testimonial-desc">Artrose no joelho · 58 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Sofria com enxaqueca crônica desde os 30 anos. O tratamento com Botox do Dr. Rafael mudou minha vida — passei de 20 dias de dor por mês para menos de 4.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A.C.</div>
+          <div>
+            <div class="testimonial-name">A. Costa</div>
+            <div class="testimonial-desc">Enxaqueca crônica · 44 anos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">Fui encaminhado para cirurgia na coluna. Dr. Rafael propôs a rizotomia. Resultado: sem dor há 8 meses, sem cortar, sem ficar internado. Melhor decisão da minha vida.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R.S.</div>
+          <div>
+            <div class="testimonial-name">R. Silveira</div>
+            <div class="testimonial-desc">Dor lombar crônica · 63 anos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  FAQ
+══════════════════════════════ -->
+<section class="section section--light reveal" id="faq">
+  <div class="container">
+    <div style="max-width: 700px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 2.5rem;">
+        <div class="label">Dúvidas frequentes</div>
+        <h2>Perguntas que todo paciente faz</h2>
+      </div>
+
+      <div class="faq-item open">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <strong>O ácido hialurônico dói na aplicação?</strong>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>É comum uma leve sensação de pressão. O procedimento é realizado com anestesia local e guiado por ultrassom para máxima precisão. A maioria dos pacientes descreve o desconforto como mínimo — semelhante a uma coleta de sangue.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <strong>Meu convênio cobre os procedimentos?</strong>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>A consulta e avaliação são cobertas pela maioria dos convênios. Procedimentos como ácido hialurônico, infiltrações e bloqueios têm cobertura variável — recomendamos verificar com sua operadora. Entre em contato pelo WhatsApp e ajudamos a checar para você.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <strong>Quantas sessões são necessárias para sentir melhora?</strong>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>Depende do procedimento. Ácido hialurônico: 1 aplicação (série de 3 em alguns casos), com melhora progressiva em 1–4 semanas. Infiltrações: 1–3 sessões. Onda de choque: 3–6 sessões. Na primeira consulta, Dr. Rafael define o protocolo personalizado para seu caso.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <strong>Por que todos os procedimentos são guiados por ultrassom?</strong>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>O ultrassom permite visualizar em tempo real a agulha, os tecidos e a área de aplicação — garantindo que o medicamento chegue exatamente onde precisa. Isso reduz o risco de complicações, aumenta a precisão e melhora significativamente o resultado clínico.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          <strong>Como agendar uma consulta?</strong>
+          <div class="faq-toggle">+</div>
+        </div>
+        <div class="faq-a">
+          <p>O jeito mais rápido é pelo WhatsApp abaixo. Nossa equipe retorna em até 2 horas em horário comercial. Você pode também ligar para a Clínica Santa Isabel: (61) 3301-7187.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+  CTA FINAL
+══════════════════════════════ -->
+<section class="cta-section reveal">
+  <div class="container">
+    <h2>Agende agora e dê o primeiro passo<br>para uma vida sem dor</h2>
+    <p>Atendimento humanizado, procedimentos de ponta, guiados por ultrassom. Atendemos pelo seu convênio.</p>
+    <div class="btn-group">
+      <a href="https://wa.me/5561999999999?text=Ol%C3%A1+Dr.+Rafael%2C+quero+agendar+uma+consulta!" class="btn-wa" target="_blank" rel="noopener" style="font-size: 1.1rem; padding: 1.1rem 2.5rem;">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Agendar pelo WhatsApp
+      </a>
+    </div>
+    <p style="margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.3);">
+      📍 Clínica Santa Isabel · Rua 15, Lote 26, Guará II, Brasília-DF · (61) 3301-7187
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <p><strong>Dr. Rafael Rocha</strong> — CRM-DF · Ortopedista e Especialista em Medicina da Dor</p>
+    <p style="margin-top: 0.5rem;">Clínica de Fisioterapia Santa Isabel · Guará II, Brasília-DF</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<div class="wa-float">
+  <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C+quero+agendar+com+Dr.+Rafael!" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+</div>
+
+<script>
+  // FAQ
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('revealed'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  reveals.forEach(el => obs.observe(el));
+
+  // About section responsive
+  const aboutGrid = document.querySelector('#sobre > .container > div');
+  if (window.innerWidth < 768 && aboutGrid) {
+    aboutGrid.style.gridTemplateColumns = '1fr';
+  }
+</script>
+</body>
+</html>

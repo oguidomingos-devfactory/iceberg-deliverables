@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta | Dr. Rafael Rocha — Medicina da Dor · Ortopedia</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #080e1a;
+      --bg2: #0d1525;
+      --card: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+      --white: #ffffff;
+      --muted: #8b9ab0;
+      --accent: #1a6b52;      /* verde escuro classy */
+      --accent2: #2db87a;     /* verde vibrante */
+      --gold: #c8a96e;        /* dourado médico */
+      --danger: #e05252;
+      --pulso: #00bfa5;
+
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 { font-family: var(--serif); font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 400; letter-spacing: -0.5px; }
+    h2 { font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 400; }
+    h3 { font-family: var(--serif); font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-weight: 400; }
+    h4 { font-size: 1rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent2); }
+    p { color: #cdd5e0; }
+    a { color: var(--accent2); text-decoration: none; transition: color 0.25s; }
+    a:hover { color: var(--pulso); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 clamp(1.25rem, 5vw, 3rem); }
+    .section { padding: clamp(4rem, 8vw, 7rem) 0; }
+    .section--alt { background: var(--bg2); }
+
+    /* ── UTILS ── */
+    .tag {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid rgba(43,184,122,0.35);
+      color: var(--accent2);
+      background: rgba(43,184,122,0.08);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #25D366, var(--accent2));
+      color: #000;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(37,211,102,0.35); color: #000; }
+
+    .btn-outline {
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      background: transparent;
+    }
+    .btn-outline:hover { background: rgba(43,184,122,0.1); transform: translateY(-1px); color: var(--accent2); }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; }
+
+    /* ── SECTION TITLES ── */
+    .section-header { margin-bottom: 3rem; }
+    .section-header .tag { margin-bottom: 1rem; }
+    .section-header h2 { margin-bottom: 0.75rem; }
+    .section-header p { max-width: 640px; color: var(--muted); font-size: 1.05rem; }
+
+    /* ── GLOW EFFECTS ── */
+    .glow-green {
+      position: relative;
+    }
+    .glow-green::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(43,184,122,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: 3px;
+      background: rgba(255,255,255,0.05);
+      z-index: 1000;
+    }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent2), var(--pulso));
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 3px;
+      background: rgba(8,14,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 1rem 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; }
+    .nav-logo img { height: 32px; }
+    .nav-logo span { font-weight: 600; font-size: 0.9rem; color: var(--muted); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      padding: clamp(5rem, 10vh, 8rem) 0 clamp(3rem, 6vh, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(26,107,82,0.18) 0%, transparent 65%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-text .tag { margin-bottom: 1.25rem; }
+    .hero-text h1 { color: var(--white); margin-bottom: 0.5rem; line-height: 1.1; }
+    .hero-text .specialty {
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--gold);
+      font-family: var(--serif);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+    .hero-text p { font-size: 1.1rem; color: var(--muted); max-width: 500px; margin-bottom: 2.5rem; }
+    .hero-text .cta-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .hero-image {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .hero-image img {
+      max-height: 520px;
+      max-width: 100%;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 20px 60px rgba(0,0,0,0.6));
+    }
+    .hero-image::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(43,184,122,0.2) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: flex; align-items: center; gap: 0.4rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .badge span.dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    /* ── RECAP ── */
+    .recap-cards { display: flex; flex-direction: column; gap: 1rem; }
+    .recap-card {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .recap-card:hover { border-color: rgba(43,184,122,0.3); transform: translateX(6px); }
+    .recap-icon {
+      font-size: 1.5rem;
+      min-width: 2.5rem;
+      height: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(43,184,122,0.1);
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+    .recap-text strong { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+    .recap-text p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+
+    /* ── METRICS ── */
+    .metric-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .metric-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent2), var(--pulso));
+    }
+    .metric-value {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--accent2);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .metric-label { font-size: 0.85rem; color: var(--muted); }
+    .metric-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 0.5rem; }
+
+    /* ── CHALLENGE / DIAGNOSIS ── */
+    .problem-card {
+      background: rgba(224, 82, 82, 0.06);
+      border: 1px solid rgba(224, 82, 82, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    .problem-card strong { color: var(--danger); }
+
+    .opportunity-card {
+      background: rgba(43,184,122,0.05);
+      border: 1px solid rgba(43,184,122,0.18);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .opportunity-card:hover { transform: translateY(-3px); border-color: rgba(43,184,122,0.4); }
+    .opportunity-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(43,184,122,0.25);
+      line-height: 1;
+      font-family: var(--serif);
+    }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 22px; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent2), transparent);
+    }
+    .timeline-item {
+      display: flex; gap: 2rem;
+      padding: 0 0 3rem 0;
+      position: relative;
+    }
+    .timeline-dot {
+      min-width: 46px; height: 46px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--accent2);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      z-index: 1;
+      flex-shrink: 0;
+    }
+    .timeline-content .card { border-color: rgba(43,184,122,0.15); }
+    .timeline-content h3 { margin-bottom: 0.5rem; color: var(--accent2); }
+    .timeline-content ul { list-style: none; padding: 0; }
+    .timeline-content ul li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .timeline-content ul li::before { content: '→ '; color: var(--accent2); }
+
+    /* ── DELIVERABLES ── */
+    .deliverable-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .deliverable-item:last-child { border: none; }
+    .deliverable-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: rgba(43,184,122,0.15);
+      border: 1px solid rgba(43,184,122,0.4);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent2);
+      flex-shrink: 0;
+    }
+    .deliverable-item span { font-size: 0.95rem; }
+
+    /* ── POSTS PREVIEW ── */
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    @media (min-width: 640px) {
+      .posts-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .post-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.25s;
+    }
+    .post-card:hover { transform: translateY(-4px); }
+    .post-visual {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .post-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: inherit;
+      z-index: 0;
+    }
+    .post-visual > * { position: relative; z-index: 1; }
+    .post-emoji { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .post-title { font-size: 0.8rem; font-weight: 600; line-height: 1.3; }
+    .post-caption { padding: 0.75rem; border-top: 1px solid var(--border); }
+    .post-caption p { font-size: 0.75rem; color: var(--muted); line-height: 1.4; }
+    .post-caption .hashtags { font-size: 0.7rem; color: rgba(43,184,122,0.7); margin-top: 0.25rem; }
+
+    .post-blue { background: linear-gradient(135deg, #0d2340, #143560); }
+    .post-green { background: linear-gradient(135deg, #0d3024, #1a5238); }
+    .post-dark { background: linear-gradient(135deg, #1a1a2e, #2d2d4e); }
+    .post-gold { background: linear-gradient(135deg, #2d1f0a, #4a3212); }
+
+    /* ── PLANOS ── */
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .plan-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+    .plan-card.featured {
+      border-color: var(--accent2);
+      background: linear-gradient(135deg, rgba(26,107,82,0.15), rgba(43,184,122,0.05));
+    }
+    .plan-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--accent2), var(--pulso));
+      color: #000;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 0.25rem 1rem;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+    .plan-name { font-family: var(--serif); font-size: 1.4rem; margin-bottom: 0.25rem; }
+    .plan-tagline { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+    .plan-price {
+      font-size: 2.5rem; font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.25rem;
+    }
+    .plan-price span { font-size: 1rem; font-weight: 400; color: var(--muted); }
+    .plan-setup {
+      font-size: 0.8rem; color: var(--muted);
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .plan-features { list-style: none; margin-bottom: 2rem; }
+    .plan-features li {
+      padding: 0.5rem 0;
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.9rem;
+      color: #cdd5e0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .plan-features li:last-child { border: none; }
+    .plan-features li::before { content: '✓'; color: var(--accent2); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+    .plan-features li.not { color: var(--muted); }
+    .plan-features li.not::before { content: '—'; color: rgba(255,255,255,0.15); }
+
+    /* ── GARANTIA ── */
+    .guarantee-box {
+      background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(200,169,110,0.03));
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+    }
+    .guarantee-box .seal {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .guarantee-box h3 { color: var(--gold); margin-bottom: 1rem; }
+
+    /* ── CTA FINAL ── */
+    .cta-final {
+      background: linear-gradient(135deg, rgba(26,107,82,0.2), rgba(8,14,26,0));
+      border: 1px solid rgba(43,184,122,0.2);
+      border-radius: 24px;
+      padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 4rem);
+      text-align: center;
+    }
+    .cta-final h2 { margin-bottom: 1rem; }
+    .cta-final p { color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; }
+
+    /* ── LP PREVIEW ── */
+    .lp-preview-wrapper {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+    }
+    .lp-preview-bar {
+      background: rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.25rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .lp-preview-bar .dots { display: flex; gap: 5px; }
+    .lp-preview-bar .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .lp-preview-bar .dot:nth-child(1) { background: #ff5f57; }
+    .lp-preview-bar .dot:nth-child(2) { background: #febc2e; }
+    .lp-preview-bar .dot:nth-child(3) { background: #28c840; }
+    .lp-preview-bar .url-bar {
+      flex: 1; margin: 0 0.75rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .lp-preview-wrapper iframe {
+      width: 100%; height: 600px; border: none; display: block;
+      background: #fff;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid var(--border);
+      padding: 2rem 0;
+      text-align: center;
+    }
+    .footer p { color: var(--muted); font-size: 0.85rem; }
+    .footer .pulso-link { color: var(--pulso); font-weight: 600; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-24px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .animate-in {
+      opacity: 0;
+      animation: fadeInUp 0.7s ease-out forwards;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        text-align: center;
+      }
+      .hero-image { order: -1; }
+      .hero-image img { max-height: 320px; }
+      .hero-text .cta-group { justify-content: center; }
+      .hero-badges { justify-content: center; }
+      .timeline::before { left: 16px; }
+      .timeline-dot { min-width: 34px; height: 34px; font-size: 0.8rem; }
+      .lp-preview-wrapper iframe { height: 400px; }
+    }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
+      z-index: 200;
+    }
+    .wa-float a {
+      display: flex; align-items: center; justify-content: center;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.5);
+      transition: transform 0.25s, box-shadow 0.25s;
+      color: #000;
+    }
+    .wa-float a:hover { transform: scale(1.1); box-shadow: 0 12px 32px rgba(37,211,102,0.6); }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+    /* ── VS TABLE ── */
+    .vs-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .vs-table th { padding: 0.75rem 1rem; background: rgba(255,255,255,0.04); text-align: left; color: var(--muted); font-weight: 500; }
+    .vs-table td { padding: 0.75rem 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .vs-table td.check { color: var(--accent2); font-weight: 600; text-align: center; }
+    .vs-table td.x { color: rgba(255,255,255,0.2); text-align: center; }
+    .vs-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+    /* Number labels */
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(43,184,122,0.12);
+      border: 1px solid rgba(43,184,122,0.3);
+      color: var(--accent2);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* Highlight box */
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(43,184,122,0.08), rgba(43,184,122,0.03));
+      border: 1px solid rgba(43,184,122,0.2);
+      border-left: 3px solid var(--accent2);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem;
+    }
+    .highlight-box p { color: #cdd5e0; }
+
+    /* Scroll reveal */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s, transform 0.7s; }
+    .revealed { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<!-- Progress bar -->
+<div class="progress-nav"><div class="progress-bar" id="progress"></div></div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <img src="assets/photos/navbar-logo.png" alt="Dr. Rafael Rocha" onerror="this.style.display='none'">
+        <span>Dr. Rafael Rocha · Proposta Personalizada</span>
+      </div>
+      <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C+quero+come%C3%A7ar!" class="btn btn-primary" target="_blank" rel="noopener" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">
+        💬 Quero Começar
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+  1. HERO
+══════════════════════════════════════════ -->
+<section class="section glow-green" style="padding-top: 0;">
+  <div class="container">
+    <div class="hero">
+      <div class="hero-text">
+        <div class="tag">Proposta Exclusiva · Pulso Mídias</div>
+        <h1>Dr. Rafael Rocha</h1>
+        <p class="specialty">Ortopedista · Medicina da Dor · Brasília-DF</p>
+
+        <div class="hero-badges">
+          <div class="badge"><span class="dot"></span>Medicina da Dor</div>
+          <div class="badge"><span class="dot"></span>+500 procedimentos</div>
+          <div class="badge"><span class="dot"></span>Guiados por ultrassom</div>
+          <div class="badge"><span class="dot"></span>Atende convênio</div>
+        </div>
+
+        <p>Dr. Rafael, esta proposta foi construída com base na nossa conversa e no cenário atual da sua presença digital. Aqui você encontra diagnóstico, oportunidades e o que a Pulso vai entregar para transformar sua visibilidade em Brasília.</p>
+
+        <div class="cta-group">
+          <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C+quero+come%C3%A7ar+com+a+Pulso!" class="btn btn-primary" target="_blank" rel="noopener">
+            💬 Fechar Proposta
+          </a>
+          <a href="#planos" class="btn btn-outline">Ver Planos</a>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="assets/photos/foto-sem-fundo.png" alt="Dr. Rafael Rocha" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  2. RECAP DA CONVERSA
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="recap">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Recap da Conversa</div>
+      <h2>O que ficou claro na nossa call</h2>
+      <p>Principais pontos que mapeamos juntos e que guiam tudo que vem a seguir:</p>
+    </div>
+
+    <div class="recap-cards">
+      <div class="recap-card">
+        <div class="recap-icon">🎯</div>
+        <div class="recap-text">
+          <strong>Você quer mais pacientes, não mais seguidores</strong>
+          <p>O objetivo é claro: transformar presença digital em consultas marcadas e procedimentos agendados — especialmente ácido hialurônico, infiltrações e onda de choque.</p>
+        </div>
+      </div>
+      <div class="recap-card">
+        <div class="recap-icon">🏥</div>
+        <div class="recap-text">
+          <strong>Santa Isabel + Dr. Rafael = uma marca só</strong>
+          <p>A Clínica Santa Isabel (Guará II) tem 46 anos de história — a maior de reabilitação privada do DF. Sua especialidade em Medicina da Dor é o diferencial que eleva toda a estrutura.</p>
+        </div>
+      </div>
+      <div class="recap-card">
+        <div class="recap-icon">📊</div>
+        <div class="recap-text">
+          <strong>Digital ainda é o ponto fraco</strong>
+          <p>Você tem o currículo, a estrutura e os resultados. O que falta é comunicar isso de forma estratégica, consistente e que converta online — especialmente em Meta Ads e Instagram.</p>
+        </div>
+      </div>
+      <div class="recap-card">
+        <div class="recap-icon">⚡</div>
+        <div class="recap-text">
+          <strong>Convênio é um diferencial competitivo forte</strong>
+          <p>Em Brasília, atender convênio (Geap e outros) e ainda ter expertise de HC Clínicas da Federal é raro. Poucas clínicas de dor conseguem unir isso — e sua comunicação ainda não explorou esse ativo.</p>
+        </div>
+      </div>
+      <div class="recap-card">
+        <div class="recap-icon">🔬</div>
+        <div class="recap-text">
+          <strong>Ultrassom como prova de segurança</strong>
+          <p>Todos os procedimentos guiados por imagem — isso é argumento de conversão. O paciente inseguro precisa ver isso comunicado claramente antes de decidir.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  3. DESAFIO CENTRAL
+══════════════════════════════════════════ -->
+<section class="section reveal" id="desafio">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Diagnóstico Honesto</div>
+      <h2>O desafio que precisa ser resolvido agora</h2>
+    </div>
+
+    <div class="grid-2" style="gap: 2rem; align-items: start;">
+      <div>
+        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Em Brasília, <strong style="color: var(--white)">a disputa por pacientes de medicina da dor está cada vez mais acirrada.</strong> Clínicas com metade do seu currículo estão investindo pesado em presença digital e ganhando consultas que deveriam ser suas.</p>
+
+        <div class="highlight-box" style="margin-bottom: 1.5rem;">
+          <p><strong style="color: var(--accent2);">O problema não é a sua competência.</strong> É a invisibilidade digital. O paciente com dor crônica pesquisa no Google e no Instagram antes de marcar consulta — e quem aparece primeiro, convence primeiro.</p>
+        </div>
+
+        <p style="color: var(--muted);">Você atende em 4 clínicas (Santa Isabel, Clínica Bem, CITI, Cardiocor), tem residência em dor pelo HC Clínicas, fez +500 procedimentos guiados por ultrassom. Mas o paciente em casa com joelho travado não sabe disso.</p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1rem;">
+        <div class="problem-card">
+          <strong>Sem campanha estruturada de Meta Ads</strong>
+          <p style="margin-top: 0.5rem; color: var(--muted); font-size: 0.95rem;">Concorrentes com menos currículo já aparecem no feed do seu paciente ideal. Você ainda não.</p>
+        </div>
+        <div class="problem-card">
+          <strong>Landing page e site sem otimização para conversão</strong>
+          <p style="margin-top: 0.5rem; color: var(--muted); font-size: 0.95rem;">Site React bonito, mas sem headline de dor, sem prova social clara, sem CTA urgente. Visita vira curiosidade, não consulta.</p>
+        </div>
+        <div class="problem-card">
+          <strong>Conteúdo Instagram sem estratégia de funil</strong>
+          <p style="margin-top: 0.5rem; color: var(--muted); font-size: 0.95rem;">Posts esporádicos, sem pilares definidos e sem copy orientada para o paciente que está em dor agora e quer solução hoje.</p>
+        </div>
+        <div class="problem-card">
+          <strong>Diferencial de convênio subexplorado</strong>
+          <p style="margin-top: 0.5rem; color: var(--muted); font-size: 0.95rem;">Atender convênio em Brasília é ouro — mas não está comunicado de forma proeminente em nenhum canal digital.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  4. DIAGNÓSTICO / BENCHMARK
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="diagnostico">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Onde a Concorrência Ganha</div>
+      <h2>O que está faltando no seu posicionamento</h2>
+    </div>
+
+    <div class="card" style="margin-bottom: 1.5rem; overflow-x: auto;">
+      <table class="vs-table">
+        <thead>
+          <tr>
+            <th>Elemento</th>
+            <th>Concorrentes (Brasília)</th>
+            <th>Dr. Rafael Hoje</th>
+            <th>Dr. Rafael + Pulso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Campanhas Meta Ads ativas</td>
+            <td class="check">✓</td>
+            <td class="x">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>LP otimizada para conversão</td>
+            <td class="check">✓</td>
+            <td class="x">Parcial</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Feed Instagram estratégico</td>
+            <td class="check">✓</td>
+            <td class="x">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Comunicação de convênio</td>
+            <td class="x">Raro</td>
+            <td class="x">Oculto</td>
+            <td class="check">✓ Destaque</td>
+          </tr>
+          <tr>
+            <td>Prova social (depoimentos)</td>
+            <td class="check">✓</td>
+            <td class="x">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Rastreamento de leads (CRM)</td>
+            <td class="check">Alguns</td>
+            <td class="x">—</td>
+            <td class="check">✓</td>
+          </tr>
+          <tr>
+            <td>Conteúdo educativo sobre dor</td>
+            <td class="check">✓</td>
+            <td class="x">Mínimo</td>
+            <td class="check">✓ Pilar forte</td>
+          </tr>
+          <tr>
+            <td>Residência HC Clínicas em destaque</td>
+            <td class="x">Não têm</td>
+            <td class="x">Não comunica</td>
+            <td class="check">✓ Diferencial</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="color: var(--muted); font-size: 0.9rem; text-align: center;">Sua vantagem técnica é real — mas sem comunicação estratégica, ela não converte pacientes.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  5. OPORTUNIDADES DE MELHORIA
+══════════════════════════════════════════ -->
+<section class="section reveal" id="oportunidades">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">5 Oportunidades Concretas</div>
+      <h2>O que a Pulso vai atacar primeiro</h2>
+    </div>
+
+    <div class="grid-2" style="gap: 1.5rem;">
+      <div class="opportunity-card">
+        <div class="opportunity-number">01</div>
+        <h3 style="margin: 0.5rem 0;">Campanhas Meta Ads — Ácido Hialurônico</h3>
+        <p style="color: var(--muted); font-size: 0.95rem;">Criação de campanha segmentada para Brasília-DF/entorno, focada em pacientes com dor articular (35–70 anos). Criativos com antes/depois, depoimento e CTA direto para WhatsApp.</p>
+      </div>
+      <div class="opportunity-card">
+        <div class="opportunity-number">02</div>
+        <h3 style="margin: 0.5rem 0;">Landing Page Otimizada para Dor</h3>
+        <p style="color: var(--muted); font-size: 0.95rem;">Reescrever headline e hero da LP com foco em dor crônica → alívio → solução. Adicionar prova social, FAQ de objeções e botão WhatsApp em destaque (acima da dobra).</p>
+      </div>
+      <div class="opportunity-card">
+        <div class="opportunity-number">03</div>
+        <h3 style="margin: 0.5rem 0;">Grid Fundação Instagram</h3>
+        <p style="color: var(--muted); font-size: 0.95rem;">Primeiros 9 posts estratégicos: quem é Dr. Rafael, o que é Medicina da Dor, convênio aceito, procedimentos principais (carrossel educativo) e humanização da Santa Isabel.</p>
+      </div>
+      <div class="opportunity-card">
+        <div class="opportunity-number">04</div>
+        <h3 style="margin: 0.5rem 0;">Diferencial Convênio em Destaque</h3>
+        <p style="color: var(--muted); font-size: 0.95rem;">Comunicar atendimento convênio em todos os pontos de contato (LP, bio Instagram, anúncios). Em Brasília, isso filtra e aquece o lead antes do primeiro contato.</p>
+      </div>
+      <div class="opportunity-card">
+        <div class="opportunity-number">05</div>
+        <h3 style="margin: 0.5rem 0;">Sistema de Rastreamento de Leads</h3>
+        <p style="color: var(--muted); font-size: 0.95rem;">Integração de formulários com WhatsApp + rastreamento de UTMs nos anúncios. Você vai saber exatamente de onde veio cada paciente que ligar ou enviar mensagem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  6. MÉTRICAS PROJETADAS
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="metricas">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Projeção Realista · 90 dias</div>
+      <h2>O que você pode esperar em números</h2>
+      <p>Projeções conservadoras baseadas em clientes similares (ortopedistas, especialistas em dor, Brasília-DF)</p>
+    </div>
+
+    <div class="grid-4" style="margin-bottom: 2rem;">
+      <div class="metric-card">
+        <span class="metric-value">R$35–60</span>
+        <div class="metric-label">CPL (Custo por Lead)</div>
+        <div class="metric-note">Meta Ads · campanha ácido hialurônico</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">40–80</span>
+        <div class="metric-label">Leads/mês</div>
+        <div class="metric-note">Mês 2–3 com campanha rodando</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">3–5×</span>
+        <div class="metric-label">ROAS estimado</div>
+        <div class="metric-note">Retorno sobre investimento em ads</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-value">+200%</span>
+        <div class="metric-label">Crescimento Instagram</div>
+        <div class="metric-note">Seguidores qualificados · 90 dias</div>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <p><strong style="color: var(--accent2);">Cenário conservador:</strong> Com ticket médio de consulta + procedimento em torno de R$800–1.500, <strong style="color: var(--white);">20 novos pacientes/mês já representam R$16.000–30.000 em receita incremental.</strong> O investimento em Pulso se paga no segundo agendamento do mês.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  7. PLANO DE IMPLEMENTAÇÃO
+══════════════════════════════════════════ -->
+<section class="section reveal" id="timeline">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Roadmap de Execução</div>
+      <h2>Como funciona o onboarding</h2>
+      <p>Sem promessas vazias — aqui está exatamente o que acontece semana a semana</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">S1</div>
+        <div class="timeline-content" style="flex: 1;">
+          <div class="card">
+            <h3>Semana 1–2 — Fundação</h3>
+            <ul>
+              <li>Kickoff + alinhamento de tom de voz e objetivos</li>
+              <li>Levantamento de fotos/vídeos para produção</li>
+              <li>Setup de contas de anúncio (Meta Business)</li>
+              <li>Criação das primeiras peças do grid Instagram</li>
+              <li>Otimização da LP atual (headline, CTA, prova social)</li>
+              <li>Configuração de rastreamento (Pixel, UTMs)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">M2</div>
+        <div class="timeline-content" style="flex: 1;">
+          <div class="card">
+            <h3>Mês 2 — Lançamento e Tráfego</h3>
+            <ul>
+              <li>Campanha Meta Ads no ar (ácido hialurônico como carro-chefe)</li>
+              <li>Conteúdo Instagram rodando (12 posts/mês + stories)</li>
+              <li>Relatório de primeiros resultados com análise de CPL</li>
+              <li>Otimização de criativos baseada em dados reais</li>
+              <li>Campanha secundária (convênio + outros procedimentos)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" style="padding-bottom: 0;">
+        <div class="timeline-dot" style="background: var(--accent2); color: #000;">M3</div>
+        <div class="timeline-content" style="flex: 1;">
+          <div class="card" style="border-color: rgba(43,184,122,0.3);">
+            <h3>Mês 3+ — Escala</h3>
+            <ul>
+              <li>Escala do budget em anúncios com base no ROAS validado</li>
+              <li>A/B test de criativos e landing pages</li>
+              <li>Reels de educação médica (ácido hialurônico, onda de choque)</li>
+              <li>Estratégia de remarketing para leads que não converteram</li>
+              <li>Relatório mensal com projeção e ajuste de estratégia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  8. DELIVERABLES
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="deliverables">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">O Que Você Recebe</div>
+      <h2>Entregas detalhadas por plano</h2>
+      <p>Tudo que está incluído — sem letras miúdas</p>
+    </div>
+
+    <div class="grid-2" style="gap: 2rem; align-items: start;">
+      <div class="card">
+        <h4 style="margin-bottom: 1.5rem;">Conteúdo &amp; Orgânico</h4>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Feed Instagram: 12 posts/mês (carrosséis + estáticos)</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Calendário editorial mensal com copy completa</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>2 Reels/mês (roteiro + produção visual)</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Stories de suporte (enquetes, FAQ, humanização)</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Base narrativa + tom de voz documentado</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Grid de fundação (9 posts iniciais estratégicos)</span></div>
+      </div>
+      <div class="card">
+        <h4 style="margin-bottom: 1.5rem;">Tráfego Pago &amp; Performance</h4>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Setup e gestão de campanhas Meta Ads</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Criação de criativos (4–8 peças/mês)</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Landing page otimizada para conversão</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Configuração de Pixel + rastreamento de conversões</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>Relatório mensal com CPL, ROAS e recomendações</span></div>
+        <div class="deliverable-item"><div class="deliverable-check">✓</div><span>A/B test contínuo de criativos e audiências</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  9. PREVIEW DA LANDING PAGE
+══════════════════════════════════════════ -->
+<section class="section reveal" id="preview-lp">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Preview Entregável</div>
+      <h2>Landing page que você vai receber</h2>
+      <p>Esta é uma prévia real da LP de conversão — otimizada para dor crônica e agendamento.</p>
+    </div>
+
+    <div class="lp-preview-wrapper">
+      <div class="lp-preview-bar">
+        <div class="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="url-bar">drrafaelrochaortopedia.com.br</div>
+      </div>
+      <iframe
+        src="lp/index.html"
+        title="Preview Landing Page Dr. Rafael Rocha"
+        loading="lazy"
+        sandbox="allow-same-origin allow-scripts">
+      </iframe>
+    </div>
+
+    <div style="text-align: center; margin-top: 1.5rem;">
+      <a href="lp/index.html" target="_blank" class="btn btn-outline">Abrir LP em tela cheia →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  10. POSTS PREVIEW
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="preview-posts">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Grid de Fundação</div>
+      <h2>Os 4 primeiros posts do seu Instagram</h2>
+      <p>Posts estratégicos para estabelecer autoridade, educação e confiança desde o dia 1.</p>
+    </div>
+
+    <div class="posts-grid">
+      <!-- POST 1: Apresentação -->
+      <div class="post-card">
+        <div class="post-visual post-blue">
+          <img src="assets/photos/navbar-logo.png" alt="" style="height:36px; margin-bottom:0.5rem; filter: brightness(2);" onerror="this.style.display='none'">
+          <div class="post-emoji">👨‍⚕️</div>
+          <div class="post-title" style="color: #fff;">Quem é Dr. Rafael Rocha?</div>
+        </div>
+        <div class="post-caption">
+          <p>Ortopedista especializado em Medicina da Dor. Residência pelo HC Clínicas da Federal. +500 procedimentos guiados por ultrassom.</p>
+          <div class="hashtags">#MedicinadaDor #DrRafaelRocha #OrtopedeaBrasilia</div>
+        </div>
+      </div>
+
+      <!-- POST 2: Procedimento hero -->
+      <div class="post-card">
+        <div class="post-visual post-green">
+          <div class="post-emoji">💉</div>
+          <div class="post-title" style="color: #e0ffe0;">Ácido Hialurônico: chega de dor no joelho</div>
+        </div>
+        <div class="post-caption">
+          <p>Procedimento minimamente invasivo, guiado por ultrassom, com efeito que pode durar até 12 meses. Sem cirurgia.</p>
+          <div class="hashtags">#AcidoHialuronico #DorNoJoelho #TratamentoDaDor</div>
+        </div>
+      </div>
+
+      <!-- POST 3: Convênio -->
+      <div class="post-card">
+        <div class="post-visual post-dark">
+          <div class="post-emoji">✅</div>
+          <div class="post-title" style="color: #b0c4ff;">Atendemos pelo seu convênio</div>
+        </div>
+        <div class="post-caption">
+          <p>Atendimento com Geap Saúde e outros convênios. Consulta + procedimento sem desembolso adicional em muitos casos.</p>
+          <div class="hashtags">#AtendimentoConvenio #Geap #BrasiliaDF</div>
+        </div>
+      </div>
+
+      <!-- POST 4: Clínica -->
+      <div class="post-card">
+        <div class="post-visual post-gold">
+          <div class="post-emoji">🏥</div>
+          <div class="post-title" style="color: #ffe4b0;">Clínica Santa Isabel — 46 anos</div>
+        </div>
+        <div class="post-caption">
+          <p>Maior centro de reabilitação privado do DF, no Guará II. Estrutura completa com piscina terapêutica, 3 andares e acessibilidade PCD.</p>
+          <div class="hashtags">#ClinicaSantaIsabel #Fisioterapia #GuaraDF</div>
+        </div>
+      </div>
+    </div>
+
+    <p style="text-align: center; color: var(--muted); margin-top: 1.5rem; font-size: 0.9rem;">
+      * Mockup visual dos primeiros posts do grid de fundação. Design final com fotos reais e branding aplicado.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  11. PLANOS
+══════════════════════════════════════════ -->
+<section class="section reveal" id="planos">
+  <div class="container">
+    <div class="section-header">
+      <div class="tag">Proposta Comercial</div>
+      <h2>Escolha o plano ideal para você</h2>
+      <p>Todos incluem onboarding, setup completo e acompanhamento mensal da Pulso.</p>
+    </div>
+
+    <div class="plans-grid">
+
+      <!-- ESSENCIAL -->
+      <div class="plan-card">
+        <div class="plan-name">Essencial</div>
+        <div class="plan-tagline">Conteúdo estratégico · Sem tráfego pago</div>
+        <div class="plan-price">R$2.500 <span>/mês</span></div>
+        <div class="plan-setup">Setup: R$1.500 (único)</div>
+        <ul class="plan-features">
+          <li>12 posts/mês (design + copy)</li>
+          <li>2 Reels/mês</li>
+          <li>Calendário editorial completo</li>
+          <li>Stories estratégicos</li>
+          <li>Base narrativa + tom de voz</li>
+          <li>Grid de fundação (9 posts)</li>
+          <li class="not">Tráfego pago (Meta Ads)</li>
+          <li class="not">Landing page otimizada</li>
+          <li class="not">Gestão de performance</li>
+        </ul>
+        <a href="https://wa.me/5561999999999?text=Quero+o+plano+Essencial!" class="btn btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Quero o Essencial</a>
+      </div>
+
+      <!-- MARKETING — FEATURED -->
+      <div class="plan-card featured">
+        <div class="plan-badge">⭐ Mais Recomendado</div>
+        <div class="plan-name">Marketing</div>
+        <div class="plan-tagline">Conteúdo + Tráfego Pago gerenciado</div>
+        <div class="plan-price">R$4.500 <span>/mês</span></div>
+        <div class="plan-setup">Setup: R$2.000 (único) + verba de ads à parte</div>
+        <ul class="plan-features">
+          <li>Tudo do Essencial</li>
+          <li>Campanhas Meta Ads (até R$3k verba)</li>
+          <li>Landing page otimizada para conversão</li>
+          <li>8 criativos/mês para anúncios</li>
+          <li>Pixel + rastreamento configurados</li>
+          <li>Relatório mensal com CPL e ROAS</li>
+          <li>Retargeting para leads quentes</li>
+          <li class="not">Google Ads</li>
+        </ul>
+        <a href="https://wa.me/5561999999999?text=Quero+o+plano+Marketing!" class="btn btn-primary" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">💬 Quero o Marketing</a>
+      </div>
+
+      <!-- PREMIUM -->
+      <div class="plan-card">
+        <div class="plan-name">Premium</div>
+        <div class="plan-tagline">Presença digital completa + escala</div>
+        <div class="plan-price">R$7.500 <span>/mês</span></div>
+        <div class="plan-setup">Setup: R$3.000 (único) + verba de ads à parte</div>
+        <ul class="plan-features">
+          <li>Tudo do Marketing</li>
+          <li>Google Ads (Search + Display)</li>
+          <li>SEO técnico e on-page</li>
+          <li>4 Reels/mês + 1 vídeo longo</li>
+          <li>CRM + automação de follow-up</li>
+          <li>Relatório semanal + reunião mensal</li>
+          <li>Gestão de reputação Google</li>
+          <li>Produção de foto/vídeo trimestral</li>
+        </ul>
+        <a href="https://wa.me/5561999999999?text=Quero+o+plano+Premium!" class="btn btn-outline" style="width: 100%; justify-content: center;" target="_blank" rel="noopener">Quero o Premium</a>
+      </div>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem; padding: 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 12px;">
+      <p style="color: var(--muted); font-size: 0.9rem;">💡 <strong style="color: var(--white);">Verba de anúncios é à parte</strong> — fica 100% na sua conta Meta Business Manager. A Pulso só cobra pela gestão e criação.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  12. GARANTIA + CTA FINAL
+══════════════════════════════════════════ -->
+<section class="section section--alt reveal" id="garantia">
+  <div class="container">
+
+    <div class="guarantee-box" style="margin-bottom: 3rem;">
+      <span class="seal">🛡️</span>
+      <h3>Garantia de Satisfação — 30 dias</h3>
+      <p style="color: var(--muted); max-width: 560px; margin: 1rem auto 0;">Se nos primeiros 30 dias você sentir que a execução não condiz com o que foi prometido aqui, devolvemos o setup na íntegra. Sem burocracia. Trabalhamos com resultado, não com desculpa.</p>
+    </div>
+
+    <div class="cta-final reveal">
+      <h2>Pronto para começar, Dr. Rafael?</h2>
+      <p>A janela para iniciar com setup imediato está aberta. O próximo passo é uma conversa de 15 minutos para alinhar os últimos detalhes e definir a data de kickoff.</p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://wa.me/5561999999999?text=Dr.+Rafael!+Quero+fechar+a+proposta+da+Pulso." class="btn btn-primary" target="_blank" rel="noopener" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+          💬 Fechar pelo WhatsApp
+        </a>
+        <a href="lp/index.html" target="_blank" class="btn btn-outline">
+          Ver a LP completa →
+        </a>
+      </div>
+
+      <p style="margin-top: 2rem; font-size: 0.85rem; color: rgba(255,255,255,0.2);">
+        Esta proposta é válida por 7 dias corridos a partir do envio.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+  FOOTER
+══════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <p>
+      Proposta elaborada pela <a href="#" class="pulso-link">Pulso Mídias</a> exclusivamente para Dr. Rafael Rocha — Clínica de Fisioterapia Santa Isabel, Guará II, Brasília-DF.
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.4;">Documento confidencial · Não compartilhe sem autorização.</p>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<div class="wa-float">
+  <a href="https://wa.me/5561999999999?text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+a+proposta!" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+  // Progress bar
+  const bar = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    bar.style.width = scrolled + '%';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
