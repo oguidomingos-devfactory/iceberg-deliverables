@@ -394,8 +394,53 @@
             background: linear-gradient(90deg, var(--green), rgba(37,211,102,0.3));
         }
 
+        /* ─── LIQUID GLASS ICONS ─── */
+        .icon-lg {
+            width: 56px; height: 56px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow:
+                0 4px 16px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.14),
+                inset 0 -1px 0 rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-bottom: 1rem;
+            transition: box-shadow 0.25s, transform 0.25s;
+        }
+        .icon-lg:hover {
+            box-shadow:
+                0 6px 24px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.2),
+                0 0 0 1px rgba(37,211,102,0.2);
+            transform: translateY(-2px);
+        }
+        .icon-lg svg { width: 26px; height: 26px; }
+
+        .icon-sm {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: rgba(37,211,102,0.08);
+            backdrop-filter: blur(8px) saturate(160%);
+            -webkit-backdrop-filter: blur(8px) saturate(160%);
+            border: 1px solid rgba(37,211,102,0.18);
+            box-shadow:
+                0 2px 10px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .icon-sm svg { width: 20px; height: 20px; }
+
         .challenge-icon {
-            font-size: 2.5rem;
+            /* kept for layout */
             margin-bottom: 1rem;
         }
 
@@ -446,14 +491,7 @@
         .diag-item:hover { border-color: rgba(37,211,102,0.2); }
 
         .diag-icon {
-            width: 42px; height: 42px;
-            border-radius: 10px;
-            background: rgba(37,211,102,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+            /* uses .icon-sm liquid glass */
         }
 
         .diag-item h4 { color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 0.3rem; font-size: 0.95rem; }
@@ -549,7 +587,20 @@
         .metric-card:hover::after { transform: scaleX(1); }
         .metric-card:hover { transform: translateY(-4px); }
 
-        .metric-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+        .metric-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+        }
+        .metric-icon svg { width: 22px; height: 22px; }
         .metric-num { font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: var(--green); font-family: 'DM Serif Display', serif; }
         .metric-unit { font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem; }
         .metric-label { font-size: 0.88rem; color: var(--text-muted); margin-top: 0.5rem; }
@@ -774,11 +825,19 @@
             aspect-ratio: 1;
             background: linear-gradient(145deg, #0d2040, #0a1528);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 0.5rem;
             font-size: 3rem;
             position: relative;
             overflow: hidden;
+        }
+        .post-img .icon-lg {
+            margin-bottom: 0;
+            background: rgba(255,255,255,0.08);
+            position: relative;
+            z-index: 2;
         }
 
         .post-img::after {
@@ -964,7 +1023,8 @@
             margin-right: auto;
         }
 
-        .guarantee-icon { font-size: 4rem; margin-bottom: 1.5rem; }
+        .guarantee-icon { display:flex; justify-content:center; align-items:center; width:80px; height:80px; border-radius:50%; background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.2); margin:0 auto 1.5rem; color:var(--white); }
+        .guarantee-icon svg { width:40px; height:40px; }
         .guarantee-box h3 { color: var(--white); margin-bottom: 1rem; font-size: 1.6rem; }
         .guarantee-box p { color: var(--text-muted); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
 
@@ -1086,7 +1146,7 @@
 <nav>
     <div class="nav-brand"><img src="https://assessoriapulso.com.br/pulso-logo.svg" alt="Assessoria Pulso" style="height:28px;vertical-align:middle;filter:brightness(0) invert(1);"> <span style="display:none">Assessoria Pulso</span></div>
     <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+vi+a+proposta+e+quero+conversar!" class="nav-cta" target="_blank">
-        💬 Falar pelo WhatsApp
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 0C5.384 0 0 5.383 0 11.988c0 2.09.549 4.09 1.594 5.852L0 24l6.335-1.652A11.934 11.934 0 0 0 11.99 24C18.596 24 24 18.617 24 12.012 24 5.384 18.596 0 11.99 0zm0 21.818a9.83 9.83 0 0 1-5.012-1.37l-.36-.214-3.726.974 1.001-3.626-.236-.373a9.786 9.786 0 0 1-1.501-5.221c0-5.418 4.412-9.829 9.834-9.829 5.434 0 9.847 4.411 9.847 9.829 0 5.418-4.413 9.83-9.847 9.83z"/></svg> Falar pelo WhatsApp
     </a>
 </nav>
 
@@ -1180,17 +1240,40 @@
 
         <div class="challenge-grid" style="margin-top:2rem;">
             <div class="challenge-card">
-                <div class="challenge-icon">🔍</div>
+                <div class="challenge-icon">
+                    <div class="icon-lg">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="112" cy="112" r="80" stroke="#25D366" stroke-width="16" stroke-linecap="round"/>
+                            <line x1="175" y1="175" x2="224" y2="224" stroke="#25D366" stroke-width="16" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
                 <h3>Invisibilidade Online</h3>
                 <p>Quando alguém busca "ortopedista ombro Brasília" ou "dor no ombro especialista DF", você provavelmente não aparece nas primeiras posições.</p>
             </div>
             <div class="challenge-card">
-                <div class="challenge-icon">📱</div>
+                <div class="challenge-icon">
+                    <div class="icon-lg">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="64" y="24" width="128" height="208" rx="20" stroke="#25D366" stroke-width="16"/>
+                            <circle cx="128" cy="196" r="10" fill="#25D366"/>
+                        </svg>
+                    </div>
+                </div>
                 <h3>Presença Desatualizada</h3>
                 <p>Um perfil sem consistência transmite abandono. O paciente interpreta isso como falta de atividade ou até de seriedade profissional.</p>
             </div>
             <div class="challenge-card">
-                <div class="challenge-icon">🔄</div>
+                <div class="challenge-icon">
+                    <div class="icon-lg">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M224 128A96 96 0 0 1 60 204" stroke="#25D366" stroke-width="16" stroke-linecap="round"/>
+                            <path d="M32 128A96 96 0 0 1 196 52" stroke="#25D366" stroke-width="16" stroke-linecap="round"/>
+                            <polyline points="196,28 196,56 224,56" stroke="#25D366" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="60,200 60,228 32,228" stroke="#25D366" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
                 <h3>Dependência de Indicação</h3>
                 <p>Indicação é ótima, mas é passiva. Você não consegue ligar uma torneira e receber mais pacientes quando precisa.</p>
             </div>
@@ -1210,42 +1293,73 @@
         </p>
         <div class="diag-grid">
             <div class="diag-item">
-                <div class="diag-icon">🌐</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="128" cy="128" r="96" stroke="#25D366" stroke-width="14"/>
+                        <ellipse cx="128" cy="128" rx="40" ry="96" stroke="#25D366" stroke-width="14"/>
+                        <line x1="32" y1="128" x2="224" y2="128" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Sem landing page própria</h4>
                     <p>Não tem site focado em agendamento. Paciente que vem do tráfego pago precisa de uma âncora — sem ela, o lead se perde.</p>
                 </div>
             </div>
             <div class="diag-item">
-                <div class="diag-icon">📊</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="32" y="148" width="48" height="68" rx="6" stroke="#25D366" stroke-width="14"/>
+                        <rect x="104" y="100" width="48" height="116" rx="6" stroke="#25D366" stroke-width="14"/>
+                        <rect x="176" y="52" width="48" height="164" rx="6" stroke="#25D366" stroke-width="14"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Sem pixel instalado</h4>
                     <p>Sem tracking de Meta e Google, não existe base pra remarketing nem dados pra otimizar campanhas futuras.</p>
                 </div>
             </div>
             <div class="diag-item">
-                <div class="diag-icon">📸</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M208 208H48a16 16 0 0 1-16-16V80a16 16 0 0 1 16-16h32l16-24h64l16 24h32a16 16 0 0 1 16 16v112a16 16 0 0 1-16 16Z" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="128" cy="132" r="36" stroke="#25D366" stroke-width="14"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Instagram com apenas 4 posts</h4>
                     <p>O perfil existe mas serve só como cartão de visitas estático. 4 posts não constroem autoridade nem geram paciente.</p>
                 </div>
             </div>
             <div class="diag-item">
-                <div class="diag-icon">💬</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M45.4 177A96 96 0 1 0 79 210.6L120 224Z" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Sem gestão de DMs e leads</h4>
                     <p>Interessados chegam por Instagram ou WhatsApp e não têm acompanhamento estruturado — lead perdido.</p>
                 </div>
             </div>
             <div class="diag-item">
-                <div class="diag-icon">⭐</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M128 24l24.5 74.8H232l-63.7 46.3 24.3 74.8L128 175.6 63.4 220l24.3-74.8L24 98.8h79.5Z" stroke="#25D366" stroke-width="14" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Doctoralia mal configurado</h4>
                     <p>O perfil diz "não aceita convênio" — mas você aceita na Indoor Saúde. Isso está barrando pacientes de plano de saúde que poderiam virar particulares.</p>
                 </div>
             </div>
             <div class="diag-item">
-                <div class="diag-icon">🎯</div>
+                <div class="diag-icon icon-sm">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="128" cy="128" r="96" stroke="#25D366" stroke-width="14"/>
+                        <circle cx="128" cy="128" r="56" stroke="#25D366" stroke-width="14"/>
+                        <circle cx="128" cy="128" r="20" fill="#25D366"/>
+                    </svg>
+                </div>
                 <div>
                     <h4>Sem campanha ativa</h4>
                     <p>Não tem tráfego pago rodando. A concorrência paga pra aparecer. Você depende só do orgânico.</p>
@@ -1316,32 +1430,55 @@
         <h2>Métricas projetadas para os primeiros 90 dias</h2>
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="metric-icon">💰</div>
+                <div class="metric-icon">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="128" cy="128" r="96" stroke="#25D366" stroke-width="14"/>
+                        <path d="M128 72v112M104 96h36a20 20 0 0 1 0 40h-36m0 0h40a20 20 0 0 1 0 40h-40" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div class="metric-num">R$35–60</div>
                 <div class="metric-label">Custo por Lead (CPL)</div>
                 <div class="metric-period">metas 60-90 dias</div>
             </div>
             <div class="metric-card">
-                <div class="metric-icon">📈</div>
+                <div class="metric-icon">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <polyline points="32,192 96,128 144,160 224,72" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="176,72 224,72 224,120" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div class="metric-num">3.2×</div>
                 <div class="metric-label">ROAS estimado</div>
                 <div class="metric-period">com campanha ativa</div>
             </div>
             <div class="metric-card">
-                <div class="metric-icon">🧲</div>
+                <div class="metric-icon">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M160 32c0 88-128 88-128 0" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                        <path d="M32 32v96a96 96 0 0 0 192 0V32" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                        <line x1="160" y1="32" x2="224" y2="32" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <div class="metric-num">15–30</div>
                 <div class="metric-label">Leads/mês</div>
                 <div class="metric-period">metas mês 2-3</div>
             </div>
             <div class="metric-card">
-                <div class="metric-icon">🔄</div>
+                <div class="metric-icon">
+                    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M224 128a96 96 0 0 1-160 71" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                        <path d="M32 128a96 96 0 0 1 160-71" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                        <polyline points="60,199 32,227 4,199" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <polyline points="196,57 224,29 252,57" stroke="#25D366" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div class="metric-num">5–8</div>
                 <div class="metric-label">Novos pacientes/mês</div>
                 <div class="metric-period">taxa de conversão ~30%</div>
             </div>
         </div>
         <div class="metrics-note">
-            <strong>⚠️ Projeção baseada</strong> em benchmarks de médicos similares atendidos pela Pulso.
+            <strong><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:4px;"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17Z"/></svg> Projeção baseada</strong> em benchmarks de médicos similares atendidos pela Pulso.
             Resultados reais dependem de verba de tráfego, ticket médio e velocidade de implementação.
         </div>
     </div>
@@ -1358,7 +1495,7 @@
             <div class="phase-card current">
                 <div class="phase-num">Fase 01 — Fundação</div>
                 <h3>Estrutura digital base</h3>
-                <div class="phase-timeline">📅 Semanas 1–4</div>
+                <div class="phase-timeline"><svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" style="flex-shrink:0"><rect x="32" y="48" width="192" height="176" rx="16" stroke="#25D366" stroke-width="14"/><line x1="32" y1="96" x2="224" y2="96" stroke="#25D366" stroke-width="14"/><line x1="80" y1="24" x2="80" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/><line x1="176" y1="24" x2="176" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/></svg> Semanas 1–4</div>
                 <ul class="phase-tasks">
                     <li>Landing page com foto real + CTA WhatsApp</li>
                     <li>Grid de fundação (12 posts)</li>
@@ -1371,7 +1508,7 @@
             <div class="phase-card">
                 <div class="phase-num">Fase 02 — Tráfego</div>
                 <h3>Primeiras campanhas</h3>
-                <div class="phase-timeline">📅 Mês 2</div>
+                <div class="phase-timeline"><svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" style="flex-shrink:0"><rect x="32" y="48" width="192" height="176" rx="16" stroke="#25D366" stroke-width="14"/><line x1="32" y1="96" x2="224" y2="96" stroke="#25D366" stroke-width="14"/><line x1="80" y1="24" x2="80" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/><line x1="176" y1="24" x2="176" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/></svg> Mês 2</div>
                 <ul class="phase-tasks">
                     <li>Campanha de leads no Meta Ads</li>
                     <li>Teste de criativos (3 variações)</li>
@@ -1384,7 +1521,7 @@
             <div class="phase-card">
                 <div class="phase-num">Fase 03 — Escala</div>
                 <h3>Crescimento sustentável</h3>
-                <div class="phase-timeline">📅 Mês 3+</div>
+                <div class="phase-timeline"><svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="14" height="14" style="flex-shrink:0"><rect x="32" y="48" width="192" height="176" rx="16" stroke="#25D366" stroke-width="14"/><line x1="32" y1="96" x2="224" y2="96" stroke="#25D366" stroke-width="14"/><line x1="80" y1="24" x2="80" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/><line x1="176" y1="24" x2="176" y2="72" stroke="#25D366" stroke-width="14" stroke-linecap="round"/></svg> Mês 3+</div>
                 <ul class="phase-tasks">
                     <li>Escala das campanhas que performaram</li>
                     <li>Google Ads (Search) ativado</li>
@@ -1498,7 +1635,14 @@
         <div class="posts-grid">
             <div class="post-card">
                 <div class="post-img" style="background:linear-gradient(145deg,#0a2040,#0d3060);">
-                    <span>👨‍⚕️</span>
+                    <div class="icon-lg" style="margin:0;">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                            <circle cx="128" cy="88" r="56" stroke="#25D366" stroke-width="14"/>
+                            <path d="M32 216c0-48.6 43-88 96-88s96 39.4 96 88" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                            <line x1="128" y1="104" x2="128" y2="136" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
+                            <line x1="112" y1="120" x2="144" y2="120" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="post-type">APRESENTAÇÃO</div>
                 </div>
                 <div class="post-info">
@@ -1508,7 +1652,13 @@
             </div>
             <div class="post-card">
                 <div class="post-img" style="background:linear-gradient(145deg,#0a1a30,#112040);">
-                    <span>🩺</span>
+                    <div class="icon-lg" style="margin:0;">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                            <circle cx="128" cy="128" r="96" stroke="#25D366" stroke-width="14"/>
+                            <line x1="128" y1="88" x2="128" y2="168" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                            <line x1="88" y1="128" x2="168" y2="128" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="post-type">EDUCAÇÃO</div>
                 </div>
                 <div class="post-info">
@@ -1518,7 +1668,11 @@
             </div>
             <div class="post-card">
                 <div class="post-img" style="background:linear-gradient(145deg,#0d2030,#0a2840);">
-                    <span>⭐</span>
+                    <div class="icon-lg" style="margin:0;">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                            <path d="M128 24l24.5 74.8H232l-63.7 46.3 24.3 74.8L128 175.6 63.4 220l24.3-74.8L24 98.8h79.5Z" stroke="#F59E0B" stroke-width="14" fill="rgba(245,158,11,0.12)" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div class="post-type">PROVA SOCIAL</div>
                 </div>
                 <div class="post-info">
@@ -1528,7 +1682,14 @@
             </div>
             <div class="post-card">
                 <div class="post-img" style="background:linear-gradient(145deg,#091520,#0d2030);">
-                    <span>🏥</span>
+                    <div class="icon-lg" style="margin:0;">
+                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+                            <path d="M32 216V104l96-72 96 72v112H32Z" stroke="#25D366" stroke-width="14" stroke-linejoin="round"/>
+                            <rect x="96" y="152" width="64" height="64" rx="4" stroke="#25D366" stroke-width="14"/>
+                            <line x1="128" y1="80" x2="128" y2="112" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
+                            <line x1="112" y1="96" x2="144" y2="96" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <div class="post-type">ESTRUTURA</div>
                 </div>
                 <div class="post-info">
@@ -1639,7 +1800,7 @@
         <h2 style="text-align:center;">Garantia + Próximos Passos</h2>
 
         <div class="guarantee-box">
-            <div class="guarantee-icon">🛡️</div>
+            <div class="guarantee-icon"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56V120c0,51.67,30.84,84.22,56.2,100.3a124.36,124.36,0,0,0,39.8,17.1V24H48ZM128,216A108.32,108.32,0,0,1,56,136V56h72ZM224,56v64c0,51.67-30.84,84.22-56.2,100.3A123.73,123.73,0,0,1,128,237.4V24H208A16,16,0,0,1,224,40V56Z"/></svg></div>
             <h3>Garantia de 30 dias</h3>
             <p>
                 Se no final do 1º mês você não tiver sua landing page publicada, grid de fundação entregue e
@@ -1648,7 +1809,7 @@
                 <strong style="color:var(--white);">Confiamos tanto na nossa entrega que colocamos dinheiro em jogo.</strong>
             </p>
             <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+vi+a+proposta+e+quero+come%C3%A7ar!" target="_blank" class="btn-primary" style="display:inline-flex; margin:0 auto;">
-                💬 Quero começar agora
+                <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 0C5.384 0 0 5.383 0 11.988c0 2.09.549 4.09 1.594 5.852L0 24l6.335-1.652A11.934 11.934 0 0 0 11.99 24C18.596 24 24 18.617 24 12.012 24 5.384 18.596 0 11.99 0zm0 21.818a9.83 9.83 0 0 1-5.012-1.37l-.36-.214-3.726.974 1.001-3.626-.236-.373a9.786 9.786 0 0 1-1.501-5.221c0-5.418 4.412-9.829 9.834-9.829 5.434 0 9.847 4.411 9.847 9.829 0 5.418-4.413 9.83-9.847 9.83z"/></svg> Quero começar agora
             </a>
         </div>
 
@@ -1678,7 +1839,7 @@
         <h2>Pronto pra ter mais pacientes?</h2>
         <p>Essa proposta tem validade de 7 dias. Depois, os preços e condições podem mudar.</p>
         <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+vi+a+proposta+do+Dr.+Gabriel+e+quero+conversar!" target="_blank" class="btn-primary" style="display:inline-flex; font-size:1.1rem; padding:1.2rem 2.5rem;">
-            💬 Falar com a Pulso agora →
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" style="flex-shrink:0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.99 0C5.384 0 0 5.383 0 11.988c0 2.09.549 4.09 1.594 5.852L0 24l6.335-1.652A11.934 11.934 0 0 0 11.99 24C18.596 24 24 18.617 24 12.012 24 5.384 18.596 0 11.99 0zm0 21.818a9.83 9.83 0 0 1-5.012-1.37l-.36-.214-3.726.974 1.001-3.626-.236-.373a9.786 9.786 0 0 1-1.501-5.221c0-5.418 4.412-9.829 9.834-9.829 5.434 0 9.847 4.411 9.847 9.829 0 5.418-4.413 9.83-9.847 9.83z"/></svg> Falar com a Pulso agora →
         </a>
     </div>
 </div>
