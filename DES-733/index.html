@@ -326,38 +326,40 @@
         }
 
         .recap-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem;
             margin-top: 2rem;
-            backdrop-filter: blur(10px);
         }
 
         .recap-points {
             list-style: none;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.75rem;
         }
 
         .recap-points li {
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 0.97rem;
+            gap: 1rem;
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.65;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-left: 3px solid var(--green);
+            border-radius: 0 10px 10px 0;
+            padding: 0.85rem 1.25rem;
         }
 
         .recap-points li::before {
-            content: '→';
+            content: '✓';
             color: var(--green);
-            font-size: 1rem;
+            font-size: 0.9rem;
+            font-weight: 700;
             flex-shrink: 0;
-            margin-top: 0.1rem;
+            margin-top: 0.15rem;
         }
+        .recap-points li strong { display: inline; color: var(--white); }
 
         /* ─── CHALLENGE ─── */
         .challenge-grid {
@@ -1203,12 +1205,12 @@
         </p>
         <div class="recap-card">
             <ul class="recap-points">
-                <li>Você é Ortopedista e Traumatologista com foco em <strong>Ombro e Cotovelo</strong> — atende na Indoor Saúde, em Brasília, e planeja abrir sua própria clínica</li>
-                <li>Sua agenda tem <strong>alta disponibilidade</strong> agora — o objetivo imediato é preencher essas janelas com pacientes qualificados</li>
-                <li>No Doctoralia você tem <strong>74 avaliações com nota máxima</strong>, mas o perfil ainda informa "não aceita convênio" quando na prática aceita — isso está custando pacientes</li>
-                <li>No Instagram são apenas 4 posts — o perfil existe mas não gera paciente nem autoridade hoje</li>
-                <li>Você reconhece a necessidade do digital, mas não tem afinidade com produção de conteúdo — quer terceirizar isso</li>
-                <li>Ticket inicial alinhado em torno de <strong>R$2.500/mês</strong> — flexível conforme entrega e resultado</li>
+                <li><span>Você é Ortopedista e Traumatologista com foco em <strong>Ombro e Cotovelo</strong> — atende na Indoor Saúde, em Brasília, e planeja abrir sua própria clínica</span></li>
+                <li><span>Sua agenda tem <strong>alta disponibilidade</strong> agora — o objetivo imediato é preencher essas janelas com pacientes qualificados</span></li>
+                <li><span>No Doctoralia você tem <strong>74 avaliações com nota máxima</strong>, mas o perfil ainda informa "não aceita convênio" quando na prática aceita — isso está custando pacientes</span></li>
+                <li><span>No Instagram são apenas <strong>4 posts</strong> — o perfil existe mas não gera paciente nem autoridade hoje</span></li>
+                <li><span>Você reconhece a necessidade do digital, mas não tem afinidade com produção de conteúdo — quer <strong>terceirizar isso</strong></span></li>
+                <li><span>Ticket inicial alinhado em torno de <strong>R$2.500/mês</strong> — flexível conforme entrega e resultado</span></li>
             </ul>
         </div>
     </div>
