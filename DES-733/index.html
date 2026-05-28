@@ -823,28 +823,23 @@
 
         .post-img {
             aspect-ratio: 1;
-            background: linear-gradient(145deg, #0d2040, #0a1528);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            font-size: 3rem;
             position: relative;
             overflow: hidden;
+            background: #0a1528;
         }
-        .post-img .icon-lg {
-            margin-bottom: 0;
-            background: rgba(255,255,255,0.08);
-            position: relative;
-            z-index: 2;
+        .post-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
         }
-
         .post-img::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(37,211,102,0.15) 0%, transparent 100%);
+            background: linear-gradient(0deg, rgba(8,13,20,0.45) 0%, transparent 60%);
+            pointer-events: none;
         }
 
         .post-type {
@@ -1634,15 +1629,8 @@
         </p>
         <div class="posts-grid">
             <div class="post-card">
-                <div class="post-img" style="background:linear-gradient(145deg,#0a2040,#0d3060);">
-                    <div class="icon-lg" style="margin:0;">
-                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                            <circle cx="128" cy="88" r="56" stroke="#25D366" stroke-width="14"/>
-                            <path d="M32 216c0-48.6 43-88 96-88s96 39.4 96 88" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
-                            <line x1="128" y1="104" x2="128" y2="136" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
-                            <line x1="112" y1="120" x2="144" y2="120" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+                <div class="post-img">
+                    <img src="post1.png" alt="Post de Apresentação — Dr. Gabriel Firmino" loading="lazy">
                     <div class="post-type">APRESENTAÇÃO</div>
                 </div>
                 <div class="post-info">
@@ -1651,14 +1639,8 @@
                 </div>
             </div>
             <div class="post-card">
-                <div class="post-img" style="background:linear-gradient(145deg,#0a1a30,#112040);">
-                    <div class="icon-lg" style="margin:0;">
-                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                            <circle cx="128" cy="128" r="96" stroke="#25D366" stroke-width="14"/>
-                            <line x1="128" y1="88" x2="128" y2="168" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
-                            <line x1="88" y1="128" x2="168" y2="128" stroke="#25D366" stroke-width="14" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+                <div class="post-img">
+                    <img src="post2.png" alt="Post Educativo — Especialista Ombro e Cotovelo" loading="lazy">
                     <div class="post-type">EDUCAÇÃO</div>
                 </div>
                 <div class="post-info">
@@ -1667,12 +1649,8 @@
                 </div>
             </div>
             <div class="post-card">
-                <div class="post-img" style="background:linear-gradient(145deg,#0d2030,#0a2840);">
-                    <div class="icon-lg" style="margin:0;">
-                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                            <path d="M128 24l24.5 74.8H232l-63.7 46.3 24.3 74.8L128 175.6 63.4 220l24.3-74.8L24 98.8h79.5Z" stroke="#F59E0B" stroke-width="14" fill="rgba(245,158,11,0.12)" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
+                <div class="post-img">
+                    <img src="post3.png" alt="Post Prova Social — Depoimento de Paciente" loading="lazy">
                     <div class="post-type">PROVA SOCIAL</div>
                 </div>
                 <div class="post-info">
@@ -1681,15 +1659,8 @@
                 </div>
             </div>
             <div class="post-card">
-                <div class="post-img" style="background:linear-gradient(145deg,#091520,#0d2030);">
-                    <div class="icon-lg" style="margin:0;">
-                        <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                            <path d="M32 216V104l96-72 96 72v112H32Z" stroke="#25D366" stroke-width="14" stroke-linejoin="round"/>
-                            <rect x="96" y="152" width="64" height="64" rx="4" stroke="#25D366" stroke-width="14"/>
-                            <line x1="128" y1="80" x2="128" y2="112" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
-                            <line x1="112" y1="96" x2="144" y2="96" stroke="#25D366" stroke-width="10" stroke-linecap="round"/>
-                        </svg>
-                    </div>
+                <div class="post-img">
+                    <img src="post4.png" alt="Post Estrutura — Consultório Dr. Gabriel Firmino" loading="lazy">
                     <div class="post-type">ESTRUTURA</div>
                 </div>
                 <div class="post-info">
