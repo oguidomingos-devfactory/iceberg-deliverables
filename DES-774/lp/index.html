@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Renan Quintino — Ortopedista Especialista em Joelho | Brasília</title>
+  <meta name="description" content="Dr. Renan Quintino — Ortopedista especialista em joelho e medicina do esporte em Brasília. Cirurgia de joelho, artroscopia, tratamento de LCA. Agende sua consulta.">
+  <meta property="og:title" content="Dr. Renan Quintino — Ortopedista | Brasília">
+  <meta property="og:description" content="Especialista em joelho e medicina do esporte. Consulta particular em Brasília.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #050e1c;
+      --surface:  #0b1828;
+      --surface2: #0f2038;
+      --border:   rgba(0,191,165,0.15);
+      --white:    #eef2f6;
+      --muted:    #7a8fa6;
+      --green:    #25D366;
+      --teal:     #00BFA5;
+      --serif:    'DM Serif Display', Georgia, serif;
+      --sans:     'DM Sans', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 { font-family: var(--serif); font-weight: 400; }
+    a { text-decoration: none; color: var(--teal); }
+    strong { color: var(--white); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(20px);
+      background: rgba(5,14,28,0.85);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo span { color: var(--teal); font-size: 1.3rem; }
+
+    .nav-cta {
+      background: var(--green);
+      color: #051a0a;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover { opacity: 0.9; color: #051a0a; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: calc(80px + 4rem) 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% 30%, rgba(0,191,165,0.09) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 85% 60%, rgba(37,211,102,0.05) 0%, transparent 60%);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0,191,165,0.1);
+      border: 1px solid rgba(0,191,165,0.25);
+      border-radius: 30px;
+      padding: 0.35rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 7vw, 4rem);
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 em { font-style: italic; color: var(--teal); }
+
+    .hero-sub {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+    }
+
+    .hero-avatar-ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), #005a50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 0 0 4px rgba(0,191,165,0.2), 0 0 0 8px rgba(0,191,165,0.08);
+    }
+
+    .cred-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .cred-item::before { content: '✓'; color: var(--teal); font-weight: 700; }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--green), #1aab55);
+      color: #051a0a;
+      font-weight: 700;
+      font-family: var(--sans);
+      font-size: 1rem;
+      padding: 1.1rem 2.4rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 28px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,0.45); color: #051a0a; }
+
+    .hero-urgency {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: rgba(122,143,166,0.7);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: clamp(3.5rem, 8vh, 6rem) 1.5rem; }
+
+    .section-inner { max-width: 800px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 560px;
+    }
+
+    hr { border: none; border-top: 1px solid var(--border); }
+
+    /* ── PAIN POINTS ── */
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+    }
+
+    .pain-emoji { font-size: 1.8rem; display: block; margin-bottom: 0.7rem; }
+    .pain-card h4 { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .pain-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .service-card:hover { border-color: var(--teal); transform: translateY(-3px); }
+
+    .service-icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+    .service-card h4 { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
+    .service-card p { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── CREDENTIALS ── */
+    .creds-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .cred-card {
+      display: flex;
+      gap: 1rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+    }
+
+    .cred-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(0,191,165,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .cred-card h4 { font-family: var(--sans); font-weight: 700; font-size: 0.9rem; margin-bottom: 0.25rem; }
+    .cred-card p { font-size: 0.82rem; color: var(--muted); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.6rem;
+    }
+
+    .testimonial-stars { color: #f59e0b; font-size: 0.9rem; margin-bottom: 0.8rem; }
+    .testimonial-text { font-size: 0.9rem; color: #c0ccda; line-height: 1.6; font-style: italic; margin-bottom: 1rem; }
+    .testimonial-author { font-size: 0.8rem; font-weight: 700; color: var(--white); }
+    .testimonial-context { font-size: 0.75rem; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 2rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+    }
+
+    .faq-item h4 { font-family: var(--sans); font-weight: 700; font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--white); }
+    .faq-item p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── FINAL CTA ── */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(160deg, var(--surface2), var(--bg));
+      border-top: 1px solid var(--border);
+      padding: clamp(4rem, 10vh, 7rem) 1.5rem;
+    }
+
+    .cta-section h2 { margin-bottom: 1rem; font-size: clamp(1.8rem, 4vw, 2.6rem); }
+    .cta-section p { color: var(--muted); max-width: 460px; margin: 0 auto 2.5rem; }
+
+    .btn-final {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, var(--green), #1aab55);
+      color: #051a0a;
+      font-weight: 700;
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      padding: 1.1rem 2.6rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 28px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-final:hover { transform: translateY(-3px); box-shadow: 0 8px 36px rgba(37,211,102,0.45); color: #051a0a; }
+
+    .contact-note { margin-top: 1rem; font-size: 0.82rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.8rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { animation: fadeUp 0.6s ease-out both; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.15s; }
+    .d3 { animation-delay: 0.28s; }
+    .d4 { animation-delay: 0.4s; }
+    .d5 { animation-delay: 0.52s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span>🦴</span> Dr. Renan Quintino
+  </div>
+  <a href="https://wa.me/5561991465706?text=Olá+Dr.+Renan%2C+quero+agendar+uma+consulta!" class="nav-cta" target="_blank">
+    📲 Agendar Consulta
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-avatar-ring fade-up d1">🦴</div>
+
+    <div class="hero-badge fade-up d2">
+      Ortopedia · Joelho · Medicina do Esporte
+    </div>
+
+    <h1 class="fade-up d3">
+      Chega de conviver com a<br>
+      <em>dor no joelho.</em>
+    </h1>
+
+    <div class="cred-line fade-up d3">
+      <div class="cred-item">Especialista em joelho</div>
+      <div class="cred-item">Medicina do esporte</div>
+      <div class="cred-item">Brasília · DF</div>
+    </div>
+
+    <p class="hero-sub fade-up d4">
+      Cirurgia minimamente invasiva, artroscopia e retorno ao esporte com segurança.
+      Atendimento particular personalizado — porque você merece ser tratado como indivíduo, não como um número.
+    </p>
+
+    <a href="https://wa.me/5561991465706?text=Olá+Dr.+Renan%2C+quero+agendar+uma+avaliação+do+joelho" class="btn-hero fade-up d5" target="_blank">
+      💬 Agendar minha avaliação
+    </a>
+
+    <p class="hero-urgency fade-up d5">Resposta em até 1 hora · Atendimento particular</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- PAIN POINTS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Você se identifica?</div>
+    <h2>Sinais de que é hora de buscar um especialista</h2>
+    <p class="subtitle">Não espere a dor piorar. Cada mês sem tratamento adequado pode comprometer sua recuperação.</p>
+
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="pain-emoji">🪜</span>
+        <h4>Dor ao subir escadas</h4>
+        <p>Dificuldade em subir ou descer degraus pode indicar condromalácia ou artrose inicial.</p>
+      </div>
+
+      <div class="pain-card">
+        <span class="pain-emoji">⚽</span>
+        <h4>Lesão durante o esporte</h4>
+        <p>Torção, estalo ou inchaço após atividade física precisa de avaliação imediata — pode ser ligamento.</p>
+      </div>
+
+      <div class="pain-card">
+        <span class="pain-emoji">😴</span>
+        <h4>Dor que acorda à noite</h4>
+        <p>Dor persistente mesmo em repouso é sinal de processo inflamatório que requer tratamento.</p>
+      </div>
+
+      <div class="pain-card">
+        <span class="pain-emoji">🦵</span>
+        <h4>Joelho "travando"</h4>
+        <p>Sensação de bloqueio ou estalos frequentes pode indicar lesão de menisco que se trata com artroscopia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- SERVICES -->
+<section style="background:var(--surface);">
+  <div class="section-inner">
+    <div class="section-label">Procedimentos</div>
+    <h2>Especialidades e tratamentos</h2>
+    <p class="subtitle">Do diagnóstico ao retorno esportivo — cuidado completo para o seu joelho.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🔬</span>
+        <h4>Artroscopia do Joelho</h4>
+        <p>Cirurgia minimamente invasiva para menisco, ligamentos e cartilagem.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">⚡</span>
+        <h4>Reconstrução de LCA</h4>
+        <p>Protocolo de retorno esportivo personalizado e cirurgia de alta precisão.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🦴</span>
+        <h4>Lesões de Menisco</h4>
+        <p>Diagnóstico, tratamento conservador ou artroscópico conforme o caso.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">🏃</span>
+        <h4>Medicina do Esporte</h4>
+        <p>Prevenção de lesões, otimização de performance e retorno seguro à atividade.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">💉</span>
+        <h4>Infiltração e PRP</h4>
+        <p>Tratamentos minimamente invasivos para alívio da dor e regeneração tecidual.</p>
+      </div>
+
+      <div class="service-card">
+        <span class="service-icon">📋</span>
+        <h4>Avaliação Ortopédica</h4>
+        <p>Consulta completa com exame físico detalhado e plano terapêutico individualizado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- CREDENTIALS -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Formação e credenciais</div>
+    <h2>Qualificação a serviço da sua saúde</h2>
+
+    <div class="creds-list">
+      <div class="cred-card">
+        <div class="cred-icon">🎓</div>
+        <div>
+          <h4>Especialista em Ortopedia e Traumatologia</h4>
+          <p>Residência médica com foco em cirurgia do joelho e medicina do esporte.</p>
+        </div>
+      </div>
+
+      <div class="cred-card">
+        <div class="cred-icon">🏥</div>
+        <div>
+          <h4>Atendimento na Unique</h4>
+          <p>Clínica de referência em Brasília com estrutura completa para diagnóstico e tratamento.</p>
+        </div>
+      </div>
+
+      <div class="cred-card">
+        <div class="cred-icon">⚽</div>
+        <div>
+          <h4>Medicina do Esporte</h4>
+          <p>Formação específica em lesões esportivas e retorno à atividade física com segurança.</p>
+        </div>
+      </div>
+
+      <div class="cred-card">
+        <div class="cred-icon">🔬</div>
+        <div>
+          <h4>Cirurgia Artroscópica</h4>
+          <p>Treinamento em técnicas minimamente invasivas para joelho — menos dor, recuperação mais rápida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--surface);">
+  <div class="section-inner">
+    <div class="section-label">Pacientes</div>
+    <h2>O que dizem quem já passou pelo consultório</h2>
+
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Tive lesão no LCA jogando futebol e em 8 meses voltei a jogar. O Dr. Renan explicou cada etapa da cirurgia e da fisioterapia. Atendimento diferenciado."</p>
+        <div class="testimonial-author">Lucas M.</div>
+        <div class="testimonial-context">Reconstrução de LCA · Brasília</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Sofria de dor no joelho há 2 anos. Outros médicos só pediam exames. O Dr. Renan fez diagnóstico preciso, tratei o menisco e voltei a fazer academia."</p>
+        <div class="testimonial-author">Ana C.</div>
+        <div class="testimonial-context">Artroscopia de menisco · 46 anos</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <p class="testimonial-text">"Corredor profissional, tenho condromalácia patelar. O tratamento do Dr. Renan me permitiu continuar treinando com orientação adequada. Recomendo muito."</p>
+        <div class="testimonial-author">Pedro S.</div>
+        <div class="testimonial-context">Medicina do Esporte · Corrida</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- FAQ -->
+<section>
+  <div class="section-inner">
+    <div class="section-label">Dúvidas frequentes</div>
+    <h2>Perguntas comuns</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>Aceita convênio ou é só particular?</h4>
+        <p>O consultório do Dr. Renan funciona com atendimento particular, o que permite consultas mais longas, diagnóstico mais detalhado e follow-up personalizado.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Quanto tempo leva a recuperação de uma artroscopia de joelho?</h4>
+        <p>Depende do procedimento. Meniscectomia parcial: 2–6 semanas. Reconstrução de LCA: 6–9 meses para retorno esportivo. O Dr. Renan define o protocolo individual na consulta.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Como agendar uma consulta?</h4>
+        <p>Pelo WhatsApp — é a forma mais rápida. Enviamos a resposta em até 1 hora em dias úteis. Você pode também ligar diretamente para a clínica.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Fiz uma torção no joelho. Preciso de cirurgia?</h4>
+        <p>Nem sempre. Muitas lesões ligamentares se resolvem com fisioterapia. O Dr. Renan avalia clinicamente e com imagem (RM) para indicar o melhor caminho — conservador ou cirúrgico.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Posso praticar esporte com dor no joelho?</h4>
+        <p>Depende da causa. Algumas condições se beneficiam de atividade adaptada; outras exigem repouso imediato. Não arrisque — uma avaliação evita lesões mais graves.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- FINAL CTA -->
+<div class="cta-section">
+  <div class="section-label">Próximo passo</div>
+  <h2>Agende sua avaliação<br><em>ainda hoje</em></h2>
+  <p>Não deixe a dor limitar sua vida. Uma consulta é o primeiro passo para recuperar sua qualidade de movimento.</p>
+
+  <a href="https://wa.me/5561991465706?text=Olá+Dr.+Renan%2C+quero+agendar+uma+consulta+de+ortopedia" class="btn-final" target="_blank">
+    💬 Agendar via WhatsApp
+  </a>
+
+  <p class="contact-note">Resposta em até 1 hora · Brasília · DF</p>
+</div>
+
+<footer>
+  <p>Dr. Renan Quintino · CRM DF · Ortopedia e Medicina do Esporte</p>
+  <p style="margin-top:0.3rem; font-size:0.73rem; color:rgba(122,143,166,0.5);">Este site é uma prévia do projeto digital a ser entregue pela Pulso Marketing Médico.</p>
+</footer>
+
+</body>
+</html>
