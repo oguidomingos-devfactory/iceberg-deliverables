@@ -124,17 +124,21 @@
         }
 
         .hero-avatar {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--pulso), #005a50);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
+            overflow: hidden;
             margin: 0 auto 1.5rem;
-            box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.2), 0 0 0 8px rgba(0, 191, 165, 0.08);
+            box-shadow: 0 0 0 4px rgba(0, 191, 165, 0.35), 0 0 0 8px rgba(0, 191, 165, 0.1);
             animation: slideInDown 0.8s ease-out;
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
         }
 
         .hero-badge {
@@ -619,7 +623,9 @@
 
     <!-- HERO -->
     <div class="hero">
-        <div class="hero-avatar">🦴</div>
+        <div class="hero-avatar">
+            <img src="../photos/photo1.png" alt="Dr. Renan Quintino — Ortopedista" />
+        </div>
 
         <div class="hero-badge">Ortopedia · Joelho · Medicina do Esporte</div>
 
