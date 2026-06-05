@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Moco | Consulta Especializada — Agende sua Consulta</title>
+    <meta name="description" content="Clínica Moco: atendimento médico especializado com foco em resultados reais para sua saúde. Agende sua consulta hoje.">
+    <meta property="og:title" content="Clínica Moco | Agende sua Consulta">
+    <meta property="og:description" content="Atendimento médico especializado. Resultados reais. Agende agora.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --pulso: #00BFA5;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.15);
+            --text: #e0e0e0;
+            --muted: #a0a0a0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0f18 0%, #0d1f3c 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.2; }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); margin-bottom: 1rem; }
+        h3 { font-size: clamp(1.1rem, 2.2vw, 1.5rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        /* STICKY HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1.2rem 2rem;
+            background: rgba(10, 15, 24, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.3rem;
+            color: var(--white);
+        }
+
+        .logo span { color: var(--green); }
+
+        .nav-links {
+            display: flex;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            color: var(--muted);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--white); }
+
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.5rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        /* HERO */
+        .hero {
+            padding: clamp(4.5rem, 10vh, 7rem) 2rem clamp(3.5rem, 7vh, 5rem);
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content { }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.35rem 0.9rem;
+            background: rgba(37, 211, 102, 0.12);
+            border: 1px solid rgba(37, 211, 102, 0.25);
+            border-radius: 20px;
+            font-size: 0.82rem;
+            color: var(--green);
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--green);
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.1rem 2.4rem;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        .trust-line {
+            font-size: 0.85rem;
+            color: #707070;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-line span { color: var(--green); }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-img-box {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(37,211,102,0.12), rgba(0,191,165,0.08));
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-img-box::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(37,211,102,0.15), transparent 60%);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.85rem;
+        }
+
+        .floating-badge.top-right {
+            top: 1.5rem;
+            right: -1rem;
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .floating-badge.bottom-left {
+            bottom: 1.5rem;
+            left: -1rem;
+        }
+
+        .floating-badge strong { display: block; font-size: 1.1rem; color: var(--white); }
+
+        /* SECTION */
+        .section {
+            padding: clamp(3.5rem, 7vh, 5rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 0.7rem;
+            display: block;
+        }
+
+        /* PAIN POINTS */
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pain-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .pain-card:hover {
+            border-color: rgba(37,211,102,0.2);
+            transform: translateY(-3px);
+        }
+
+        .pain-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+
+        .pain-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .pain-card p {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--pulso));
+        }
+
+        .service-card:hover {
+            border-color: rgba(37,211,102,0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+        }
+
+        .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+        .service-card h3 {
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        /* CREDENTIALS */
+        .cred-section {
+            background: linear-gradient(135deg, rgba(37,211,102,0.06), rgba(0,191,165,0.04));
+            border: 1px solid rgba(37,211,102,0.15);
+            border-radius: 20px;
+            padding: clamp(2.5rem, 5vh, 4rem) 2rem;
+        }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .cred-item {
+            text-align: center;
+        }
+
+        .cred-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: var(--green);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .cred-label {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* TESTIMONIALS */
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testi-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .testi-card:hover {
+            border-color: rgba(37,211,102,0.15);
+        }
+
+        .testi-stars {
+            color: #fbbf24;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testi-text {
+            font-style: italic;
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .testi-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--navy);
+            flex-shrink: 0;
+        }
+
+        .testi-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.92rem;
+        }
+
+        .testi-role {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* FAQ */
+        .faq-list {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-q {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            transition: background 0.3s;
+        }
+
+        .faq-q:hover { background: rgba(255,255,255,0.03); }
+
+        .faq-q .arrow {
+            font-size: 1.2rem;
+            color: var(--green);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .arrow { transform: rotate(45deg); }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s;
+            padding: 0 1.5rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 300px;
+            padding: 0 1.5rem 1.2rem;
+        }
+
+        /* FINAL CTA SECTION */
+        .cta-section {
+            text-align: center;
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, rgba(37,211,102,0.1), rgba(0,191,165,0.07));
+            border: 1px solid rgba(37,211,102,0.2);
+            border-radius: 20px;
+            padding: clamp(3rem, 6vh, 5rem) 3rem;
+        }
+
+        .cta-box h2 { color: var(--white); }
+
+        .cta-box p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            margin: 1rem auto 2.5rem;
+            max-width: 560px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.8rem;
+            background: linear-gradient(135deg, #25D366, #20ba5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            color: white;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            color: #606060;
+            border-top: 1px solid rgba(37,211,102,0.1);
+            font-size: 0.88rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-visual { order: -1; }
+
+            .hero-img-box {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .floating-badge.top-right { right: 0; }
+            .floating-badge.bottom-left { left: 0; }
+
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 640px) {
+            .cred-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid, .testi-grid { grid-template-columns: 1fr; }
+            .pain-grid { grid-template-columns: repeat(2, 1fr); }
+            .cta-box { padding: 2.5rem 1.5rem; }
+            .btn-whatsapp { width: 100%; justify-content: center; }
+            h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Clínica <span>Moco</span></div>
+            <ul class="nav-links">
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Cl%C3%ADnica%20Moco%20e%20quero%20agendar%20uma%20consulta!" class="btn-header" target="_blank">
+                📅 Agendar Consulta
+            </a>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content animate">
+            <span class="hero-badge">✅ Atendimento Presencial e Telemedicina</span>
+            <h1>Sua saúde merece cuidado <em>especializado</em></h1>
+            <p class="hero-sub">Na Clínica Moco, cada consulta é uma experiência personalizada. Diagnóstico preciso, tratamento eficaz e acompanhamento contínuo para você viver melhor.</p>
+            <div class="hero-cta-group">
+                <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta%20na%20Cl%C3%ADnica%20Moco!" class="btn-primary" target="_blank">
+                    💬 Agendar via WhatsApp
+                </a>
+                <p class="trust-line">
+                    <span>⚡</span> Resposta em menos de 1 hora · Sem filas · Sem burocracia
+                </p>
+            </div>
+        </div>
+
+        <div class="hero-visual animate" style="animation-delay: 0.2s">
+            <div class="hero-img-box">
+                🏥
+                <div class="floating-badge top-right">
+                    ⭐ 5.0 · +200 avaliações
+                </div>
+                <div class="floating-badge bottom-left">
+                    <strong>+500</strong>
+                    pacientes atendidos
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAIN POINTS -->
+    <div class="section animate">
+        <span class="section-label">Reconhece alguma situação?</span>
+        <h2>Você está passando por isso?</h2>
+
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">😓</div>
+                <h4>Sintomas persistentes</h4>
+                <p>Aquele desconforto que não passa, mesmo com remédios comuns. Hora de investigar de verdade.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">⏰</div>
+                <h4>Consultas demoradas</h4>
+                <p>Espera semanas por uma consulta e ainda fica com dúvidas. Aqui, atendemos com agilidade e atenção.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">🔍</div>
+                <h4>Diagnóstico impreciso</h4>
+                <p>Já foi em vários médicos e cada um fala uma coisa diferente. Buscamos a causa real do problema.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">📋</div>
+                <h4>Falta de acompanhamento</h4>
+                <p>Sem follow-up depois da consulta, sem saber se o tratamento está funcionando. Acompanhamos de perto.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="section" id="servicos">
+        <span class="section-label">Especialidades</span>
+        <h2>O que tratamos na Clínica Moco</h2>
+        <p style="color: var(--muted); margin-bottom: 0; max-width: 600px;">Atendimento especializado com tecnologia de ponta e abordagem humanizada:</p>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Consulta Geral</h3>
+                <p>Avaliação completa, anamnese detalhada e plano de tratamento personalizado para o seu caso específico.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Diagnóstico Preciso</h3>
+                <p>Exames e avaliação clínica aprofundada para identificar a causa raiz e não apenas tratar sintomas.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💊</div>
+                <h3>Tratamento Personalizado</h3>
+                <p>Protocolos adaptados à sua realidade, com monitoramento contínuo e ajustes conforme evolução.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Telemedicina</h3>
+                <p>Consultas online com a mesma qualidade do atendimento presencial. Conveniência sem perder a excelência.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Acompanhamento Contínuo</h3>
+                <p>Seguimos sua evolução de perto, ajustando o tratamento e mantendo você informado em cada etapa.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Check-up Completo</h3>
+                <p>Avaliação preventiva completa para identificar riscos antes que se tornem problemas sérios.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CREDENTIALS -->
+    <div class="section" id="sobre">
+        <div class="cred-section">
+            <span class="section-label">Por que nos escolher</span>
+            <h2>Credenciais que fazem a diferença</h2>
+            <p style="color: var(--muted); max-width: 560px;">Experiência real, resultados comprovados e compromisso com a sua saúde:</p>
+
+            <div class="cred-grid">
+                <div class="cred-item">
+                    <div class="cred-number">500+</div>
+                    <div class="cred-label">Pacientes atendidos</div>
+                </div>
+                <div class="cred-item">
+                    <div class="cred-number">5.0</div>
+                    <div class="cred-label">Avaliação média (Google)</div>
+                </div>
+                <div class="cred-item">
+                    <div class="cred-number">10+</div>
+                    <div class="cred-label">Anos de experiência</div>
+                </div>
+                <div class="cred-item">
+                    <div class="cred-number">98%</div>
+                    <div class="cred-label">Pacientes satisfeitos</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS -->
+    <div class="section" id="depoimentos">
+        <span class="section-label">Depoimentos</span>
+        <h2>O que nossos pacientes dizem</h2>
+
+        <div class="testi-grid">
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Finalmente encontrei um médico que realmente ouve e explica tudo com calma. O tratamento funcionou muito melhor do que eu esperava. Recomendo demais a Clínica Moco!"</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">M</div>
+                    <div>
+                        <div class="testi-name">Mariana S.</div>
+                        <div class="testi-role">Paciente desde 2024</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Fui em vários médicos antes e ninguém achava o problema. Aqui, na primeira consulta já tiveram uma hipótese certeira. Em 2 meses de tratamento já estava muito melhor."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">C</div>
+                    <div>
+                        <div class="testi-name">Carlos R.</div>
+                        <div class="testi-role">Paciente desde 2025</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Atendimento incrível, estrutura moderna e o médico é extremamente atencioso. Nunca sai de uma consulta com dúvidas. A clínica é de um nível diferente."</p>
+                <div class="testi-author">
+                    <div class="testi-avatar">A</div>
+                    <div>
+                        <div class="testi-name">Ana Paula L.</div>
+                        <div class="testi-role">Paciente desde 2025</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section" id="faq">
+        <span class="section-label">Dúvidas Frequentes</span>
+        <h2>Perguntas mais comuns</h2>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Como faço para agendar uma consulta?
+                    <span class="arrow">+</span>
+                </button>
+                <div class="faq-a">
+                    É simples: basta clicar no botão WhatsApp nesta página e nossa equipe vai responder em menos de 1 hora para confirmar data, horário e instruções de como chegar. Sem complicação, sem fila.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Quais convênios são aceitos?
+                    <span class="arrow">+</span>
+                </button>
+                <div class="faq-a">
+                    Atendemos os principais convênios médicos. Entre em contato pelo WhatsApp para confirmar se o seu plano é aceito. Também oferecemos atendimento particular com valores acessíveis.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Vocês atendem por telemedicina?
+                    <span class="arrow">+</span>
+                </button>
+                <div class="faq-a">
+                    Sim! Oferecemos consultas online com a mesma qualidade do atendimento presencial. Ideal para retornos, acompanhamento de exames e consultas para pacientes que moram longe.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Qual o tempo médio de espera para uma consulta?
+                    <span class="arrow">+</span>
+                </button>
+                <div class="faq-a">
+                    Geralmente conseguimos encaixar novos pacientes em até 48-72 horas. Para urgências, temos horários de prioridade. Entre em contato e verificamos a disponibilidade imediata.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-q" onclick="toggleFaq(this)">
+                    Preciso levar exames anteriores?
+                    <span class="arrow">+</span>
+                </button>
+                <div class="faq-a">
+                    Se tiver exames recentes, traga — ajuda muito no diagnóstico. Mas não é obrigatório. Na consulta fazemos uma avaliação completa e, se necessário, solicitamos novos exames.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="cta-section">
+        <div class="cta-box">
+            <h2>Pronto para cuidar da sua saúde de verdade?</h2>
+            <p>Agenda disponível hoje. Resposta em menos de 1 hora. Sem filas, sem burocracia.</p>
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20consulta%20na%20Cl%C3%ADnica%20Moco!" class="btn-whatsapp" target="_blank">
+                💬 Agendar Consulta pelo WhatsApp
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem; color: #606060;">Atendimento: Seg–Sex 8h–18h · Sáb 8h–12h</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Clínica Moco · Todos os direitos reservados</p>
+        <p style="margin-top: 0.4rem; color: #505050;">CFM: XXXXXXX · Brasília, DF</p>
+    </footer>
+
+    <script>
+        function toggleFaq(btn) {
+            const item = btn.parentElement;
+            item.classList.toggle('open');
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    entry.target.style.animationDelay = '0.1s';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section, .pain-card, .service-card, .testi-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
