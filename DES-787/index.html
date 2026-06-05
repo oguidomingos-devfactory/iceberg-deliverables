@@ -3,42 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proposta Exclusiva | Intimitá Clínica Veterinária</title>
+    <title>Proposta | Intimitá Clínica Veterinária — Pulso Marketing Veterinário</title>
+    <meta name="description" content="Proposta comercial personalizada para Intimitá Clínica Veterinária — Pulso Marketing Veterinário de Precisão">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --navy: #0D1B2A;
-            --purple: #7B3FA0;
-            --purple-light: #C084DC;
-            --purple-dark: #5A2878;
-            --gold: #C9A96E;
-            --gold-light: #E8D5B0;
-            --pulso: #00BFA5;
             --green: #25D366;
-            --sand: #F5EDE3;
-            --white: #FAFAF8;
-            --dark-bg: #09111d;
-            --dark-mid: #0f1c2e;
-            --card-bg: rgba(255, 255, 255, 0.04);
-            --card-border: rgba(123, 63, 160, 0.2);
-            --text-muted: #8096A7;
-            --text-secondary: #b8c4cc;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #ab74a9;
+            --pulso-light: #efe2f3;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(171, 116, 169, 0.25);
+            --muted: #a0a0a0;
+            --amber: #f59e0b;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--dark-bg);
-            color: var(--text-secondary);
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #100d1f 100%);
+            color: #e0e0e0;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -46,57 +39,15 @@
         h1, h2, h3, h4 {
             font-family: 'DM Serif Display', Georgia, serif;
             font-weight: 400;
-            color: var(--white);
+            letter-spacing: -0.5px;
         }
 
-        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.1; }
-        h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); }
-        h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+        h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
-        a { color: var(--purple-light); text-decoration: none; transition: color 0.3s; }
-        a:hover { color: var(--gold); }
-
-        /* NAV */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(9, 17, 29, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .nav-brand {
-            font-family: 'DM Serif Display', serif;
-            color: var(--purple-light);
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.4rem;
-            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
-            color: var(--navy);
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            color: var(--navy);
-        }
+        a { color: var(--pulso); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso-light); }
 
         /* HERO */
         .hero {
@@ -117,7 +68,7 @@
             right: -10%;
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(123, 63, 160, 0.12) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(171, 116, 169, 0.12) 0%, transparent 65%);
             border-radius: 50%;
             z-index: 0;
         }
@@ -129,7 +80,7 @@
             left: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(192, 132, 220, 0.07) 0%, transparent 65%);
+            background: radial-gradient(circle, rgba(239, 226, 243, 0.06) 0%, transparent 65%);
             border-radius: 50%;
             z-index: 0;
         }
@@ -138,879 +89,642 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(123, 63, 160, 0.15);
-            border: 1px solid rgba(123, 63, 160, 0.35);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--purple-light);
-            letter-spacing: 1.5px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+            color: var(--pulso);
+            border: 1px solid rgba(171, 116, 169, 0.35);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
             margin-bottom: 1.5rem;
-            animation: fadeInDown 0.7s ease-out;
         }
 
         .hero h1 {
-            animation: slideInLeft 0.8s ease-out 0.1s both;
+            color: var(--white);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.1;
             margin-bottom: 1rem;
+            animation: slideInDown 0.8s ease-out;
         }
 
-        .hero h1 span { color: var(--purple-light); }
+        .hero h1 em { color: var(--pulso); font-style: italic; }
 
-        .hero-subtitle {
-            font-size: clamp(1rem, 1.8vw, 1.2rem);
-            color: var(--gold);
-            margin-bottom: 1.5rem;
-            font-style: italic;
-            font-family: 'DM Serif Display', serif;
-            animation: slideInLeft 0.8s ease-out 0.2s both;
-        }
+        .hero .subtitle { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--pulso); margin-bottom: 0.75rem; }
+        .hero .tagline { font-size: 1rem; color: var(--muted); max-width: 540px; margin-bottom: 2rem; line-height: 1.6; }
 
-        .hero-desc {
-            font-size: clamp(0.95rem, 1.5vw, 1.05rem);
-            color: var(--text-muted);
-            max-width: 500px;
-            margin-bottom: 2.5rem;
-            animation: slideInLeft 0.8s ease-out 0.3s both;
-        }
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-        .hero-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            animation: slideInLeft 0.8s ease-out 0.4s both;
-        }
+        .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+        .hero-stat strong { display: block; font-size: 1.6rem; font-weight: 700; color: var(--pulso); }
+        .hero-stat span { font-size: 0.8rem; color: var(--muted); line-height: 1.3; }
 
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
-            color: var(--navy);
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
-            color: var(--navy);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            border: 1px solid var(--card-border);
-            color: var(--purple-light);
-            border-radius: 8px;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            background: var(--card-bg);
-            border-color: var(--purple);
-        }
-
-        /* HERO VISUAL */
-        .hero-visual {
-            position: relative;
-            z-index: 1;
-            animation: fadeInRight 0.9s ease-out 0.2s both;
-        }
+        .hero-visual { position: relative; z-index: 1; display: flex; justify-content: center; align-items: center; }
 
         .hero-photo-frame {
             position: relative;
-            width: 100%;
-            max-width: 420px;
-            margin: 0 auto;
+            width: min(420px, 90%);
         }
 
         .hero-photo-frame::before {
             content: '';
             position: absolute;
-            inset: -2px;
-            background: linear-gradient(135deg, var(--purple), var(--gold), var(--pulso));
-            border-radius: 20px;
+            inset: -12px;
+            border-radius: 28px;
+            border: 1.5px solid rgba(171, 116, 169, 0.3);
             z-index: -1;
-            opacity: 0.7;
         }
 
-        .hero-photo {
+        .hero-photo-wrap {
             width: 100%;
-            aspect-ratio: 3/4;
-            border-radius: 18px;
-            background: linear-gradient(160deg, #1a2840 0%, #0f1c2e 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            aspect-ratio: 4/3;
+            border-radius: 24px;
             overflow: hidden;
-            position: relative;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(171,116,169,0.2);
         }
 
-        .hero-photo-placeholder {
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .hero-photo-placeholder .vet-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
+        .hero-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             display: block;
-            filter: drop-shadow(0 0 30px rgba(123, 63, 160, 0.4));
         }
 
-        .hero-photo-placeholder h3 {
-            font-size: 1.4rem;
-            color: var(--white);
+        @media (max-width: 800px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { order: -1; }
+            .hero-photo-frame { width: min(320px, 85%); }
+            .hero-photo-wrap { aspect-ratio: 16/9; border-radius: 16px; }
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, #1aad5a 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.3s; }
+        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(6) { animation-delay: 0.5s; }
+        section:nth-of-type(7) { animation-delay: 0.6s; }
+        section:nth-of-type(8) { animation-delay: 0.7s; }
+        section:nth-of-type(9) { animation-delay: 0.8s; }
+        section:nth-of-type(10) { animation-delay: 0.9s; }
+        section:nth-of-type(11) { animation-delay: 1.0s; }
+        section:nth-of-type(12) { animation-delay: 1.1s; }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pulso);
+            background: rgba(171, 116, 169, 0.1);
+            border: 1px solid rgba(171, 116, 169, 0.2);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        /* CARD CONTAINERS */
+        .glass-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .card:hover { transform: translateX(8px); border-color: rgba(255, 255, 255, 0.12); }
+        .card strong { color: var(--pulso); display: block; margin-bottom: 0.5rem; }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(171, 116, 169, 0.08), rgba(0, 0, 0, 0.3));
+            border: 1px solid rgba(171, 116, 169, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .big-number {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--pulso);
+            line-height: 1;
             margin-bottom: 0.5rem;
         }
 
-        .hero-photo-placeholder p {
-            color: var(--purple-light);
-            font-size: 0.9rem;
-        }
-
-        .hero-photo-placeholder .clinic-tag {
-            display: inline-block;
-            margin-top: 1.2rem;
-            padding: 0.4rem 1rem;
-            background: rgba(123, 63, 160, 0.2);
-            border: 1px solid rgba(123, 63, 160, 0.35);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            color: var(--purple-light);
-        }
-
-        .hero-stats {
+        /* RECAP GRID */
+        .recap-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recap-card {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .recap-card:hover { border-color: rgba(255, 255, 255, 0.12); }
+
+        .recap-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(171, 116, 169, 0.1);
+            border-radius: 10px;
+        }
+
+        .recap-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pulso);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .recap-card p { font-size: 0.9rem; color: #c0c0c0; }
+
+        /* PROBLEM LIST */
+        .problem-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
             gap: 1rem;
             margin-top: 1.5rem;
         }
 
-        .hero-stat {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .hero-stat strong {
-            display: block;
-            font-size: 1.4rem;
-            color: var(--purple-light);
-            font-family: 'DM Serif Display', serif;
-        }
-
-        .hero-stat span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: clamp(4rem, 8vh, 6rem) clamp(2rem, 8vw, 8rem);
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .section-tag {
-            display: inline-block;
-            padding: 0.3rem 0.9rem;
-            background: rgba(123, 63, 160, 0.1);
-            border: 1px solid rgba(123, 63, 160, 0.25);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--purple-light);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section h2 { margin-bottom: 1rem; }
-
-        .section-subtitle {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            max-width: 680px;
-            margin-bottom: 3rem;
-        }
-
-        /* WHAT WE SAW (RECAP adapted) */
-        .recap-card {
-            background: linear-gradient(135deg, rgba(123, 63, 160, 0.08) 0%, rgba(201, 169, 110, 0.05) 100%);
-            border-radius: 20px;
-            padding: clamp(2rem, 4vw, 3.5rem);
-        }
-
-        .recap-points {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .recap-point {
-            display: flex;
-            gap: 1rem;
-            align-items: flex-start;
-            padding: 1.2rem;
+        .problem-list li {
+            padding: 1rem 1.5rem;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            border-left: 3px solid var(--purple);
-        }
-
-        .recap-point-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
-            background: rgba(123, 63, 160, 0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-        }
-
-        .recap-point-text strong {
-            display: block;
-            color: var(--white);
+            border-left: 3px solid rgba(255, 107, 107, 0.5);
+            border-radius: 0 8px 8px 0;
             font-size: 0.95rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .recap-point-text span {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* CHALLENGE */
-        .challenge-section {
-            background: linear-gradient(135deg, var(--dark-mid) 0%, rgba(9, 17, 29, 0.8) 100%);
-            border-radius: 20px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
-            padding: clamp(2.5rem, 5vw, 4rem);
-        }
-
-        .challenge-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .challenge-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border-top: 2px solid var(--purple-dark);
-        }
-
-        .challenge-card .number {
-            font-size: 2rem;
-            color: var(--purple-light);
-            font-family: 'DM Serif Display', serif;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .challenge-card strong {
-            display: block;
-            color: var(--white);
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        /* DIAGNOSIS */
-        .diagnosis-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .diagnosis-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 1.8rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        .diagnosis-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--purple), var(--gold));
-        }
-
-        .diagnosis-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(123, 63, 160, 0.2);
-        }
-
-        .diagnosis-card .icon {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .diagnosis-card strong {
-            display: block;
-            color: var(--white);
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            color: #d0d0d0;
         }
 
         /* OPPORTUNITIES */
-        .opportunity-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
-        .opportunity-item {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            padding: 1.5rem 2rem;
+        .opp-card {
             background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
+            padding: 2rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .opportunity-item:hover {
-            background: rgba(123, 63, 160, 0.05);
-            box-shadow: 0 8px 32px rgba(123, 63, 160, 0.12);
+        .opp-card:hover { border-color: rgba(255, 255, 255, 0.15); transform: translateY(-4px); }
+
+        .opp-number {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2rem;
+            color: var(--pulso);
+            opacity: 0.4;
+            margin-bottom: 0.8rem;
         }
 
-        .opportunity-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+        .opp-card h4 { font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--white); }
+        .opp-card p { font-size: 0.9rem; color: #b0b0b0; }
+
+        /* METRICS */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .metric-card .metric-value {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--pulso);
+            font-weight: 400;
+            margin-bottom: 0.4rem;
+        }
+
+        .metric-card .metric-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-card .metric-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+
+        /* TIMELINE */
+        .phase-list {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .phase-list::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(171, 116, 169, 0.2);
+        }
+
+        .phase-item { display: flex; gap: 1.5rem; padding-bottom: 2.5rem; position: relative; }
+
+        .phase-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(171, 116, 169, 0.15);
+            border: 2px solid var(--pulso);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            color: var(--white);
-            font-size: 1rem;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--pulso);
             flex-shrink: 0;
+            position: absolute;
+            left: -40px;
         }
 
-        .opportunity-text strong {
-            display: block;
-            color: var(--white);
+        .phase-content { padding-left: 0.5rem; }
+
+        .phase-period {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pulso);
             margin-bottom: 0.3rem;
         }
 
-        /* METRICS */
-        .metrics-section {
-            background: linear-gradient(160deg, rgba(123, 63, 160, 0.08) 0%, rgba(9, 17, 29, 0.5) 100%);
-            border-radius: 24px;
-            padding: clamp(2.5rem, 5vw, 4rem);
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin: 2.5rem 0;
-        }
-
-        .metric-box {
-            text-align: center;
-            padding: 2rem 1rem;
-            background: rgba(0, 0, 0, 0.25);
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        .metric-box .value {
-            font-size: clamp(2rem, 4vw, 3rem);
-            color: var(--purple-light);
-            font-family: 'DM Serif Display', serif;
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-box .label {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .metric-box .sub {
-            font-size: 0.8rem;
-            color: var(--gold);
-            margin-top: 0.4rem;
-        }
-
-        .benchmark-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .benchmark-card {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .benchmark-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(123, 63, 160, 0.15);
-        }
-
-        .metric-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.6rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.9rem;
-        }
-
-        .metric-row:last-child { border: none; }
-        .metric-row .val { color: var(--purple-light); font-weight: 600; }
-
-        /* PHASES */
-        .phases-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .phase-card {
-            background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        .phase-badge {
-            position: absolute;
-            top: -12px;
-            left: 1.5rem;
-            padding: 0.3rem 1rem;
-            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 0.5px;
-        }
-
-        .phase-card h3 { margin-top: 0.5rem; margin-bottom: 1rem; }
-
-        .phase-items { list-style: none; }
-
-        .phase-items li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            font-size: 0.9rem;
-        }
-
-        .phase-items li:last-child { border: none; }
-
-        .phase-items li::before {
-            content: '✓';
-            color: var(--purple-light);
-            font-weight: 700;
-            flex-shrink: 0;
-            margin-top: 0.1rem;
-        }
+        .phase-content h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--white); }
+        .phase-content p { font-size: 0.9rem; color: #b0b0b0; }
 
         /* DELIVERABLES */
-        .deliverables-grid {
+        .deliverable-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .deliverable-card {
             background: var(--card-bg);
-            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .deliverable-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(123, 63, 160, 0.12);
-        }
+        .deliverable-card:hover { border-color: rgba(255, 255, 255, 0.15); }
 
-        .deliverable-card .icon {
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-        }
+        .del-icon { font-size: 1.5rem; display: block; margin-bottom: 1rem; }
 
-        .deliverable-card strong {
-            display: block;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-        }
+        .deliverable-card h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); margin-bottom: 1rem; }
 
-        .deliverable-card ul {
-            list-style: none;
-            margin-top: 0.8rem;
-        }
+        .deliverable-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
 
-        .deliverable-card ul li {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            padding: 0.2rem 0;
-        }
+        .deliverable-card li { font-size: 0.9rem; color: #c0c0c0; padding-left: 1.2rem; position: relative; }
+        .deliverable-card li::before { content: '✓'; color: var(--pulso); font-weight: 600; position: absolute; left: 0; }
 
-        .deliverable-card ul li::before {
-            content: '→ ';
-            color: var(--purple-light);
-        }
-
-        /* MARKET / COMPETITION */
-        .market-section {
-            background: linear-gradient(135deg, rgba(123, 63, 160, 0.06) 0%, rgba(9, 17, 29, 0.6) 100%);
-            border-radius: 20px;
-            padding: clamp(2.5rem, 5vw, 4rem);
-        }
-
-        .competitor-table {
-            width: 100%;
-            border-collapse: collapse;
+        /* POSTS GRID */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
             margin-top: 2rem;
-            font-size: 0.9rem;
         }
 
+        .post-card {
+            aspect-ratio: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+            position: relative;
+            background: var(--card-bg);
+        }
+
+        .post-card:hover {
+            border-color: var(--pulso);
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(171, 116, 169, 0.2);
+        }
+
+        .post-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* INSTAGRAM FEED FULL */
+        .feed-photo {
+            width: 100%;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(171, 116, 169, 0.2);
+            margin-top: 2rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+
+        .feed-photo img {
+            width: 100%;
+            display: block;
+            border-radius: 16px;
+        }
+
+        /* INSTAGRAM PROFILE MOCK */
+        .ig-profile-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 12px 12px 0 0;
+            margin-top: 2rem;
+        }
+
+        .ig-avatar {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pulso), #7b3fa0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            flex-shrink: 0;
+            border: 2px solid rgba(171,116,169,0.4);
+        }
+
+        .ig-handle { color: var(--white); font-weight: 600; font-size: 1rem; }
+        .ig-name { color: var(--muted); font-size: 0.85rem; margin-top: 0.2rem; }
+
+        .ig-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+        }
+
+        .ig-stats span strong { color: var(--white); }
+        .ig-stats span { color: var(--muted); }
+
+        /* PRICING */
+        .pricing-section { text-align: center; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.recommended {
+            border-color: rgba(171, 116, 169, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+
+        .pricing-card.recommended::before {
+            content: '⭐ RECOMENDADO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--pulso), #7b3fa0);
+            color: var(--white);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .pricing-card h3 { color: var(--white); margin-bottom: 1rem; }
+
+        .price-display { font-size: 2.5rem; color: var(--pulso); font-weight: 600; margin-bottom: 0.5rem; }
+        .price-display span { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+
+        .price-features {
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .price-feature { padding: 0.7rem 0; border-bottom: 1px solid rgba(171, 116, 169, 0.1); color: #c0c0c0; }
+        .price-feature::before { content: '✓ '; color: var(--pulso); font-weight: 600; margin-right: 0.5rem; }
+        .price-feature.dimmed { color: #707070; }
+        .price-feature.dimmed::before { content: '○ '; color: #707070; }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .btn-featured { background: linear-gradient(135deg, var(--green), #1aad5a); color: white; }
+        .btn-featured:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.4); color: white; }
+
+        .btn-outline { border: 1.5px solid var(--border); color: var(--white); }
+        .btn-outline:hover { border-color: var(--pulso); color: var(--pulso); }
+
+        /* GUARANTEE */
+        .guarantee-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .guarantee-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+        .guarantee-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(171, 116, 169, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .guarantee-item h4 { font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--white); margin-bottom: 0.3rem; }
+        .guarantee-item p { font-size: 0.9rem; color: #b0b0b0; }
+
+        /* CTA FINAL */
+        .final-cta { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #25D366, #1aad5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); color: white; }
+
+        /* COMPETITOR TABLE */
+        .competitor-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; }
         .competitor-table th {
             padding: 1rem;
             text-align: left;
-            border-bottom: 2px solid rgba(123, 63, 160, 0.3);
-            color: var(--purple-light);
+            border-bottom: 2px solid rgba(171,116,169,0.3);
+            color: var(--pulso);
             font-family: 'DM Serif Display', serif;
             font-weight: 400;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
         .competitor-table td {
             padding: 0.9rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: #c0c0c0;
             vertical-align: top;
         }
-
         .competitor-table tr:last-child td { border: none; }
-
-        .competitor-table tr:hover td {
-            background: rgba(123, 63, 160, 0.04);
-        }
-
-        .threat-badge {
-            display: inline-block;
-            padding: 0.2rem 0.7rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .threat-high { background: rgba(239, 68, 68, 0.15); color: #f87171; }
-        .threat-medium { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
-        .threat-low { background: rgba(34, 197, 94, 0.15); color: #4ade80; }
-
-        .positioning-box {
-            background: rgba(123, 63, 160, 0.08);
-            border: 1px solid rgba(123, 63, 160, 0.25);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 2.5rem;
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            flex-wrap: wrap;
-        }
-
-        .positioning-box .pos-icon {
-            font-size: 3rem;
-            flex-shrink: 0;
-        }
-
-        .positioning-box h3 {
-            color: var(--purple-light);
-            margin-bottom: 0.5rem;
-        }
-
-        /* PRICING */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .plan-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2.5rem;
-            position: relative;
-            transition: all 0.3s;
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.35);
-        }
-
-        .plan-card.featured {
-            background: linear-gradient(160deg, rgba(123, 63, 160, 0.08) 0%, var(--card-bg) 100%);
-            transform: scale(1.03);
-            box-shadow: 0 20px 60px rgba(123, 63, 160, 0.2);
-        }
-
-        .plan-card:hover:not(.featured) {
-            transform: translateY(-5px);
-            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.45);
-        }
-
-        .plan-badge {
-            position: absolute;
-            top: -14px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 0.35rem 1.2rem;
-            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-            color: var(--white);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            white-space: nowrap;
-        }
-
-        .plan-name {
-            font-size: 1.3rem;
-            color: var(--white);
-            font-family: 'DM Serif Display', serif;
-            margin-bottom: 0.3rem;
-        }
-
-        .plan-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .plan-price {
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            color: var(--purple-light);
-            font-family: 'DM Serif Display', serif;
-            margin-bottom: 0.3rem;
-        }
-
-        .plan-price-note {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-        }
-
-        .plan-divider {
-            height: 1px;
-            background: rgba(255,255,255,0.07);
-            margin: 1.5rem 0;
-        }
-
-        .plan-features { list-style: none; }
-
-        .plan-features li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.7rem;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-        }
-
-        .plan-features li::before {
-            content: '✓';
-            color: var(--purple-light);
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .plan-features .plan-highlight {
-            color: var(--gold);
-            font-weight: 600;
-        }
-
-        .plan-cta {
-            display: block;
-            text-align: center;
-            margin-top: 2rem;
-            padding: 0.9rem 1.5rem;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s;
-        }
-
-        .plan-cta-default {
-            border: 1px solid rgba(123, 63, 160, 0.3);
-            color: var(--purple-light);
-        }
-
-        .plan-cta-default:hover {
-            background: rgba(123, 63, 160, 0.1);
-        }
-
-        .plan-cta-featured {
-            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
-            color: var(--navy);
-        }
-
-        .plan-cta-featured:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
-            color: var(--navy);
-        }
-
-        /* GUARANTEE */
-        .guarantee-section {
-            background: linear-gradient(135deg, rgba(123, 63, 160, 0.06) 0%, rgba(201, 169, 110, 0.04) 100%);
-            border-radius: 20px;
-            padding: clamp(3rem, 6vw, 5rem);
-            text-align: center;
-        }
-
-        .guarantee-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .guarantee-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .guarantee-item {
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-        }
-
-        .guarantee-item strong {
-            display: block;
-            color: var(--purple-light);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        /* FINAL CTA */
-        .final-cta-section {
-            text-align: center;
-            padding: clamp(4rem, 8vh, 7rem) clamp(2rem, 8vw, 8rem);
-            background: linear-gradient(135deg, rgba(123, 63, 160, 0.1) 0%, rgba(9, 17, 29, 0.8) 50%, rgba(201, 169, 110, 0.06) 100%);
-        }
-
-        .cta-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1.2rem 2.8rem;
-            background: linear-gradient(135deg, var(--green) 0%, #1aad5a 100%);
-            color: var(--white);
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin: 2rem 0 1rem;
-            transition: all 0.3s;
-        }
-
-        .cta-whatsapp:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(37, 211, 102, 0.35);
-            color: var(--white);
-        }
+        .competitor-table tr:hover td { background: rgba(171,116,169,0.04); }
+        .threat-high { background: rgba(239,68,68,0.15); color: #f87171; padding: 0.2rem 0.7rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+        .threat-med { background: rgba(251,191,36,0.15); color: #fbbf24; padding: 0.2rem 0.7rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+        .threat-low { background: rgba(34,197,94,0.15); color: #4ade80; padding: 0.2rem 0.7rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
 
         /* FOOTER */
-        footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding: 2rem clamp(2rem, 8vw, 8rem);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
+        footer { padding: 3rem 2rem; text-align: center; color: #707070; border-top: 1px solid var(--border); margin-top: 4rem; }
 
-        footer p { font-size: 0.85rem; color: var(--text-muted); }
-
-        .footer-brand {
-            font-family: 'DM Serif Display', serif;
-            color: var(--purple-light);
-            font-size: 1rem;
-        }
-
-        /* SCROLL REVEAL */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .pulso-logo { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700; color: var(--pulso); font-size: 0.95rem; margin-bottom: 0.5rem; }
 
         /* ANIMATIONS */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes slideInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes fadeInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        /* MOBILE */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero {
+            .pricing-card.recommended { transform: scale(1); }
+            .card-grid, .recap-grid, .opp-grid, .metrics-grid, .deliverable-grid, .pricing-grid, .guarantee-grid, .posts-grid {
                 grid-template-columns: 1fr;
-                padding-top: 7rem;
             }
-            .hero-visual { display: none; }
-            .plan-card.featured { transform: none; }
-            nav .nav-cta span { display: none; }
-            footer { flex-direction: column; text-align: center; }
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            .phase-list { padding-left: 30px; }
             .competitor-table { font-size: 0.8rem; }
             .competitor-table th, .competitor-table td { padding: 0.6rem 0.5rem; }
         }
@@ -1018,496 +732,352 @@
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-    <div class="nav-brand">Proposta · Intimitá Clínica Veterinária</div>
-    <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Vi+a+proposta+e+quero+conversar+sobre+o+plano+marketing+para+a+Intimit%C3%A1." class="nav-cta" target="_blank">
-        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.51 5.814L.057 23.786a.5.5 0 00.657.657l5.972-1.453A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.374l-.36-.214-3.732.908.927-3.63-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-        <span>Falar no WhatsApp</span>
-    </a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-content">
-        <div class="hero-badge">✦ Proposta Exclusiva · Plano Marketing Veterinário</div>
-        <h1>Intimitá <span>Clínica</span><br>Veterinária</h1>
-        <p class="hero-subtitle">Presença digital à altura do cuidado que você já oferece</p>
-        <p class="hero-desc">
-            Preparamos esta análise personalizada para transformar sua presença online em captação real de tutores — com estratégia, design premium e resultados mensuráveis para o mercado veterinário de Brasília.
-        </p>
-        <div class="hero-actions">
-            <a href="#planos" class="btn-primary">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.51 5.814L.057 23.786a.5.5 0 00.657.657l5.972-1.453A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.374l-.36-.214-3.732.908.927-3.63-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-                Quero Começar
-            </a>
-            <a href="#diagnostico" class="btn-secondary">
-                Ver nossa análise →
-            </a>
-        </div>
-
-        <div class="hero-stats" style="margin-top: 3rem;">
-            <div class="hero-stat">
-                <strong>R$18</strong>
-                <span>custo médio por lead no nicho pet</span>
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">✦ Proposta Exclusiva · Pulso Marketing Veterinário</div>
+            <h1>Intimitá<br><em>Clínica Veterinária</em></h1>
+            <p class="subtitle">Cuidado especializado · Asa Norte · Brasília</p>
+            <p class="tagline">Uma estratégia sob medida para transformar o cuidado que você já oferece em visibilidade digital real — e em tutores chegando toda semana.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Vi+a+proposta+da+Pulso+para+a+Intimit%C3%A1+e+quero+conversar%21" class="cta-button" target="_blank">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.51 5.814L.057 23.786a.5.5 0 00.657.657l5.972-1.453A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.374l-.36-.214-3.732.908.927-3.63-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+                    Quero Começar
+                </a>
+                <a href="#planos" style="display:inline-flex;align-items:center;gap:0.5rem;padding:1rem 2rem;border:1px solid rgba(171,116,169,0.4);border-radius:8px;color:var(--pulso);font-weight:600;font-size:1rem;text-decoration:none;transition:all 0.3s;">Ver os planos →</a>
             </div>
-            <div class="hero-stat">
-                <strong>3x</strong>
-                <span>mais agendamentos com estratégia paga</span>
-            </div>
-            <div class="hero-stat">
-                <strong>90 dias</strong>
-                <span>para resultados mensuráveis</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="hero-visual">
-        <div class="hero-photo-frame">
-            <div class="hero-photo">
-                <div class="hero-photo-placeholder">
-                    <span class="vet-icon">🐾</span>
-                    <h3>Dra. Liviane Noleto</h3>
-                    <p>Médica Veterinária · Intimitá</p>
-                    <span class="clinic-tag">CLN 204, Asa Norte · Brasília</span>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <strong>~150</strong>
+                    <span>leads/mês projetados</span>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 01 · O QUE VIMOS -->
-<div id="diagnostico" class="section reveal">
-    <div class="section-tag">01 · O que vimos</div>
-    <h2>Diagnóstico da sua presença digital</h2>
-    <p class="section-subtitle">Uma análise objetiva do que encontramos ao pesquisar publicamente sobre a Intimitá — para garantir que você entenda o ponto de partida real.</p>
-
-    <div class="recap-card">
-        <p style="color: var(--text-muted); font-style: italic; font-size: 1.05rem; border-left: 3px solid var(--purple); padding-left: 1rem; margin-bottom: 2rem;">
-            "O cuidado já existe. O ambiente diferenciado já existe. A equipe já existe. O que ainda não existe é a visibilidade digital proporcional à qualidade que você entrega."
-        </p>
-
-        <div class="recap-points">
-            <div class="recap-point">
-                <div class="recap-point-icon">🌐</div>
-                <div class="recap-point-text">
-                    <strong>Site fora do ar</strong>
-                    <span>Canal de conversão principal inativo — tutores que pesquisam no Google não têm para onde ir, perdendo potencial de captação orgânica e paga</span>
+                <div class="hero-stat">
+                    <strong>R$10–18</strong>
+                    <span>custo médio por lead pet</span>
                 </div>
-            </div>
-            <div class="recap-point">
-                <div class="recap-point-icon">📱</div>
-                <div class="recap-point-text">
-                    <strong>1.387 seguidores em 3 anos</strong>
-                    <span>Para uma clínica com diferenciais únicos em Asa Norte (equipe 100% feminina, ambiente anti-estresse para gatos, telemedicina), o crescimento está abaixo do potencial</span>
-                </div>
-            </div>
-            <div class="recap-point">
-                <div class="recap-point-icon">📊</div>
-                <div class="recap-point-text">
-                    <strong>Ratio seguidor/seguindo de 1,35:1</strong>
-                    <span>Indica uso de tática de follow-back em vez de atração por conteúdo — audiência menos qualificada, menor engajamento orgânico</span>
-                </div>
-            </div>
-            <div class="recap-point">
-                <div class="recap-point-icon">🎥</div>
-                <div class="recap-point-text">
-                    <strong>Zero presença em Reels/TikTok</strong>
-                    <span>O nicho pet é o mais performático em vídeos curtos no Brasil — gatos especialmente geram engajamento orgânico altíssimo, e esse canal está inexplorado</span>
-                </div>
-            </div>
-            <div class="recap-point">
-                <div class="recap-point-icon">⭐</div>
-                <div class="recap-point-text">
-                    <strong>~61 avaliações no Google</strong>
-                    <span>Para uma localização premium como Asa Norte, o volume está bem abaixo de concorrentes com 200+ avaliações — impactando diretamente a posição nos resultados de busca local</span>
-                </div>
-            </div>
-            <div class="recap-point">
-                <div class="recap-point-icon">🐱</div>
-                <div class="recap-point-text">
-                    <strong>Nicho felino sub-explorado</strong>
-                    <span>O ambiente especialmente adaptado para gatos e a expertise da equipe com felinos raramente aparecem no conteúdo — seu principal diferencial competitivo não está sendo comunicado</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 02 · DESAFIO CENTRAL -->
-<div class="section reveal">
-    <div class="section-tag">02 · Desafio Central</div>
-    <h2>A raiz do problema: o cuidado existe. A visibilidade, não.</h2>
-    <p class="section-subtitle">Você tem a clínica, a equipe diferenciada e o atendimento humanizado. O que falta é um sistema que traga tutores todo mês — sem depender de indicação.</p>
-
-    <div class="challenge-section">
-        <div class="challenge-grid">
-            <div class="challenge-card">
-                <div class="number">0</div>
-                <strong>sites operacionais</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Canal de conversão totalmente inativo — cada real investido em anúncio hoje não tem destino. Isso é resolvido na Fase 1.</p>
-            </div>
-            <div class="challenge-card">
-                <div class="number">1.387</div>
-                <strong>seguidores · potencial de expansão</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Com estratégia de conteúdo focada no nicho felino + tráfego pago, esse número pode triplicar em 90 dias. O potencial de alcance local é muito maior.</p>
-            </div>
-            <div class="challenge-card">
-                <div class="number">3x</div>
-                <strong>mais receita com tutores fidelizados</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Cada novo tutor é uma relação de anos. Consultas viram vacinas, exames, cirurgias — o LTV do cliente veterinário é longo.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 03 · DIAGNÓSTICO DIGITAL -->
-<div class="section reveal">
-    <div class="section-tag">03 · Diagnóstico Digital</div>
-    <h2>O que está faltando e onde agir agora</h2>
-    <p class="section-subtitle">Uma análise honesta do que precisa ser construído para a Intimitá dominar o mercado veterinário de Asa Norte.</p>
-
-    <div class="diagnosis-grid">
-        <div class="diagnosis-card">
-            <div class="icon">🌐</div>
-            <strong>Site offline — conversão zero</strong>
-            <p style="font-size: 0.875rem;">Sem site, não existe canal de conversão orgânica nem destino para anúncios. Tutores que pesquisam no Google não encontram a clínica. Landing page de alta conversão resolve isso enquanto o site é reconstruído.</p>
-        </div>
-        <div class="diagnosis-card">
-            <div class="icon">🎯</div>
-            <strong>Ausência de funil de captação</strong>
-            <p style="font-size: 0.875rem;">Sem LP + anúncios segmentados, os tutores que se interessam não têm caminho claro para agendamento. A maioria abandona antes de entrar em contato com a clínica.</p>
-        </div>
-        <div class="diagnosis-card">
-            <div class="icon">📝</div>
-            <strong>339 posts · nenhum CTA estruturado</strong>
-            <p style="font-size: 0.875rem;">São 339 publicações no Instagram, mas sem CTA claro, calendário editorial e objetivo de conversão, o engajamento não vira agendamento. Conteúdo bonito ≠ conteúdo que converte.</p>
-        </div>
-    </div>
-</div>
-
-<!-- 04 · OPORTUNIDADES -->
-<div class="section reveal">
-    <div class="section-tag">04 · Oportunidades</div>
-    <h2>5 alavancas de crescimento para a Intimitá</h2>
-    <p class="section-subtitle">Ações específicas que transformam o diagnóstico em resultado — com prazo e métrica para cada uma.</p>
-
-    <div class="opportunity-list">
-        <div class="opportunity-item">
-            <div class="opportunity-number">1</div>
-            <div class="opportunity-text">
-                <strong>Landing page de alta conversão (substitui o site agora)</strong>
-                <span>Uma página mobile-first com WhatsApp, formulário de agendamento, prova social e SEO local. Destino imediato para anúncios e buscas orgânicas enquanto o site é reconstruído. Entregue na semana 4.</span>
-            </div>
-        </div>
-        <div class="opportunity-item">
-            <div class="opportunity-number">2</div>
-            <div class="opportunity-text">
-                <strong>Identidade visual consolidada para o nicho veterinário</strong>
-                <span>Utilizar a paleta roxa da Intimitá em um sistema visual coeso: templates Instagram, Reels, Stories. Presença online que transmite o mesmo acolhimento e cuidado que a clínica oferece pessoalmente.</span>
-            </div>
-        </div>
-        <div class="opportunity-item">
-            <div class="opportunity-number">3</div>
-            <div class="opportunity-text">
-                <strong>Conteúdo felino de autoridade — o maior gap do mercado</strong>
-                <span>O nicho de gatos tem o maior engajamento orgânico no Instagram brasileiro. Conteúdo educativo sobre cuidados felinos, sinais de alerta e medicina preventiva posiciona a Intimitá como referência especializada.</span>
-            </div>
-        </div>
-        <div class="opportunity-item">
-            <div class="opportunity-number">4</div>
-            <div class="opportunity-text">
-                <strong>Tráfego pago estruturado (Meta + Google Local)</strong>
-                <span>Campanhas segmentadas para tutores de pets em Asa Norte e regiões adjacentes. Projeção conservadora: ~150 leads/mês com R$1.500 de verba — CPL médio de R$10 no nicho veterinário local.</span>
-            </div>
-        </div>
-        <div class="opportunity-item">
-            <div class="opportunity-number">5</div>
-            <div class="opportunity-text">
-                <strong>Crescimento de avaliações Google — de 61 para 200+</strong>
-                <span>Campanha automatizada de follow-up pós-consulta via WhatsApp. Cada avaliação positiva melhora a posição nos resultados locais — e 81% dos tutores leem avaliações antes de escolher uma clínica.</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 05 · MÉTRICAS PROJETADAS -->
-<div class="section reveal">
-    <div class="section-tag">05 · Métricas Projetadas</div>
-    <h2>Números reais que você pode esperar</h2>
-    <p class="section-subtitle">Baseado em benchmarks do mercado pet digital em Brasília — com investimento de R$1.500/mês em verba de mídia.</p>
-
-    <div class="metrics-section">
-        <div class="metrics-grid">
-            <div class="metric-box">
-                <div class="value">~150</div>
-                <div class="label">Leads/mês</div>
-                <div class="sub">contatos qualificados</div>
-            </div>
-            <div class="metric-box">
-                <div class="value">R$10–18</div>
-                <div class="label">CPL estimado</div>
-                <div class="sub">custo por lead veterinário</div>
-            </div>
-            <div class="metric-box">
-                <div class="value">~60</div>
-                <div class="label">Agendamentos/mês</div>
-                <div class="sub">conversão de 40%</div>
-            </div>
-            <div class="metric-box">
-                <div class="value">4x</div>
-                <div class="label">ROAS estimado</div>
-                <div class="sub">retorno sobre investimento</div>
-            </div>
-        </div>
-
-        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 1.5rem; font-style: italic;">* Projeções baseadas em benchmarks do nicho veterinário e negócios locais em Brasília. Resultados reais podem variar conforme competição local, sazonalidade e qualidade dos criativos.</p>
-    </div>
-</div>
-
-<!-- 06 · PLANO DE IMPLEMENTAÇÃO -->
-<div class="section reveal">
-    <div class="section-tag">06 · Plano de Implementação</div>
-    <h2>O que acontece em cada fase</h2>
-    <p class="section-subtitle">Estruturado para gerar resultado desde as primeiras semanas — sem enrolação.</p>
-
-    <div class="phases-container">
-        <div class="phase-card">
-            <div class="phase-badge">Semanas 1–4</div>
-            <h3>Fundação & Identidade</h3>
-            <ul class="phase-items">
-                <li>Onboarding estratégico com a equipe Intimitá</li>
-                <li>Diagnóstico completo + plano editorial veterinário</li>
-                <li>Manual de Identidade Visual (paleta roxa + animal care)</li>
-                <li>Templates para posts, stories e reels</li>
-                <li>Setup de pixels, GA4 e analytics</li>
-                <li>9 posts fundação do grid Instagram</li>
-            </ul>
-        </div>
-        <div class="phase-card">
-            <div class="phase-badge">Mês 2</div>
-            <h3>Landing Page & Tráfego</h3>
-            <ul class="phase-items">
-                <li>Landing page premium de alta conversão</li>
-                <li>Copy focado em tutores de pets em Brasília</li>
-                <li>Lançamento Meta Ads + Google Local Campaigns</li>
-                <li>Segmentação por bairro e perfil de tutor</li>
-                <li>Google Meu Negócio otimizado + campanha de avaliações</li>
-                <li>Início da geração de leads qualificados</li>
-            </ul>
-        </div>
-        <div class="phase-card">
-            <div class="phase-badge">Mês 3+</div>
-            <h3>Escala & Otimização</h3>
-            <ul class="phase-items">
-                <li>Otimização contínua das campanhas de tráfego</li>
-                <li>A/B test de criativos e copies</li>
-                <li>Produção mensal de conteúdo (posts + reels felinos)</li>
-                <li>Relatórios detalhados + reunião mensal de estratégia</li>
-                <li>Expansão de audiências e remarketing</li>
-                <li>Campanha de fidelização de tutores recorrentes</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<!-- 07 · ENTREGÁVEIS -->
-<div class="section reveal">
-    <div class="section-tag">07 · O que você recebe</div>
-    <h2>Entregáveis detalhados do Plano Marketing</h2>
-    <p class="section-subtitle">Cada item foi pensado para construir uma presença digital sólida e gerar resultado real para a Intimitá.</p>
-
-    <div class="deliverables-grid">
-        <div class="deliverable-card">
-            <div class="icon">🎨</div>
-            <strong>Branding & Identidade Visual</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Manual completo adaptado à identidade roxa da Intimitá</p>
-            <ul>
-                <li>Paleta de cores + tipografia para o nicho vet</li>
-                <li>Templates editáveis (Canva/Figma)</li>
-                <li>Stories, highlights e capas com temática pet</li>
-                <li>Identidade visual para posts felinos</li>
-            </ul>
-        </div>
-        <div class="deliverable-card">
-            <div class="icon">🐾</div>
-            <strong>Vitrine Instagram</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Conteúdo que posiciona autoridade no nicho veterinário</p>
-            <ul>
-                <li>9 posts fundação do grid</li>
-                <li>Copy estratégico: educação + emoção + CTA</li>
-                <li>Calendário editorial mês 1 (gatos, cuidados, prevenção)</li>
-                <li>Estratégia de Reels felinos</li>
-            </ul>
-        </div>
-        <div class="deliverable-card">
-            <div class="icon">🌐</div>
-            <strong>Landing Page Premium</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Página de alta conversão para agendamento de consultas</p>
-            <ul>
-                <li>Design mobile-first premium</li>
-                <li>Copy focado em tutores de pets em Brasília</li>
-                <li>Integração WhatsApp + formulário de agendamento</li>
-                <li>SEO local otimizado para buscas veterinárias</li>
-            </ul>
-        </div>
-        <div class="deliverable-card">
-            <div class="icon">📢</div>
-            <strong>Tráfego Pago</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Campanhas gerenciadas para tutores de pets em Brasília</p>
-            <ul>
-                <li>Meta Ads (Facebook + Instagram)</li>
-                <li>Google Local Campaigns (buscas locais)</li>
-                <li>Remarketing e audiências de tutores</li>
-                <li>Relatório mensal detalhado de ROI</li>
-            </ul>
-        </div>
-        <div class="deliverable-card">
-            <div class="icon">📊</div>
-            <strong>Analytics & Dashboard</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Dados para decisões certas a cada mês</p>
-            <ul>
-                <li>Google Analytics 4 configurado</li>
-                <li>Dashboard de performance em tempo real</li>
-                <li>Rastreamento de conversões e agendamentos</li>
-                <li>Reunião mensal de resultados</li>
-            </ul>
-        </div>
-        <div class="deliverable-card">
-            <div class="icon">⚡</div>
-            <strong>Automações & Follow-up</strong>
-            <p style="font-size: 0.875rem; color: var(--text-muted);">Captação e fidelização inteligente 24/7</p>
-            <ul>
-                <li>Resposta automática no WhatsApp da clínica</li>
-                <li>Campanha automática de avaliações GMB pós-consulta</li>
-                <li>Sequência de nutrição de leads via WhatsApp</li>
-                <li>Alerta de novo lead em tempo real</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-<!-- 07b · VITRINE INSTAGRAM -->
-<div class="section reveal">
-    <div class="section-tag">Vitrine · Instagram</div>
-    <h2>Como seu perfil ficará</h2>
-    <p class="section-subtitle">Exemplos do tipo de conteúdo que produzimos — posts que educam, encantam e convertem tutores.</p>
-
-    <div style="background: linear-gradient(135deg, rgba(123,63,160,0.06) 0%, rgba(9,17,29,0.6) 100%); border-radius: 20px; padding: clamp(2rem,4vw,3rem);">
-        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.07);">
-            <div style="width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--gold)); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0;">🐾</div>
-            <div>
-                <div style="color: var(--white); font-weight: 600; font-size: 1rem;">@intimita.clinicavet</div>
-                <div style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem;">Intimitá Clínica Veterinária · Asa Norte, Brasília</div>
-                <div style="display: flex; gap: 1.5rem; margin-top: 0.6rem; font-size: 0.85rem;">
-                    <span><strong style="color: var(--white);">339</strong> <span style="color: var(--text-muted);">posts</span></span>
-                    <span><strong style="color: var(--white);">1.387</strong> <span style="color: var(--text-muted);">seguidores</span></span>
-                    <span><strong style="color: var(--white);">1.025</strong> <span style="color: var(--text-muted);">seguindo</span></span>
+                <div class="hero-stat">
+                    <strong>90 dias</strong>
+                    <span>para resultados visíveis</span>
                 </div>
             </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; border-radius: 8px; overflow: hidden;">
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center; position: relative;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🐱</div>
-                <div style="font-size: 0.7rem; color: #c084dc; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Saúde Felina</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">5 sinais que seu gato precisa de consulta</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #1a2840 0%, #0f1c2e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">💉</div>
-                <div style="font-size: 0.7rem; color: #c9a96e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Prevenção</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Calendário de vacinas: o que não pode faltar</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #1f1040 0%, #130a28 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏥</div>
-                <div style="font-size: 0.7rem; color: #c084dc; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Clínica</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Telemedicina veterinária: quando usar?</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #0f1c2e 0%, #07111d 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">❤️</div>
-                <div style="font-size: 0.7rem; color: #c9a96e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Equipe</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Conheça a equipe 100% feminina da Intimitá</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌙</div>
-                <div style="font-size: 0.7rem; color: #c084dc; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Bem-estar</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Ambiente anti-estresse para gatos: como funciona?</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #1a2840 0%, #0f1c2e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📋</div>
-                <div style="font-size: 0.7rem; color: #c9a96e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Dicas</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Checklist: primeira consulta do seu pet</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #1f1040 0%, #130a28 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔬</div>
-                <div style="font-size: 0.7rem; color: #c084dc; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Exames</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Quando fazer check-up no seu gato?</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #0f1c2e 0%, #07111d 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎯</div>
-                <div style="font-size: 0.7rem; color: #c9a96e; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Nutri</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Alimentação saudável para felinos: guia prático</div>
-            </div>
-            <div style="aspect-ratio: 1; background: linear-gradient(135deg, #2d1b4e 0%, #1a0f2e 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; text-align: center;">
-                <div style="font-size: 2rem; margin-bottom: 0.5rem;">📱</div>
-                <div style="font-size: 0.7rem; color: #c084dc; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Agende</div>
-                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.7); margin-top: 0.3rem; line-height: 1.3;">Consulta de telemedicina no conforto da sua casa</div>
+        <div class="hero-visual">
+            <div class="hero-photo-frame">
+                <div class="hero-photo-wrap">
+                    <img src="./photos/clinic.jpg" alt="Intimitá Clínica Veterinária — Asa Norte, Brasília" />
+                </div>
             </div>
         </div>
-
-        <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 1.5rem; font-style: italic;">
-            ✦ Mockup ilustrativo dos 9 posts de fundação do grid — estratégia editorial voltada ao nicho felino com educação, confiança e CTA de agendamento.
-        </p>
     </div>
-</div>
 
-<!-- 07c · PREVIEW DA LANDING PAGE -->
-<div class="section reveal">
-    <div class="section-tag">Preview · Landing Page</div>
-    <h2>Sua clínica em uma página de alta conversão</h2>
-    <p class="section-subtitle">Uma landing page premium que funciona como destino de anúncios e canal de agendamento enquanto o site é reconstruído.</p>
+    <!-- 01 · DIAGNÓSTICO DA PRESENÇA DIGITAL -->
+    <section>
+        <div class="section-tag">01 · O que vimos</div>
+        <h2>Diagnóstico da sua presença digital</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem; max-width: 600px;">Uma análise objetiva do que encontramos ao pesquisar publicamente sobre a Intimitá — para garantir que você entenda o ponto de partida real.</p>
 
-    <div style="background: linear-gradient(135deg, rgba(123,63,160,0.06) 0%, rgba(9,17,29,0.6) 100%); border-radius: 20px; padding: clamp(2rem,4vw,3rem);">
-        <div style="background: #1a2840; border-radius: 12px 12px 0 0; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.07);">
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444;"></div>
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b;"></div>
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: #22c55e;"></div>
-            <div style="flex: 1; background: rgba(255,255,255,0.06); border-radius: 6px; padding: 0.3rem 0.8rem; margin-left: 0.5rem; font-size: 0.75rem; color: var(--text-muted);">intimita.vet.br / agendamento</div>
-        </div>
-        <div style="background: #0a1520; border-radius: 0 0 12px 12px; padding: 2rem; min-height: 320px; position: relative; overflow: hidden;">
-            <div style="position: absolute; top: -50px; right: -50px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(123,63,160,0.12) 0%, transparent 70%); border-radius: 50%;"></div>
-            <div style="position: relative; z-index: 1; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;">
+        <div class="recap-grid">
+            <div class="recap-card">
+                <div class="recap-icon">🌐</div>
                 <div>
-                    <div style="display: inline-block; padding: 0.25rem 0.75rem; background: rgba(123,63,160,0.15); border: 1px solid rgba(123,63,160,0.3); border-radius: 50px; font-size: 0.7rem; color: #c084dc; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">Intimitá · Clínica Veterinária</div>
-                    <div style="font-size: clamp(1.2rem, 3vw, 1.8rem); font-family: 'DM Serif Display', Georgia, serif; color: #fafaf8; line-height: 1.2; margin-bottom: 0.75rem;">Cuidado especializado<br><span style="color: #c084dc;">para gatos e cães</span><br>em Asa Norte</div>
-                    <div style="font-size: 0.85rem; color: #8096a7; margin-bottom: 1.5rem;">Equipe 100% feminina · Telemedicina · Ambiente anti-estresse felino · CLN 204</div>
-                    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                        <div style="padding: 0.6rem 1.2rem; background: linear-gradient(135deg, #25d366, #00bfa5); color: #0d1b2a; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">📲 Agendar via WhatsApp</div>
-                        <div style="padding: 0.6rem 1.2rem; border: 1px solid rgba(123,63,160,0.35); color: #c084dc; border-radius: 6px; font-size: 0.8rem;">Ver serviços →</div>
-                    </div>
+                    <h4>Site fora do ar</h4>
+                    <p>Canal de conversão principal inativo — tutores que pesquisam no Google não têm para onde ir, perdendo potencial de captação orgânica e paga.</p>
                 </div>
-                <div style="width: 100px; height: 100px; border-radius: 16px; background: linear-gradient(135deg, rgba(123,63,160,0.2), rgba(201,169,110,0.1)); display: flex; align-items: center; justify-content: center; font-size: 3rem; flex-shrink: 0;">🐾</div>
             </div>
-            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 1.5rem; flex-wrap: wrap;">
-                <div style="font-size: 0.75rem; color: #8096a7;">⭐ +61 avaliações no Google</div>
-                <div style="font-size: 0.75rem; color: #8096a7;">🐱 Especialistas em felinos</div>
-                <div style="font-size: 0.75rem; color: #8096a7;">📍 CLN 204, Asa Norte · Brasília</div>
+            <div class="recap-card">
+                <div class="recap-icon">📱</div>
+                <div>
+                    <h4>1.387 seguidores · potencial inexplorado</h4>
+                    <p>Para uma clínica com diferenciais únicos em Asa Norte (equipe 100% feminina, ambiente anti-estresse para gatos, telemedicina), o crescimento está aquém do potencial de alcance local.</p>
+                </div>
+            </div>
+            <div class="recap-card">
+                <div class="recap-icon">📊</div>
+                <div>
+                    <h4>Ratio seguidor/seguindo de 1,35:1</h4>
+                    <p>Indica uso de tática de follow-back em vez de atração por conteúdo — audiência menos qualificada, menor engajamento orgânico.</p>
+                </div>
+            </div>
+            <div class="recap-card">
+                <div class="recap-icon">🎥</div>
+                <div>
+                    <h4>Zero presença em Reels</h4>
+                    <p>O nicho pet é o mais performático em vídeos curtos no Brasil — gatos especialmente geram engajamento orgânico altíssimo, e esse canal está inexplorado.</p>
+                </div>
+            </div>
+            <div class="recap-card">
+                <div class="recap-icon">⭐</div>
+                <div>
+                    <h4>~61 avaliações no Google</h4>
+                    <p>Para uma localização premium como Asa Norte, o volume está bem abaixo de concorrentes com 200+ avaliações — impactando diretamente a posição nos resultados de busca local.</p>
+                </div>
+            </div>
+            <div class="recap-card">
+                <div class="recap-icon">🐱</div>
+                <div>
+                    <h4>Nicho felino sub-explorado</h4>
+                    <p>O ambiente especialmente adaptado para gatos e a expertise da equipe com felinos raramente aparecem no conteúdo — seu principal diferencial competitivo não está sendo comunicado.</p>
+                </div>
             </div>
         </div>
-        <p style="text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem; font-style: italic;">
-            ✦ Mockup ilustrativo da landing page de conversão — desenvolvida no Mês 2, mobile-first, integrada ao WhatsApp e Google Meu Negócio.
+    </section>
+
+    <!-- 02 · DESAFIO CENTRAL -->
+    <section>
+        <div class="section-tag">02 · O desafio</div>
+        <h2>O problema não é qualidade. É visibilidade.</h2>
+
+        <div class="highlight-box">
+            <div class="big-number">0</div>
+            <p style="font-size: 1.1rem; color: var(--white); font-weight: 600; margin-bottom: 0.5rem;">canais de conversão ativos hoje</p>
+            <p style="color: #b0b0b0;">Site offline. Sem funil. Sem destino para anúncios. O cuidado já existe — falta o sistema que traz tutores todo mês sem depender de indicação.</p>
+        </div>
+
+        <ul class="problem-list">
+            <li>339 posts no Instagram, mas sem CTA estruturado — engajamento não vira agendamento.</li>
+            <li>Google "veterinária gatos Asa Norte" — sem site e com 61 avaliações, a Intimitá aparece depois dos concorrentes.</li>
+            <li>Cada real investido em anúncio hoje não tem destino — não existe landing page para capturar o interesse.</li>
+            <li>O maior diferencial da Intimitá (ambiente anti-estresse felino + equipe 100% feminina) não aparece no conteúdo.</li>
+        </ul>
+    </section>
+
+    <!-- 03 · DIAGNÓSTICO DIGITAL -->
+    <section>
+        <div class="section-tag">03 · Diagnóstico Digital</div>
+        <h2>3 gaps que estão freando o crescimento agora</h2>
+
+        <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="card">
+                <strong style="color: var(--amber);">Gap 01 — Site offline · conversão zero</strong>
+                Sem site, não existe canal de conversão orgânica nem destino para anúncios. Tutores que pesquisam no Google não encontram a clínica. Landing page de alta conversão resolve isso rapidamente.
+            </div>
+            <div class="card">
+                <strong style="color: var(--amber);">Gap 02 — Ausência de funil de captação</strong>
+                Sem LP + anúncios segmentados, os tutores que se interessam não têm caminho claro para agendamento. Sem pixel nem GA4, não há como medir o que funciona.
+            </div>
+            <div class="card">
+                <strong style="color: var(--amber);">Gap 03 — 339 posts · nenhum CTA estruturado</strong>
+                Volume de conteúdo existe, mas sem calendário editorial, objetivo de conversão e CTA claro, o esforço não converte. Conteúdo bonito ≠ conteúdo que agenda consulta.
+            </div>
+        </div>
+    </section>
+
+    <!-- 04 · OPORTUNIDADES -->
+    <section>
+        <div class="section-tag">04 · Oportunidades</div>
+        <h2>5 alavancas que vamos ativar juntos</h2>
+
+        <div class="opp-grid">
+            <div class="opp-card">
+                <div class="opp-number">01</div>
+                <h4>Landing Page de Alta Conversão (substitui o site agora)</h4>
+                <p>Página mobile-first com WhatsApp, formulário de agendamento, prova social e SEO local. Destino imediato para anúncios e buscas orgânicas enquanto o site é reconstruído. Entregue na semana 4.</p>
+            </div>
+            <div class="opp-card">
+                <div class="opp-number">02</div>
+                <h4>Identidade Visual para o Nicho Veterinário</h4>
+                <p>Utilizar a paleta roxa da Intimitá em um sistema visual coeso: templates Instagram, Reels, Stories. Presença online que transmite o mesmo acolhimento e cuidado que a clínica oferece pessoalmente.</p>
+            </div>
+            <div class="opp-card">
+                <div class="opp-number">03</div>
+                <h4>Conteúdo Felino de Autoridade — o maior gap do mercado</h4>
+                <p>O nicho de gatos tem o maior engajamento orgânico no Instagram brasileiro. Conteúdo educativo sobre cuidados felinos, sinais de alerta e medicina preventiva posiciona a Intimitá como referência.</p>
+            </div>
+            <div class="opp-card">
+                <div class="opp-number">04</div>
+                <h4>Tráfego Pago Estruturado (Meta + Google Local)</h4>
+                <p>Campanhas segmentadas para tutores de pets em Asa Norte e regiões adjacentes. Projeção conservadora: ~150 leads/mês com R$1.500 de verba — CPL estimado de R$10–18 no nicho veterinário local.</p>
+            </div>
+            <div class="opp-card">
+                <div class="opp-number">05</div>
+                <h4>Crescimento de Avaliações Google — de 61 para 200+</h4>
+                <p>Campanha automatizada de follow-up pós-consulta via WhatsApp. Cada avaliação positiva melhora a posição nos resultados locais — tutores leem avaliações antes de escolher uma clínica.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05 · MÉTRICAS PROJETADAS -->
+    <section>
+        <div class="section-tag">05 · Projeções</div>
+        <h2>Números reais que você pode esperar</h2>
+        <p style="color: #b0b0b0; max-width: 600px; margin-bottom: 2rem;">Baseado em benchmarks do nicho pet digital em Brasília — com R$1.500/mês de verba de mídia.</p>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-value">~150</div>
+                <div class="metric-label">Leads/mês</div>
+                <div class="metric-note">Contatos qualificados</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">R$10–18</div>
+                <div class="metric-label">CPL estimado</div>
+                <div class="metric-note">Custo por lead veterinário</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">~60</div>
+                <div class="metric-label">Agendamentos/mês</div>
+                <div class="metric-note">Conversão de ~40%</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">4×</div>
+                <div class="metric-label">ROAS estimado</div>
+                <div class="metric-note">Retorno sobre investimento</div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--pulso); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">Conta rápida</p>
+            <p style="font-size: 1.1rem; color: var(--white);">~50 novos tutores/mês × ticket médio R$200 = <strong style="color: #25d366;">R$10.000/mês de receita incremental</strong> — com R$1.500 de verba.</p>
+            <p style="font-size: 0.85rem; color: #b0b0b0; margin-top: 0.5rem;">Cada novo tutor é uma relação de anos: consultas, vacinas, exames, cirurgias. O LTV no nicho veterinário é longo.</p>
+            <p style="font-size: 0.8rem; color: #707070; margin-top: 0.8rem; font-style: italic;">* Projeções baseadas em benchmarks do nicho veterinário e negócios locais em Brasília. Resultados reais variam conforme competição, sazonalidade e qualidade dos criativos.</p>
+        </div>
+    </section>
+
+    <!-- 06 · CRONOGRAMA -->
+    <section>
+        <div class="section-tag">06 · Cronograma</div>
+        <h2>Como a gente vai construir isso</h2>
+
+        <div class="phase-list">
+            <div class="phase-item">
+                <div class="phase-dot">S1</div>
+                <div class="phase-content">
+                    <div class="phase-period">Semanas 1–2</div>
+                    <h4>Fundação & Identidade</h4>
+                    <p>Onboarding estratégico com a equipe Intimitá, diagnóstico 360°, plano editorial veterinário, manual de identidade visual (paleta roxa + animal care), templates para posts/stories/reels, setup de pixels, GA4 e analytics.</p>
+                </div>
+            </div>
+            <div class="phase-item">
+                <div class="phase-dot">S3</div>
+                <div class="phase-content">
+                    <div class="phase-period">Semanas 3–4</div>
+                    <h4>Landing Page + Grid de Fundação</h4>
+                    <p>Landing page premium live com foco em captação de tutores de Brasília. 9 posts de fundação no Instagram para estabelecer autoridade antes dos anúncios. Google Meu Negócio otimizado.</p>
+                </div>
+            </div>
+            <div class="phase-item">
+                <div class="phase-dot">M2</div>
+                <div class="phase-content">
+                    <div class="phase-period">Mês 2</div>
+                    <h4>Tráfego Pago + Primeiros Leads</h4>
+                    <p>Meta Ads + Google Local Campaigns no ar. Segmentação por bairro e perfil de tutor. Campanha de avaliações GMB ativada. Primeiros leads chegando com relatório semanal de ajustes.</p>
+                </div>
+            </div>
+            <div class="phase-item" style="padding-bottom: 0;">
+                <div class="phase-dot">M3</div>
+                <div class="phase-content">
+                    <div class="phase-period">Mês 3+</div>
+                    <h4>Escala & Fidelização</h4>
+                    <p>Otimização contínua das campanhas, A/B test de criativos, produção mensal de conteúdo felino (posts + reels), expansão de audiências, remarketing e campanha de fidelização de tutores recorrentes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 07 · ENTREGAS -->
+    <section>
+        <div class="section-tag">07 · O que você recebe</div>
+        <h2>Entregáveis detalhados do Plano Marketing</h2>
+
+        <div class="deliverable-grid">
+            <div class="deliverable-card">
+                <span class="del-icon">🎨</span>
+                <h4>Branding & Identidade Visual</h4>
+                <ul>
+                    <li>Manual completo adaptado à identidade roxa da Intimitá</li>
+                    <li>Templates editáveis (Canva/Figma)</li>
+                    <li>Stories, highlights e capas com temática pet</li>
+                    <li>Identidade visual para posts felinos</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <span class="del-icon">🐾</span>
+                <h4>Vitrine Instagram</h4>
+                <ul>
+                    <li>9 posts fundação do grid com copy estratégico</li>
+                    <li>Calendário editorial mês 1 (gatos, cuidados, prevenção)</li>
+                    <li>Estratégia de Reels felinos de autoridade</li>
+                    <li>Bio otimizada + destaques configurados</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <span class="del-icon">🌐</span>
+                <h4>Landing Page Premium</h4>
+                <ul>
+                    <li>Design mobile-first premium para tutores de Brasília</li>
+                    <li>Integração WhatsApp + formulário de agendamento</li>
+                    <li>Pixel Meta + GA4 + GTM instalados</li>
+                    <li>SEO local otimizado para buscas veterinárias</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <span class="del-icon">📢</span>
+                <h4>Tráfego Pago Gerenciado</h4>
+                <ul>
+                    <li>Meta Ads (Facebook + Instagram) completo</li>
+                    <li>Google Local Campaigns (buscas locais)</li>
+                    <li>Remarketing e audiências de tutores</li>
+                    <li>Relatório mensal detalhado de ROI</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <span class="del-icon">📊</span>
+                <h4>Analytics & Dashboard</h4>
+                <ul>
+                    <li>Google Analytics 4 configurado</li>
+                    <li>Dashboard de performance em tempo real</li>
+                    <li>Rastreamento de conversões e agendamentos</li>
+                    <li>Reunião mensal de resultados e estratégia</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <span class="del-icon">⚡</span>
+                <h4>Automações & Follow-up</h4>
+                <ul>
+                    <li>Resposta automática no WhatsApp da clínica</li>
+                    <li>Campanha automática de avaliações GMB pós-consulta</li>
+                    <li>Sequência de nutrição de leads via WhatsApp</li>
+                    <li>Alerta de novo lead em tempo real</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 08 · VITRINE INSTAGRAM (foto real do feed) -->
+    <section>
+        <div class="section-tag">08 · Vitrine Instagram</div>
+        <h2>Como seu perfil ficará</h2>
+        <p style="color: #b0b0b0; margin-bottom: 0; max-width: 600px;">Conteúdo que posiciona autoridade no nicho veterinário — posts que educam, encantam e convertem tutores em agendamentos reais.</p>
+
+        <div class="ig-profile-header">
+            <div class="ig-avatar">🐾</div>
+            <div>
+                <div class="ig-handle">@intimita.clinicavet</div>
+                <div class="ig-name">Intimitá Clínica Veterinária · CLN 204, Asa Norte · Brasília</div>
+                <div class="ig-stats">
+                    <span><strong>339</strong> posts</span>
+                    <span><strong>1.387</strong> seguidores</span>
+                    <span><strong>1.025</strong> seguindo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="feed-photo">
+            <img src="./posts/feed1.png" alt="Feed Instagram Intimitá Clínica Veterinária" />
+        </div>
+
+        <p style="color: #707070; font-size: 0.85rem; text-align: center; margin-top: 1.5rem; font-style: italic;">
+            ✦ Exemplo de post do feed — conteúdo de autoridade focado no nicho felino, com copy estratégico e CTA de agendamento.
         </p>
-    </div>
-</div>
+    </section>
 
-<!-- 08 · ESTUDO DE MERCADO E CONCORRÊNCIA -->
-<div class="section reveal">
-    <div class="section-tag">08 · Estudo de Mercado</div>
-    <h2>Onde a Intimitá está no mapa competitivo de Asa Norte</h2>
-    <p class="section-subtitle">Mapeamos as principais clínicas veterinárias que competem pela atenção dos tutores de pets na sua região.</p>
+    <!-- 09 · ESTUDO DE MERCADO -->
+    <section>
+        <div class="section-tag">09 · Estudo de Mercado</div>
+        <h2>Onde a Intimitá está no mapa competitivo de Asa Norte</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem; max-width: 600px;">Mapeamos as principais clínicas veterinárias que competem pela atenção dos tutores de pets na sua região.</p>
 
-    <div class="market-section">
         <table class="competitor-table">
             <thead>
                 <tr>
@@ -1522,230 +1092,188 @@
                     <td style="color: var(--white); font-weight: 500;">CVAN</td>
                     <td>38 anos · 24h · 15+ especialidades · referência da região</td>
                     <td>Site robusto + redes ativas</td>
-                    <td><span class="threat-badge threat-high">Alta</span></td>
+                    <td><span class="threat-high">Alta</span></td>
                 </tr>
                 <tr>
                     <td style="color: var(--white); font-weight: 500;">Médica de Gatos</td>
-                    <td>Especialista em felinos 24h · nicho idêntico ao seu diferencial</td>
+                    <td>Especialista em felinos 24h · nicho idêntico ao diferencial da Intimitá</td>
                     <td>Instagram ativo + conteúdo especializado</td>
-                    <td><span class="threat-badge threat-medium">Média-Alta</span></td>
+                    <td><span class="threat-med">Média-Alta</span></td>
                 </tr>
                 <tr>
                     <td style="color: var(--white); font-weight: 500;">Movimento Animal (MOVA)</td>
                     <td>Reabilitação veterinária · 24h · nicho específico</td>
                     <td>Presença moderada</td>
-                    <td><span class="threat-badge threat-medium">Média</span></td>
+                    <td><span class="threat-med">Média</span></td>
                 </tr>
                 <tr>
                     <td style="color: var(--white); font-weight: 500;">VetNorte</td>
                     <td>Localização próxima (CLN 206) · generalista</td>
                     <td>Presença limitada</td>
-                    <td><span class="threat-badge threat-low">Baixa-Média</span></td>
+                    <td><span class="threat-low">Baixa-Média</span></td>
                 </tr>
                 <tr>
                     <td style="color: var(--white); font-weight: 500;">Vet. Melhores Amigos</td>
                     <td>CLN 205 · oftalmo e cardiologia veterinária</td>
                     <td>Presença básica</td>
-                    <td><span class="threat-badge threat-medium">Média</span></td>
+                    <td><span class="threat-med">Média</span></td>
                 </tr>
                 <tr>
-                    <td style="color: var(--white); font-weight: 500;">Clínicas CLN 204–210</td>
-                    <td>Múltiplas clínicas no corredor da Asa Norte</td>
-                    <td>Maioria sem estratégia digital consistente</td>
-                    <td><span class="threat-badge threat-low">Baixa</span></td>
+                    <td style="color: var(--white); font-weight: 500; color: var(--pulso);">✦ Intimitá</td>
+                    <td>Ambiente anti-estresse felino · equipe 100% feminina · telemedicina · CLN 204</td>
+                    <td>Site offline · Instagram ativo (339 posts)</td>
+                    <td><span style="background: rgba(171,116,169,0.15); color: #e0b4e0; padding: 0.2rem 0.7rem; border-radius: 50px; font-size: 0.75rem; font-weight: 600;">Você</span></td>
                 </tr>
             </tbody>
         </table>
 
-        <div class="positioning-box">
-            <div class="pos-icon">🎯</div>
-            <div>
-                <h3>Posicionamento Proposto: "A clínica do cuidado íntimo"</h3>
-                <p style="color: var(--text-muted); margin-top: 0.5rem;">A Intimitá ocupa um espaço único: entre o gigante CVAN (volume, urgência) e o especialista de gatos (nicho técnico). O diferencial é o <strong style="color: var(--white);">atendimento humanizado, ambiente anti-estresse, equipe 100% feminina e telemedicina</strong> — experiência de cuidado íntimo que clínicas de grande porte não conseguem oferecer.</p>
-                <p style="color: var(--text-muted); margin-top: 0.8rem;">O tutor moderno, especialmente de gatos, não quer apenas um veterinário — quer uma parceria de cuidado. É exatamente esse posicionamento que precisa dominar sua comunicação digital.</p>
+        <div class="highlight-box" style="margin-top: 2rem;">
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--pulso); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em;">🎯 Posicionamento proposto</p>
+            <p style="font-size: 1rem; color: var(--white); margin-bottom: 0.75rem;">"A clínica do cuidado íntimo" — entre o gigante CVAN e o especialista de gatos</p>
+            <p style="font-size: 0.9rem; color: #b0b0b0;">A Intimitá ocupa um espaço único: atendimento humanizado, ambiente anti-estresse, equipe 100% feminina e telemedicina — a experiência de cuidado íntimo que clínicas de grande porte não conseguem oferecer. O tutor moderno de gato não quer apenas um veterinário — quer uma parceria de cuidado.</p>
+        </div>
+    </section>
+
+    <!-- 10 · PLANOS -->
+    <section class="pricing-section" id="planos">
+        <div class="section-tag">10 · Investimento</div>
+        <h2>Escolha o plano ideal para a Intimitá</h2>
+        <p style="color: #b0b0b0; margin-bottom: 3rem;">Três caminhos para crescer — todos com a mesma qualidade de execução, variando em escala e velocidade. Recomendamos o <strong style="color: var(--white);">Marketing</strong> para começar.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Essencial</h3>
+                <div class="price-display">R$2.500 <span>/mês</span></div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Para quem quer estabelecer presença digital sólida</div>
+                <div class="price-features">
+                    <div class="price-feature">Identidade visual veterinária (MIV completo)</div>
+                    <div class="price-feature">9 posts fundação + calendário editorial</div>
+                    <div class="price-feature">Google Meu Negócio otimizado</div>
+                    <div class="price-feature">1 campanha Meta Ads (gerenciada)</div>
+                    <div class="price-feature">Relatório mensal de performance</div>
+                    <div class="price-feature">Suporte por WhatsApp (horário comercial)</div>
+                    <div class="price-feature dimmed">Sem landing page</div>
+                    <div class="price-feature dimmed">Sem gestão de conteúdo mensal</div>
+                </div>
+                <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+saber+mais+sobre+o+Plano+Essencial+para+a+Intimit%C3%A1." target="_blank" class="plan-btn btn-outline">Quero o Essencial →</a>
+            </div>
+
+            <div class="pricing-card recommended">
+                <h3>Marketing</h3>
+                <div class="price-display">R$3.500 <span>/mês</span></div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">O equilíbrio perfeito para captar tutores e crescer</div>
+                <div class="price-features">
+                    <div class="price-feature">Tudo do plano Essencial +</div>
+                    <div class="price-feature">Landing page premium (desenvolvimento incluso)</div>
+                    <div class="price-feature">Meta Ads + Google Local Campaigns gerenciados</div>
+                    <div class="price-feature">Produção mensal de conteúdo (12 posts + reels)</div>
+                    <div class="price-feature">Campanha de avaliações GMB automatizada</div>
+                    <div class="price-feature">Automações de follow-up (WhatsApp)</div>
+                    <div class="price-feature">Dashboard de performance em tempo real</div>
+                    <div class="price-feature">Reunião mensal de estratégia</div>
+                    <div class="price-feature">Suporte prioritário 6 dias/semana</div>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">+ R$1.500/mês de verba de mídia (Meta/Google)</div>
+                <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+come%C3%A7ar+com+o+Plano+Marketing+para+a+Intimit%C3%A1." target="_blank" class="plan-btn btn-featured">Começar com o Marketing →</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium</h3>
+                <div class="price-display">R$6.500 <span>/mês</span></div>
+                <div style="font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem;">Para dominar o mercado veterinário de Asa Norte</div>
+                <div class="price-features">
+                    <div class="price-feature">Tudo do plano Marketing +</div>
+                    <div class="price-feature">Produção de vídeo mensal (Reels + YouTube Shorts)</div>
+                    <div class="price-feature">Estratégia de conteúdo felino de autoridade</div>
+                    <div class="price-feature">SEO técnico + blog veterinário</div>
+                    <div class="price-feature">Gestão de reputação online</div>
+                    <div class="price-feature">CRM de tutores integrado</div>
+                    <div class="price-feature">Campanha de indicação entre tutores</div>
+                    <div class="price-feature">Reuniões semanais de performance</div>
+                    <div class="price-feature">Suporte 24/7 com gerente dedicado</div>
+                </div>
+                <div style="font-size: 0.8rem; color: var(--muted); text-align: center; margin-bottom: 1rem;">+ R$3.000/mês de verba de mídia</div>
+                <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+saber+mais+sobre+o+Plano+Premium+para+a+Intimit%C3%A1." target="_blank" class="plan-btn btn-outline">Quero o Premium →</a>
             </div>
         </div>
-    </div>
-</div>
 
-<!-- 09 · COMPARATIVO DE PLANOS -->
-<div id="planos" class="section reveal">
-    <div class="section-tag">09 · Comparativo de Planos</div>
-    <h2>Escolha o plano ideal para seu momento</h2>
-    <p class="section-subtitle">Três caminhos para crescer — todos com a mesma qualidade de execução, variando em escala e velocidade.</p>
-
-    <div class="pricing-grid">
-        <!-- ESSENCIAL -->
-        <div class="plan-card">
-            <div class="plan-name">Essencial</div>
-            <div class="plan-desc">Para quem quer estabelecer presença digital sólida</div>
-            <div class="plan-price">R$2.500</div>
-            <div class="plan-price-note">/mês · 6 meses de compromisso</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features">
-                <li>Identidade visual veterinária (MIV completo)</li>
-                <li>9 posts fundação + calendário editorial</li>
-                <li>Google Meu Negócio otimizado</li>
-                <li>1 campanha Meta Ads (gerenciada)</li>
-                <li>Relatório mensal de performance</li>
-                <li>Suporte por WhatsApp (horário comercial)</li>
-            </ul>
-            <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+saber+mais+sobre+o+Plano+Essencial+para+a+Intimit%C3%A1." class="plan-cta plan-cta-default" target="_blank">
-                Quero o Essencial
-            </a>
+        <div style="background: rgba(171,116,169,0.07); border: 1px solid rgba(171,116,169,0.2); border-radius: 12px; padding: 1.25rem 2rem; margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+            <p style="color: #b0b0b0; font-size: 0.85rem; margin: 0;">💡 <strong style="color: var(--white);">Setup único: R$1.500</strong> (cobrado no mês 1)</p>
+            <p style="color: #b0b0b0; font-size: 0.85rem; margin: 0;">⚡ Verba de mídia separada — direto para Meta/Google (você controla)</p>
+            <p style="color: #b0b0b0; font-size: 0.85rem; margin: 0;">✓ Cancelamento com 30 dias de aviso</p>
         </div>
+    </section>
 
-        <!-- MARKETING (recomendado) -->
-        <div class="plan-card featured">
-            <div class="plan-badge">RECOMENDADO PARA VOCÊ</div>
-            <div class="plan-name">Marketing</div>
-            <div class="plan-desc">O equilíbrio perfeito para captar tutores e crescer com consistência</div>
-            <div class="plan-price">R$3.500</div>
-            <div class="plan-price-note">/mês · + R$1.500/mês em mídia</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features">
-                <li class="plan-highlight">Tudo do plano Essencial, mais:</li>
-                <li>Landing page premium (desenvolvimento incluso)</li>
-                <li>Meta Ads + Google Local Campaigns gerenciados</li>
-                <li>Produção de conteúdo mensal (12 posts + reels)</li>
-                <li>Campanha de avaliações GMB automatizada</li>
-                <li>Automações de follow-up (WhatsApp)</li>
-                <li>Dashboard de performance em tempo real</li>
-                <li>Reunião mensal de estratégia</li>
-                <li>Suporte prioritário 6 dias/semana</li>
-            </ul>
-            <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+come%C3%A7ar+com+o+Plano+Marketing+para+a+Intimit%C3%A1." class="plan-cta plan-cta-featured" target="_blank">
-                Começar com o Marketing
-            </a>
-        </div>
-
-        <!-- PREMIUM -->
-        <div class="plan-card">
-            <div class="plan-name">Premium</div>
-            <div class="plan-desc">Para dominar o mercado veterinário de Asa Norte</div>
-            <div class="plan-price">R$6.500</div>
-            <div class="plan-price-note">/mês · + R$3.000/mês em mídia</div>
-            <div class="plan-divider"></div>
-            <ul class="plan-features">
-                <li class="plan-highlight">Tudo do plano Marketing, mais:</li>
-                <li>Produção de vídeo mensal (Reels + YouTube Shorts)</li>
-                <li>Estratégia de conteúdo felino de autoridade</li>
-                <li>SEO técnico + blog veterinário</li>
-                <li>Gestão de reputação online (Google + Facebook)</li>
-                <li>CRM de tutores integrado</li>
-                <li>Campanha de indicação entre tutores</li>
-                <li>Reuniões semanais de performance</li>
-                <li>Suporte 24/7 com gerente dedicado</li>
-            </ul>
-            <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Quero+saber+mais+sobre+o+Plano+Premium+para+a+Intimit%C3%A1." class="plan-cta plan-cta-default" target="_blank">
-                Quero o Premium
-            </a>
-        </div>
-    </div>
-
-    <div style="background: rgba(123,63,160,0.07); border: 1px solid rgba(123,63,160,0.2); border-radius: 16px; padding: 2rem; margin-top: 2rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; text-align: center;">
-        <div>
-            <strong style="color: var(--white);">Setup Único</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">R$1.500 (cobrado no mês 1)</p>
-        </div>
-        <div>
-            <strong style="color: var(--white);">Sem fidelidade forçada</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Cancelamento com 30 dias de aviso</p>
-        </div>
-        <div>
-            <strong style="color: var(--white);">Verba de mídia separada</strong>
-            <p style="font-size: 0.85rem; color: var(--text-muted);">Direto para Meta/Google (você controla)</p>
-        </div>
-    </div>
-</div>
-
-<!-- 10 · GARANTIA -->
-<div class="section reveal">
-    <div class="section-tag">10 · Garantia</div>
-
-    <div class="guarantee-section">
-        <div class="guarantee-icon">🛡️</div>
-        <h2>Nossa garantia de transparência</h2>
-        <p style="max-width: 600px; margin: 1rem auto 0; color: var(--text-muted);">
-            Não prometemos milagres — prometemos método, dedicação e dados reais. Se no final do mês 2 você não estiver satisfeita com a direção, devolvemos o setup e encerramos sem penalidade.
-        </p>
+    <!-- 11 · GARANTIA -->
+    <section class="guarantee-section">
+        <div class="section-tag">11 · Nossa garantia</div>
+        <h2>Comprometimento total com seus resultados</h2>
 
         <div class="guarantee-grid">
             <div class="guarantee-item">
-                <strong>📊 Relatório mensal</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Cada real investido, rastreado e explicado em linguagem simples</p>
+                <div class="guarantee-icon">📊</div>
+                <div>
+                    <h4>Transparência total</h4>
+                    <p>Dashboard em tempo real com todos os números: CPL, ROAS, leads, conversões. Sem achismo — só dados.</p>
+                </div>
             </div>
             <div class="guarantee-item">
-                <strong>🤝 Reunião mensal</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">30 minutos todo mês para ajustar estratégia com você</p>
+                <div class="guarantee-icon">🔄</div>
+                <div>
+                    <h4>Otimização contínua</h4>
+                    <p>Se uma campanha não performa, paramos, analisamos e ajustamos. Nunca deixamos dinheiro queimando.</p>
+                </div>
             </div>
             <div class="guarantee-item">
-                <strong>🎯 Metas claras</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Definimos juntos os KPIs e trabalhamos para bater cada um</p>
+                <div class="guarantee-icon">🤝</div>
+                <div>
+                    <h4>Parceria real</h4>
+                    <p>Não somos fornecedores — somos o time de marketing da Intimitá. Se no mês 2 você não estiver satisfeita, devolvemos o setup e encerramos sem penalidade.</p>
+                </div>
             </div>
             <div class="guarantee-item">
-                <strong>⚡ Suporte rápido</strong>
-                <p style="font-size: 0.85rem; color: var(--text-muted);">Resposta em até 4 horas no horário comercial — sem enrolação</p>
+                <div class="guarantee-icon">📅</div>
+                <div>
+                    <h4>Reunião mensal garantida</h4>
+                    <p>Toda virada de mês: revisamos resultados, alinhamos estratégia e ajustamos metas. Você sempre sabe para onde vai.</p>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- 11 · PRÓXIMOS PASSOS -->
-<div class="final-cta-section">
-    <div class="section-tag" style="display: inline-block;">11 · Próximos Passos</div>
-    <h2 style="margin-top: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-        Pronta para ter a agenda de tutores que a Intimitá merece?
-    </h2>
-    <p style="color: var(--text-muted); max-width: 500px; margin: 1rem auto 0;">
-        O próximo passo é simples: uma conversa de 20 minutos para alinhar expectativas e começar a transformação digital da Intimitá. Tudo começa esta semana.
-    </p>
+    <!-- 12 · FINAL CTA -->
+    <section style="text-align: center;">
+        <h2>Pronta para ter a agenda de tutores<br><em style="color: var(--pulso);">que a Intimitá merece?</em></h2>
+        <p style="color: #b0b0b0; margin: 2rem 0 3rem; max-width: 480px; margin-left: auto; margin-right: auto;">O próximo passo é simples: uma conversa de 20 minutos para alinhar expectativas e começar a transformação digital da Intimitá. Tudo começa esta semana.</p>
 
-    <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Vi+a+proposta+e+quero+dar+in%C3%ADcio+ao+Plano+Marketing+para+a+Intimit%C3%A1+Cl%C3%ADnica+Veterin%C3%A1ria.+Podemos+marcar+uma+reuni%C3%A3o%3F" class="cta-whatsapp" target="_blank">
-            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.51 5.814L.057 23.786a.5.5 0 00.657.657l5.972-1.453A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.374l-.36-.214-3.732.908.927-3.63-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-            Quero começar — WhatsApp
-        </a>
-    </div>
+        <div class="final-cta">
+            <a href="https://wa.me/5561983438453?text=Ol%C3%A1%21+Vi+a+proposta+da+Pulso+e+quero+come%C3%A7ar+o+Plano+Marketing+para+a+Intimit%C3%A1+Cl%C3%ADnica+Veterin%C3%A1ria." class="cta-whatsapp" target="_blank">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.109.548 4.09 1.51 5.814L.057 23.786a.5.5 0 00.657.657l5.972-1.453A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.015-1.374l-.36-.214-3.732.908.927-3.63-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+                💬 Quero começar — WhatsApp
+            </a>
+            <p style="color: #707070; font-size: 0.9rem;">Seg–Sex · 9h–18h (Brasília) · Resposta em até 1 hora</p>
+        </div>
+    </section>
 
-    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 1rem;">
-        Seg–Sex · 9h–18h (Brasília) · Resposta em até 1 hora
-    </p>
-</div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="pulso-logo">
+            <span>◉</span> Pulso · Marketing Veterinário de Precisão
+        </div>
+        <p>Proposta personalizada para Intimitá Clínica Veterinária · @intimita.clinicavet</p>
+        <p style="margin-top: 0.3rem; font-size: 0.75rem; color: rgba(112, 112, 112, 0.6);">Gerada em junho de 2026 · Válida por 15 dias · Confidencial</p>
+    </footer>
 
-<!-- FOOTER -->
-<footer>
-    <div>
-        <p class="footer-brand">Pulso · Marketing Veterinário de Precisão</p>
-        <p style="margin-top: 0.3rem;">Proposta gerada em junho de 2026 · Válida por 15 dias</p>
-    </div>
-    <div style="text-align: right;">
-        <p>Intimitá Clínica Veterinária · @intimita.clinicavet</p>
-        <p style="margin-top: 0.3rem; color: var(--purple-light);">Plano Marketing · CLN 204, Asa Norte · Brasília, DF</p>
-    </div>
-</footer>
+    <script>
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-<script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-</script>
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+    </script>
 </body>
 </html>
-
