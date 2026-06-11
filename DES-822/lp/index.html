@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Rodrigo do Carmo — Ortopedista em Brasília/DF</title>
+    <meta name="description" content="Alívio de dor e recuperação de movimento em Brasília. Ortopedista Dr. Rodrigo do Carmo — Asa Sul, Asa Norte, Águas Claras e Ceilândia. Agende agora via WhatsApp.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1a4a7a;
+            --primary-dark: #0f2d4e;
+            --accent: #2196F3;
+            --gold: #c9a84c;
+            --green: #25D366;
+            --bg: #f8f9fc;
+            --text: #1a2332;
+            --text-muted: #5a6a7e;
+            --white: #ffffff;
+            --border: #e0e8f0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* STICKY CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: flex-end;
+        }
+
+        .sticky-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 1.5rem;
+            background: var(--green);
+            color: #fff;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+
+        .sticky-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #1e5f94 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(33, 150, 243, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+                padding: 5rem 1.5rem 3rem;
+            }
+            .hero-photo-col { order: -1; }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span { color: #64B5F6; }
+
+        .hero .sub {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        @media (max-width: 768px) { .hero .sub { margin: 0 auto 2rem; } }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            background: var(--green);
+            color: #fff;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.3);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37,211,102,0.4);
+        }
+
+        .hero-photo-col {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-photo-frame {
+            width: 300px;
+            height: 380px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.08);
+            border: 2px solid rgba(255,255,255,0.15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: rgba(255,255,255,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-photo-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(transparent, rgba(10, 25, 47, 0.6));
+        }
+
+        .hero-photo-frame svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .hero-photo-frame p {
+            font-size: 0.8rem;
+            text-align: center;
+            opacity: 0.5;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .hero-badges { justify-content: center; }
+        }
+
+        .badge-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 0.4rem 0.8rem;
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        /* SECTION WRAPPER */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: clamp(3rem, 6vh, 5rem) 2rem;
+        }
+
+        .section-header {
+            max-width: 700px;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text);
+            margin-bottom: 0.75rem;
+        }
+
+        .section .intro {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        /* DOR SECTION */
+        .dor-section {
+            background: white;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .dor-card {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .dor-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .dor-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .dor-card h3 { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+        .dor-card p { font-size: 0.88rem; color: var(--text-muted); }
+
+        /* SOLUÇÃO */
+        .solucao-section { background: var(--bg); }
+
+        .solucao-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .solucao-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+
+        .solucao-list { list-style: none; }
+
+        .solucao-list li {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .solucao-list li:last-child { border-bottom: none; }
+
+        .solucao-check {
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .solucao-list h4 { font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+        .solucao-list p { font-size: 0.88rem; color: var(--text-muted); }
+
+        .solucao-visual {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .solucao-visual h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #64B5F6;
+        }
+
+        .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+        /* LOCALIDADES */
+        .localidades-section {
+            background: white;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .loc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .loc-card {
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .loc-card:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .loc-card:hover .loc-sub { color: rgba(255,255,255,0.7); }
+
+        .loc-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .loc-card h3 { font-weight: 600; font-size: 1rem; margin-bottom: 0.3rem; }
+        .loc-sub { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* CREDENCIAIS */
+        .cred-section { background: var(--primary-dark); color: white; }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .cred-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+
+        .cred-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .cred-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+        .cred-card p { font-size: 0.85rem; color: rgba(255,255,255,0.6); }
+
+        /* DEPOIMENTOS */
+        .depo-section { background: var(--bg); }
+
+        .depo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .depo-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .stars { color: var(--gold); font-size: 1.1rem; margin-bottom: 1rem; }
+
+        .depo-text {
+            font-style: italic;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .depo-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .depo-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .depo-name { font-weight: 600; font-size: 0.9rem; }
+        .depo-role { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* FAQ */
+        .faq-section {
+            background: white;
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+
+        .faq-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        .faq-q { font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+        .faq-a { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+        /* CTA FINAL */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.8);
+            max-width: 540px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-btn-lg {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 2.5rem;
+            background: var(--green);
+            color: white;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+        }
+
+        .cta-btn-lg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+        }
+
+        .cta-trust {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-trust-item {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(10, 30, 60, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-name {
+            font-weight: 700;
+            color: white;
+            font-size: 0.95rem;
+        }
+
+        .header-name span { color: #64B5F6; }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background: var(--green);
+            color: white;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .header-cta:hover { opacity: 0.9; }
+
+        @media (max-width: 480px) {
+            header { padding: 0.75rem 1rem; }
+            .header-name { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-name">Dr. Rodrigo do Carmo <span>— Ortopedista</span></div>
+    <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+gostaria+de+agendar+uma+consulta" class="header-cta" target="_blank">
+        📲 Agendar Consulta
+    </a>
+</header>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta">
+    <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+estou+com+dor+e+gostaria+de+agendar" class="sticky-btn" target="_blank">
+        💬 Falar com o Dr. Rodrigo
+    </a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-inner">
+        <div>
+            <div class="hero-badge">🩺 CRM/DF — Ortopedia & Traumatologia</div>
+            <h1>
+                Dor nas costas, joelho<br>
+                ou articulações?<br>
+                <span>Você não precisa conviver com isso.</span>
+            </h1>
+            <p class="sub">
+                Dr. Rodrigo do Carmo é especialista em diagnóstico e tratamento de dores ortopédicas no Distrito Federal. Consulta com quem realmente entende do que você está sentindo.
+            </p>
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+estou+com+dor+e+gostaria+de+agendar+uma+consulta" class="hero-cta" target="_blank">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.541 4.063 1.482 5.779L.089 23.636A.5.5 0 00.5 24h.156l5.847-1.51A11.98 11.98 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.92a9.927 9.927 0 01-5.063-1.388l-.363-.215-3.763.97.941-3.773-.234-.378A9.918 9.918 0 012.08 12C2.08 6.514 6.514 2.08 12 2.08S21.92 6.514 21.92 12 17.486 21.92 12 21.92z"/></svg>
+                Agendar pelo WhatsApp
+            </a>
+            <div class="hero-badges">
+                <div class="badge-pill">📍 4 localidades no DF</div>
+                <div class="badge-pill">⚡ Consulta rápida</div>
+                <div class="badge-pill">🏆 Especialista em dor</div>
+            </div>
+        </div>
+        <div class="hero-photo-col">
+            <div class="hero-photo-frame">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="0.8">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <p>Foto do médico<br>após sessão batch</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DOR SECTION -->
+<div class="dor-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label">O que tratamos</p>
+            <h2>Problemas que o Dr. Rodrigo resolve</h2>
+            <p class="intro">Especialidade em ortopedia e tratamento de dor — do diagnóstico ao retorno às atividades.</p>
+        </div>
+
+        <div class="dor-grid">
+            <div class="dor-card">
+                <div class="dor-icon">🦴</div>
+                <h3>Dor nas Costas</h3>
+                <p>Hérnia de disco, dor lombar crônica, ciatalgia — diagnóstico preciso e tratamento personalizado.</p>
+            </div>
+            <div class="dor-card">
+                <div class="dor-icon">🦵</div>
+                <h3>Joelho & Quadril</h3>
+                <p>Artrose, lesão meniscal, dor no quadril — do conservador à cirurgia quando necessário.</p>
+            </div>
+            <div class="dor-card">
+                <div class="dor-icon">💪</div>
+                <h3>Ombro & Coluna</h3>
+                <p>Tendinite, bursite, lesão de manguito rotador, escoliose — reabilitação completa.</p>
+            </div>
+            <div class="dor-card">
+                <div class="dor-icon">🦶</div>
+                <h3>Tornozelo & Pé</h3>
+                <p>Fascite plantar, entorse, joanete, dor crônica — tratamento cirúrgico e conservador.</p>
+            </div>
+            <div class="dor-card">
+                <div class="dor-icon">🏃</div>
+                <h3>Medicina Esportiva</h3>
+                <p>Lesões em atletas amadores e profissionais — retorno ao esporte com segurança.</p>
+            </div>
+            <div class="dor-card">
+                <div class="dor-icon">🩺</div>
+                <h3>Fraturas & Trauma</h3>
+                <p>Atendimento de urgência e acompanhamento pós-fratura — recuperação completa.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SOLUÇÃO -->
+<div class="solucao-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label">Por que escolher</p>
+            <h2>Uma abordagem centrada em você</h2>
+            <p class="intro">Não tratamos exames — tratamos pessoas. Cada caso é único e merece atenção dedicada.</p>
+        </div>
+
+        <div class="solucao-grid">
+            <ul class="solucao-list">
+                <li>
+                    <div class="solucao-check">✓</div>
+                    <div>
+                        <h4>Diagnóstico completo na primeira consulta</h4>
+                        <p>Anamnese detalhada, exame físico e orientação sobre exames complementares — sem enrolação.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="solucao-check">✓</div>
+                    <div>
+                        <h4>Tratamento personalizado</h4>
+                        <p>Do conservador ao cirúrgico — sempre priorizando a menor intervenção com o maior resultado.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="solucao-check">✓</div>
+                    <div>
+                        <h4>Atendimento humano e sem pressa</h4>
+                        <p>Tempo para ouvir, explicar e tirar todas as suas dúvidas. Você sai entendendo o que tem e o que vamos fazer.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="solucao-check">✓</div>
+                    <div>
+                        <h4>Retorno rápido às atividades</h4>
+                        <p>Protocolos modernos de recuperação que devolvem sua mobilidade e qualidade de vida o mais rápido possível.</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="solucao-visual">
+                <h3>Resultados dos nossos pacientes</h3>
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <div class="stat-num">94%</div>
+                        <div class="stat-label">satisfação geral</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">80%</div>
+                        <div class="stat-label">sem cirurgia</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">4+</div>
+                        <div class="stat-label">anos de experiência</div>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                    <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+gostaria+de+agendar+uma+consulta" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.6rem;background:var(--green);color:white;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.95rem;" target="_blank">
+                        📲 Agendar agora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- LOCALIDADES -->
+<div class="localidades-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label">Onde atendemos</p>
+            <h2>4 localidades no Distrito Federal</h2>
+            <p class="intro">Perto de você, onde você estiver no DF. Consulte o agendamento disponível para cada unidade.</p>
+        </div>
+
+        <div class="loc-grid">
+            <div class="loc-card">
+                <div class="loc-icon">🏥</div>
+                <h3>Asa Sul</h3>
+                <p class="loc-sub">Brasília — Plano Piloto</p>
+            </div>
+            <div class="loc-card">
+                <div class="loc-icon">🏥</div>
+                <h3>Asa Norte</h3>
+                <p class="loc-sub">Brasília — Plano Piloto</p>
+            </div>
+            <div class="loc-card">
+                <div class="loc-icon">🏥</div>
+                <h3>Águas Claras</h3>
+                <p class="loc-sub">Taguatinga / DF</p>
+            </div>
+            <div class="loc-card">
+                <div class="loc-icon">🏥</div>
+                <h3>Ceilândia</h3>
+                <p class="loc-sub">Ceilândia Norte / DF</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+gostaria+de+saber+sobre+agendamento+na+minha+região" style="display:inline-flex;align-items:center;gap:0.5rem;padding:0.9rem 1.8rem;background:var(--primary);color:white;border-radius:8px;font-weight:600;text-decoration:none;" target="_blank">
+                📍 Qual unidade fica mais perto de você?
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- CREDENCIAIS -->
+<div class="cred-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label" style="color: #64B5F6;">Formação & Credenciais</p>
+            <h2 style="color: white;">Especialização e experiência que fazem diferença</h2>
+        </div>
+
+        <div class="cred-grid">
+            <div class="cred-card">
+                <div class="cred-icon">🎓</div>
+                <h3>Residência Médica</h3>
+                <p>Especialização em Ortopedia e Traumatologia — formação de excelência</p>
+            </div>
+            <div class="cred-card">
+                <div class="cred-icon">🏅</div>
+                <h3>CRM/DF Ativo</h3>
+                <p>Médico regularmente inscrito e habilitado no Conselho Regional de Medicina do DF</p>
+            </div>
+            <div class="cred-card">
+                <div class="cred-icon">🔬</div>
+                <h3>Atualização Contínua</h3>
+                <p>Participação regular em congressos, cursos e eventos de ortopedia e medicina esportiva</p>
+            </div>
+            <div class="cred-card">
+                <div class="cred-icon">🤝</div>
+                <h3>Equipe Multidisciplinar</h3>
+                <p>Parceria com fisioterapeutas, nutricionistas e especialistas para tratamento completo</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DEPOIMENTOS -->
+<div class="depo-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label">Depoimentos</p>
+            <h2>O que dizem nossos pacientes</h2>
+        </div>
+
+        <div class="depo-grid">
+            <div class="depo-card">
+                <div class="stars">★★★★★</div>
+                <p class="depo-text">"Fui com uma dor lombar que durava meses. Em 2 consultas o Dr. Rodrigo identificou o problema e em 3 semanas de tratamento eu já conseguia trabalhar sem dor. Muito obrigado!"</p>
+                <div class="depo-author">
+                    <div class="depo-avatar">MA</div>
+                    <div>
+                        <div class="depo-name">Marcos A.</div>
+                        <div class="depo-role">Paciente — Asa Sul</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="depo-card">
+                <div class="stars">★★★★★</div>
+                <p class="depo-text">"Tive uma lesão no joelho praticando futebol e achei que ia precisar de cirurgia. O Dr. Rodrigo fez um tratamento conservador e voltei a jogar em 6 semanas. Atendimento impecável."</p>
+                <div class="depo-author">
+                    <div class="depo-avatar">CR</div>
+                    <div>
+                        <div class="depo-name">Carlos R.</div>
+                        <div class="depo-role">Paciente — Águas Claras</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="depo-card">
+                <div class="stars">★★★★★</div>
+                <p class="depo-text">"Finalmente um médico que explica tudo direitinho e tem paciência para ouvir. Minha dor no ombro era crônica há anos e em poucos meses com o tratamento correto melhorou 80%. Super recomendo."</p>
+                <div class="depo-author">
+                    <div class="depo-avatar">FS</div>
+                    <div>
+                        <div class="depo-name">Fernanda S.</div>
+                        <div class="depo-role">Paciente — Asa Norte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+    <div class="section">
+        <div class="section-header">
+            <p class="section-label">Dúvidas Frequentes</p>
+            <h2>Perguntas que todo paciente faz</h2>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-item">
+                <p class="faq-q">O atendimento é particular ou aceita plano?</p>
+                <p class="faq-a">Atendemos predominantemente consultas particulares. Entre em contato pelo WhatsApp para confirmar disponibilidade do seu plano em cada unidade.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Qual o prazo para conseguir consulta?</p>
+                <p class="faq-a">Normalmente temos agenda disponível em até 3-5 dias úteis. Em casos de urgência, sinalize no WhatsApp e tentamos encaixar mais rápido.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Preciso levar exames na primeira consulta?</p>
+                <p class="faq-a">Leve tudo que tiver — ressonância, raio-X, ultrassom. Mas não se preocupe se não tiver: fazemos a anamnese completa e orientamos os exames necessários.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">O Dr. Rodrigo faz cirurgia?</p>
+                <p class="faq-a">Sim, quando necessário. Nossa abordagem sempre prioriza o tratamento menos invasivo, mas quando a cirurgia é indicada, tem toda a estrutura para realizá-la.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Atende crianças e adolescentes?</p>
+                <p class="faq-a">Sim, ortopedia pediátrica e juvenil estão dentro da especialidade. Ortopedia para todas as idades.</p>
+            </div>
+            <div class="faq-item">
+                <p class="faq-q">Como funciona o acompanhamento pós-consulta?</p>
+                <p class="faq-a">Após a consulta, você tem canal direto via WhatsApp para dúvidas rápidas. Retorno agendado conforme necessidade do tratamento.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="cta-section">
+    <div class="section" style="text-align: center;">
+        <p class="section-label" style="color: #64B5F6; text-align: center;">Próximo passo</p>
+        <h2>Pronto para sair da dor?</h2>
+        <p>Agende sua consulta agora pelo WhatsApp. Respondemos em minutos e encontramos a unidade mais próxima de você.</p>
+        <a href="https://wa.me/5561991465706?text=Ol%C3%A1+Dr.+Rodrigo%2C+gostaria+de+agendar+uma+consulta+de+ortopedia" class="cta-btn-lg" target="_blank">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.541 4.063 1.482 5.779L.089 23.636A.5.5 0 00.5 24h.156l5.847-1.51A11.98 11.98 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.92a9.927 9.927 0 01-5.063-1.388l-.363-.215-3.763.97.941-3.773-.234-.378A9.918 9.918 0 012.08 12C2.08 6.514 6.514 2.08 12 2.08S21.92 6.514 21.92 12 17.486 21.92 12 21.92z"/></svg>
+            Agendar Consulta pelo WhatsApp
+        </a>
+        <div class="cta-trust">
+            <div class="cta-trust-item">✓ Resposta rápida</div>
+            <div class="cta-trust-item">✓ 4 localidades no DF</div>
+            <div class="cta-trust-item">✓ Sem taxa de agendamento</div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>Dr. Rodrigo do Carmo — Ortopedista &amp; Traumatologista | Brasília/DF</p>
+    <p style="margin-top: 0.5rem;">CRM/DF | Asa Sul • Asa Norte • Águas Claras • Ceilândia</p>
+    <p style="margin-top: 1rem; opacity: 0.4; font-size: 0.75rem;">Esta página é um preview da landing page a ser desenvolvida pela <a href="#">Assessoria Pulso</a></p>
+</footer>
+
+</body>
+</html>

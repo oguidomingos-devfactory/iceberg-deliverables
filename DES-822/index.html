@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Rodrigo do Carmo — Ortopedia & Dor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --pulso: #00BFA5;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.2);
+            --text-muted: #8a9ab5;
+            --gold: #c9a84c;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0a0f18 0%, #0d1f3c 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+        h3 { font-size: clamp(1.1rem, 2.2vw, 1.5rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(10, 15, 24, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        nav .logo span { color: var(--pulso); }
+
+        nav a.btn-nav {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: #0a0f18;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1200px;
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pulso);
+            margin-bottom: 0.75rem;
+        }
+
+        /* HERO */
+        .hero-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 165, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            max-width: 1200px;
+            padding: 2rem;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero-inner { grid-template-columns: 1fr; text-align: center; }
+            .hero-photo { order: -1; }
+        }
+
+        .hero-text .tag {
+            display: inline-block;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--border);
+            color: var(--green);
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .specialty {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--pulso);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            color: #9ab;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 480px;
+        }
+
+        .cta-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: #0a0f18;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-hero:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            color: #0a0f18;
+        }
+
+        .hero-photo {
+            display: flex;
+            justify-content: center;
+        }
+
+        .photo-frame {
+            width: 320px;
+            height: 420px;
+            border-radius: 20px;
+            border: 2px solid var(--border);
+            background: var(--card-bg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-muted);
+        }
+
+        .photo-placeholder svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+        }
+
+        .photo-placeholder p {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            text-align: center;
+        }
+
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(37, 211, 102, 0.4);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 { color: #fff; margin-bottom: 0.5rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* GLASS BOX */
+        .glass-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* RECAP */
+        .recap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recap-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .recap-dot {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            border-radius: 50%;
+            background: var(--green);
+            margin-top: 6px;
+        }
+
+        .recap-item h4 { color: #fff; font-family: 'DM Sans', sans-serif; font-weight: 600; margin-bottom: 0.3rem; }
+        .recap-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* METRICS */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .metric-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .metric-value {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--green);
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-label { color: var(--text-muted); font-size: 0.9rem; }
+        .metric-sub { color: #fff; font-weight: 500; font-size: 0.85rem; margin-top: 0.3rem; }
+
+        /* OPP CARDS */
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .opp-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid rgba(201, 168, 76, 0.2);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .opp-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(201, 168, 76, 0.4);
+        }
+
+        .opp-number {
+            font-size: 2.5rem;
+            font-family: 'DM Serif Display', serif;
+            color: rgba(201, 168, 76, 0.4);
+            line-height: 1;
+            margin-bottom: 0.75rem;
+        }
+
+        .opp-card h3 { color: #fff; margin-bottom: 0.5rem; }
+        .opp-card p { color: var(--text-muted); font-size: 0.92rem; }
+
+        /* TIMELINE */
+        .timeline {
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--green), var(--pulso), transparent);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            padding: 0 0 2.5rem 60px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 10px;
+            top: 4px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--green);
+            border: 3px solid #0a0f18;
+            box-shadow: 0 0 0 2px var(--green);
+        }
+
+        .timeline-content { flex: 1; }
+
+        .timeline-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 { color: #fff; margin-bottom: 0.5rem; }
+
+        .timeline-list {
+            list-style: none;
+            margin-top: 0.75rem;
+        }
+
+        .timeline-list li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .timeline-list li::before {
+            content: '→';
+            color: var(--pulso);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* DELIVERABLES */
+        .deliverable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .deliverable-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+
+        .deliverable-card h3 { color: var(--pulso); margin-bottom: 1rem; }
+
+        .deliverable-list { list-style: none; }
+        .deliverable-list li {
+            padding: 0.4rem 0;
+            color: #ccc;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            gap: 0.5rem;
+        }
+        .deliverable-list li::before { content: '✓'; color: var(--green); font-weight: 700; }
+
+        /* LP PREVIEW */
+        .preview-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        .browser-bar {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px 8px 0 0;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .browser-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .browser-dot.red { background: #ff5f57; }
+        .browser-dot.yellow { background: #febc2e; }
+        .browser-dot.green { background: #28c840; }
+
+        .browser-url {
+            flex: 1;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 4px;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        .lp-iframe-wrapper {
+            height: 600px;
+            overflow: hidden;
+            border-radius: 0 0 8px 8px;
+            position: relative;
+        }
+
+        .lp-iframe-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform-origin: top left;
+        }
+
+        /* POSTS PREVIEW */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .posts-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .post-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+
+        .post-card:hover { transform: scale(1.02); }
+
+        .post-thumb {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #0d1f3c, #0a2040);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .post-thumb::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(37,211,102,0.1), transparent 60%);
+        }
+
+        .post-type-badge {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background: rgba(37,211,102,0.2);
+            border: 1px solid var(--border);
+            color: var(--green);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .post-icon { font-size: 2.5rem; position: relative; z-index: 1; }
+
+        .post-headline {
+            font-size: 0.8rem;
+            color: #d0d0d0;
+            font-weight: 600;
+            line-height: 1.3;
+            position: relative;
+            z-index: 1;
+        }
+
+        .post-meta {
+            padding: 0.75rem 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .post-meta-label {
+            font-size: 0.7rem;
+            color: var(--pulso);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.2rem;
+        }
+
+        .post-meta p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            line-height: 1.3;
+        }
+
+        /* PRICING */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            padding: 2.5rem;
+            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .pricing-card:hover { transform: translateY(-4px); }
+
+        .pricing-card.featured {
+            border-color: var(--green);
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: #0a0f18;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 0.35rem 1.2rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        .pricing-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-price {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #fff;
+            margin: 0.5rem 0;
+        }
+
+        .pricing-price span {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-features { list-style: none; }
+
+        .pricing-features li {
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+            padding: 0.45rem 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .pricing-features li .check { color: var(--green); font-weight: 700; flex-shrink: 0; }
+        .pricing-features li .cross { color: #444; flex-shrink: 0; }
+
+        .pricing-cta {
+            display: block;
+            margin-top: 2rem;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: #0a0f18;
+        }
+
+        .pricing-card.featured .pricing-cta:hover {
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+            color: #0a0f18;
+        }
+
+        .pricing-card:not(.featured) .pricing-cta {
+            border: 1px solid var(--border);
+            color: #ccc;
+        }
+
+        .pricing-card:not(.featured) .pricing-cta:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* GUARANTEE */
+        .guarantee-section {
+            background: rgba(37,211,102,0.05);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .guarantee-icon { font-size: 4rem; margin-bottom: 1rem; }
+        .guarantee-section h2 { color: #fff; margin-bottom: 1rem; }
+        .guarantee-section p { color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
+
+        .cta-final {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: #0a0f18;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-final:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+            color: #0a0f18;
+        }
+
+        /* BENCHMARK */
+        .benchmark-section {
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .benchmark-table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+
+        .benchmark-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .benchmark-table td {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            font-size: 0.9rem;
+        }
+
+        .benchmark-table tr:hover td { background: rgba(255,255,255,0.02); }
+
+        .val-good { color: var(--green); font-weight: 600; }
+        .val-bad { color: #ff6b6b; }
+        .val-mid { color: var(--gold); }
+
+        /* DIVIDER */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--border), transparent);
+            margin: 0 2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a { color: var(--green); }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate { animation: fadeInUp 0.6s ease-out both; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            section { padding: clamp(3rem, 6vh, 4rem) 1.5rem; }
+            .glass-box, .benchmark-section, .preview-section, .guarantee-section { padding: 2rem 1.5rem; }
+            .pricing-grid { gap: 1.5rem; }
+            .pricing-card { padding: 2rem 1.5rem; }
+            .timeline::before { display: none; }
+            .timeline-item { padding-left: 0; flex-direction: column; }
+            .timeline-dot { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="logo">Dr. Rodrigo do Carmo <span>× Pulso</span></div>
+    <a href="https://wa.me/5561991465706?text=Oi%2C+quero+discutir+a+proposta+para+Dr.+Rodrigo+do+Carmo" class="btn-nav" target="_blank">Conversar no WhatsApp</a>
+</nav>
+
+<!-- 1. HERO -->
+<div class="hero-wrapper">
+    <div class="hero-inner">
+        <div class="hero-text">
+            <div class="tag animate">📋 Proposta Exclusiva</div>
+            <h1 class="animate delay-1">Dr. Rodrigo<br>do Carmo</h1>
+            <p class="specialty animate delay-2">Ortopedia & Tratamento da Dor — Brasília/DF</p>
+            <p class="animate delay-2">Construímos juntos uma estratégia de marketing digital que coloca você como a principal referência em ortopedia do Distrito Federal — com resultado real em agendamentos.</p>
+            <a href="https://wa.me/5561991465706?text=Oi%2C+quero+conversar+sobre+a+proposta+para+o+Dr.+Rodrigo+do+Carmo" class="cta-hero animate delay-3" target="_blank">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.541 4.063 1.482 5.779L.089 23.636A.5.5 0 00.5 24h.156l5.847-1.51A11.98 11.98 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.92a9.927 9.927 0 01-5.063-1.388l-.363-.215-3.763.97.941-3.773-.234-.378A9.918 9.918 0 012.08 12C2.08 6.514 6.514 2.08 12 2.08S21.92 6.514 21.92 12 17.486 21.92 12 21.92z"/></svg>
+                Quero ver a proposta completa
+            </a>
+        </div>
+        <div class="hero-photo">
+            <div class="photo-frame">
+                <div class="photo-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <p>Foto do médico<br>será inserida aqui<br>após sessão batch</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- 2. RECAP DA CONVERSA -->
+<section id="recap">
+    <p class="section-label">Recap</p>
+    <h2>O que falamos na nossa conversa</h2>
+    <p style="color: var(--text-muted); margin-top: 0.75rem;">Antes de qualquer proposta, a gente ouviu. Aqui está o resumo do que você compartilhou:</p>
+
+    <div class="recap-grid">
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Atende em 4 localidades no DF</h4>
+                <p>Asa Sul, Asa Norte, Águas Claras e Ceilândia — potencial enorme de alcance geográfico sem estar sendo explorado.</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Foco em ortopedia e dor</h4>
+                <p>Pacientes com dor aguda e crônica, busca por alívio rápido e recuperação de movimento — perfil de alta urgência e intenção de compra.</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Presença digital pouco explorada</h4>
+                <p>Sem estratégia de conteúdo ativa, sem campanhas de tráfego pago, sem landing page otimizada para conversão.</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Objetivo: crescer agendamentos</h4>
+                <p>Meta clara — trazer pacientes particulares de forma previsível, sem depender de indicação pura ou plano de saúde.</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Concorrência local forte mas sem conteúdo</h4>
+                <p>Outros ortopedistas no DF ainda não estão gerando conteúdo educativo com consistência — janela de oportunidade aberta.</p>
+            </div>
+        </div>
+        <div class="recap-item">
+            <div class="recap-dot"></div>
+            <div>
+                <h4>Plano marketing é o certo</h4>
+                <p>Volume de posts, LP, tráfego pago e ongoing mensal: exatamente o que você precisa para virar referência no DF em 90 dias.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3. DESAFIO CENTRAL -->
+<section id="desafio">
+    <p class="section-label">O Problema</p>
+    <h2>O desafio que está travando seu crescimento</h2>
+
+    <div class="glass-box" style="margin-top: 2rem;">
+        <p style="font-size: 1.1rem; color: #ccc; margin-bottom: 2rem;">Todo mês, pacientes no DF pesquisam por "ortopedista particular perto de mim", "médico para dor nas costas Brasília", "ortopedista Águas Claras"... e <strong style="color: #fff;">não encontram você</strong>.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+            <div style="text-align: center; padding: 1.5rem; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.15); border-radius: 10px;">
+                <div style="font-size: 2.5rem; font-family: 'DM Serif Display',serif; color: #ff6b6b;">~0</div>
+                <div style="color: #9ab; font-size: 0.9rem; margin-top: 0.3rem;">Leads digitais/mês hoje</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.15); border-radius: 10px;">
+                <div style="font-size: 2.5rem; font-family: 'DM Serif Display',serif; color: #ff6b6b;">3%</div>
+                <div style="color: #9ab; font-size: 0.9rem; margin-top: 0.3rem;">Engajamento médio IG atual</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.15); border-radius: 10px;">
+                <div style="font-size: 2.5rem; font-family: 'DM Serif Display',serif; color: #ff6b6b;">0</div>
+                <div style="color: #9ab; font-size: 0.9rem; margin-top: 0.3rem;">Campanhas de tráfego ativas</div>
+            </div>
+            <div style="text-align: center; padding: 1.5rem; background: rgba(255,100,100,0.05); border: 1px solid rgba(255,100,100,0.15); border-radius: 10px;">
+                <div style="font-size: 2.5rem; font-family: 'DM Serif Display',serif; color: #ff6b6b;">?</div>
+                <div style="color: #9ab; font-size: 0.9rem; margin-top: 0.3rem;">ROI do marketing atual</div>
+            </div>
+        </div>
+
+        <p style="color: var(--text-muted); margin-top: 2rem; font-size: 0.95rem;">O problema não é sua competência — é <strong style="color: #fff;">visibilidade</strong>. Pacientes que precisam de você estão chegando no consultório do seu concorrente porque ele aparece primeiro.</p>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 4. DIAGNÓSTICO -->
+<section id="diagnostico">
+    <p class="section-label">Diagnóstico</p>
+    <h2>Onde a concorrência está ganhando de você</h2>
+
+    <div class="card-grid" style="margin-top: 2rem;">
+        <div class="card">
+            <div class="card-icon">🔍</div>
+            <h3>Busca orgânica</h3>
+            <p>Ortopedistas com Google Meu Negócio otimizado recebem 3x mais ligações. Você ainda não aparece nas buscas locais de Asa Sul, Asa Norte, Águas Claras e Ceilândia.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>Instagram sem estratégia</h3>
+            <p>Concorrentes com 5-15k seguidores estão postando conteúdo educativo toda semana e convertendo seguidores em pacientes. Conteúdo de autoridade = fila de espera.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">🎯</div>
+            <h3>Tráfego pago ausente</h3>
+            <p>Campanhas de Meta e Google com segmentação geográfica no DF geram leads qualificados a R$30-50. Sem isso, você depende de indicação pura e sorte.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon">📄</div>
+            <h3>Sem landing page</h3>
+            <p>Quem chega no seu Instagram não tem para onde ir além do direct. Uma LP otimizada converte 4-8x mais do que um perfil comum.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 5. OPORTUNIDADES -->
+<section id="oportunidades">
+    <p class="section-label">Oportunidades</p>
+    <h2>5 alavancas que vão mudar o jogo</h2>
+
+    <div class="opp-grid">
+        <div class="opp-card">
+            <div class="opp-number">01</div>
+            <h3>Google Meu Negócio × 4</h3>
+            <p>Uma ficha otimizada por localidade (Asa Sul, Asa Norte, Águas Claras, Ceilândia). Cada uma aparece no Maps quando o paciente busca ortopedista perto de mim.</p>
+        </div>
+        <div class="opp-card">
+            <div class="opp-number">02</div>
+            <h3>Conteúdo educativo semanal</h3>
+            <p>4-5 posts/semana: reels educativos, carrosséis sobre dor/ortopedia, depoimentos reais. Autoridade que converte em DMs e agendamentos.</p>
+        </div>
+        <div class="opp-card">
+            <div class="opp-number">03</div>
+            <h3>Landing page focada em dor</h3>
+            <p>Uma página com headline de alívio de dor, foto sua, localidades, prova social e CTA WhatsApp. Sem distração. Conversão máxima.</p>
+        </div>
+        <div class="opp-card">
+            <div class="opp-number">04</div>
+            <h3>Campanhas Meta + Google</h3>
+            <p>ToFu/MoFu/BoFu no Meta para públicos frios e retargeting. Google Ads para buscas de intenção: "ortopedista Brasília", "médico para dor no joelho DF".</p>
+        </div>
+        <div class="opp-card">
+            <div class="opp-number">05</div>
+            <h3>Identidade visual profissional</h3>
+            <p>Logo, paleta, tipografia e MIV que transmitem confiança e autoridade. Branding que diferencia você de qualquer outro médico no feed.</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 6. MÉTRICAS PROJETADAS -->
+<section id="metricas">
+    <p class="section-label">Projeção de Resultados</p>
+    <h2>Números que você pode esperar</h2>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">Projeções baseadas em médias de clientes similares. Resultados variam conforme investimento em mídia paga.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <span class="metric-value">40–80</span>
+            <div class="metric-label">Leads qualificados/mês</div>
+            <div class="metric-sub">via WhatsApp + LP</div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-value">R$30–50</span>
+            <div class="metric-label">CPL (Custo por Lead)</div>
+            <div class="metric-sub">Google + Meta Ads</div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-value">3x+</span>
+            <div class="metric-label">ROAS esperado</div>
+            <div class="metric-sub">sobre verba de mídia</div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-value">15–25</span>
+            <div class="metric-label">Agendamentos/mês</div>
+            <div class="metric-sub">conversão 30–40% dos leads</div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-value">6%+</span>
+            <div class="metric-label">Engajamento IG</div>
+            <div class="metric-sub">vs. média atual de 3%</div>
+        </div>
+        <div class="metric-card">
+            <span class="metric-value">90d</span>
+            <div class="metric-label">Para resultados sólidos</div>
+            <div class="metric-sub">branding + LP + tráfego</div>
+        </div>
+    </div>
+
+    <div class="benchmark-section" style="margin-top: 3rem;">
+        <h3 style="color: #fff; margin-bottom: 0.5rem;">Benchmark: Dr. Rodrigo vs. Mercado DF</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Comparativo de ortopedistas com e sem estratégia digital ativa.</p>
+        <table class="benchmark-table">
+            <thead>
+                <tr>
+                    <th>Indicador</th>
+                    <th>Médico sem estratégia</th>
+                    <th>Com Pulso (90 dias)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Leads digitais/mês</td><td class="val-bad">0–5</td><td class="val-good">40–80</td></tr>
+                <tr><td>Engajamento IG</td><td class="val-bad">&lt; 3%</td><td class="val-good">6%+</td></tr>
+                <tr><td>Posição no Google Maps</td><td class="val-bad">Não aparece</td><td class="val-good">Top 3 local</td></tr>
+                <tr><td>Taxa de conversão LP</td><td class="val-bad">Não tem</td><td class="val-good">4–8%</td></tr>
+                <tr><td>Custo de aquisição</td><td class="val-mid">R$300–500+</td><td class="val-good">R$100–200</td></tr>
+                <tr><td>Receita digital atribuída</td><td class="val-bad">~0</td><td class="val-good">R$15k–40k/mês</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 7. PLANO DE IMPLEMENTAÇÃO -->
+<section id="plano">
+    <p class="section-label">Roadmap</p>
+    <h2>Como chegamos lá — passo a passo</h2>
+
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <span class="timeline-tag">Semanas 1–4 — Fundação</span>
+                <h3>Branding, Identidade Visual e Presença Digital</h3>
+                <ul class="timeline-list">
+                    <li>Reunião de onboarding + anamnese estratégica completa</li>
+                    <li>Criação do Manual de Identidade Visual (logo, paleta, tipografia)</li>
+                    <li>Setup e otimização do Instagram + Google Meu Negócio (4 localidades)</li>
+                    <li>Sessão batch de fotos e vídeos em consultório</li>
+                    <li>Grid de fundação: 9 posts de autoridade publicados</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--pulso); box-shadow: 0 0 0 2px var(--pulso);"></div>
+            <div class="timeline-content">
+                <span class="timeline-tag" style="color: var(--pulso);">Mês 2 — Conversão</span>
+                <h3>Landing Page + Calendário Editorial Ativo</h3>
+                <ul class="timeline-list">
+                    <li>Landing page completa com CTA WhatsApp (copywriting + desenvolvimento)</li>
+                    <li>Integração GA4 + Meta Pixel para rastreamento de leads</li>
+                    <li>Calendário editorial mês 2: 16 posts (4 reels, 4 carrosséis, 4 singles, 4 stories)</li>
+                    <li>A/B test de headline na LP</li>
+                    <li>First batch de criação de conteúdo ongoing</li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-dot" style="background: var(--gold); box-shadow: 0 0 0 2px var(--gold);"></div>
+            <div class="timeline-content">
+                <span class="timeline-tag" style="color: var(--gold);">Mês 3+ — Tráfego & Escala</span>
+                <h3>Campanhas Pagas + Ongoing Mensal</h3>
+                <ul class="timeline-list">
+                    <li>Setup Meta Ads: ToFu/MoFu/BoFu com públicos de interesse em ortopedia/dor</li>
+                    <li>Setup Google Ads: campanhas de marca + especialidade + localidades</li>
+                    <li>Lançamento com budget inicial R$1.000 + monitoramento diário</li>
+                    <li>Otimização semanal: ROAS, CTR, CPL</li>
+                    <li>Relatório mensal + reunião de alinhamento</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 8. O QUE O CLIENTE RECEBE -->
+<section id="deliverables">
+    <p class="section-label">O Pacote</p>
+    <h2>Tudo que você recebe no Plano Marketing</h2>
+
+    <div class="deliverable-grid">
+        <div class="deliverable-card">
+            <h3>🎨 Branding & Identidade</h3>
+            <ul class="deliverable-list">
+                <li>Logo principal + variações (PNG + SVG)</li>
+                <li>Guia de cores e tipografia</li>
+                <li>Manual de Identidade Visual (PDF)</li>
+                <li>Templates para stories e posts</li>
+            </ul>
+        </div>
+        <div class="deliverable-card">
+            <h3>📱 Vitrine Digital</h3>
+            <ul class="deliverable-list">
+                <li>Setup completo do Instagram</li>
+                <li>Bio otimizada (fórmula L1-L4)</li>
+                <li>Destaques organizados</li>
+                <li>Google Meu Negócio × 4 localidades</li>
+                <li>9 posts de fundação publicados</li>
+            </ul>
+        </div>
+        <div class="deliverable-card">
+            <h3>🌐 Landing Page</h3>
+            <ul class="deliverable-list">
+                <li>LP completa mobile-first</li>
+                <li>Copy focada em alívio da dor</li>
+                <li>CTA WhatsApp em todo scroll</li>
+                <li>GA4 + Pixel Meta integrados</li>
+                <li>A/B test de headline</li>
+            </ul>
+        </div>
+        <div class="deliverable-card">
+            <h3>📅 Social Media Ongoing</h3>
+            <ul class="deliverable-list">
+                <li>4–5 posts/semana (reels, carrosséis, singles)</li>
+                <li>Calendário editorial mensal</li>
+                <li>Sessão batch de gravação/fotos</li>
+                <li>Edição com legendas dinâmicas</li>
+                <li>Agendamento e publicação</li>
+            </ul>
+        </div>
+        <div class="deliverable-card">
+            <h3>🎯 Tráfego Pago</h3>
+            <ul class="deliverable-list">
+                <li>Setup Meta Ads completo</li>
+                <li>Setup Google Ads (Marca + Especialidade)</li>
+                <li>Públicos: frio + retargeting + lookalike</li>
+                <li>Monitoramento e otimização semanal</li>
+                <li>Relatório mensal com KPIs</li>
+            </ul>
+        </div>
+        <div class="deliverable-card">
+            <h3>📊 Gestão & Relatórios</h3>
+            <ul class="deliverable-list">
+                <li>Dashboard tráfego pago</li>
+                <li>Relatório mensal de performance</li>
+                <li>Reunião mensal de alinhamento</li>
+                <li>Atendimento via Calil (WhatsApp)</li>
+                <li>Ajustes estratégicos contínuos</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 9. PREVIEW LANDING PAGE -->
+<section id="preview-lp">
+    <p class="section-label">Preview</p>
+    <h2>A sua nova Landing Page — ao vivo</h2>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">Desenvolvida com foco em conversão. Cada elemento tem um propósito: transformar visitante em paciente.</p>
+
+    <div class="preview-section">
+        <div class="browser-bar">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+            <div class="browser-url">drrodrigodocarmo.com.br</div>
+        </div>
+        <div class="lp-iframe-wrapper">
+            <iframe src="lp/index.html" title="Landing Page Dr. Rodrigo do Carmo" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 1.5rem;">
+        <a href="lp/index.html" target="_blank" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.8rem; border: 1px solid var(--border); border-radius: 8px; color: #ccc; font-size: 0.9rem; transition: all 0.2s;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Abrir LP em nova aba
+        </a>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 10. PREVIEW POSTS -->
+<section id="preview-posts">
+    <p class="section-label">Posts de Fundação</p>
+    <h2>Os 4 posts que vão definir sua presença no Instagram</h2>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">Estes são os conteúdos-chave do grid inicial — os primeiros que novos seguidores vão ver.</p>
+
+    <div class="posts-grid">
+        <!-- Post 1 -->
+        <div class="post-card">
+            <div class="post-thumb">
+                <span class="post-type-badge">REEL FIXO</span>
+                <div class="post-icon">🎬</div>
+                <p class="post-headline">"Quem é o Dr. Rodrigo e por que você me escolheria?"</p>
+            </div>
+            <div class="post-meta">
+                <div class="post-meta-label">Post 1 — Apresentação & Autoridade</div>
+                <p>Reel de apresentação: especialidade, localidades, por que ortopedia/dor, CTA para DM.</p>
+            </div>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="post-card">
+            <div class="post-thumb">
+                <span class="post-type-badge">CARROSSEL</span>
+                <div class="post-icon">🦴</div>
+                <p class="post-headline">"5 mitos sobre dor nas costas que você provavelmente acredita"</p>
+            </div>
+            <div class="post-meta">
+                <div class="post-meta-label">Post 2 — Educação & Mito vs. Verdade</div>
+                <p>Carrossel educativo quebrando crenças sobre ortopedia. Alto engajamento e compartilhamento.</p>
+            </div>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="post-card">
+            <div class="post-thumb">
+                <span class="post-type-badge">REEL</span>
+                <div class="post-icon">🩹</div>
+                <p class="post-headline">"Se você tem dor crônica, você precisa ver isso"</p>
+            </div>
+            <div class="post-meta">
+                <div class="post-meta-label">Post 3 — Consciência do Problema</div>
+                <p>Reel de consciência: sintomas de alerta, quando procurar ortopedista, CTA para agendamento.</p>
+            </div>
+        </div>
+
+        <!-- Post 4 -->
+        <div class="post-card">
+            <div class="post-thumb">
+                <span class="post-type-badge">ESTÁTICO</span>
+                <div class="post-icon">⭐</div>
+                <p class="post-headline">"Paciente voltou a jogar futebol após cirurgia — relato real"</p>
+            </div>
+            <div class="post-meta">
+                <div class="post-meta-label">Post 4 — Prova Social & Resultado</div>
+                <p>Depoimento de paciente com resultado real. Prova social é o melhor conversor do Instagram médico.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 11. PLANOS -->
+<section id="planos">
+    <p class="section-label">Investimento</p>
+    <h2>Escolha o seu ponto de partida</h2>
+    <p style="color: var(--text-muted); margin-top: 0.5rem;">Três opções de acordo com sua meta e velocidade de crescimento.</p>
+
+    <div class="pricing-grid">
+
+        <!-- ESSENCIAL -->
+        <div class="pricing-card">
+            <div class="pricing-name">Essencial</div>
+            <div class="pricing-price">R$2.500 <span>/mês</span></div>
+            <p class="pricing-desc">Para quem quer começar com presença digital consistente e sem tráfego pago.</p>
+            <ul class="pricing-features">
+                <li><span class="check">✓</span> Identidade visual básica</li>
+                <li><span class="check">✓</span> Setup Instagram + GMB</li>
+                <li><span class="check">✓</span> 2–3 posts/semana</li>
+                <li><span class="check">✓</span> Calendário editorial mensal</li>
+                <li><span class="check">✓</span> Relatório mensal</li>
+                <li><span class="cross">✗</span> Landing page</li>
+                <li><span class="cross">✗</span> Tráfego pago</li>
+                <li><span class="cross">✗</span> 4 localidades GMB</li>
+            </ul>
+            <a href="https://wa.me/5561991465706?text=Quero+saber+mais+sobre+o+Plano+Essencial" class="pricing-cta" target="_blank">Quero o Essencial</a>
+        </div>
+
+        <!-- MARKETING (FEATURED) -->
+        <div class="pricing-card featured">
+            <div class="pricing-badge">✦ RECOMENDADO ✦</div>
+            <div class="pricing-name">Marketing</div>
+            <div class="pricing-price">R$4.500 <span>/mês</span></div>
+            <p class="pricing-desc">O plano completo para crescer agendamentos de forma previsível no DF.</p>
+            <ul class="pricing-features">
+                <li><span class="check">✓</span> Tudo do Essencial</li>
+                <li><span class="check">✓</span> MIV completo (logo + guia)</li>
+                <li><span class="check">✓</span> 4–5 posts/semana</li>
+                <li><span class="check">✓</span> GMB × 4 localidades</li>
+                <li><span class="check">✓</span> Landing page otimizada</li>
+                <li><span class="check">✓</span> Setup Meta + Google Ads</li>
+                <li><span class="check">✓</span> Gestão de campanhas</li>
+                <li><span class="check">✓</span> Sessão batch de foto/vídeo</li>
+            </ul>
+            <a href="https://wa.me/5561991465706?text=Quero+o+Plano+Marketing+para+o+Dr.+Rodrigo+do+Carmo" class="pricing-cta" target="_blank">Quero o Marketing</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="pricing-card">
+            <div class="pricing-name">Premium</div>
+            <div class="pricing-price">R$7.500 <span>/mês</span></div>
+            <p class="pricing-desc">Para quem quer dominar o mercado no DF com tráfego agressivo e autoridade máxima.</p>
+            <ul class="pricing-features">
+                <li><span class="check">✓</span> Tudo do Marketing</li>
+                <li><span class="check">✓</span> Budget de mídia incluso (R$2k)</li>
+                <li><span class="check">✓</span> 2 sessões batch/mês</li>
+                <li><span class="check">✓</span> Múltiplas LPs por especialidade</li>
+                <li><span class="check">✓</span> CRM de leads + automação</li>
+                <li><span class="check">✓</span> Dashboard em tempo real</li>
+                <li><span class="check">✓</span> Reuniões quinzenais</li>
+                <li><span class="check">✓</span> Suporte prioritário</li>
+            </ul>
+            <a href="https://wa.me/5561991465706?text=Quero+saber+mais+sobre+o+Plano+Premium" class="pricing-cta" target="_blank">Quero o Premium</a>
+        </div>
+    </div>
+
+    <p style="text-align: center; color: var(--text-muted); margin-top: 2rem; font-size: 0.9rem;">
+        * Verba de mídia paga (Meta + Google) não está inclusa nos planos Essencial e Marketing — recomendamos R$1.000–2.000/mês.<br>
+        * Contratos mensais. Sem fidelidade mínima após mês 3.
+    </p>
+</section>
+
+<div class="divider"></div>
+
+<!-- 12. GARANTIA + CTA FINAL -->
+<section id="garantia">
+    <p class="section-label">Garantia</p>
+    <h2>Nossa garantia de resultado</h2>
+
+    <div class="guarantee-section">
+        <div class="guarantee-icon">🛡️</div>
+        <h2>Se não entregar, a gente refaz</h2>
+        <p>Nos comprometemos a entregar tudo dentro do prazo e com a qualidade combinada. Se algum entregável não estiver no padrão, corrigimos sem custo adicional. Sem letras miúdas.</p>
+        <p style="margin-top: 0.75rem; margin-bottom: 2rem; color: #8a9ab5;">Trabalhamos com contratos mensais e transparência total. Você acompanha tudo pelo dashboard e nas reuniões mensais.</p>
+
+        <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C+quero+fechar+o+Plano+Marketing+para+o+Dr.+Rodrigo+do+Carmo+%E2%80%94+quando+podemos+conversar%3F" class="cta-final" target="_blank">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.096.541 4.063 1.482 5.779L.089 23.636A.5.5 0 00.5 24h.156l5.847-1.51A11.98 11.98 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.92a9.927 9.927 0 01-5.063-1.388l-.363-.215-3.763.97.941-3.773-.234-.378A9.918 9.918 0 012.08 12C2.08 6.514 6.514 2.08 12 2.08S21.92 6.514 21.92 12 17.486 21.92 12 21.92z"/></svg>
+            Fechar o Plano Marketing agora
+        </a>
+
+        <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">📅</div>
+                Início em até 5 dias úteis
+            </div>
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">🔄</div>
+                Sem fidelidade no início
+            </div>
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">📊</div>
+                Relatório mensal incluso
+            </div>
+            <div style="text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">💬</div>
+                Atendimento via WhatsApp
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Proposta Personalizada | Dr. Rodrigo do Carmo × <a href="https://assessoriapulso.com.br" target="_blank">Assessoria Pulso</a></p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.5;">Proposta confidencial — gerada em Junho/2026</p>
+</footer>
+
+<script>
+// Smooth appear on scroll
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .metric-card, .opp-card, .pricing-card, .deliverable-card, .timeline-item, .recap-item, .post-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+});
+</script>
+
+</body>
+</html>
