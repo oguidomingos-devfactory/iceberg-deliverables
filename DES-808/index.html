@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta | Dr. Rodrigo Carmo — Assessoria Médica Digital</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #00BFA5;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.2);
+            --gold: #C9A84C;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0a0f18 0%, #0d1f3c 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
+
+        /* NAV */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(10, 15, 24, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.4rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: var(--navy);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+            color: var(--navy);
+        }
+
+        /* HERO */
+        .hero {
+            padding: clamp(5rem, 12vh, 9rem) 2rem clamp(4rem, 8vh, 7rem);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -15%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 165, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.4rem 1.2rem;
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out both;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+            animation: slideInDown 0.8s ease-out 0.1s both;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: var(--pulso);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 1.8vw, 1.15rem);
+            color: #b0b0b0;
+            max-width: 680px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+            animation: slideInUp 0.8s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.35);
+            color: var(--navy);
+        }
+
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            background: transparent;
+            color: #c0c0c0;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .cta-secondary:hover {
+            border-color: var(--green);
+            color: var(--green);
+            background: rgba(37, 211, 102, 0.05);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2) { animation-delay: 0.1s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.3s; }
+        section:nth-of-type(5) { animation-delay: 0.4s; }
+        section:nth-of-type(6) { animation-delay: 0.5s; }
+        section:nth-of-type(7) { animation-delay: 0.6s; }
+        section:nth-of-type(8) { animation-delay: 0.7s; }
+        section:nth-of-type(9) { animation-delay: 0.8s; }
+        section:nth-of-type(10) { animation-delay: 0.9s; }
+        section:nth-of-type(11) { animation-delay: 1.0s; }
+        section:nth-of-type(12) { animation-delay: 1.1s; }
+
+        .section-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--green);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* GLASS BOX */
+        .glass-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* RECAP */
+        .recap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .recap-card {
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(37, 211, 102, 0.12);
+            border-left: 3px solid var(--green);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .recap-card:hover {
+            transform: translateX(6px);
+            border-left-color: var(--pulso);
+            background: rgba(37, 211, 102, 0.04);
+        }
+
+        .recap-card strong {
+            color: var(--green);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .recap-card p {
+            color: #c0c0c0;
+            font-size: 0.95rem;
+        }
+
+        /* CHALLENGE */
+        .challenge-block {
+            background: linear-gradient(135deg, rgba(255, 80, 80, 0.08) 0%, rgba(255, 80, 80, 0.03) 100%);
+            border: 1px solid rgba(255, 100, 100, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .challenge-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 100, 100, 0.15);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: 'DM Serif Display', Georgia, serif;
+            color: #ff8080;
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #909090;
+        }
+
+        /* DIAGNOSIS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--green), var(--pulso));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(37, 211, 102, 0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .card.problem .card-icon { filter: grayscale(0.3); }
+
+        /* OPP GRID */
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .opp-card {
+            background: rgba(37, 211, 102, 0.05);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .opp-card:hover {
+            background: rgba(37, 211, 102, 0.08);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.1);
+        }
+
+        .opp-card h3 {
+            color: var(--green);
+            margin-bottom: 0.8rem;
+        }
+
+        .opp-card p {
+            color: #b0b0b0;
+            font-size: 0.9rem;
+        }
+
+        /* BENCHMARK */
+        .benchmark-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benchmark-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .benchmark-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(37, 211, 102, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .benchmark-card.projection {
+            border-color: rgba(37, 211, 102, 0.3);
+            background: rgba(37, 211, 102, 0.04);
+        }
+
+        .benchmark-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .benchmark-card h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .metric:last-child {
+            border: none;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: #a0a0a0;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--green);
+            font-size: 1.05rem;
+        }
+
+        /* PHASES */
+        .phases {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .phase {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .phase-label {
+            background: rgba(37, 211, 102, 0.1);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            text-align: center;
+        }
+
+        .phase-label strong {
+            display: block;
+            color: var(--green);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .phase-label span {
+            color: #808080;
+            font-size: 0.8rem;
+        }
+
+        .phase-content {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+        }
+
+        .phase-content h3 {
+            color: var(--white);
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .phase-items {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .phase-item {
+            background: rgba(37, 211, 102, 0.08);
+            border: 1px solid rgba(37, 211, 102, 0.2);
+            border-radius: 4px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.82rem;
+            color: #c0c0c0;
+        }
+
+        /* DELIVERABLES */
+        .deliverable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .deliverable-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .deliverable-card:hover {
+            border-color: rgba(37, 211, 102, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .deliverable-card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .deliverable-list {
+            list-style: none;
+        }
+
+        .deliverable-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #a0a0a0;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .deliverable-list li:last-child { border: none; }
+
+        .deliverable-list li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        /* LP PREVIEW */
+        .preview-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .preview-device {
+            position: relative;
+            margin-top: 2rem;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .device-bar {
+            background: #1a1a2e;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .device-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .device-url {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            color: #707070;
+            flex: 1;
+            text-align: center;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* POSTS */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .post-card {
+            aspect-ratio: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: var(--card-bg);
+            position: relative;
+        }
+
+        .post-card:hover {
+            border-color: rgba(37, 211, 102, 0.3);
+            transform: scale(1.04);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+        }
+
+        .post-mockup {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .post-mockup-type {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--green);
+            margin-bottom: 0.5rem;
+        }
+
+        .post-mockup-title {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1rem;
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .post-mockup-1 { background: linear-gradient(135deg, #0d2137 0%, #0a1a30 100%); }
+        .post-mockup-2 { background: linear-gradient(135deg, #0d2337 0%, #071c30 100%); }
+        .post-mockup-3 { background: linear-gradient(135deg, #091f1e 0%, #0a1a1a 100%); }
+        .post-mockup-4 { background: linear-gradient(135deg, #141226 0%, #0d0f20 100%); }
+
+        .post-tag {
+            position: absolute;
+            bottom: 0.8rem;
+            left: 0.8rem;
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--green);
+        }
+
+        /* PRICING */
+        .pricing-section {
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: all 0.3s;
+            text-align: left;
+        }
+
+        .pricing-card.recommended {
+            border-color: rgba(37, 211, 102, 0.35);
+            background: rgba(37, 211, 102, 0.04);
+            transform: scale(1.04);
+            box-shadow: 0 20px 60px rgba(37, 211, 102, 0.15);
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-6px);
+        }
+
+        .pricing-card.recommended:hover {
+            transform: scale(1.04) translateY(-6px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            padding: 0.3rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .pricing-plan-name {
+            color: #808080;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card h3 {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .price-display {
+            font-size: 2.8rem;
+            color: var(--green);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .price-period {
+            font-size: 0.85rem;
+            color: #707070;
+            margin-bottom: 2rem;
+        }
+
+        .price-setup {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            color: #909090;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .price-feature {
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .price-feature:last-child { border: none; }
+
+        .price-feature::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .cta-button {
+            width: 100%;
+            justify-content: center;
+            margin-top: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* GUARANTEE */
+        .guarantee-section {
+            background: linear-gradient(135deg, rgba(37, 211, 102, 0.06) 0%, rgba(0, 191, 165, 0.04) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(37, 211, 102, 0.15);
+            text-align: center;
+        }
+
+        .guarantee-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .guarantee-section h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .guarantee-section p {
+            font-size: 1.05rem;
+            margin: 1rem auto;
+            color: #c0c0c0;
+            max-width: 700px;
+            line-height: 1.7;
+        }
+
+        .guarantee-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--green);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* NEXT STEPS */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .step-item {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+        }
+
+        .step-item:hover {
+            border-color: rgba(37, 211, 102, 0.2);
+        }
+
+        .step-number {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--navy);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-item h3 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-item p {
+            color: #909090;
+            font-size: 0.85rem;
+        }
+
+        /* CTA FINAL */
+        .final-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #25D366, #20ba5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cta-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+            color: white;
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.2), transparent);
+            margin: 0 auto;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #606060;
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+        }
+
+        footer p { margin-bottom: 0.5rem; }
+
+        .footer-logo {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 1.2rem;
+            color: var(--white);
+            opacity: 0.5;
+            margin-bottom: 1rem;
+        }
+
+        /* ANIMATIONS */
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav { padding: 0.8rem 1rem; }
+            .hero { padding: clamp(4rem, 10vh, 6rem) 1rem clamp(3rem, 6vh, 5rem); }
+            .pricing-card.recommended { transform: scale(1); }
+            .phase { grid-template-columns: 1fr; }
+            .phase-label { display: flex; align-items: center; gap: 1rem; }
+            section { padding: clamp(3rem, 6vh, 4rem) 1rem; }
+            .glass-box, .benchmark-section, .preview-section, .guarantee-section { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <span class="nav-logo">Proposta · Dr. Rodrigo Carmo</span>
+        <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20a%20proposta%20da%20Assessoria%20Pulso" class="nav-cta" target="_blank">
+            💬 Falar no WhatsApp
+        </a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <div class="hero">
+        <span class="hero-badge">📄 Proposta Personalizada — Assessoria Pulso</span>
+        <h1>Dr. Rodrigo Carmo</h1>
+        <p class="subtitle">Medicina de Excelência — Captação Digital Premium</p>
+        <p class="tagline">
+            Você tem o conhecimento clínico e a credibilidade. Falta a estrutura digital que transforma autoridade em agenda cheia — de forma previsível, todo mês.
+        </p>
+        <div class="hero-cta-group">
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20a%20proposta%20da%20Assessoria%20Pulso" class="cta-button" target="_blank">
+                💬 Conversar agora
+            </a>
+            <a href="#planos" class="cta-secondary">
+                📋 Ver planos e preços
+            </a>
+        </div>
+    </div>
+
+    <!-- 2. RECAP DA CONVERSA -->
+    <section>
+        <span class="section-label">O que conversamos</span>
+        <h2>Recap da Nossa Call</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">
+            Com base na nossa conversa, mapeamos os pontos essenciais que guiam essa proposta:
+        </p>
+        <div class="recap-grid">
+            <div class="recap-card">
+                <strong>Momento atual</strong>
+                <p>Novo consultório ou clínica em fase de crescimento — buscando sistematizar a captação de novos pacientes com previsibilidade.</p>
+            </div>
+            <div class="recap-card">
+                <strong>Principal dor</strong>
+                <p>Dependência de indicações e ausência de tráfego digital estruturado. Sem landing page de alta conversão, o investimento em redes sociais não se converte em consultas.</p>
+            </div>
+            <div class="recap-card">
+                <strong>Objetivo</strong>
+                <p>Construir presença digital premium e ativar captação previsível via Meta Ads + Google Ads, chegando a 50–100 novos leads qualificados por mês.</p>
+            </div>
+            <div class="recap-card">
+                <strong>Plano escolhido</strong>
+                <p>Plano <strong style="color: var(--green);">Essencial</strong> — o ponto de entrada ideal para quem quer resultados reais sem sobrecarga operacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider" style="max-width:1200px;margin:0 auto;"></div>
+
+    <!-- 3. DESAFIO CENTRAL -->
+    <section>
+        <span class="section-label">O problema real</span>
+        <h2>O Desafio Central</h2>
+        <div class="challenge-block">
+            <p style="font-size: 1.1rem; color: #c0c0c0; margin-bottom: 2rem; max-width: 800px;">
+                Médicos especialistas perdem em média <strong style="color:#ff8080;">40% do potencial de faturamento</strong> por não ter um funil digital ativo. Pacientes buscam online, comparam perfis, leem reviews — e quem não aparece, não existe.
+            </p>
+            <div class="challenge-stats">
+                <div class="stat-box">
+                    <span class="stat-number">78%</span>
+                    <span class="stat-label">dos pacientes pesquisam médicos no Google antes de marcar consulta</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">3–5×</span>
+                    <span class="stat-label">mais conversão em landing pages otimizadas vs. links de redes sociais</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">R$0</span>
+                    <span class="stat-label">de retorno em tráfego sem landing page de alta conversão estruturada</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DIAGNÓSTICO -->
+    <section>
+        <span class="section-label">Onde está a lacuna</span>
+        <h2>Diagnóstico — O que está faltando</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Mapeamos os pontos onde a concorrência ganha terreno:</p>
+        <div class="card-grid">
+            <div class="card problem">
+                <span class="card-icon">🔍</span>
+                <h3>Ausência no Google</h3>
+                <p>Sem landing page otimizada, campanhas de busca (Google Ads) ficam impossibilitadas de rodar com ROI positivo.</p>
+            </div>
+            <div class="card problem">
+                <span class="card-icon">📉</span>
+                <h3>Tráfego sem conversão</h3>
+                <p>Seguidores no Instagram não se transformam em agendamentos sem um funil estruturado de captura e follow-up.</p>
+            </div>
+            <div class="card problem">
+                <span class="card-icon">🤖</span>
+                <h3>Leads sem acompanhamento</h3>
+                <p>Sem automações de CRM, leads que entram em contato e não fecham imediatamente são perdidos para sempre.</p>
+            </div>
+            <div class="card problem">
+                <span class="card-icon">📊</span>
+                <h3>Decisões sem dados</h3>
+                <p>Sem métricas de CPL e ROAS, é impossível saber o que funciona — e o investimento em marketing vira aposta.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. OPORTUNIDADES -->
+    <section>
+        <span class="section-label">O que vamos resolver</span>
+        <h2>Oportunidades de Melhoria</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">5 alavancas concretas que ativamos no Plano Essencial:</p>
+        <div class="opp-grid">
+            <div class="opp-card">
+                <h3>01 · Landing Page de Alta Conversão</h3>
+                <p>Página dedicada para captação, com copy focado na dor do paciente, depoimentos, CTA direto para WhatsApp e pixel de rastreamento completo.</p>
+            </div>
+            <div class="opp-card">
+                <h3>02 · Campanhas Meta Ads</h3>
+                <p>Segmentação por comportamento, interesse e localização. Remarketing para quem visitou a LP mas não converteu. Otimização contínua de criativo.</p>
+            </div>
+            <div class="opp-card">
+                <h3>03 · Google Ads — Busca Qualificada</h3>
+                <p>Capturar pacientes com intenção de compra — quem pesquisa "consulta [especialidade] [cidade]" já está pronto para agendar.</p>
+            </div>
+            <div class="opp-card">
+                <h3>04 · Automação de Follow-up</h3>
+                <p>Sequência automática via WhatsApp/email para leads que não fecharam imediatamente. Recupera 15–30% dos leads "perdidos".</p>
+            </div>
+            <div class="opp-card">
+                <h3>05 · Dashboard de Métricas</h3>
+                <p>Visão em tempo real de CPL, agendamentos, ROAS e ROI. Relatório mensal detalhado com recomendações de otimização.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. MÉTRICAS PROJETADAS -->
+    <section>
+        <span class="section-label">O que esperar</span>
+        <h2>Métricas Projetadas</h2>
+        <div class="benchmark-section">
+            <p style="margin-bottom: 2rem; color: #b0b0b0;">Baseado em resultados reais de clínicas médicas que trabalhamos:</p>
+            <div class="benchmark-grid">
+                <div class="benchmark-card">
+                    <h3>📍 Clínica Asa Norte (Set–Dez 2024)</h3>
+                    <div class="metric">
+                        <span class="metric-label">Investimento em anúncios</span>
+                        <span class="metric-value">R$ 6.552</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Contatos gerados</span>
+                        <span class="metric-value">468</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Agendamentos</span>
+                        <span class="metric-value">186</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">CPL (custo por lead)</span>
+                        <span class="metric-value">R$ 14,00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Custo por paciente</span>
+                        <span class="metric-value">R$ 35,23</span>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <h3>📍 Clínica Águas Claras (Dez 25–Fev 26)</h3>
+                    <div class="metric">
+                        <span class="metric-label">Investimento em anúncios</span>
+                        <span class="metric-value">R$ 1.115</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Contatos gerados</span>
+                        <span class="metric-value">104</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Agendamentos</span>
+                        <span class="metric-value">13</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">CPL (custo por lead)</span>
+                        <span class="metric-value">R$ 10,72</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Custo por paciente</span>
+                        <span class="metric-value">R$ 85,80</span>
+                    </div>
+                </div>
+                <div class="benchmark-card projection">
+                    <h3>🎯 Projeção Dr. Rodrigo Carmo</h3>
+                    <div class="metric">
+                        <span class="metric-label">Verba em anúncios/mês</span>
+                        <span class="metric-value">R$ 2.000–3.000</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Contatos estimados/mês</span>
+                        <span class="metric-value">~150–200</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Agendamentos estimados</span>
+                        <span class="metric-value">~60–80</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">CPL projetado</span>
+                        <span class="metric-value">R$ 12–18</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">ROI estimado (m3+)</span>
+                        <span class="metric-value">4–8×</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. PLANO DE IMPLEMENTAÇÃO -->
+    <section>
+        <span class="section-label">Como vamos trabalhar</span>
+        <h2>Plano de Implementação</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">Sequência estruturada para gerar resultado com segurança:</p>
+        <div class="phases">
+            <div class="phase">
+                <div class="phase-label">
+                    <strong>Início</strong>
+                    <span>Semanas 1–2</span>
+                </div>
+                <div class="phase-content">
+                    <h3>Fundação Digital</h3>
+                    <p style="color: #909090; font-size: 0.9rem; margin-bottom: 0.8rem;">Tudo que precisa existir antes de ligar os anúncios.</p>
+                    <ul class="phase-items">
+                        <li class="phase-item">Landing page premium</li>
+                        <li class="phase-item">Pixel Meta + Tag Google</li>
+                        <li class="phase-item">Setup CRM + automações</li>
+                        <li class="phase-item">Integração WhatsApp</li>
+                        <li class="phase-item">Copy e headlines testadas</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-label">
+                    <strong>Mês 1</strong>
+                    <span>Semanas 3–4</span>
+                </div>
+                <div class="phase-content">
+                    <h3>Ativação e Aprendizado</h3>
+                    <p style="color: #909090; font-size: 0.9rem; margin-bottom: 0.8rem;">Primeiras campanhas rodando, coleta de dados, ajustes rápidos.</p>
+                    <ul class="phase-items">
+                        <li class="phase-item">Meta Ads — campanha 1</li>
+                        <li class="phase-item">Google Ads — busca</li>
+                        <li class="phase-item">A/B teste de criativos</li>
+                        <li class="phase-item">Monitoramento diário</li>
+                        <li class="phase-item">Relatório semana 1</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-label">
+                    <strong>Mês 2</strong>
+                    <span>Otimização</span>
+                </div>
+                <div class="phase-content">
+                    <h3>Escala com Controle</h3>
+                    <p style="color: #909090; font-size: 0.9rem; margin-bottom: 0.8rem;">Com dados do mês 1, escalamos o que funciona e cortamos o que não funciona.</p>
+                    <ul class="phase-items">
+                        <li class="phase-item">Otimização de CPL</li>
+                        <li class="phase-item">Remarketing ativo</li>
+                        <li class="phase-item">Lookalike audiences</li>
+                        <li class="phase-item">Review de automações</li>
+                        <li class="phase-item">Dashboard ao vivo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="phase">
+                <div class="phase-label">
+                    <strong>Mês 3+</strong>
+                    <span>Consistência</span>
+                </div>
+                <div class="phase-content">
+                    <h3>Previsibilidade de Leads</h3>
+                    <p style="color: #909090; font-size: 0.9rem; margin-bottom: 0.8rem;">Máquina rodando — agenda cheia, ROI medido, escala quando quiser.</p>
+                    <ul class="phase-items">
+                        <li class="phase-item">Novos criativos mensais</li>
+                        <li class="phase-item">Expansão de segmentação</li>
+                        <li class="phase-item">Reunião mensal de performance</li>
+                        <li class="phase-item">Relatório detalhado</li>
+                        <li class="phase-item">Upsell de plano quando pronto</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. DELIVERABLES -->
+    <section>
+        <span class="section-label">Tudo que você recebe</span>
+        <h2>O que está incluído no Plano Essencial</h2>
+        <div class="deliverable-grid">
+            <div class="deliverable-card">
+                <h3>🌐 Landing Page Premium</h3>
+                <ul class="deliverable-list">
+                    <li>Design mobile-first personalizado</li>
+                    <li>Copy focado em conversão</li>
+                    <li>Pixel Meta + Tag Google configurados</li>
+                    <li>Integração WhatsApp e formulário</li>
+                    <li>Depoimentos e credenciais</li>
+                    <li>Velocidade 90+ Lighthouse</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <h3>📢 Gestão de Tráfego</h3>
+                <ul class="deliverable-list">
+                    <li>Campanhas Meta Ads (FB + IG)</li>
+                    <li>Google Ads — rede de pesquisa</li>
+                    <li>Segmentação por especialidade e região</li>
+                    <li>Otimização semanal de campanhas</li>
+                    <li>Remarketing para visitantes da LP</li>
+                    <li>A/B teste contínuo de criativos</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <h3>🤖 CRM + Automações</h3>
+                <ul class="deliverable-list">
+                    <li>Pipeline de leads estruturado</li>
+                    <li>Follow-up automático WhatsApp</li>
+                    <li>Sequência de reativação de leads frios</li>
+                    <li>Notificação em tempo real de novos leads</li>
+                    <li>Tags e segmentação de contatos</li>
+                </ul>
+            </div>
+            <div class="deliverable-card">
+                <h3>📊 Relatórios e Suporte</h3>
+                <ul class="deliverable-list">
+                    <li>Dashboard de métricas ao vivo</li>
+                    <li>Relatório mensal detalhado</li>
+                    <li>Reunião mensal de performance</li>
+                    <li>Suporte prioritário via WhatsApp</li>
+                    <li>Acesso ao time de especialistas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. LP PREVIEW -->
+    <section class="preview-section" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem 4rem;">
+        <span class="section-label">Veja como vai ficar</span>
+        <h2>Preview da Landing Page</h2>
+        <p style="color: #b0b0b0; margin: 1rem 0 2rem;">A experiência que seus pacientes terão ao clicar no anúncio:</p>
+        <div class="preview-device">
+            <div class="device-bar">
+                <div class="device-dot" style="background:#ff5f57;"></div>
+                <div class="device-dot" style="background:#febc2e;"></div>
+                <div class="device-dot" style="background:#28c840;"></div>
+                <div class="device-url">drrodrigocarmo.com.br · Consulta Especializada</div>
+            </div>
+            <div class="iframe-container">
+                <iframe src="./lp/" title="Landing Page Dr. Rodrigo Carmo" loading="lazy"></iframe>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 1.5rem;">
+            <a href="./lp/" target="_blank" style="color: var(--green); font-weight: 600;">
+                ↗ Abrir em tela cheia
+            </a>
+        </p>
+    </section>
+
+    <!-- 10. POSTS PREVIEW -->
+    <section>
+        <span class="section-label">Grid de fundação</span>
+        <h2>Preview dos Posts Iniciais</h2>
+        <p style="color: #b0b0b0; margin-bottom: 2rem;">4 posts-chave que estruturam a autoridade do perfil antes de ativar os anúncios:</p>
+        <div class="posts-grid">
+            <div class="post-card">
+                <div class="post-mockup post-mockup-1">
+                    <span class="post-mockup-type">Apresentação</span>
+                    <h3 class="post-mockup-title">Quem é o Dr. Rodrigo Carmo e por que confiar</h3>
+                </div>
+                <span class="post-tag">Post 01</span>
+            </div>
+            <div class="post-card">
+                <div class="post-mockup post-mockup-2">
+                    <span class="post-mockup-type">Educação</span>
+                    <h3 class="post-mockup-title">3 sinais que você precisa de uma consulta agora</h3>
+                </div>
+                <span class="post-tag">Post 02</span>
+            </div>
+            <div class="post-card">
+                <div class="post-mockup post-mockup-3">
+                    <span class="post-mockup-type">Prova social</span>
+                    <h3 class="post-mockup-title">Resultado real: como um paciente voltou a ter qualidade de vida</h3>
+                </div>
+                <span class="post-tag">Post 03</span>
+            </div>
+            <div class="post-card">
+                <div class="post-mockup post-mockup-4">
+                    <span class="post-mockup-type">CTA Direto</span>
+                    <h3 class="post-mockup-title">Agende sua consulta — vagas limitadas este mês</h3>
+                </div>
+                <span class="post-tag">Post 04</span>
+            </div>
+        </div>
+        <p style="color: #707070; font-size: 0.85rem; margin-top: 1.5rem; text-align: center;">
+            * Layouts finais com identidade visual e fotos reais são entregues após a sessão de fotos com o cliente.
+        </p>
+    </section>
+
+    <!-- 11. PLANOS -->
+    <section id="planos" class="pricing-section">
+        <span class="section-label">Comparativo</span>
+        <h2>Planos & Investimento</h2>
+        <p style="color: #b0b0b0; margin-bottom: 1rem;">Escolha o plano adequado ao seu momento de crescimento.</p>
+        <div class="pricing-grid">
+            <!-- STARTER -->
+            <div class="pricing-card">
+                <div class="pricing-plan-name">Plano</div>
+                <h3>Starter</h3>
+                <div class="price-display">R$ 2.500</div>
+                <div class="price-period">por mês</div>
+                <div class="price-setup">+ R$ 3.500 setup inicial</div>
+                <ul class="price-features">
+                    <li class="price-feature">Landing page básica</li>
+                    <li class="price-feature">1 campanha Meta OU Google</li>
+                    <li class="price-feature">Relatório mensal básico</li>
+                    <li class="price-feature">Suporte por email</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Tenho%20interesse%20no%20Plano%20Starter" class="cta-button cta-secondary" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.9rem 1.5rem;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#c0c0c0;background:transparent;font-weight:600;font-size:0.9rem;text-decoration:none;margin-top:1.5rem;transition:all 0.3s;">
+                    Falar sobre este plano
+                </a>
+            </div>
+
+            <!-- ESSENCIAL (recommended) -->
+            <div class="pricing-card recommended">
+                <div class="pricing-badge">✦ RECOMENDADO</div>
+                <div class="pricing-plan-name">Plano</div>
+                <h3>Essencial</h3>
+                <div class="price-display">R$ 3.500</div>
+                <div class="price-period">por mês</div>
+                <div class="price-setup">+ R$ 6.000 setup inicial</div>
+                <ul class="price-features">
+                    <li class="price-feature">Landing page premium personalizada</li>
+                    <li class="price-feature">Meta Ads + Google Ads completo</li>
+                    <li class="price-feature">Otimização contínua de conversão</li>
+                    <li class="price-feature">CRM + automações de follow-up</li>
+                    <li class="price-feature">Dashboard de métricas ao vivo</li>
+                    <li class="price-feature">Relatório mensal detalhado</li>
+                    <li class="price-feature">Reunião mensal de performance</li>
+                    <li class="price-feature">Suporte prioritário via WhatsApp</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Tenho%20interesse%20no%20Plano%20Essencial%20-%20Dr.%20Rodrigo%20Carmo" class="cta-button" target="_blank">
+                    💬 Quero começar agora
+                </a>
+            </div>
+
+            <!-- MARKETING -->
+            <div class="pricing-card">
+                <div class="pricing-plan-name">Plano</div>
+                <h3>Marketing Premium</h3>
+                <div class="price-display">R$ 5.500</div>
+                <div class="price-period">por mês</div>
+                <div class="price-setup">+ R$ 8.000 setup inicial</div>
+                <ul class="price-features">
+                    <li class="price-feature">Tudo do Essencial</li>
+                    <li class="price-feature">Gestão de conteúdo Instagram (12 posts/mês)</li>
+                    <li class="price-feature">Produção de vídeos (Reels + Stories)</li>
+                    <li class="price-feature">Gestão de reputação (Google Meu Negócio)</li>
+                    <li class="price-feature">Estratégia de influencers médicos</li>
+                    <li class="price-feature">Acompanhamento semanal</li>
+                    <li class="price-feature">Suporte 24/7</li>
+                </ul>
+                <a href="https://wa.me/5561991465706?text=Tenho%20interesse%20no%20Plano%20Marketing%20Premium" class="cta-button cta-secondary" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;padding:0.9rem 1.5rem;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:#c0c0c0;background:transparent;font-weight:600;font-size:0.9rem;text-decoration:none;margin-top:1.5rem;transition:all 0.3s;">
+                    Falar sobre este plano
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. GARANTIA + PRÓXIMOS PASSOS -->
+    <section>
+        <div class="guarantee-section">
+            <span class="guarantee-icon">🛡️</span>
+            <h2>Nossa Garantia</h2>
+            <p>
+                Trabalhamos com <strong style="color: var(--green);">transparência total</strong>. Você tem acesso ao dashboard em tempo real, relatórios mensais detalhados e reuniões de performance para acompanhar cada real investido.
+            </p>
+            <p>
+                Não prometemos milagres — prometemos um processo estruturado, testado e validado com dezenas de especialistas médicos no Brasil. Se o processo for seguido, os resultados aparecem.
+            </p>
+            <div class="guarantee-highlights">
+                <span class="guarantee-item">✓ Sem fidelidade nos primeiros 3 meses</span>
+                <span class="guarantee-item">✓ Relatórios completos toda semana</span>
+                <span class="guarantee-item">✓ Suporte prioritário incluído</span>
+            </div>
+        </div>
+    </section>
+
+    <section style="text-align: center;">
+        <span class="section-label">Próximos passos</span>
+        <h2>Como começamos</h2>
+        <div class="steps-grid">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <h3>Aprovação da proposta</h3>
+                <p>Você confirma o plano e assinamos o contrato digital — em menos de 5 minutos.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <h3>Kickoff e briefing</h3>
+                <p>Reunião de onboarding para mapear sua especialidade, diferenciais e objetivos concretos.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <h3>Criação da LP</h3>
+                <p>Nossa equipe entrega sua landing page em até 10 dias úteis, com aprovação antes do go-live.</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <h3>Anúncios no ar</h3>
+                <p>Campanhas ativadas e primeiros leads chegando. Acompanhamento diário nas semanas iniciais.</p>
+            </div>
+        </div>
+
+        <div class="final-cta">
+            <a href="https://wa.me/5561991465706?text=Ol%C3%A1%2C%20gostaria%20de%20aprovar%20a%20proposta%20Essencial%20-%20Dr.%20Rodrigo%20Carmo" class="cta-whatsapp" target="_blank">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Aprovar proposta pelo WhatsApp
+            </a>
+            <p style="color: #707070; font-size: 0.9rem;">Seg–Sex, 9h–18h (Brasília) · Resposta em até 2h</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">Assessoria Pulso</div>
+        <p>Proposta exclusiva preparada para <strong>Dr. Rodrigo Carmo</strong></p>
+        <p style="margin-top: 0.5rem; font-size: 0.82rem;">
+            Esta proposta é confidencial e válida por 30 dias a partir de 11/06/2026
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+            © 2026 Assessoria Pulso · Todos os direitos reservados
+        </p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Scroll reveal with IntersectionObserver
+        const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -40px 0px' };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Nav active state
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 15, 24, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 15, 24, 0.92)';
+            }
+        });
+    </script>
+</body>
+</html>
