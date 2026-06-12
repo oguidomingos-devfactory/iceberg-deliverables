@@ -4,704 +4,1107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposta | Dra Carolina Braga — Ortopedia & Medicina da Dor</title>
+    <meta name="description" content="Proposta comercial personalizada para Dra Carolina Braga — Plano Essencial Pulso">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --navy:    #0D1B2A;
-            --deep:    #07111D;
-            --gold:    #C9A84C;
-            --gold-l:  #E8C96A;
-            --teal:    #00BFA5;
-            --white:   #FFFFFF;
-            --off-wh:  #F5F0E8;
-            --muted:   #A0A8B8;
-            --card-bg: rgba(255,255,255,0.04);
-            --border:  rgba(201,168,76,0.2);
-            --green-wa:#25D366;
-            --pulso:   #00BFA5;
+            --green: #25D366;
+            --navy: #0D1B2A;
+            --white: #FFFFFF;
+            --sand: #F0E9DC;
+            --charcoal: #32373C;
+            --pulso: #00BFA5;
+            --dark-bg: #0a0f18;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(37, 211, 102, 0.2);
+            --muted: #a0a0a0;
+            --amber: #f59e0b;
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--deep);
-            color: #E0E4EC;
-            line-height: 1.65;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #0d1f3c 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1,h2,h3,h4 { font-family:'DM Serif Display',Georgia,serif; font-weight:400; letter-spacing:-0.4px; }
-        h1 { font-size: clamp(2.4rem,5.5vw,3.8rem); }
-        h2 { font-size: clamp(1.8rem,3.5vw,2.6rem); }
-        h3 { font-size: clamp(1.2rem,2.2vw,1.6rem); }
-
-        a { color:var(--gold); text-decoration:none; transition:color .3s; }
-        a:hover { color:var(--gold-l); }
-
-        /* PROGRESS BAR */
-        .progress-bar {
-            position: fixed; top:0; left:0; height:3px;
-            background: linear-gradient(90deg,var(--gold),var(--teal));
-            z-index:9999; transition:width .1s;
+        h1, h2, h3, h4 {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-weight: 400;
+            letter-spacing: -0.5px;
         }
 
-        /* NAV */
-        nav {
-            position: fixed; top:3px; left:0; right:0; z-index:999;
-            padding: 1rem 2rem;
-            display:flex; justify-content:space-between; align-items:center;
-            background: rgba(7,17,29,0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-logo {
-            font-family:'DM Serif Display',serif;
-            font-size:1.1rem; color:var(--gold);
-            letter-spacing:0.5px;
-        }
-        .nav-cta {
-            padding:.5rem 1.25rem;
-            background: var(--green-wa);
-            color:#000; font-weight:600; font-size:.875rem;
-            border-radius:6px; transition: all .3s;
-            display:flex; align-items:center; gap:.4rem;
-        }
-        .nav-cta:hover { background:#1fb855; color:#000; transform:translateY(-1px); }
+        h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); }
+        h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
 
-        /* SECTIONS */
-        section { padding: clamp(4rem,8vh,7rem) clamp(1.5rem,5vw,3rem); max-width:1100px; margin:0 auto; }
-        .full-width-section { max-width:none; padding: clamp(4rem,8vh,7rem) 0; }
-        .full-width-inner { max-width:1100px; margin:0 auto; padding:0 clamp(1.5rem,5vw,3rem); }
+        a { color: var(--green); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--pulso); }
 
         /* HERO */
-        .hero-wrap {
+        .hero {
             min-height: 100vh;
-            display:flex; align-items:center; justify-content:center;
-            position:relative; overflow:hidden;
-            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%),
-                        linear-gradient(180deg, #07111D 0%, #0D1B2A 100%);
-            text-align:center;
-            padding: clamp(6rem,12vh,10rem) clamp(1.5rem,5vw,3rem) clamp(4rem,8vh,6rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 3rem;
+            padding: clamp(6rem, 12vh, 9rem) clamp(2rem, 8vw, 8rem) clamp(4rem, 8vh, 6rem);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-label {
-            display:inline-block;
-            padding:.35rem 1rem;
-            border:1px solid var(--border);
-            border-radius:100px;
-            font-size:.78rem; font-weight:500;
-            color:var(--gold); letter-spacing:1.5px; text-transform:uppercase;
-            margin-bottom:1.5rem;
-            opacity:0; transform:translateY(20px);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(0, 191, 165, 0.12) 0%, transparent 65%);
+            border-radius: 50%;
+            z-index: 0;
         }
 
-        .hero-photo-ring {
-            width:140px; height:140px;
-            border-radius:50%;
-            margin:0 auto 2rem;
-            background: linear-gradient(135deg,var(--gold),var(--teal));
-            padding:3px;
-            opacity:0; transform:scale(0.85);
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 191, 165, 0.07) 0%, transparent 65%);
+            border-radius: 50%;
+            z-index: 0;
         }
-        .hero-photo-inner {
-            width:100%; height:100%; border-radius:50%;
-            background: linear-gradient(135deg,#1a2d42 0%,#0d1b2a 100%);
-            display:flex; align-items:center; justify-content:center;
-            font-size:3.5rem; font-family:'DM Serif Display',serif;
-            color:var(--gold); letter-spacing:-1px;
-            overflow:hidden;
-        }
-        .hero-photo-inner img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
 
-        .hero h1 { color:var(--white); margin-bottom:.6rem; opacity:0; transform:translateY(20px); }
-        .hero-specialty {
-            font-size:clamp(1rem,1.8vw,1.25rem);
-            color:var(--gold); letter-spacing:.5px;
-            margin-bottom:1.2rem; opacity:0; transform:translateY(20px);
+        .hero-content { position: relative; z-index: 1; }
+
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--pulso);
+            border: 1px solid rgba(0, 191, 165, 0.35);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            margin-bottom: 1.5rem;
         }
-        .hero-sub {
-            font-size:clamp(.95rem,1.5vw,1.1rem);
-            color:var(--muted); max-width:600px; margin:0 auto 2.5rem;
-            opacity:0; transform:translateY(20px);
+
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
         }
-        .hero-cta-group { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; opacity:0; }
-        .btn-primary {
-            display:inline-flex; align-items:center; gap:.5rem;
-            padding:.85rem 2rem;
-            background: linear-gradient(135deg,var(--green-wa),#1dba5a);
-            color:#000; font-weight:700; font-size:1rem; border-radius:8px;
-            transition:all .3s;
+
+        .hero h1 em { color: var(--pulso); font-style: italic; }
+
+        .hero .subtitle {
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            color: var(--pulso);
+            margin-bottom: 0.75rem;
         }
-        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(37,211,102,.35); color:#000; }
-        .btn-outline {
-            display:inline-flex; align-items:center; gap:.5rem;
-            padding:.85rem 2rem;
-            border:1.5px solid var(--border);
-            color:var(--gold); font-weight:500; font-size:1rem; border-radius:8px;
-            transition:all .3s;
+
+        .hero .tagline {
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 540px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
-        .btn-outline:hover { border-color:var(--gold); background:rgba(201,168,76,.08); color:var(--gold); }
+
+        .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--pulso);
+        }
+
+        .hero-stat span { font-size: 0.8rem; color: var(--muted); line-height: 1.3; }
+
+        .hero-visual {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-photo-frame {
+            position: relative;
+            width: min(420px, 90%);
+        }
+
+        .hero-photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: -12px;
+            border-radius: 28px;
+            border: 1.5px solid rgba(0, 191, 165, 0.25);
+            z-index: -1;
+        }
+
+        .hero-photo-wrap {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,191,165,0.2);
+        }
+
+        .hero-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+        }
+
+        @media (max-width: 800px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-actions { justify-content: center; }
+            .hero-visual { order: -1; }
+            .hero-photo-frame { width: min(280px, 75%); }
+            .hero-photo-wrap { aspect-ratio: 1/1; border-radius: 50%; }
+        }
+
+        /* BUTTONS */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--green) 0%, var(--pulso) 100%);
+            color: var(--navy);
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.3);
+            color: var(--navy);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border: 1.5px solid rgba(0, 191, 165, 0.35);
+            color: var(--pulso);
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover { border-color: var(--pulso); background: rgba(0,191,165,0.08); color: var(--pulso); }
+
+        /* SECTIONS */
+        section {
+            padding: clamp(4rem, 8vh, 6rem) 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        section:nth-of-type(2)  { animation-delay: 0.1s; }
+        section:nth-of-type(3)  { animation-delay: 0.2s; }
+        section:nth-of-type(4)  { animation-delay: 0.3s; }
+        section:nth-of-type(5)  { animation-delay: 0.4s; }
+        section:nth-of-type(6)  { animation-delay: 0.5s; }
+        section:nth-of-type(7)  { animation-delay: 0.6s; }
+        section:nth-of-type(8)  { animation-delay: 0.7s; }
+        section:nth-of-type(9)  { animation-delay: 0.8s; }
+        section:nth-of-type(10) { animation-delay: 0.9s; }
+        section:nth-of-type(11) { animation-delay: 1.0s; }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pulso);
+            background: rgba(0, 191, 165, 0.1);
+            border: 1px solid rgba(0, 191, 165, 0.2);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            margin-bottom: 1.2rem;
+        }
+
+        /* GLASS BOX */
+        .glass-box {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .card:hover { transform: translateX(8px); border-color: rgba(255, 255, 255, 0.12); }
+        .card strong { color: var(--green); display: block; margin-bottom: 0.5rem; }
+
+        /* HIGHLIGHT BOX */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 191, 165, 0.08), rgba(0, 0, 0, 0.3));
+            border: 1px solid rgba(0, 191, 165, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .big-number {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--pulso);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
 
         /* RECAP */
         .recap-grid {
-            display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-            gap:1.5rem; margin-top:2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
+
         .recap-card {
-            background:var(--card-bg);
-            border:1px solid var(--border);
-            border-radius:12px; padding:1.5rem;
-            transition:transform .3s, border-color .3s;
-        }
-        .recap-card:hover { transform:translateY(-3px); border-color:var(--gold); }
-        .recap-icon { font-size:1.8rem; margin-bottom:.75rem; }
-        .recap-card h4 { font-family:'DM Sans',sans-serif; font-size:.95rem; font-weight:600; color:var(--gold-l); margin-bottom:.4rem; }
-        .recap-card p { font-size:.875rem; color:var(--muted); }
-
-        /* SECTION HEADINGS */
-        .section-eyebrow {
-            font-size:.72rem; font-weight:600; letter-spacing:2px; text-transform:uppercase;
-            color:var(--gold); margin-bottom:.75rem;
-        }
-        .section-title { color:var(--white); margin-bottom:1rem; }
-        .section-sub { color:var(--muted); max-width:680px; margin-bottom:2.5rem; }
-        .divider {
-            width:48px; height:2px;
-            background: linear-gradient(90deg,var(--gold),var(--teal));
-            border-radius:2px; margin-bottom:1.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s;
         }
 
-        /* CHALLENGE */
-        .challenge-layout { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; }
-        @media(max-width:768px){ .challenge-layout { grid-template-columns:1fr; } }
-        .stat-row { display:flex; flex-direction:column; gap:1.25rem; }
-        .stat-item {
-            display:flex; align-items:center; gap:1rem;
-            background:var(--card-bg); border:1px solid var(--border);
-            border-radius:10px; padding:1.25rem;
-        }
-        .stat-num { font-size:2rem; font-family:'DM Serif Display',serif; color:var(--gold); min-width:80px; }
-        .stat-desc { font-size:.9rem; color:var(--muted); }
-        .stat-desc strong { color:var(--white); }
+        .recap-card:hover { border-color: rgba(255, 255, 255, 0.12); }
 
-        /* DIAGNOSIS CARDS */
-        .diag-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; margin-top:2rem; }
-        .diag-card {
-            background:var(--card-bg); border:1px solid var(--border);
-            border-radius:12px; padding:1.75rem;
-            position:relative; overflow:hidden; transition:all .35s;
+        .recap-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 191, 165, 0.1);
+            border-radius: 10px;
         }
-        .diag-card::before {
-            content:''; position:absolute; top:0; left:0; right:0; height:3px;
-            background:linear-gradient(90deg,var(--gold),var(--teal));
-            opacity:0; transition:opacity .3s;
+
+        .recap-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--pulso);
+            margin-bottom: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
-        .diag-card:hover { transform:translateY(-4px); border-color:rgba(201,168,76,.4); }
-        .diag-card:hover::before { opacity:1; }
-        .diag-card .icon { font-size:1.6rem; margin-bottom:1rem; }
-        .diag-card h4 { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:600; color:var(--white); margin-bottom:.5rem; }
-        .diag-card p { font-size:.875rem; color:var(--muted); }
+
+        .recap-card p { font-size: 0.9rem; color: #c0c0c0; }
+
+        /* PROBLEM LIST */
+        .problem-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .problem-list li {
+            padding: 1rem 1.5rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-left: 3px solid rgba(255, 107, 107, 0.6);
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #d0d0d0;
+        }
 
         /* OPPORTUNITIES */
-        .opp-list { display:flex; flex-direction:column; gap:1.25rem; margin-top:2rem; }
-        .opp-item {
-            display:flex; align-items:flex-start; gap:1.25rem;
-            background:var(--card-bg); border:1px solid var(--border);
-            border-radius:10px; padding:1.5rem; transition:all .3s;
+        .opp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .opp-item:hover { border-color:var(--gold); transform:translateX(4px); }
-        .opp-num {
-            min-width:36px; height:36px; border-radius:8px;
-            background: linear-gradient(135deg,var(--gold),var(--teal));
-            display:flex; align-items:center; justify-content:center;
-            font-weight:700; font-size:.85rem; color:#000; flex-shrink:0;
+
+        .opp-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
         }
-        .opp-content h4 { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:600; color:var(--white); margin-bottom:.35rem; }
-        .opp-content p { font-size:.875rem; color:var(--muted); }
+
+        .opp-card:hover { border-color: rgba(255, 255, 255, 0.15); transform: translateY(-4px); }
+
+        .opp-number {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: 2rem;
+            color: var(--pulso);
+            opacity: 0.4;
+            margin-bottom: 0.8rem;
+        }
+
+        .opp-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .opp-card p { font-size: 0.9rem; color: #b0b0b0; }
 
         /* METRICS */
-        .metrics-bg {
-            background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
-            border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .metrics-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; margin-top:2.5rem; }
-        .metric-card {
-            text-align:center; padding:2rem 1rem;
-            background:var(--card-bg); border:1px solid var(--border); border-radius:14px;
-            transition:all .3s;
-        }
-        .metric-card:hover { border-color:var(--gold); transform:translateY(-3px); }
-        .metric-value { font-size:clamp(2rem,4vw,2.8rem); font-family:'DM Serif Display',serif; color:var(--gold); }
-        .metric-label { font-size:.85rem; color:var(--muted); margin-top:.35rem; }
-        .metric-note { font-size:.75rem; color:rgba(160,168,184,.6); margin-top:.5rem; }
 
-        /* PHASES */
-        .phases-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; margin-top:2rem; }
-        .phase-card {
-            background:var(--card-bg); border:1px solid var(--border); border-radius:14px;
-            padding:2rem; position:relative; overflow:hidden; transition:all .3s;
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
         }
-        .phase-card:hover { transform:translateY(-3px); border-color:rgba(201,168,76,.4); }
-        .phase-tag {
-            display:inline-block; padding:.25rem .75rem;
-            background:rgba(201,168,76,.15); border:1px solid var(--border);
-            border-radius:100px; font-size:.75rem; font-weight:600; color:var(--gold);
-            margin-bottom:1rem;
+
+        .metric-card .metric-value {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--green);
+            font-weight: 400;
+            margin-bottom: 0.4rem;
         }
-        .phase-card h3 { font-family:'DM Sans',sans-serif; font-size:1.05rem; font-weight:600; color:var(--white); margin-bottom:1rem; }
-        .phase-list { list-style:none; display:flex; flex-direction:column; gap:.6rem; }
-        .phase-list li { font-size:.875rem; color:var(--muted); display:flex; gap:.6rem; align-items:flex-start; }
-        .phase-list li::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; margin-top:.1rem; }
+
+        .metric-card .metric-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-card .metric-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.3rem; }
+
+        /* TIMELINE */
+        .phase-list {
+            margin-top: 2rem;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .phase-list::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(0, 191, 165, 0.2);
+        }
+
+        .phase-item {
+            display: flex;
+            gap: 1.5rem;
+            padding-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .phase-dot {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0, 191, 165, 0.15);
+            border: 2px solid var(--pulso);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--pulso);
+            flex-shrink: 0;
+            position: absolute;
+            left: -40px;
+        }
+
+        .phase-content { padding-left: 0.5rem; }
+
+        .phase-period {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--pulso);
+            margin-bottom: 0.3rem;
+        }
+
+        .phase-content h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+
+        .phase-content p { font-size: 0.9rem; color: #b0b0b0; }
 
         /* DELIVERABLES */
-        .deliv-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem; }
-        .deliv-card {
-            background:var(--card-bg); border:1px solid var(--border); border-radius:14px; padding:2rem;
-            transition:all .3s;
+        .deliverable-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .deliv-card:hover { border-color:var(--gold); transform:translateY(-3px); }
-        .deliv-card h4 { font-family:'DM Sans',sans-serif; font-size:1rem; font-weight:700; color:var(--gold-l); margin-bottom:1rem; }
-        .deliv-list { list-style:none; display:flex; flex-direction:column; gap:.55rem; }
-        .deliv-list li { font-size:.875rem; color:var(--muted); display:flex; gap:.6rem; align-items:flex-start; }
-        .deliv-list li::before { content:'→'; color:var(--gold); flex-shrink:0; }
 
-        /* PREVIEW LP */
-        .lp-preview-wrap {
-            margin-top:2rem; border:1px solid var(--border); border-radius:16px;
-            overflow:hidden; background:#000;
-            box-shadow: 0 24px 80px rgba(0,0,0,.6);
+        .deliverable-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
         }
-        .lp-preview-bar {
-            background:#1a2030; padding:.75rem 1rem;
-            display:flex; align-items:center; gap:.75rem;
-        }
-        .dot { width:10px; height:10px; border-radius:50%; }
-        .dot-r { background:#ff5f57; } .dot-y { background:#febc2e; } .dot-g { background:#28c840; }
-        .lp-preview-url {
-            flex:1; background:#0d1626; border-radius:6px; padding:.3rem .75rem;
-            font-size:.8rem; color:var(--muted); font-family:monospace;
-        }
-        .lp-preview-iframe { width:100%; height:560px; border:none; display:block; }
 
-        /* POSTS PREVIEW */
-        .posts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem; margin-top:2rem; }
-        @media(min-width:768px){ .posts-grid { grid-template-columns:repeat(4,1fr); } }
-        .post-card {
-            border-radius:12px; overflow:hidden; border:1px solid var(--border);
-            transition:all .35s; cursor:pointer;
-        }
-        .post-card:hover { transform:translateY(-4px) scale(1.02); border-color:var(--gold); }
-        .post-visual {
-            aspect-ratio:1/1;
-            background: linear-gradient(135deg, #1a2d42 0%, #0d1b2a 100%);
-            display:flex; align-items:center; justify-content:center;
-            flex-direction:column; gap:.75rem; padding:1.25rem; text-align:center;
-            position:relative; overflow:hidden;
-        }
-        .post-visual::after {
-            content:''; position:absolute; inset:0;
-            background: radial-gradient(circle at 30% 20%, rgba(201,168,76,0.15) 0%, transparent 60%);
-        }
-        .post-icon { font-size:1.8rem; z-index:1; }
-        .post-text { font-size:.8rem; font-weight:600; color:var(--white); z-index:1; line-height:1.3; }
-        .post-footer { background:var(--card-bg); padding:.75rem 1rem; }
-        .post-type { font-size:.72rem; color:var(--teal); font-weight:600; text-transform:uppercase; letter-spacing:.8px; margin-bottom:.2rem; }
-        .post-name { font-size:.8rem; color:var(--muted); }
+        .deliverable-card:hover { border-color: rgba(255, 255, 255, 0.15); }
 
-        /* PLANS TABLE */
-        .plans-wrap {
-            background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(0,191,165,0.06) 0%, transparent 70%);
-            border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+        .del-icon { font-size: 1.5rem; display: block; margin-bottom: 1rem; }
+
+        .deliverable-card h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--white);
+            margin-bottom: 1rem;
         }
-        .plans-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2.5rem; }
-        .plan-card {
-            background:var(--card-bg); border:1px solid var(--border); border-radius:16px; padding:2rem;
-            position:relative; transition:all .35s;
+
+        .deliverable-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+        .deliverable-card li {
+            font-size: 0.9rem;
+            color: #c0c0c0;
+            padding-left: 1.2rem;
+            position: relative;
         }
-        .plan-card.featured {
-            border-color:var(--gold);
-            background: linear-gradient(135deg,rgba(201,168,76,0.08) 0%, rgba(0,191,165,0.05) 100%);
+
+        .deliverable-card li::before {
+            content: '✓';
+            color: var(--green);
+            font-weight: 600;
+            position: absolute;
+            left: 0;
         }
-        .plan-card:hover { transform:translateY(-4px); }
-        .plan-badge {
-            position:absolute; top:-12px; left:50%; transform:translateX(-50%);
-            padding:.3rem 1rem; border-radius:100px;
-            background:linear-gradient(135deg,var(--gold),var(--teal));
-            font-size:.72rem; font-weight:700; color:#000; white-space:nowrap;
+
+        /* LP PREVIEW */
+        .preview-section {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 3rem;
+            backdrop-filter: blur(10px);
         }
-        .plan-name { font-family:'DM Serif Display',serif; font-size:1.5rem; color:var(--white); margin-bottom:.25rem; }
-        .plan-price { font-size:2rem; font-family:'DM Serif Display',serif; color:var(--gold); margin-bottom:.25rem; }
-        .plan-period { font-size:.8rem; color:var(--muted); margin-bottom:1.5rem; }
-        .plan-features { list-style:none; display:flex; flex-direction:column; gap:.6rem; margin-bottom:1.75rem; }
-        .plan-features li { font-size:.875rem; color:var(--muted); display:flex; gap:.6rem; }
-        .plan-features li.yes::before { content:'✓'; color:var(--teal); font-weight:700; flex-shrink:0; }
-        .plan-features li.no { opacity:.45; }
-        .plan-features li.no::before { content:'—'; color:var(--muted); flex-shrink:0; }
-        .plan-cta {
-            display:block; text-align:center; padding:.85rem;
-            border-radius:8px; font-weight:600; transition:all .3s; font-size:.95rem;
+
+        .browser-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px 8px 0 0;
+            margin-top: 2rem;
         }
-        .plan-cta.primary { background:var(--green-wa); color:#000; }
-        .plan-cta.primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(37,211,102,.3); color:#000; }
-        .plan-cta.secondary { border:1.5px solid var(--border); color:var(--gold); }
-        .plan-cta.secondary:hover { border-color:var(--gold); background:rgba(201,168,76,.06); color:var(--gold); }
+
+        .browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .browser-dot.red { background: #ff5f57; }
+        .browser-dot.yellow { background: #febc2e; }
+        .browser-dot.green { background: #28c840; }
+
+        .browser-url {
+            margin-left: 1rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            overflow: hidden;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-top: none;
+        }
+
+        .iframe-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* PRICING */
+        .pricing-section { text-align: center; }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card.recommended {
+            border-color: rgba(0, 191, 165, 0.4);
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-card:hover { border-color: rgba(255, 255, 255, 0.15); }
+
+        .pricing-card.recommended::before {
+            content: '⭐ RECOMENDADO';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+            padding: 0.4rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .pricing-card h3 { color: var(--white); margin-bottom: 1rem; }
+
+        .price-display {
+            font-size: 2.5rem;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-display span { font-size: 0.9rem; font-weight: 400; color: var(--muted); }
+
+        .price-features {
+            text-align: left;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            flex: 1;
+        }
+
+        .price-feature {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(37, 211, 102, 0.1);
+            color: #c0c0c0;
+        }
+
+        .price-feature::before {
+            content: '✓ ';
+            color: var(--green);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .price-feature.dimmed { color: #707070; }
+        .price-feature.dimmed::before { content: '○ '; color: #707070; }
+
+        .plan-btn {
+            display: block;
+            text-align: center;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            margin-top: auto;
+        }
+
+        .btn-featured {
+            background: linear-gradient(135deg, var(--green), var(--pulso));
+            color: var(--navy);
+        }
+
+        .btn-featured:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0, 191, 165, 0.4); color: var(--navy); }
+
+        .btn-outline { border: 1.5px solid var(--border); color: var(--white); }
+        .btn-outline:hover { border-color: var(--pulso); color: var(--pulso); }
 
         /* GUARANTEE */
-        .guarantee-box {
-            text-align:center; padding:3.5rem 2rem;
-            background:var(--card-bg); border:1px solid var(--border); border-radius:20px;
-            position:relative; overflow:hidden;
+        .guarantee-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .guarantee-box::before {
-            content:''; position:absolute; inset:0;
-            background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 60%);
-        }
-        .guarantee-icon { font-size:3rem; margin-bottom:1.25rem; }
-        .guarantee-box h2 { color:var(--white); margin-bottom:1rem; }
-        .guarantee-box p { color:var(--muted); max-width:580px; margin:0 auto 2rem; }
 
-        /* FLOATING WA */
-        .wa-float {
-            position:fixed; bottom:2rem; right:2rem; z-index:998;
-            width:58px; height:58px; border-radius:50%;
-            background:var(--green-wa);
-            display:flex; align-items:center; justify-content:center;
-            box-shadow:0 4px 20px rgba(37,211,102,.5);
-            transition:all .3s;
+        .guarantee-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .wa-float:hover { transform:scale(1.1); box-shadow:0 8px 30px rgba(37,211,102,.6); }
-        .wa-float svg { width:28px; height:28px; fill:#fff; }
+
+        .guarantee-item { display: flex; gap: 1rem; align-items: flex-start; }
+
+        .guarantee-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(0, 191, 165, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .guarantee-item h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .guarantee-item p { font-size: 0.9rem; color: #b0b0b0; }
+
+        /* CTA FINAL */
+        .final-cta { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 2rem; }
+
+        .cta-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #25D366, #20ba5a);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s;
+        }
+
+        .cta-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4); color: white; }
 
         /* FOOTER */
         footer {
-            text-align:center; padding:2rem; border-top:1px solid var(--border);
-            color:var(--muted); font-size:.8rem;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #707070;
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
         }
-        footer span { color:var(--pulso); }
+
+        .pulso-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--pulso);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
 
         /* ANIMATIONS */
-        @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes pulseGold { 0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4)} 50%{box-shadow:0 0 0 12px rgba(201,168,76,0)} }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
 
-        .reveal { opacity:0; transform:translateY(30px); }
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 15, 24, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--pulso); }
+
+        .nav-cta {
+            padding: 0.5rem 1.2rem;
+            background: var(--green);
+            color: #000;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover { background: var(--pulso); color: #000; }
+
+        /* FLOATING WA */
+        .wa-float {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            z-index: 99;
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            transition: all 0.3s;
+        }
+
+        .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6); }
+        .wa-float svg { width: 28px; height: 28px; fill: #fff; }
     </style>
 </head>
 <body>
 
-<div class="progress-bar" id="progressBar"></div>
-
 <!-- FLOATING WA -->
-<a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+vi+a+proposta+da+Assessoria+Pulso+e+quero+saber+mais!" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
+<a href="https://wa.me/5511999999999?text=Quero+falar+sobre+a+proposta!" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <!-- NAV -->
-<nav>
-    <div class="nav-logo">Assessoria Pulso</div>
-    <a href="https://wa.me/5511999999999?text=Quero+falar+sobre+a+proposta!" class="nav-cta" target="_blank" rel="noopener">
-        💬 Falar no WhatsApp
-    </a>
+<nav class="nav">
+    <div class="nav-brand">Assessoria Pulso</div>
+    <a href="https://wa.me/5511999999999?text=Quero+falar+sobre+a+proposta!" class="nav-cta" target="_blank" rel="noopener">💬 WhatsApp</a>
 </nav>
 
-<!-- ═══════════════════════════════════════════════
-     1. HERO
-     ═══════════════════════════════════════════════ -->
-<div class="hero-wrap hero">
-    <div>
-        <div class="hero-label">Proposta Exclusiva · Junho 2026</div>
-        <div class="hero-photo-ring">
-            <div class="hero-photo-inner">CB</div>
-        </div>
-        <h1>Dra Carolina Braga</h1>
-        <p class="hero-specialty">Ortopedia · Medicina da Dor · Cirurgia</p>
-        <p class="hero-sub">Uma estratégia de marketing médico focada em atrair pacientes para procedimentos de alta complexidade — sem depender de planos de saúde, sem curiosos, sem desperdício de verba.</p>
-        <div class="hero-cta-group">
-            <a href="https://wa.me/5511999999999?text=Quero+aceitar+a+proposta!" class="btn-primary" target="_blank" rel="noopener">
+<!-- ═══ 1. HERO ═══ -->
+<div class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">✦ Proposta Exclusiva · Junho 2026</div>
+        <h1>Dra Carolina <em>Braga</em></h1>
+        <p class="subtitle">Ortopedia · Medicina da Dor · Cirurgia</p>
+        <p class="tagline">Uma estratégia de marketing médico focada em atrair pacientes para procedimentos de alta complexidade — sem depender de planos, sem curiosos, sem desperdício de verba.</p>
+        <div class="hero-actions">
+            <a href="https://wa.me/5511999999999?text=Quero+aceitar+a+proposta!" class="cta-button" target="_blank" rel="noopener">
                 ✅ Quero começar
             </a>
-            <a href="#planos" class="btn-outline">Ver os planos →</a>
+            <a href="#planos" class="btn-secondary">Ver os planos →</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat"><strong>15–30</strong><span>leads/mês projetados</span></div>
+            <div class="hero-stat"><strong>R$35–55</strong><span>CPL alvo (qualificado)</span></div>
+            <div class="hero-stat"><strong>3–5×</strong><span>ROAS projetado</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="hero-photo-frame">
+            <div class="hero-photo-wrap">
+                <img src="carolina-braga.jpg" alt="Dra Carolina Braga — Ortopedia e Medicina da Dor" loading="eager">
+            </div>
         </div>
     </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════
-     2. RECAP DA CONVERSA
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 2. RECAP ═══ -->
 <section id="recap">
-    <div class="section-eyebrow">Sobre nossa conversa</div>
-    <h2 class="section-title">O que entendemos sobre você</h2>
-    <p class="section-sub">Dra Carolina, aqui está o resumo do que ficou claro na nossa call. Isso não é um roteiro genérico — é sobre os seus desafios.</p>
-    <div class="divider"></div>
+    <div class="section-tag">Sobre nossa conversa</div>
+    <h2>O que entendemos sobre você, Dra Carolina</h2>
+    <p style="color:#b0b0b0; max-width:700px; margin-top:0.75rem;">Aqui está o resumo do que ficou claro na nossa call. Não é roteiro genérico — é sobre os seus desafios reais.</p>
     <div class="recap-grid">
-        <div class="recap-card reveal">
+        <div class="recap-card">
             <div class="recap-icon">🎯</div>
-            <h4>Foco em procedimentos</h4>
-            <p>Consultas simples não pagam a conta. O objetivo é atrair pacientes prontos para cirurgias e procedimentos de ortopedia.</p>
+            <div>
+                <h4>Foco em procedimentos</h4>
+                <p>Consultas simples não pagam a conta. O objetivo é atrair pacientes prontos para cirurgias e procedimentos de ortopedia de alta complexidade.</p>
+            </div>
         </div>
-        <div class="recap-card reveal">
+        <div class="recap-card">
             <div class="recap-icon">😤</div>
-            <h4>Cansada de fornecedores</h4>
-            <p>Já investiu em agências ou profissionais que entregaram resultados genéricos — sem ROI real, sem transparência.</p>
+            <div>
+                <h4>Cansada de fornecedores</h4>
+                <p>Já investiu em agências ou profissionais que entregaram resultados genéricos — sem ROI real, sem transparência, sem parceria verdadeira.</p>
+            </div>
         </div>
-        <div class="recap-card reveal">
+        <div class="recap-card">
             <div class="recap-icon">📉</div>
-            <h4>Presença digital fraca</h4>
-            <p>Instagram parado, sem estratégia de conteúdo consistente, sem LP para capturar leads qualificados.</p>
+            <div>
+                <h4>Presença digital fraca</h4>
+                <p>Instagram inconsistente, sem estratégia de conteúdo, sem landing page para capturar leads qualificados. Oportunidade enorme sendo perdida.</p>
+            </div>
         </div>
-        <div class="recap-card reveal">
+        <div class="recap-card">
             <div class="recap-icon">💡</div>
-            <h4>Potencial enorme</h4>
-            <p>Você tem autoridade clínica real. O que falta é um sistema de marketing que traduza isso em agendamentos.</p>
+            <div>
+                <h4>Potencial enorme não capturado</h4>
+                <p>Você tem autoridade clínica real e especialidade diferenciada. O que falta é um sistema de marketing que traduza isso em agendamentos.</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     3. DESAFIO CENTRAL
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 3. DESAFIO ═══ -->
 <section id="desafio">
-    <div class="challenge-layout">
-        <div>
-            <div class="section-eyebrow">O problema real</div>
-            <h2 class="section-title">O desafio que está te custando pacientes</h2>
-            <div class="divider"></div>
-            <p style="color:var(--muted); margin-bottom:1.5rem;">Ortopedistas e especialistas em dor têm o perfil mais difícil de trabalhar no digital: o paciente ideal não sabe que precisa até sentir. Isso exige uma máquina de conteúdo educativo + tráfego bem segmentado.</p>
-            <p style="color:var(--muted);">Sem isso, você continua dependendo de indicações (imprevisível), planos de saúde (baixa margem) e boca a boca (sem escala).</p>
-        </div>
-        <div class="stat-row">
-            <div class="stat-item reveal">
-                <div class="stat-num">73%</div>
-                <div class="stat-desc"><strong>dos pacientes particulares</strong> pesquisam o médico no Google/Instagram antes de agendar.</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-num">R$0</div>
-                <div class="stat-desc"><strong>de ROI mensurável</strong> sem rastreamento de leads e atribuição correta de campanha.</div>
-            </div>
-            <div class="stat-item reveal">
-                <div class="stat-num">8×</div>
-                <div class="stat-desc"><strong>mais caro</strong> converter um lead frio do que um seguidor aquecido com conteúdo.</div>
-            </div>
-        </div>
+    <div class="section-tag">O problema real</div>
+    <h2>O desafio que está te custando pacientes agora</h2>
+
+    <div class="highlight-box">
+        <div class="big-number">73%</div>
+        <p style="color:#c0c0c0; font-size:1.1rem;">dos pacientes particulares pesquisam o médico no Google/Instagram antes de agendar</p>
+    </div>
+
+    <div class="glass-box">
+        <p style="color:#b0b0b0; margin-bottom:1.5rem;">Ortopedistas e especialistas em dor têm o perfil mais difícil de trabalhar no digital: o paciente ideal não sabe que precisa até sentir. Isso exige uma máquina de conteúdo educativo + tráfego bem segmentado para cada condição específica.</p>
+        <ul class="problem-list">
+            <li>Sem página de captura específica, todo tráfego pago vira desperdício — leads caem no Instagram ou em um site genérico sem CTA claro</li>
+            <li>Conteúdo esporádico no Instagram não constrói autoridade — o paciente pesquisa 3 médicos ao mesmo tempo, e escolhe o que parece "mais sério"</li>
+            <li>Sem rastreamento (Pixel + GA4), você não sabe qual ação gerou qual paciente — impossível otimizar o que não é medido</li>
+            <li>Dependência de indicação = crescimento imprevisível. Um sistema de tráfego qualificado transforma isso em um fluxo controlável</li>
+        </ul>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     4. DIAGNÓSTICO
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 4. DIAGNÓSTICO ═══ -->
 <section id="diagnostico">
-    <div class="section-eyebrow">Diagnóstico digital</div>
-    <h2 class="section-title">O que está faltando hoje</h2>
-    <p class="section-sub">Comparamos sua presença atual com o padrão do mercado de ortopedia de alto padrão. Esses são os gaps que a concorrência está explorando.</p>
-    <div class="divider"></div>
-    <div class="diag-grid">
-        <div class="diag-card reveal">
-            <div class="icon">📱</div>
-            <h4>Instagram sem estratégia</h4>
-            <p>Feed inconsistente, sem narrativa de autoridade, conteúdos esporádicos que não convertem em agendamento.</p>
+    <div class="section-tag">Diagnóstico digital</div>
+    <h2>O que está faltando — onde a concorrência ganha</h2>
+
+    <div class="card-grid">
+        <div class="card">
+            <strong>📱 Instagram sem estratégia de autoridade</strong>
+            <p>Feed inconsistente, sem narrativa educativa, sem destaques organizados. Ortopedistas de alto padrão têm conteúdo semanal com posicionamento claro.</p>
         </div>
-        <div class="diag-card reveal">
-            <div class="icon">🏗️</div>
-            <h4>Zero landing page</h4>
-            <p>Todo o tráfego de anúncios vai para perfil ou site genérico. Sem página focada = leads perdidos.</p>
+        <div class="card">
+            <strong>🏗️ Zero landing page de conversão</strong>
+            <p>Todo tráfego vai para perfil ou site genérico. Sem página com um único objetivo (WhatsApp), leads se perdem no primeiro clique.</p>
         </div>
-        <div class="diag-card reveal">
-            <div class="icon">🎯</div>
-            <h4>Tráfego pago não segmentado</h4>
-            <p>Anúncios sem segmentação por dor específica (lombar, joelho, ombro) desperdiçam verba com público errado.</p>
+        <div class="card">
+            <strong>🎯 Tráfego pago não segmentado por dor</strong>
+            <p>Anúncios genéricos de "ortopedista" desperdiçam verba. Segmentação por sintoma (dor lombar, joelho, ombro) multiplica a qualificação do lead.</p>
         </div>
-        <div class="diag-card reveal">
-            <div class="icon">📊</div>
-            <h4>Sem rastreamento</h4>
-            <p>Sem Pixel Meta + GA4 configurados, impossível saber qual ação gerou qual resultado.</p>
+        <div class="card">
+            <strong>📊 Sem rastreamento e atribuição</strong>
+            <p>Pixel Meta + GA4 + GTM ausentes = impossível saber qual ação gerou qual paciente. Dinheiro investido sem saber o retorno real.</p>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     5. OPORTUNIDADES
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 5. OPORTUNIDADES ═══ -->
 <section id="oportunidades">
-    <div class="section-eyebrow">Onde a oportunidade está</div>
-    <h2 class="section-title">5 alavancas que vamos ativar</h2>
-    <div class="divider"></div>
-    <div class="opp-list">
-        <div class="opp-item reveal">
-            <div class="opp-num">01</div>
-            <div class="opp-content">
-                <h4>Conteúdo educativo de autoridade no Instagram</h4>
-                <p>Grid com 9 posts de fundação: Reels explicando dores ortopédicas, diferença entre tratamento sintomático e definitivo, fluxo de agendamento. Posicionamento: "A especialista que resolve, não que alivia."</p>
-            </div>
+    <div class="section-tag">Onde a oportunidade está</div>
+    <h2>5 alavancas que vamos ativar juntos</h2>
+
+    <div class="opp-grid">
+        <div class="opp-card">
+            <div class="opp-number">01</div>
+            <h4>Conteúdo educativo de autoridade</h4>
+            <p>Grid com 9 posts de fundação + Reels explicando dores ortopédicas, diferença entre tratamento sintomático e definitivo, fluxo de agendamento. Posicionamento: "A especialista que resolve."</p>
         </div>
-        <div class="opp-item reveal">
-            <div class="opp-num">02</div>
-            <div class="opp-content">
-                <h4>Landing Page de alta conversão para procedimentos</h4>
-                <p>Página focada em um único objetivo: WhatsApp para consulta particular qualificada. Foto real, credenciais, depoimentos, FAQ. Mobile-first porque 85%+ do tráfego vem de celular.</p>
-            </div>
+        <div class="opp-card">
+            <div class="opp-number">02</div>
+            <h4>Landing Page de alta conversão</h4>
+            <p>Página focada em um único objetivo: WhatsApp para consulta particular qualificada. Foto real, credenciais, depoimentos, FAQ. Mobile-first, 85%+ do tráfego vem de celular.</p>
         </div>
-        <div class="opp-item reveal">
-            <div class="opp-num">03</div>
-            <div class="opp-content">
-                <h4>Tráfego pago com segmentação por sintoma</h4>
-                <p>Campanhas no Meta para públicos com dor lombar, joelho, ombro, coluna. Copy que afasta curiosos e atrai quem busca solução definitiva. CPL alvo: R$35–55 por lead qualificado.</p>
-            </div>
+        <div class="opp-card">
+            <div class="opp-number">03</div>
+            <h4>Tráfego segmentado por sintoma</h4>
+            <p>Campanhas Meta Ads para públicos com dor lombar, joelho, ombro, coluna. Copy que afasta curiosos e atrai quem busca solução definitiva. CPL alvo: R$35–55.</p>
         </div>
-        <div class="opp-item reveal">
-            <div class="opp-num">04</div>
-            <div class="opp-content">
-                <h4>Setup completo de rastreamento e atribuição</h4>
-                <p>Pixel Meta + GA4 + GTM configurados desde o dia 1. Todo lead rastreado até o agendamento. Você saberá exatamente qual anúncio gerou qual paciente.</p>
-            </div>
+        <div class="opp-card">
+            <div class="opp-number">04</div>
+            <h4>Setup completo de rastreamento</h4>
+            <p>Pixel Meta + GA4 + GTM desde o dia 1. Todo lead rastreado até o agendamento. Você saberá exatamente qual anúncio gerou qual paciente.</p>
         </div>
-        <div class="opp-item reveal">
-            <div class="opp-num">05</div>
-            <div class="opp-content">
-                <h4>Google Meu Negócio otimizado</h4>
-                <p>Perfil local otimizado para buscas "ortopedista particular [cidade]". Fotos do consultório, posts semanais, avaliações gerenciadas. Captura quem já está pronto para agendar.</p>
-            </div>
+        <div class="opp-card">
+            <div class="opp-number">05</div>
+            <h4>Google Meu Negócio otimizado</h4>
+            <p>Perfil local para buscas "ortopedista particular [cidade]". Fotos do consultório, posts semanais, avaliações gerenciadas. Captura quem já está pronto para agendar.</p>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     6. MÉTRICAS PROJETADAS
-     ═══════════════════════════════════════════════ -->
-<div class="full-width-section metrics-bg" id="metricas">
-    <div class="full-width-inner">
-        <div class="section-eyebrow">Projeções realistas</div>
-        <h2 class="section-title">O que você pode esperar</h2>
-        <p class="section-sub">Baseado em resultados reais com médicos especialistas de perfil similar. Projeções conservadoras para os primeiros 90 dias.</p>
-        <div class="divider"></div>
-        <div class="metrics-grid">
-            <div class="metric-card reveal">
-                <div class="metric-value">R$35–55</div>
-                <div class="metric-label">CPL (Custo por Lead)</div>
-                <div class="metric-note">Lead qualificado para consulta particular</div>
-            </div>
-            <div class="metric-card reveal">
-                <div class="metric-value">15–30</div>
-                <div class="metric-label">Leads/mês</div>
-                <div class="metric-note">Meta conservadora mês 1–2</div>
-            </div>
-            <div class="metric-card reveal">
-                <div class="metric-value">3–5×</div>
-                <div class="metric-label">ROAS</div>
-                <div class="metric-note">Retorno sobre verba de tráfego</div>
-            </div>
-            <div class="metric-card reveal">
-                <div class="metric-value">+40%</div>
-                <div class="metric-label">Consultas particulares</div>
-                <div class="metric-note">Crescimento projetado em 90 dias</div>
-            </div>
-            <div class="metric-card reveal">
-                <div class="metric-value">2–3</div>
-                <div class="metric-label">Proc. alto ticket/mês</div>
-                <div class="metric-note">Via funil qualificado (mês 2+)</div>
-            </div>
+<!-- ═══ 6. MÉTRICAS ═══ -->
+<section id="metricas">
+    <div class="section-tag">Projeções realistas</div>
+    <h2>O que você pode esperar nos primeiros 90 dias</h2>
+    <p style="color:#b0b0b0; margin-top:0.75rem; max-width:700px;">Baseado em resultados com médicos especialistas de perfil similar. Projeções conservadoras.</p>
+
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value">R$35–55</div>
+            <div class="metric-label">CPL</div>
+            <div class="metric-note">Lead qualificado para consulta particular</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">15–30</div>
+            <div class="metric-label">Leads/mês</div>
+            <div class="metric-note">Meta conservadora mês 1–2</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">3–5×</div>
+            <div class="metric-label">ROAS</div>
+            <div class="metric-note">Retorno sobre verba de tráfego</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">+40%</div>
+            <div class="metric-label">Consultas particulares</div>
+            <div class="metric-note">Crescimento projetado em 90 dias</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">2–3</div>
+            <div class="metric-label">Procedimentos/mês</div>
+            <div class="metric-note">Alto ticket via funil qualificado (mês 2+)</div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- ═══════════════════════════════════════════════
-     7. FASES DE IMPLEMENTAÇÃO
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 7. FASES ═══ -->
 <section id="fases">
-    <div class="section-eyebrow">Cronograma</div>
-    <h2 class="section-title">Como acontece na prática</h2>
-    <p class="section-sub">Sem semanas 1–4 genérico. Aqui está o que fazemos de verdade em cada fase.</p>
-    <div class="divider"></div>
-    <div class="phases-grid">
-        <div class="phase-card reveal">
-            <span class="phase-tag">Semanas 1–2</span>
-            <h3>Setup & Fundação</h3>
-            <ul class="phase-list">
-                <li>Reunião de onboarding + anamnese estratégica</li>
-                <li>Diagnóstico completo: digital + concorrentes</li>
-                <li>Branding visual & identidade (MIV)</li>
-                <li>Setup técnico: Pixel, GA4, GTM, WhatsApp</li>
-                <li>Sessão de fotos/vídeos em batch agendada</li>
-            </ul>
+    <div class="section-tag">Cronograma</div>
+    <h2>Como acontece na prática</h2>
+    <p style="color:#b0b0b0; margin-top:0.75rem;">Sem numeração genérica semana 1–4. Aqui está o que fazemos de verdade em cada fase.</p>
+
+    <div class="phase-list">
+        <div class="phase-item">
+            <div class="phase-dot">S1</div>
+            <div class="phase-content">
+                <div class="phase-period">Semanas 1–2 — Setup & Fundação</div>
+                <h4>Base técnica e estratégica</h4>
+                <p>Reunião de onboarding + anamnese estratégica · Diagnóstico completo: digital + concorrentes · Branding visual & identidade (MIV) · Setup técnico: Pixel, GA4, GTM, WhatsApp · Sessão de fotos/vídeos em batch agendada</p>
+            </div>
         </div>
-        <div class="phase-card reveal">
-            <span class="phase-tag">Semanas 3–4</span>
-            <h3>Vitrine + Landing Page</h3>
-            <ul class="phase-list">
-                <li>9 posts de fundação (grid inicial no Instagram)</li>
-                <li>Bio + destaques otimizados</li>
-                <li>Landing Page desenvolvida e no ar</li>
-                <li>Google Meu Negócio criado/otimizado</li>
-                <li>Copy e estratégia de funil validada</li>
-            </ul>
+        <div class="phase-item">
+            <div class="phase-dot">S3</div>
+            <div class="phase-content">
+                <div class="phase-period">Semanas 3–4 — Vitrine + Landing Page</div>
+                <h4>Presença digital no ar</h4>
+                <p>9 posts de fundação (grid inicial Instagram) · Bio + destaques otimizados · Landing Page desenvolvida e no ar · Google Meu Negócio criado/otimizado · Copy e estratégia de funil validada</p>
+            </div>
         </div>
-        <div class="phase-card reveal">
-            <span class="phase-tag">Mês 2 em diante</span>
-            <h3>Tráfego & Escala</h3>
-            <ul class="phase-list">
-                <li>Campanhas Meta Ads no ar (targeting por dor)</li>
-                <li>12 posts/mês + 4 Reels educativos</li>
-                <li>Otimização semanal de campanhas</li>
-                <li>Relatório mensal com ROI financeiro real</li>
-                <li>Reunião mensal de estratégia com você</li>
-            </ul>
+        <div class="phase-item">
+            <div class="phase-dot">M2</div>
+            <div class="phase-content">
+                <div class="phase-period">Mês 2 em diante — Tráfego & Escala</div>
+                <h4>Máquina de leads rodando</h4>
+                <p>Campanhas Meta Ads no ar (targeting por dor específica) · 12 posts/mês + 4 Reels educativos · Otimização semanal de campanhas · Relatório mensal com ROI financeiro real · Reunião mensal de estratégia com você</p>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     8. DELIVERABLES
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 8. DELIVERABLES ═══ -->
 <section id="entregas">
-    <div class="section-eyebrow">O que você recebe</div>
-    <h2 class="section-title">Entregas detalhadas — Plano Essencial</h2>
-    <div class="divider"></div>
-    <div class="deliv-grid">
-        <div class="deliv-card reveal">
-            <h4>🎨 Branding & Identidade</h4>
-            <ul class="deliv-list">
+    <div class="section-tag">Entregas do Plano Essencial</div>
+    <h2>O que você recebe — detalhado</h2>
+
+    <div class="deliverable-grid">
+        <div class="deliverable-card">
+            <span class="del-icon">🎨</span>
+            <h4>Branding & Identidade</h4>
+            <ul>
                 <li>MIV (Manual de Identidade Visual)</li>
                 <li>Paleta de cores + tipografia</li>
                 <li>Templates Instagram (Feed + Stories + Reels)</li>
-                <li>Foto de perfil profissional otimizada</li>
+                <li>Logo refinado / otimizado</li>
             </ul>
         </div>
-        <div class="deliv-card reveal">
-            <h4>📱 Vitrine Instagram</h4>
-            <ul class="deliv-list">
+        <div class="deliverable-card">
+            <span class="del-icon">📱</span>
+            <h4>Vitrine Instagram</h4>
+            <ul>
                 <li>Bio estratégica com CTA WhatsApp</li>
                 <li>9 posts de fundação (grid profissional)</li>
                 <li>Destaques organizados e publicados</li>
-                <li>12 posts/mês continuos</li>
+                <li>12 posts/mês contínuos</li>
             </ul>
         </div>
-        <div class="deliv-card reveal">
-            <h4>🌐 Landing Page</h4>
-            <ul class="deliv-list">
-                <li>LP mobile-first com 1 objetivo (agendamento)</li>
-                <li>Pixel Meta + GA4 instalados</li>
+        <div class="deliverable-card">
+            <span class="del-icon">🌐</span>
+            <h4>Landing Page</h4>
+            <ul>
+                <li>LP mobile-first (1 objetivo: WhatsApp)</li>
+                <li>Pixel Meta + GA4 + GTM instalados</li>
                 <li>UTM em todos os links</li>
                 <li>QA mobile + desktop</li>
             </ul>
         </div>
-        <div class="deliv-card reveal">
-            <h4>📍 Presença Local</h4>
-            <ul class="deliv-list">
+        <div class="deliverable-card">
+            <span class="del-icon">📍</span>
+            <h4>Presença Local</h4>
+            <ul>
                 <li>Google Meu Negócio otimizado</li>
                 <li>Fotos profissionais do consultório</li>
                 <li>Posts semanais no GMB</li>
                 <li>Monitoramento de avaliações</li>
             </ul>
         </div>
-        <div class="deliv-card reveal">
-            <h4>📊 Relatórios & Gestão</h4>
-            <ul class="deliv-list">
+        <div class="deliverable-card">
+            <span class="del-icon">📊</span>
+            <h4>Relatórios & Gestão</h4>
+            <ul>
                 <li>Relatório mensal completo com ROI</li>
                 <li>Reunião mensal de estratégia</li>
                 <li>Dashboard de métricas em tempo real</li>
@@ -711,203 +1114,136 @@
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     9. PREVIEW LANDING PAGE
-     ═══════════════════════════════════════════════ -->
+<!-- ═══ 9. PREVIEW LP ═══ -->
 <section id="preview-lp">
-    <div class="section-eyebrow">Preview</div>
-    <h2 class="section-title">Sua Landing Page — como ficará</h2>
-    <p class="section-sub">Esta é a página que vai capturar seus leads. Desenvolvida especificamente para Ortopedia + Medicina da Dor. Mobile-first, com CTA direto para WhatsApp.</p>
-    <div class="divider"></div>
-    <div class="lp-preview-wrap">
-        <div class="lp-preview-bar">
-            <div class="dot dot-r"></div>
-            <div class="dot dot-y"></div>
-            <div class="dot dot-g"></div>
-            <div class="lp-preview-url">https://dracarolinabraga.com.br</div>
-        </div>
-        <iframe class="lp-preview-iframe" src="lp/index.html" loading="lazy" title="Preview da Landing Page da Dra Carolina Braga"></iframe>
-    </div>
-</section>
+    <div class="section-tag">Preview</div>
+    <h2>Sua Landing Page — como ficará</h2>
+    <p style="color:#b0b0b0; margin-top:0.75rem; max-width:700px;">Página desenvolvida especificamente para Ortopedia + Medicina da Dor. Mobile-first, CTA direto para WhatsApp.</p>
 
-<!-- ═══════════════════════════════════════════════
-     10. PREVIEW POSTS
-     ═══════════════════════════════════════════════ -->
-<section id="preview-posts">
-    <div class="section-eyebrow">Conteúdo</div>
-    <h2 class="section-title">Os 4 posts-chave do grid inicial</h2>
-    <p class="section-sub">Estes são os pilares do seu Instagram. Cada um com um objetivo estratégico: autoridade, educação, fluxo, prova social.</p>
-    <div class="divider"></div>
-    <div class="posts-grid">
-        <div class="post-card reveal">
-            <div class="post-visual">
-                <div class="post-icon">🎬</div>
-                <div class="post-text">Apresentação + Especialidades</div>
-            </div>
-            <div class="post-footer">
-                <div class="post-type">Reel Fixo · Post 1</div>
-                <div class="post-name">Quem sou, o que trato, como agendar</div>
-            </div>
+    <div class="preview-section">
+        <div class="browser-bar">
+            <div class="browser-dot red"></div>
+            <div class="browser-dot yellow"></div>
+            <div class="browser-dot green"></div>
+            <div class="browser-url">dracarolinabraga.com.br</div>
         </div>
-        <div class="post-card reveal">
-            <div class="post-visual">
-                <div class="post-icon">🦴</div>
-                <div class="post-text">Tratamento Definitivo vs. Sintomático</div>
-            </div>
-            <div class="post-footer">
-                <div class="post-type">Estático Educativo · Post 2</div>
-                <div class="post-name">Por que a dor volta mesmo com remédio?</div>
-            </div>
-        </div>
-        <div class="post-card reveal">
-            <div class="post-visual">
-                <div class="post-icon">🎬</div>
-                <div class="post-text">Causas da Dor Crônica</div>
-            </div>
-            <div class="post-footer">
-                <div class="post-type">Reel Educativo · Post 3</div>
-                <div class="post-name">Por que dói sem motivo aparente?</div>
-            </div>
-        </div>
-        <div class="post-card reveal">
-            <div class="post-visual">
-                <div class="post-icon">📲</div>
-                <div class="post-text">Como Funciona o Atendimento</div>
-            </div>
-            <div class="post-footer">
-                <div class="post-type">Estático Processo · Post 4</div>
-                <div class="post-name">Do WhatsApp até a consulta — sem mistério</div>
-            </div>
+        <div class="iframe-container">
+            <iframe src="lp/index.html" loading="lazy" title="Preview da Landing Page — Dra Carolina Braga"></iframe>
         </div>
     </div>
 </section>
 
-<!-- ═══════════════════════════════════════════════
-     11. PLANOS
-     ═══════════════════════════════════════════════ -->
-<div class="full-width-section plans-wrap" id="planos">
-    <div class="full-width-inner">
-        <div class="section-eyebrow">Investimento</div>
-        <h2 class="section-title">Escolha o plano certo para você</h2>
-        <p class="section-sub">Todos os planos incluem os fundamentos. A diferença está no volume de conteúdo e no suporte estratégico.</p>
-        <div class="divider"></div>
-        <div class="plans-grid">
-            <!-- ESSENCIAL -->
-            <div class="plan-card featured reveal">
-                <div class="plan-badge">✦ Recomendado para você</div>
-                <div class="plan-name">Essencial</div>
-                <div class="plan-price">R$ 1.800</div>
-                <div class="plan-period">/ mês · sem taxa de setup</div>
-                <ul class="plan-features">
-                    <li class="yes">Branding & Identidade Visual</li>
-                    <li class="yes">Vitrine Instagram (9 posts fundação)</li>
-                    <li class="yes">12 posts/mês continuos</li>
-                    <li class="yes">Landing Page de conversão</li>
-                    <li class="yes">Google Meu Negócio</li>
-                    <li class="yes">Setup Pixel + GA4 + GTM</li>
-                    <li class="yes">Relatório mensal + reunião</li>
-                    <li class="no">Tráfego pago gerenciado</li>
-                    <li class="no">Reels avançados (3+/mês)</li>
-                    <li class="no">CRM e automação WhatsApp</li>
-                </ul>
-                <a href="https://wa.me/5511999999999?text=Quero+o+Plano+Essencial!" class="plan-cta primary" target="_blank" rel="noopener">Quero este plano ✅</a>
+<!-- ═══ 10. PLANOS ═══ -->
+<section class="pricing-section" id="planos">
+    <div class="section-tag">Investimento</div>
+    <h2>Escolha o plano ideal para você</h2>
+    <p style="color: #b0b0b0; margin-bottom: 3rem;">Todos os planos incluem onboarding completo e reunião de diagnóstico. Recomendamos o <strong>Essencial</strong> para começar.</p>
+
+    <div class="pricing-grid">
+        <div class="pricing-card recommended">
+            <h3>Essencial</h3>
+            <div class="price-display">R$2.500 <span>/mês</span></div>
+            <div class="price-features">
+                <div class="price-feature">Diagnóstico Digital 360° (12 etapas)</div>
+                <div class="price-feature">Logo + paleta + tipografia + Manual de ID Visual</div>
+                <div class="price-feature">Bio otimizada + destaques + Google Meu Negócio</div>
+                <div class="price-feature">9 posts fundação (Vitrine Instagram)</div>
+                <div class="price-feature">1 Landing Page por especialidade</div>
+                <div class="price-feature">Pixel + GA4 + GTM + A/B test</div>
+                <div class="price-feature">Google Ads + Meta Ads (ToFu/MoFu/BoFu)</div>
+                <div class="price-feature">Criativos + relatório mensal + reunião</div>
+                <div class="price-feature dimmed">Sem gestão de conteúdo mensal</div>
+                <div class="price-feature dimmed">Sem site completo / SEO / bot</div>
             </div>
-            <!-- MARKETING -->
-            <div class="plan-card reveal">
-                <div class="plan-name">Marketing</div>
-                <div class="plan-price">R$ 3.200</div>
-                <div class="plan-period">/ mês · tráfego incluído</div>
-                <ul class="plan-features">
-                    <li class="yes">Tudo do Essencial</li>
-                    <li class="yes">Gestão de Tráfego Meta Ads</li>
-                    <li class="yes">4 Reels/mês editados</li>
-                    <li class="yes">Otimização semanal de campanhas</li>
-                    <li class="yes">Dashboard de ROAS em tempo real</li>
-                    <li class="yes">Verba de até R$1.500 incluída</li>
-                    <li class="no">CRM e automação WhatsApp</li>
-                    <li class="no">Google Ads</li>
-                </ul>
-                <a href="https://wa.me/5511999999999?text=Quero+saber+mais+sobre+o+Plano+Marketing!" class="plan-cta secondary" target="_blank" rel="noopener">Saiba mais →</a>
+            <a href="https://wa.me/5511999999999?text=Dra+Carolina%2C+quero+fechar+o+Plano+Essencial!" target="_blank" class="plan-btn btn-featured">Quero o Essencial →</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3>Marketing</h3>
+            <div class="price-display">R$3.500 <span>/mês</span></div>
+            <div class="price-features">
+                <div class="price-feature">Tudo do Essencial +</div>
+                <div class="price-feature">Calendário editorial (IA → revisão → aprovação)</div>
+                <div class="price-feature">Gestão de conteúdo mensal (carrosséis, singles, Reels, stories)</div>
+                <div class="price-feature">Sessão de gravação batch mensal</div>
+                <div class="price-feature">Agendamento via ferramenta</div>
+                <div class="price-feature">Relatório mensal + reunião mensal</div>
+                <div class="price-feature dimmed">Sem site completo / SEO / bot</div>
             </div>
-            <!-- PREMIUM -->
-            <div class="plan-card reveal">
-                <div class="plan-name">Premium</div>
-                <div class="plan-price">R$ 5.500</div>
-                <div class="plan-period">/ mês · operação completa</div>
-                <ul class="plan-features">
-                    <li class="yes">Tudo do Marketing</li>
-                    <li class="yes">Google Ads (Search)</li>
-                    <li class="yes">CRM + Automação WhatsApp</li>
-                    <li class="yes">8 Reels/mês editados</li>
-                    <li class="yes">Verba de até R$3.000 incluída</li>
-                    <li class="yes">Gestor de conta dedicado</li>
-                    <li class="yes">Reunião quinzenal estratégica</li>
-                    <li class="yes">SLA de resposta 4h (dias úteis)</li>
-                </ul>
-                <a href="https://wa.me/5511999999999?text=Quero+saber+mais+sobre+o+Plano+Premium!" class="plan-cta secondary" target="_blank" rel="noopener">Saiba mais →</a>
+            <a href="https://wa.me/5511999999999?text=Dra+Carolina%2C+quero+saber+mais+sobre+o+Plano+Marketing" target="_blank" class="plan-btn btn-outline">Ver o Marketing →</a>
+        </div>
+
+        <div class="pricing-card">
+            <h3>Premium</h3>
+            <div class="price-display">R$5.500 <span>/mês</span></div>
+            <div class="price-features">
+                <div class="price-feature">Tudo do Marketing +</div>
+                <div class="price-feature">Site Premium (8 seções)</div>
+                <div class="price-feature">SEO técnico + GMB contínuo + reviews mensal</div>
+                <div class="price-feature">Bot IA de atendimento (triagem + agendamento 24/7)</div>
+                <div class="price-feature">Volume expandido de conteúdo + Reels prioritários</div>
+            </div>
+            <a href="https://wa.me/5511999999999?text=Dra+Carolina%2C+quero+saber+mais+sobre+o+Plano+Premium" target="_blank" class="plan-btn btn-outline">Ver o Premium →</a>
+        </div>
+    </div>
+
+    <div style="background: rgba(0,191,165,0.07); border: 1px solid rgba(0,191,165,0.2); border-radius: 12px; padding: 1.25rem 2rem; margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+        <p style="color: #b0b0b0; font-size: 0.85rem; margin: 0;">💡 <strong style="color: var(--white);">Plano Essencial recomendado para início.</strong> Validade desta proposta: 7 dias.</p>
+        <p style="color: #b0b0b0; font-size: 0.85rem; margin: 0;">⚡ Setup inicial: R$4.200 · Mídia (tráfego pago): mín. R$1.000/mês</p>
+    </div>
+</section>
+
+<!-- ═══ 11. GARANTIA + CTA ═══ -->
+<section class="guarantee-section" id="garantia">
+    <div class="section-tag">Nossa garantia</div>
+    <h2>Comprometimento total com seus resultados</h2>
+
+    <div class="guarantee-grid">
+        <div class="guarantee-item">
+            <div class="guarantee-icon">📊</div>
+            <div>
+                <h4>Transparência total</h4>
+                <p>Dashboard em tempo real com todos os números: CPL, ROAS, leads, conversões. Sem achismo, só dados.</p>
+            </div>
+        </div>
+        <div class="guarantee-item">
+            <div class="guarantee-icon">🔄</div>
+            <div>
+                <h4>Otimização contínua</h4>
+                <p>Se uma campanha não performa, paramos, analisamos e ajustamos. Nunca deixamos dinheiro queimando.</p>
+            </div>
+        </div>
+        <div class="guarantee-item">
+            <div class="guarantee-icon">🤝</div>
+            <div>
+                <h4>Parceria de longo prazo</h4>
+                <p>Não somos fornecedores — somos o time de marketing do seu consultório. Seu crescimento é o nosso crescimento.</p>
+            </div>
+        </div>
+        <div class="guarantee-item">
+            <div class="guarantee-icon">📅</div>
+            <div>
+                <h4>Reunião mensal garantida</h4>
+                <p>Toda virada de mês: revisamos resultados, alinhamos estratégia e ajustamos metas. Você sempre sabe para onde vai.</p>
             </div>
         </div>
     </div>
-</div>
 
-<!-- ═══════════════════════════════════════════════
-     12. GARANTIA + PRÓXIMOS PASSOS
-     ═══════════════════════════════════════════════ -->
-<section id="garantia">
-    <div class="guarantee-box">
-        <div class="guarantee-icon">🛡️</div>
-        <h2>Nossa garantia de transparência</h2>
-        <p>Se em 30 dias você não receber relatório completo com dados reais, não tiver acesso a todos os painéis, ou sentir que não sabe o que está acontecendo com seu investimento — a gente devolve. Simples assim.</p>
-        <a href="https://wa.me/5511999999999?text=Dra+Carolina%2C+quero+come%C3%A7ar+com+a+Assessoria+Pulso!" class="btn-primary" target="_blank" rel="noopener" style="display:inline-flex; margin:0 auto;">
+    <div class="final-cta" style="margin-top:3rem;">
+        <h3 style="color:var(--white); text-align:center;">Pronta para dar o próximo passo?</h3>
+        <p style="color:#b0b0b0; text-align:center; max-width:500px;">Fale diretamente com o Calil no WhatsApp e feche hoje. Proposta válida por 7 dias.</p>
+        <a href="https://wa.me/5511999999999?text=Dra+Carolina%2C+quero+come%C3%A7ar+com+a+Assessoria+Pulso!" class="cta-whatsapp" target="_blank" rel="noopener">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             💬 Fechar agora no WhatsApp
         </a>
-        <p style="margin-top:1.5rem; font-size:.85rem; color:rgba(160,168,184,.6);">
-            Ou se preferir, responda este link direto ao Calil: <a href="https://wa.me/5511999999999" style="color:var(--gold);">clique aqui</a>
-        </p>
     </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-    <p>Proposta preparada por <span>Assessoria Pulso</span> exclusivamente para Dra Carolina Braga · Junho 2026</p>
-    <p style="margin-top:.5rem; opacity:.5;">Este documento é confidencial e não deve ser compartilhado.</p>
+    <div class="pulso-logo">✦ Assessoria Pulso</div>
+    <p>Proposta preparada exclusivamente para Dra Carolina Braga · Junho 2026</p>
+    <p style="margin-top:0.5rem; font-size:0.8rem; opacity:0.5;">Documento confidencial — não compartilhar</p>
 </footer>
 
-<script>
-gsap.registerPlugin(ScrollTrigger);
-
-// Progress bar
-window.addEventListener('scroll', () => {
-    const doc = document.documentElement;
-    const scrolled = doc.scrollTop || document.body.scrollTop;
-    const total = doc.scrollHeight - doc.clientHeight;
-    document.getElementById('progressBar').style.width = (scrolled / total * 100) + '%';
-});
-
-// Hero animations
-gsap.timeline()
-    .to('.hero-label',    { opacity:1, y:0, duration:.7, ease:'power2.out' })
-    .to('.hero-photo-ring',{ opacity:1, scale:1, duration:.6, ease:'back.out(1.7)' }, '-=.3')
-    .to('.hero h1',       { opacity:1, y:0, duration:.7, ease:'power2.out' }, '-=.2')
-    .to('.hero-specialty',{ opacity:1, y:0, duration:.6, ease:'power2.out' }, '-=.3')
-    .to('.hero-sub',      { opacity:1, y:0, duration:.6, ease:'power2.out' }, '-=.3')
-    .to('.hero-cta-group',{ opacity:1, duration:.6, ease:'power2.out' }, '-=.2');
-
-// Reveal on scroll
-gsap.utils.toArray('.reveal').forEach(el => {
-    gsap.to(el, {
-        scrollTrigger: { trigger: el, start: 'top 88%', toggleActions: 'play none none none' },
-        opacity:1, y:0, duration:.7, ease:'power2.out'
-    });
-});
-
-// Section eyebrows
-gsap.utils.toArray('.section-eyebrow, .section-title, .divider').forEach((el, i) => {
-    gsap.from(el, {
-        scrollTrigger: { trigger: el, start: 'top 90%' },
-        opacity:0, y:20, duration:.6, delay: i * .08, ease:'power2.out'
-    });
-});
-</script>
 </body>
 </html>
