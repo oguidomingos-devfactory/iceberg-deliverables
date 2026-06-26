@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste E2E Jarvis — Marketing Digital que Converte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #00BFA5;
+            --dark: #0a0f18;
+            --white: #ffffff;
+            --muted: #9ca3af;
+            --green: #25D366;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--dark);
+            color: #e5e7eb;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a0f18 0%, #0d1f3c 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 191, 165, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0, 191, 165, 0.1);
+            border: 1px solid rgba(0, 191, 165, 0.3);
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.4rem 1.2rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 7vw, 4rem);
+            color: var(--white);
+            max-width: 700px;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 em {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--muted);
+            max-width: 500px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--green), var(--primary));
+            color: #0a0f18;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1.1rem 2.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.35);
+        }
+
+        .test-note {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            color: rgba(245, 158, 11, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .features > p {
+            text-align: center;
+            color: var(--muted);
+            margin-bottom: 3rem;
+        }
+
+        .feat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 14px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feat-card:hover {
+            border-color: rgba(0,191,165,0.25);
+            background: rgba(0,191,165,0.04);
+        }
+
+        .feat-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .feat-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .feat-card p {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* SOCIAL PROOF */
+        .proof {
+            background: linear-gradient(135deg, rgba(0,191,165,0.06), rgba(0,0,0,0.3));
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding: 4rem 2rem;
+        }
+
+        .proof-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .proof h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--white);
+            margin-bottom: 2.5rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .stat span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* CTA FINAL */
+        .final-cta {
+            padding: 6rem 2rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #444;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="badge">✦ Preview da Landing Page · Teste E2E Jarvis</div>
+        <h1>Marketing digital que <em>transforma</em> presença em pacientes</h1>
+        <p>Conteúdo estratégico, landing page de conversão e posicionamento de autoridade — tudo em um plano.</p>
+        <a href="https://wa.me/5511999999999" class="cta-btn" target="_blank">
+            💬 Agendar conversa
+        </a>
+        <p class="test-note">⚠️ Esta é uma LP de preview para validação do sistema Jarvis</p>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+        <h2>O que está incluso</h2>
+        <p>Tudo que você precisa para ter presença digital profissional</p>
+
+        <div class="feat-grid">
+            <div class="feat-card">
+                <span class="feat-icon">📸</span>
+                <h3>12 Posts/mês</h3>
+                <p>Feed, Reels e Stories estratégicos com roteiro, arte e legenda.</p>
+            </div>
+            <div class="feat-card">
+                <span class="feat-icon">🌐</span>
+                <h3>Landing Page</h3>
+                <p>Página profissional mobile-first com CTA direto para WhatsApp.</p>
+            </div>
+            <div class="feat-card">
+                <span class="feat-icon">⭐</span>
+                <h3>Google Meu Negócio</h3>
+                <p>Otimização do perfil e gestão de avaliações no Maps.</p>
+            </div>
+            <div class="feat-card">
+                <span class="feat-icon">📊</span>
+                <h3>Relatório Mensal</h3>
+                <p>Métricas reais de engajamento e acessos à landing page.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROOF -->
+    <div class="proof">
+        <div class="proof-inner">
+            <h2>Resultados que nossos clientes alcançam</h2>
+            <div class="stats">
+                <div class="stat">
+                    <strong>3×</strong>
+                    <span>Mais agendamentos<br>em 90 dias</span>
+                </div>
+                <div class="stat">
+                    <strong>87%</strong>
+                    <span>Aumento em<br>seguidores qualificados</span>
+                </div>
+                <div class="stat">
+                    <strong>7 dias</strong>
+                    <span>Entrega da<br>landing page</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+        <h2>Pronto para começar?</h2>
+        <p>Fale com a Pulso e receba uma proposta personalizada para o seu negócio.</p>
+        <a href="https://wa.me/5511999999999" class="cta-btn" target="_blank">
+            💬 Falar no WhatsApp
+        </a>
+    </div>
+
+    <footer>
+        <p>Preview desenvolvida pela Pulso Marketing para Teste E2E Jarvis · Junho 2026</p>
+    </footer>
+
+</body>
+</html>
